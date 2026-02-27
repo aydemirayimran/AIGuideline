@@ -6,21 +6,112 @@
   <title>AIGuideline</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-<header class="topbar">
-  <div class="brand">AIGuideline</div>
-  <nav class="nav">
-    <a href="index.html">Hjem</a>
-    <a href="quiz.html">Quiz</a>
-    <a href="contact.html">Kontakt</a>
-  </nav>
-</header>
+  <header class="topbar">
+    <div class="brand">
+      <!-- Valgfritt: legg inn logo senere -->
+      <span class="brand-title">AIGuideline</span>
+    </div>
+
+    <nav class="nav" aria-label="Hovedmeny">
+      <button class="menu-toggle" aria-label="Åpne meny" id="menuToggle">☰</button>
+      <ul id="menu">
+        <li><a href="index.html" aria-current="page">Hjem</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="tips.html">Praktiske tips</a></li>
+        <li><a href="quiz.html">Test deg selv</a></li>
+        <li><a href="links.html">Nyttige lenker</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main class="container">
-    <h2>Velkommen</h2>
-    <p>Dette er en side for retningslinjer og trygg bruk av AI i læring.</p>
+    <section class="hero card">
+      <h1>Praktisk veiledning for ansvarlig og akademisk riktig bruk av KI</h1>
+      <p class="lead">
+        AIGuideline hjelper studenter med å bruke KI-verktøy på en trygg, etisk og læringsfremmende måte – uten å havne i
+        gråsoner rundt akademisk integritet, kildebruk eller personvern.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn" href="quiz.html">Ta quiz</a>
+        <a class="btn secondary" href="tips.html">Se praktiske tips</a>
+      </div>
+
+      <p class="small">
+        Målgruppe: primært studenter i høyere utdanning, men også nyttig for lærere og studieadministrasjon.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Hva finner du her?</h2>
+      <div class="grid">
+        <a class="tile" href="tips.html">
+          <h3>Praktiske tips</h3>
+          <p>Konkrete råd for gode prompts, kritisk vurdering av svar, og balanse mellom egen innsats og KI.</p>
+          <span class="tile-link">Åpne praktiske tips →</span>
+        </a>
+
+        <a class="tile" href="quiz.html">
+          <h3>Quiz – test deg selv</h3>
+          <p>Interaktiv test med realistiske scenarier: hva er ok, hva er ikke ok, og hvorfor?</p>
+          <span class="tile-link">Åpne quiz →</span>
+        </a>
+
+        <a class="tile" href="faq.html">
+          <h3>FAQ</h3>
+          <p>Svar på vanlige spørsmål som “Er det juks?”, “Kan jeg stole på KI?” og “Hvordan oppgir jeg KI-bruk?”.</p>
+          <span class="tile-link">Åpne FAQ →</span>
+        </a>
+
+        <a class="tile" href="links.html">
+          <h3>Nyttige lenker</h3>
+          <p>Utvalgte ressurser om KI, akademisk integritet, kildebruk, personvern og gode praksiser.</p>
+          <span class="tile-link">Åpne lenker →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Hvem er siden for?</h2>
+      <div class="stack">
+        <div>
+          <h3>Studenter</h3>
+          <p>
+            Får tydelige, forståelige og praktiske råd om ansvarlig KI-bruk i studier. Innholdet er laget for å være lett å
+            bruke i hverdagen, med eksempler, sjekklister og quiz.
+          </p>
+        </div>
+
+        <div>
+          <h3>Lærere og fagansvarlige</h3>
+          <p>
+            Kan dele siden som støtte i undervisning og kommunikasjon med studenter, og bruke ferdige forklaringer og
+            eksempler for å styrke akademisk integritet.
+          </p>
+        </div>
+
+        <div>
+          <h3>Universitet og studieadministrasjon</h3>
+          <p>
+            Støtter behovet for konsistente, juridisk og etisk bevisste retningslinjer – inkludert fokus på personvern,
+            tydelige forventninger og god praksis.
+          </p>
+        </div>
+      </div>
+
+      <p class="small">
+        Merk: AIGuideline erstatter ikke lokale regler i emnet ditt. Sjekk alltid emnebeskrivelser og vurderingsinformasjon.
+      </p>
+    </section>
   </main>
 
-  <script src="app.js"></script>
+  <footer class="footer">
+    <p>Laget for studenter, av studenter — Gruppe 5 — Praktisk prosjektarbeid — Vår 2026</p>
+  </footer>
+
+  <script src="app.js" defer></script>
 </body>
 </html>
