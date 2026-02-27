@@ -4,7 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // 1. Mobilmeny
   const toggle = document.getElementById("menuToggle");
   const menu = document.getElementById("menu");
-  if (toggle && menu) {
+  if (!toggle || !menu) {
+    console.warn("Mobilmeny-elementer ikke funnet!");
+  } else {
     toggle.addEventListener("click", () => {
       menu.classList.toggle("open");
     });
@@ -12,7 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 2. Rollevelger
   const roleButtons = document.querySelectorAll('.role-btn');
-  if (roleButtons.length > 0) {
+  if (roleButtons.length === 0) {
+    console.warn("Ingen rollevelger-knapper funnet!");
+  } else {
     roleButtons.forEach(button => {
       button.addEventListener('click', function() {
         roleButtons.forEach(btn => btn.classList.remove('active'));
@@ -27,7 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const allCards = document.querySelectorAll('.card[data-role]');
     allCards.forEach(card => {
       const cardRoles = card.getAttribute('data-role').split(' ');
-      card.style.display = cardRoles.includes(role) ? 'block' : 'none';
+      if (cardRoles.includes('student') && cardRoles.includes('staff')) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = cardRoles.includes(role) ? 'block' : 'none';
+      }
     });
   }
 
@@ -39,5 +47,12 @@ document.addEventListener("DOMContentLoaded", () => {
         menu.classList.remove('open');
       }
     });
+  });
+
+  // 4. Lukk meny ved klikk utenfor (valgfritt)
+  document.addEventListener('click', (event) => {
+    if (menu && menu.classList.contains('open') && !event.target.closest('.nav')) {
+      menu.classList.remove('open');
+    }
   });
 });
