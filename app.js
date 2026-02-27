@@ -17,16 +17,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 2. Søkefunksjon
-  const searchInput = byId("searchInput");
-  if (searchInput) {
-    searchInput.addEventListener("keyup", function() {
-      const filter = this.value.toLowerCase();
-      const cards = document.querySelectorAll('.card');
-      cards.forEach(card => {
-        const text = card.textContent.toLowerCase();
-        card.style.display = text.includes(filter) ? 'block' : 'none';
+  // 2. Rollevalg
+  const roleButtons = document.querySelectorAll('.role-btn');
+  if (roleButtons.length > 0) {
+    roleButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        roleButtons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        const selectedRole = this.getAttribute('data-role');
+        filterContentByRole(selectedRole);
       });
+    });
+  }
+
+  function filterContentByRole(role) {
+    const allCards = document.querySelectorAll('.card');
+    allCards.forEach(card => {
+      if (card.hasAttribute('data-role')) {
+        const cardRoles = card.getAttribute('data-role').split(' ');
+        card.style.display = cardRoles.includes(role) ? 'block' : 'none';
+      }
     });
   }
 
@@ -34,8 +44,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const readMoreButtons = document.querySelectorAll('.read-more');
   readMoreButtons.forEach(button => {
     button.addEventListener('click', function() {
-      const fullText = this.parentNode.querySelector('.full-text');
-      const shortText = this.parentNode.querySelector('.short-text');
+      const parent = this.parentNode;
+      const fullText = parent.querySelector('.full-text');
+      const shortText = parent.querySelector('.short-text');
       if (fullText && shortText) {
         if (fullText.style.display === 'none' || fullText.style.display === '') {
           fullText.style.display = 'block';
@@ -50,64 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 4. Mini-quiz
-  const quizOptions = document.querySelectorAll('.quiz-option');
-  quizOptions.forEach(option => {
-    option.addEventListener('click', function() {
-      const answer = this.getAttribute('data-answer');
-      const result = byId('quiz-result');
-      if (result) {
-        if (answer === '1') {
-          result.textContent = 'Du bør lese våre praktiske tips for å bli tryggere!';
-        } else if (answer === '2') {
-          result.textContent = 'Bra! Men sjekk gjerne våre eksempler for å bli enda tryggere.';
-        } else {
-          result.textContent = 'Flott! Kanskje du kan hjelpe andre studenter?';
-        }
-      }
-    });
-  });
-
-  // 5. Interaktive kort (tiles)
-  const tiles = document.querySelectorAll('.tile');
-  tiles.forEach(tile => {
-    tile.addEventListener('click', function() {
-      // Eksempel: Vis en alert eller navigér til lenke
-      const link = this.getAttribute('href');
-      if (link) {
-        window.location.href = link;
-      }
-    });
-  });
-
-  // 6. Kontakt- og feedback-skjemahåndtering
-  const contactForm = byId("contactForm");
-  const contactStatus = byId("contactStatus");
-  if (contactForm && contactStatus) {
-    contactForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      contactStatus.textContent = "Takk! Meldingen er registrert (DB kobles på senere).";
-      contactForm.reset();
-      setTimeout(() => {
-        contactStatus.textContent = "";
-      }, 5000);
-    });
-  }
-
-  const feedbackForm = byId("feedbackForm");
-  const feedbackStatus = byId("feedbackStatus");
-  if (feedbackForm && feedbackStatus) {
-    feedbackForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      feedbackStatus.textContent = "Takk for feedback! (DB kobles på senere).";
-      feedbackForm.reset();
-      setTimeout(() => {
-        feedbackStatus.textContent = "";
-      }, 5000);
-    });
-  }
-
-  // 7. Lukk mobilmeny når man klikker på et menypunkt
+  // 4. Lukk mobilmeny når man klikker på et menypunkt
   const menuLinks = document.querySelectorAll('.nav a');
   menuLinks.forEach(link => {
     link.addEventListener('click', () => {
