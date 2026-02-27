@@ -25,6 +25,15 @@ a { color: inherit; }
 .small{ color:#666; font-size: 14px; }
 
 .hero-actions{ display:flex; gap: 10px; margin: 14px 0 6px; flex-wrap: wrap; }
+.pill-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 0; }
+.pill {
+  display: inline-block;
+  padding: 6px 10px;
+  border: 1px solid #e6e6e6;
+  border-radius: 999px;
+  background: #fafafa;
+  font-size: 14px;
+}
 .btn{
   display:inline-block; text-decoration:none;
   padding: 10px 14px; border-radius: 10px;
