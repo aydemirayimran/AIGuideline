@@ -1,16 +1,9 @@
 console.log("app.js loaded");
 
-// Hjelpefunksjoner
-function byId(id) {
-  return document.getElementById(id);
-}
-
-// Vent på at DOM er lastet
 document.addEventListener("DOMContentLoaded", () => {
-
   // 1. Mobilmeny
-  const toggle = byId("menuToggle");
-  const menu = byId("menu");
+  const toggle = document.getElementById("menuToggle");
+  const menu = document.getElementById("menu");
   if (toggle && menu) {
     toggle.addEventListener("click", () => {
       menu.classList.toggle("open");
@@ -38,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 3. Lukk mobilmeny når man klikker på et menypunkt
+  // 3. Lukk mobilmeny ved klikk
   const menuLinks = document.querySelectorAll('.nav a');
   menuLinks.forEach(link => {
     link.addEventListener('click', () => {
@@ -47,5 +40,4 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-
 });
