@@ -3,66 +3,42 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kontakt – AIGuideline</title>
+  <title>Kontakt oss - AI Guidebook</title>
   <link rel="stylesheet" href="style.css" />
-<header class="topbar">
-  <div class="brand">AIGuideline</div>
-  <nav class="nav">
-    <a href="index.html">Hjem</a>
-    <a href="quiz.html">Quiz</a>
-    <a href="contact.html">Kontakt</a>
-  </nav>
-</header>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-title">AI Guidebook</span>
+    </div>
+    <nav class="nav" aria-label="Hovedmeny">
+      <button class="menu-toggle" aria-label="Åpne meny" id="menuToggle">☰</button>
+      <ul id="menu">
+        <li><a href="index.html"><i class="fas fa-home"></i> Hjem</a></li>
+        <li><a href="contact.html" aria-current="page"><i class="fas fa-envelope"></i> Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main class="container">
-<h2>Kontakt & feedback</h2>
-<p class="small">Send oss en melding eller gi rask feedback. (Database kobles på senere.)</p>
-
-<section class="card">
-  <h3>Kontaktskjema</h3>
-  <form id="contactForm">
-    <label for="name">Navn (valgfritt)</label>
-    <input id="name" name="name" type="text" />
-
-    <label for="email">E-post (valgfritt)</label>
-    <input id="email" name="email" type="email" />
-
-    <label for="topic">Tema</label>
-    <select id="topic" name="topic">
-      <option>Spørsmål</option>
-      <option>Forslag</option>
-      <option>Feil på siden</option>
-    </select>
-
-    <label for="message">Melding *</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
-
-    <button type="submit">Send</button>
-    <p id="contactStatus" class="small"></p>
-  </form>
-</section>
-
-<section class="card">
-  <h3>Rask feedback</h3>
-  <form id="feedbackForm">
-    <label for="rating">Vurdering (1–5)</label>
-    <select id="rating" name="rating">
-      <option value="5">5 – Veldig bra</option>
-      <option value="4">4 – Bra</option>
-      <option value="3">3 – OK</option>
-      <option value="2">2 – Dårlig</option>
-      <option value="1">1 – Veldig dårlig</option>
-    </select>
-
-    <label for="comment">Kommentar *</label>
-    <textarea id="comment" name="comment" rows="4" required></textarea>
-
-    <button type="submit">Send feedback</button>
-    <p id="feedbackStatus" class="small"></p>
-  </form>
-</section>
-
-<script src="app.js"></script>
+    <section class="hero card">
+      <h1>Kontakt oss</h1>
+      <p class="lead">
+        Har du spørsmål om AI Guidebook eller trenger du hjelp?
+        Ta gjerne kontakt med oss!
+      </p>
+      <div class="contact-info">
+        <p><i class="fas fa-envelope"></i> E-post: <a href="mailto:ai-guidebook@institusjon.no">ai-guidebook@institusjon.no</a></p>
+        <p><i class="fas fa-phone"></i> Telefon: +47 12 34 56 78</p>
+      </div>
+    </section>
   </main>
+
+  <footer class="footer">
+    <p>Laget for studenter og ansatte — Gruppe 5 — Praktisk prosjektarbeid — Vår 2026</p>
+  </footer>
+
+  <script src="app.js" defer></script>
 </body>
 </html>
