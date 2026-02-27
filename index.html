@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
 <body>
   <header class="topbar">
     <div class="brand">
@@ -33,14 +32,12 @@
         med klare retningslinjer, eksempler og verktøy for ansvarlig AI-bruk i høyere utdanning.
       </p>
 
+      <!-- Rollevelger -->
       <div class="role-selector">
         <h3>Jeg er:</h3>
         <div class="role-options">
           <button class="role-btn active" data-role="student">Student</button>
-          <button class="role-btn" data-role="teacher">Lærer</button>
-          <button class="role-btn" data-role="examiner">Sensor</button>
-          <button class="role-btn" data-role="admin">Studieadministrasjon</button>
-          <button class="role-btn" data-role="university">Universitet</button>
+          <button class="role-btn" data-role="staff">Ansatt (lærer/sensor/administrasjon/universitet)</button>
         </div>
       </div>
 
@@ -50,14 +47,6 @@
         <a class="btn secondary" href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a>
       </div>
 
-      <div class="pill-row" aria-label="Hvem er dette for?">
-        <span class="pill">Studenter</span>
-        <span class="pill">Lærere og fagansvarlige</span>
-        <span class="pill">Sensorer</span>
-        <span class="pill">Studieadministrasjon</span>
-        <span class="pill">Universitet</span>
-      </div>
-
       <p class="small">
         AI Guidebook supplerer lokale emneregler og vurderingskriterier.
         Ved tvil: sjekk emnebeskrivelse og retningslinjer ved din institusjon.
@@ -65,88 +54,52 @@
     </section>
 
     <!-- Innhold for studenter -->
-    <section class="card" data-role="student">
+    <section class="card content-student" data-role="student">
       <h2>For studenter</h2>
       <p>
-        Få tydelige, praktiske råd om ansvarlig AI-bruk i studier.
+        Her finner du tydelige, praktiske råd om ansvarlig AI-bruk i studier.
         Lær hvordan du kan bruke AI som støtte uten å bryte akademiske regler.
       </p>
-      <div class="short-text">
-        <p>Her finner du eksempler, sjekklister og quiz for å bli tryggere i din AI-bruk.</p>
+      <div class="grid">
+        <a href="tips.html" class="tile">
+          <h3><i class="fas fa-lightbulb"></i> Hvordan bruke AI?</h3>
+          <p>Praktiske eksempler og sjekklister for studenter.</p>
+        </a>
+        <a href="quiz.html" class="tile">
+          <h3><i class="fas fa-clipboard-list"></i> Test din kunnskap</h3>
+          <p>Sjekk om du kan skille mellom lovlig og ulovlig AI-bruk.</p>
+        </a>
+        <a href="faq.html" class="tile">
+          <h3><i class="fas fa-question-circle"></i> Vanlige spørsmål</h3>
+          <p>Svar på det studentene lurer mest på.</p>
+        </a>
       </div>
-      <div class="full-text" style="display: none;">
-        <p>Vi gir deg konkrete eksempler på hva som er tillatt og ikke, hvordan du dokumenterer AI-bruk, og hvordan du unngår vanlige fallgruver som bias og kildefeil.</p>
-        <p>Prøv vårt <a href="quiz.html">kunnskapstest</a> for å se hvor trygg du er!</p>
-      </div>
-      <button class="read-more">Les mer</button>
     </section>
 
-    <!-- Innhold for lærere -->
-    <section class="card" data-role="teacher">
-      <h2>For lærere</h2>
+    <!-- Innhold for ansatte -->
+    <section class="card content-staff" data-role="staff" style="display: none;">
+      <h2>For ansatte</h2>
       <p>
-        Ferdige undervisningsplaner, eksempler på oppgaver, og veiledning for vurdering av AI-assisterte oppgaver.
+        Veiledning for lærere, sensorer, studieadministrasjon og universitetet om hvordan håndtere AI i undervisning, vurdering og policy.
       </p>
-      <div class="short-text">
-        <p>Hvordan kan du integrere AI i undervisningen på en ansvarlig måte?</p>
+      <div class="grid">
+        <a href="tips.html" class="tile">
+          <h3><i class="fas fa-chalkboard-teacher"></i> Undervisningstips</h3>
+          <p>Hvordan integrere AI i emner og oppgaver.</p>
+        </a>
+        <a href="faq.html" class="tile">
+          <h3><i class="fas fa-gavel"></i> Vurderingsretningslinjer</h3>
+          <p>Hvordan håndtere AI-bruk i eksamen og oppgaver.</p>
+        </a>
+        <a href="links.html" class="tile">
+          <h3><i class="fas fa-university"></i> Policy og maler</h3>
+          <p>Ferdige maler for lokale retningslinjer.</p>
+        </a>
       </div>
-      <div class="full-text" style="display: none;">
-        <p>Vi tilbyr maler for oppgaver, eksempler på god praksis, og tips for å kommunisere klare forventninger til studentene.</p>
-        <p>Se våre <a href="tips.html">praktiske tips for lærere</a>.</p>
-      </div>
-      <button class="read-more">Les mer</button>
     </section>
 
-    <!-- Innhold for sensorer -->
-    <section class="card" data-role="examiner">
-      <h2>For sensorer</h2>
-      <p>
-        Sjekklister for AI-bruk i eksamensbesvarelser, eksempler på godkjente/avslørte AI-genererte svar, og retningslinjer for mistanke om juks.
-      </p>
-      <div class="short-text">
-        <p>Hvordan kan du identifisere og håndtere AI-bruk i eksamensbesvarelser?</p>
-      </div>
-      <div class="full-text" style="display: none;">
-        <p>Vi gir deg verktøy for å vurdere om AI er brukt på en akseptabel måte, og hvordan du kan dokumentere dine funn.</p>
-        <p>Les mer i våre <a href="faq.html">FAQ for sensorer</a>.</p>
-      </div>
-      <button class="read-more">Les mer</button>
-    </section>
-
-    <!-- Innhold for studieadministrasjon -->
-    <section class="card" data-role="admin">
-      <h2>For studieadministrasjon</h2>
-      <p>
-        Mal for lokale retningslinjer, oversikt over personvern og GDPR, og veiledning for implementering av AI-policy.
-      </p>
-      <div class="short-text">
-        <p>Hvordan kan dere lage klare og konsistente retningslinjer for AI-bruk?</p>
-      </div>
-      <div class="full-text" style="display: none;">
-        <p>Vi hjelper dere med å utforme policyer som ivaretar både akademisk integritet og studentenes behov.</p>
-        <p>Se våre <a href="links.html">maler og retningslinjer</a>.</p>
-      </div>
-      <button class="read-more">Les mer</button>
-    </section>
-
-    <!-- Innhold for universitet -->
-    <section class="card" data-role="university">
-      <h2>For universitetet</h2>
-      <p>
-        Strategiske anbefalinger for AI-integrering, oversikt over nasjonale/internasjonale retningslinjer, og eksempler på suksesshistorier.
-      </p>
-      <div class="short-text">
-        <p>Hvordan kan universitetet legge til rette for ansvarlig AI-bruk?</p>
-      </div>
-      <div class="full-text" style="display: none;">
-        <p>Vi gir dere innsikt i hvordan andre institusjoner har implementert AI-policyer, og hva som fungerer best.</p>
-        <p>Les våre <a href="links.html">anbefalinger for ledelse</a>.</p>
-      </div>
-      <button class="read-more">Les mer</button>
-    </section>
-
-    <!-- Felles innhold -->
-    <section class="card" data-role="student teacher examiner admin university">
+    <!-- Felles ressurser -->
+    <section class="card" data-role="student staff">
       <h2>Felles ressurser</h2>
       <p>
         Her finner alle brukerne våre felles retningslinjer, nyheter om AI i utdanning, og lenker til eksterne ressurser.
@@ -173,7 +126,7 @@
   </main>
 
   <footer class="footer">
-    <p>Laget for studenter, lærere, sensorer og administrasjon — Gruppe 5 — Praktisk prosjektarbeid — Vår 2026</p>
+    <p>Laget for studenter og ansatte — Gruppe 5 — Praktisk prosjektarbeid — Vår 2026</p>
   </footer>
 
   <script src="app.js" defer></script>
