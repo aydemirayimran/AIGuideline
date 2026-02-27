@@ -3,124 +3,64 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AI Guideline</title>
+  <title>AI Guidebook</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
   <header class="topbar">
     <div class="brand">
-      <!-- Valgfritt: legg inn logo senere -->
-      <span class="brand-title">AI Guideline</span>
+      <span class="brand-title">AI Guidebook</span>
     </div>
-
     <nav class="nav" aria-label="Hovedmeny">
       <button class="menu-toggle" aria-label="Åpne meny" id="menuToggle">☰</button>
       <ul id="menu">
-        <li><a href="index.html" aria-current="page">Hjem</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="tips.html">Praktiske tips</a></li>
-        <li><a href="quiz.html">Test deg selv</a></li>
-        <li><a href="links.html">Nyttige lenker</a></li>
-        <li><a href="contact.html">Kontakt</a></li>
+        <li><a href="index.html" aria-current="page"><i class="fas fa-home"></i> Hjem</a></li>
+        <li><a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
+        <li><a href="tips.html"><i class="fas fa-lightbulb"></i> Praktiske tips</a></li>
+        <li><a href="quiz.html"><i class="fas fa-clipboard-list"></i> Test deg selv</a></li>
+        <li><a href="links.html"><i class="fas fa-link"></i> Nyttige lenker</a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope"></i> Kontakt</a></li>
       </ul>
     </nav>
   </header>
 
   <main class="container">
-<section class="hero card">
-  <h1>AI Guidebook – ansvarlig og akademisk riktig bruk av KI</h1>
-  <p class="lead">
-    En praktisk veiledning for studenter, utviklet for å redusere usikkerhet rundt hva som er tillatt, hva som bør
-    dokumenteres, og hvordan KI kan støtte læring uten å svekke akademisk integritet.
-  </p>
-
-  <div class="hero-actions">
-    <a class="btn" href="quiz.html">Test deg selv</a>
-    <a class="btn secondary" href="tips.html">Praktiske tips</a>
-    <a class="btn secondary" href="faq.html">Les FAQ</a>
-  </div>
-
-  <div class="pill-row" aria-label="Hvem er dette for?">
-    <span class="pill">Studenter</span>
-    <span class="pill">Lærere og fagansvarlige</span>
-    <span class="pill">Studieadministrasjon</span>
-  </div>
-
-  <p class="small">
-    AI Guidebook supplerer lokale emneregler og vurderingskriterier. Ved tvil: sjekk emnebeskrivelse og retningslinjer ved din institusjon.
-  </p>
-</section>
-
-   <section class="card">
-  <h2>Interessenter og behov</h2>
-
-  <div class="stack">
-    <div>
-      <h3>Studenter (primær målgruppe)</h3>
-      <p>
-        Trenger klare og praktiske råd for trygg KI-bruk i studier: hva som er akseptabel støtte, hvordan unngå gråsoner,
-        og hvordan dokumentere KI-bidrag ved behov. Dersom innholdet ikke oppleves relevant og lett å bruke, oppnås ikke prosjektets formål.
+    <section class="hero card">
+      <h1>AI Guidebook – ansvarlig og akademisk riktig bruk av KI</h1>
+      <p class="lead">
+        En praktisk veiledning for studenter, utviklet for å redusere usikkerhet rundt hva som er tillatt, hva som bør dokumenteres, og hvordan KI kan støtte læring uten å svekke akademisk integritet.
       </p>
-    </div>
 
-    <div>
-      <h3>Lærere og fagansvarlige</h3>
-      <p>
-        Har behov for konsistente forklaringer og eksempler som kan deles i undervisning, og som støtter tydelige forventninger
-        til akademisk integritet og kildepraksis.
-      </p>
-    </div>
+      <input type="text" id="searchInput" placeholder="Søk etter emne...">
 
-    <div>
-      <h3>Universitet og studieadministrasjon</h3>
-      <p>
-        Har høy innflytelse gjennom krav til kvalitet, tilgjengelighet og personvern. AI Guidebook skal bidra til felles forståelse,
-        redusere misforståelser og støtte institusjonens omdømme og etterlevelse av retningslinjer.
-      </p>
-    </div>
+      <div class="hero-actions">
+        <a class="btn" href="quiz.html"><i class="fas fa-clipboard-list"></i> Test deg selv</a>
+        <a class="btn secondary" href="tips.html"><i class="fas fa-lightbulb"></i> Praktiske tips</a>
+        <a class="btn secondary" href="faq.html"><i class="fas fa-question-circle"></i> Les FAQ</a>
+      </div>
 
-    <div>
-      <h3>Indirekte interessenter</h3>
-      <p>
-        Personvernombud og eksamens-/klagenemnder har interesse i at løsningen fremmer korrekt praksis og ikke oppfordrer til regelbrudd.
-        Eventuelle krav kan gi føringer for formuleringer og funksjonalitet.
-      </p>
-    </div>
-  </div>
-</section>
-    <section class="card">
-      <h2>Hvem er siden for?</h2>
-      <div class="stack">
-        <div>
-          <h3>Studenter</h3>
-          <p>
-            Får tydelige, forståelige og praktiske råd om ansvarlig KI-bruk i studier. Innholdet er laget for å være lett å
-            bruke i hverdagen, med eksempler, sjekklister og quiz.
-          </p>
-        </div>
+      <div class="pill-row" aria-label="Hvem er dette for?">
+        <span class="pill">Studenter</span>
+        <span class="pill">Lærere og fagansvarlige</span>
+        <span class="pill">Studieadministrasjon</span>
+      </div>
 
-        <div>
-          <h3>Lærere og fagansvarlige</h3>
-          <p>
-            Kan dele siden som støtte i undervisning og kommunikasjon med studenter, og bruke ferdige forklaringer og
-            eksempler for å styrke akademisk integritet.
-          </p>
-        </div>
-
-        <div>
-          <h3>Universitet og studieadministrasjon</h3>
-          <p>
-            Støtter behovet for konsistente, juridisk og etisk bevisste retningslinjer – inkludert fokus på personvern,
-            tydelige forventninger og god praksis.
-          </p>
-        </div>
+      <div class="mini-quiz">
+        <h3>Hvor trygg er du på AI-bruk?</h3>
+        <button class="quiz-option" data-answer="1">Usikker</button>
+        <button class="quiz-option" data-answer="2">Ganske trygg</button>
+        <button class="quiz-option" data-answer="3">Veldig trygg</button>
+        <p id="quiz-result"></p>
       </div>
 
       <p class="small">
-        Merk: AIGuideline erstatter ikke lokale regler i emnet ditt. Sjekk alltid emnebeskrivelser og vurderingsinformasjon.
+        AI Guidebook supplerer lokale emneregler og vurderingskriterier. Ved tvil: sjekk emnebeskrivelse og retningslinjer ved din institusjon.
       </p>
     </section>
+
+    <!-- Resten av innholdet... -->
   </main>
 
   <footer class="footer">
