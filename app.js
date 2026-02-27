@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 2. Rollevalg
+  // 2. Rollevelger
   const roleButtons = document.querySelectorAll('.role-btn');
   if (roleButtons.length > 0) {
     roleButtons.forEach(button => {
@@ -31,37 +31,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function filterContentByRole(role) {
-    const allCards = document.querySelectorAll('.card');
+    const allCards = document.querySelectorAll('.card[data-role]');
     allCards.forEach(card => {
-      if (card.hasAttribute('data-role')) {
-        const cardRoles = card.getAttribute('data-role').split(' ');
-        card.style.display = cardRoles.includes(role) ? 'block' : 'none';
-      }
+      const cardRoles = card.getAttribute('data-role').split(' ');
+      card.style.display = cardRoles.includes(role) ? 'block' : 'none';
     });
   }
 
-  // 3. "Les mer"-funksjonalitet
-  const readMoreButtons = document.querySelectorAll('.read-more');
-  readMoreButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      const parent = this.parentNode;
-      const fullText = parent.querySelector('.full-text');
-      const shortText = parent.querySelector('.short-text');
-      if (fullText && shortText) {
-        if (fullText.style.display === 'none' || fullText.style.display === '') {
-          fullText.style.display = 'block';
-          shortText.style.display = 'none';
-          this.textContent = 'Les mindre';
-        } else {
-          fullText.style.display = 'none';
-          shortText.style.display = 'block';
-          this.textContent = 'Les mer';
-        }
-      }
-    });
-  });
-
-  // 4. Lukk mobilmeny når man klikker på et menypunkt
+  // 3. Lukk mobilmeny når man klikker på et menypunkt
   const menuLinks = document.querySelectorAll('.nav a');
   menuLinks.forEach(link => {
     link.addEventListener('click', () => {
