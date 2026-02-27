@@ -1,19 +1,29 @@
-function byId(id) { return document.getElementById(id); }
+console.log("app.js loaded");
 
-const contactForm = byId("contactForm");
-if (contactForm) {
-  contactForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    byId("contactStatus").textContent = "Takk! Meldingen er registrert (DB kobles på senere).";
-    contactForm.reset();
-  });
+function byId(id) {
+  return document.getElementById(id);
 }
 
-const feedbackForm = byId("feedbackForm");
-if (feedbackForm) {
-  feedbackForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    byId("feedbackStatus").textContent = "Takk for feedback! (DB kobles på senere).";
-    feedbackForm.reset();
-  });
-}
+document.addEventListener("DOMContentLoaded", () => {
+  const contactForm = byId("contactForm");
+  const contactStatus = byId("contactStatus");
+
+  if (contactForm && contactStatus) {
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      contactStatus.textContent = "Takk! Meldingen er registrert (DB kobles på senere).";
+      contactForm.reset();
+    });
+  }
+
+  const feedbackForm = byId("feedbackForm");
+  const feedbackStatus = byId("feedbackStatus");
+
+  if (feedbackForm && feedbackStatus) {
+    feedbackForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      feedbackStatus.textContent = "Takk for feedback! (DB kobles på senere).";
+      feedbackForm.reset();
+    });
+  }
+});
