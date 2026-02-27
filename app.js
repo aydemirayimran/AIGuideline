@@ -55,4 +55,16 @@ document.addEventListener("DOMContentLoaded", () => {
       menu.classList.remove('open');
     }
   });
+  // Markér aktiv lenke i menyen
+const currentPath = window.location.pathname.split('/').pop();
+const navLinks = document.querySelectorAll('.nav a');
+navLinks.forEach(link => {
+  const linkPath = link.getAttribute('href');
+  if (currentPath === linkPath || (currentPath === '' && linkPath === 'index.html')) {
+    link.setAttribute('aria-current', 'page');
+  } else {
+    link.removeAttribute('aria-current');
+  }
+});
+
 });
