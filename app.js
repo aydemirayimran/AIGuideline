@@ -5,9 +5,18 @@ function byId(id) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const contactForm = byId("contactForm");
-  const contactStatus = byId("contactStatus");
+  // Mobilmeny
+  const toggle = document.getElementById("menuToggle");
+  const menu = document.getElementById("menu");
+  if (toggle && menu) {
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("open");
+    });
+  }
 
+  // Kontakt + feedback (det du allerede har)
+  const contactForm = document.getElementById("contactForm");
+  const contactStatus = document.getElementById("contactStatus");
   if (contactForm && contactStatus) {
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -16,9 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const feedbackForm = byId("feedbackForm");
-  const feedbackStatus = byId("feedbackStatus");
-
+  const feedbackForm = document.getElementById("feedbackForm");
+  const feedbackStatus = document.getElementById("feedbackStatus");
   if (feedbackForm && feedbackStatus) {
     feedbackForm.addEventListener("submit", (e) => {
       e.preventDefault();
