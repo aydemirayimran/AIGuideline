@@ -1,3 +1,16 @@
+:root {
+  --primary-color: #0056b3; /* Blå for tillit og profesjonalitet */
+  --primary-light: #e7f1ff; /* Lys blå for hover-effekter */
+  --text-color: #2c3e50;    /* Mørk tekst for god lesbarhet */
+  --text-light: #666;       /* Lysere tekst for sekundær info */
+  --bg-color: #f9f9f9;      /* Lys bakgrunn */
+  --card-bg: #ffffff;       /* Hvite kort for kontrast */
+  --border-color: #e0e0e0;  /* Nøytral kantlinje */
+  --success-color: #28a745; /* Grønn for positive tilbakemeldinger */
+  --warning-color: #ffc107; /* Gul for advarsler */
+  --error-color: #dc3545;   /* Rød for feil */
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,8 +20,8 @@
 body {
   font-family: 'Segoe UI', Roboto, Arial, sans-serif;
   line-height: 1.6;
-  color: #2c3e50;
-  background-color: #f9f9f9;
+  color: var(--text-color);
+  background-color: var(--bg-color);
 }
 
 a {
@@ -22,17 +35,17 @@ a {
   align-items: center;
   justify-content: space-between;
   padding: 14px 18px;
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 1px solid var(--border-color);
   position: sticky;
   top: 0;
-  background: #fff;
+  background: var(--card-bg);
   z-index: 100;
 }
 
 .brand-title {
   font-weight: 800;
   font-size: 18px;
-  color: #2c3e50;
+  color: var(--primary-color);
 }
 
 .nav {
@@ -57,18 +70,19 @@ a {
   display: flex;
   align-items: center;
   gap: 6px;
+  color: var(--text-color);
 }
 
 .nav a:hover {
-  background: #f2f2f2;
+  background: var(--primary-light);
 }
 
 .menu-toggle {
   display: none;
   padding: 8px 10px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
   border-radius: 8px;
-  background: #fff;
+  background: var(--card-bg);
   cursor: pointer;
 }
 
@@ -80,10 +94,10 @@ a {
 }
 
 .card {
-  border: 1px solid #e8e8e8;
+  border: 1px solid var(--border-color);
   border-radius: 14px;
   padding: 16px;
-  background: #fff;
+  background: var(--card-bg);
   margin-top: 14px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -98,16 +112,16 @@ a {
   margin-top: 0;
   font-size: 28px;
   line-height: 1.2;
-  color: #2c3e50;
+  color: var(--primary-color);
 }
 
 .lead {
   font-size: 16px;
-  color: #333;
+  color: var(--text-color);
 }
 
 .small {
-  color: #666;
+  color: var(--text-light);
   font-size: 14px;
 }
 
@@ -115,14 +129,15 @@ a {
 .role-selector {
   margin: 16px 0;
   padding: 12px;
-  border: 1px solid #e6e6e6;
+  border: 1px solid var(--border-color);
   border-radius: 12px;
-  background: #fafafa;
+  background: var(--primary-light);
 }
 
 .role-selector h3 {
   margin-top: 0;
   font-size: 16px;
+  color: var(--text-color);
 }
 
 .role-options {
@@ -134,23 +149,24 @@ a {
 
 .role-btn {
   padding: 8px 12px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
   border-radius: 20px;
-  background: #fff;
+  background: var(--card-bg);
   cursor: pointer;
   transition: all 0.2s ease;
   font-size: 14px;
+  color: var(--text-color);
 }
 
 .role-btn:hover {
-  background: #e6f7ff;
-  border-color: #1890ff;
+  background: var(--primary-light);
+  border-color: var(--primary-color);
 }
 
 .role-btn.active {
-  background: #1890ff;
-  color: #fff;
-  border-color: #1890ff;
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
 }
 
 /* Hero Actions */
@@ -168,91 +184,57 @@ a {
   gap: 6px;
   padding: 10px 14px;
   border-radius: 10px;
-  border: 1px solid #111;
-  background: #2c3e50;
-  color: #fff;
+  border: 1px solid var(--primary-color);
+  background: var(--primary-color);
+  color: white;
   font-weight: 600;
   transition: all 0.2s ease;
   text-decoration: none;
 }
 
 .btn:hover {
-  background: #1a252f;
+  background: #004494;
   transform: translateY(-1px);
 }
 
 .btn.secondary {
-  background: #fff;
-  color: #2c3e50;
-  border-color: #ddd;
+  background: var(--card-bg);
+  color: var(--primary-color);
+  border-color: var(--border-color);
 }
 
 .btn.secondary:hover {
-  background: #f2f2f2;
-}
-
-/* Pills */
-.pill-row {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin: 10px 0 0;
-}
-
-.pill {
-  display: inline-block;
-  padding: 6px 10px;
-  border: 1px solid #e6e6e6;
-  border-radius: 999px;
-  background: #fafafa;
-  font-size: 14px;
-}
-
-/* Read More */
-.read-more {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 6px 10px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  background: #fafafa;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-size: 14px;
-}
-
-.read-more:hover {
-  background: #e6f7ff;
-  border-color: #1890ff;
-  color: #1890ff;
+  background: var(--primary-light);
 }
 
 /* Grid & Tiles */
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 12px;
   margin-top: 12px;
 }
 
 .tile {
   display: block;
-  border: 1px solid #ededed;
+  border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 14px;
-  background: #fff;
+  background: var(--card-bg);
   transition: all 0.2s ease;
   text-decoration: none;
+  color: var(--text-color);
 }
 
 .tile:hover {
-  background: #f4f4f4;
+  background: var(--primary-light);
   transform: translateY(-2px);
+  border-color: var(--primary-color);
 }
 
 .tile h3 {
   margin: 0 0 6px;
-  color: #2c3e50;
+  color: var(--primary-color);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -260,16 +242,16 @@ a {
 
 .tile p {
   margin: 0 0 10px;
-  color: #333;
+  color: var(--text-color);
 }
 
 /* Footer */
 .footer {
-  border-top: 1px solid #e6e6e6;
+  border-top: 1px solid var(--border-color);
   padding: 18px;
   text-align: center;
-  color: #666;
-  background: #fff;
+  color: var(--text-light);
+  background: var(--card-bg);
   margin-top: 30px;
 }
 
@@ -288,8 +270,8 @@ a {
     position: absolute;
     right: 18px;
     top: 58px;
-    background: #fff;
-    border: 1px solid #e6e6e6;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 10px;
     width: 220px;
