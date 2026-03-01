@@ -288,15 +288,7 @@ a {
   color: var(--primary-color);
   text-decoration: underline;
 }
-details{
-    border: 1px solid var(--primary-light);
-    border-radius: 12px;
-    padding: 4px;
-    background: var(--primary-light);
-    transition: all 0.2s ease;
-    text-decoration: none;
-    margin-top: 1rem;
-}
+
 .quiz-card {
   transition: 0.5s ease;
 }
@@ -304,15 +296,22 @@ details{
 .quiz-card:hover {
   transform: scale(1.05) translateY(-5px); /* Gjør kortet litt større ved hover */
 }
+.card ul {
+  list-style: none;
+  padding-left: 0;
+}
 details summary {
   cursor: pointer;
   font-weight: 600;
  background: var(--card-bg);
- padding: 0.5rem;
- 
+  padding: 15px 19px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+ margin: 0.5rem 0;
+  transition: all 0.2s ease;
 }
-.card ul {
-  list-style: none;
-  padding-left: 0;
+details summary:hover {
+  background: var(--primary-light);
+ transform: scale(1.03);
 }
 
