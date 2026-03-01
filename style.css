@@ -1,3 +1,4 @@
+
 :root {
   --primary-color: #4a6fa5;
   --primary-light: #e8f0f9;
@@ -86,7 +87,7 @@ a {
 
 /* Container & Cards */
 .container {
-  max-width: 980px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 18px;
 }
@@ -214,11 +215,13 @@ a {
   background: var(--card-bg);
   transition: all 0.2s ease;
   text-decoration: none;
+ 
 }
 
 .tile:hover {
   background: var(--primary-light);
-  border-color: var(--primary-color);
+  border-color: var(--primary-light);
+   transform: scale(1.07); /* Gjør knappen litt større */
 }
 
 .tile h3 {
@@ -234,7 +237,7 @@ a {
   border-top: 1px solid var(--border-color);
   padding: 18px;
   text-align: center;
-  color: var(--text-light);
+  color: var(--text-color);
   background: var(--card-bg);
   margin-top: 30px;
 }
@@ -284,5 +287,28 @@ a {
 .contact-info a {
   color: var(--primary-color);
   text-decoration: underline;
+}
+details{
+    border: 1px solid var(--primary-light);
+    border-radius: 12px;
+    padding: 4px;
+    background: var(--primary-light);
+    transition: all 0.2s ease;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+.quiz-card {
+  transition: 0.5s ease;
+}
+
+.quiz-card:hover {
+  transform: scale(1.05) translateY(-5px); /* Gjør kortet litt større ved hover */
+}
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+ background: var(--card-bg);
+ padding: 0.5rem;
+ 
 }
 
