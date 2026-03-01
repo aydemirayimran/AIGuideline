@@ -101,6 +101,13 @@ a {
   margin-bottom: 2rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
+.quiz-card {
+  transition: 0.5s ease;
+}
+
+.quiz-card:hover {
+  transform: scale(1.05) translateY(-5px); /* Gjør kortet litt større ved hover */
+}
 
 .hero {
   padding: 2rem 1.5rem;
@@ -215,13 +222,13 @@ a {
   background: var(--card-bg);
   transition: all 0.2s ease;
   text-decoration: none;
+  margin: 1rem 0;
  
 }
 
 .tile:hover {
   background: var(--primary-light);
-  border-color: var(--primary-light);
-   transform: scale(1.07); /* Gjør knappen litt større */
+  transition: all 0.2s ease;
 }
 
 .tile h3 {
@@ -289,17 +296,7 @@ a {
   text-decoration: underline;
 }
 
-.quiz-card {
-  transition: 0.5s ease;
-}
 
-.quiz-card:hover {
-  transform: scale(1.05) translateY(-5px); /* Gjør kortet litt større ved hover */
-}
-.card ul {
-  list-style: none;
-  padding-left: 0;
-}
 details summary {
   cursor: pointer;
   font-weight: 600;
@@ -314,4 +311,7 @@ details summary:hover {
   background: var(--primary-light);
  transform: scale(1.03);
 }
-
+.card ul {
+  list-style: none;
+  padding-left: 0;
+}
