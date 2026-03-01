@@ -311,4 +311,8 @@ details summary {
  padding: 0.5rem;
  
 }
+.card ul {
+  list-style: none;
+  padding-left: 0;
+}
 
