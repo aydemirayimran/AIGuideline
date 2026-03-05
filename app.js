@@ -1,6 +1,6 @@
 console.log("app.js loaded");
 
-// Interaktiv veiviser.
+// Interaktiv veiviser
 function nextStep(answer, currentStepId) {
   // Skjul nåværende steg
   const currentStep = document.getElementById(currentStepId);
@@ -70,6 +70,20 @@ function showResult(text) {
   resultElement.style.display = "block";
 }
 
+function resetGuide() {
+  // Skjul resultat
+  const resultElement = document.getElementById("result");
+  if (resultElement) {
+    resultElement.style.display = "none";
+  }
+
+  // Vis første steg
+  const step1 = document.getElementById("step1");
+  if (step1) {
+    step1.style.display = "block";
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   // 1. Mobilmeny
   const toggle = document.getElementById("menuToggle");
@@ -97,18 +111,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-function filterContentByRole(role) {
-  const allCards = document.querySelectorAll('.card[data-role]');
-  allCards.forEach(card => {
-    const cardRoles = card.getAttribute('data-role').split(' ');
-    if (cardRoles.includes('student') && cardRoles.includes('staff')) {
-      card.style.display = 'block'; // Alltid vis felles ressurser
-    } else {
-      card.style.display = cardRoles.includes(role) ? 'block' : 'none';
-    }
-  });
-}
-
+  function filterContentByRole(role) {
+    const allCards = document.querySelectorAll('.card[data-role]');
+    allCards.forEach(card => {
+      const cardRoles = card.getAttribute('data-role').split(' ');
+      if (cardRoles.includes('student') && cardRoles.includes('staff')) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = cardRoles.includes(role) ? 'block' : 'none';
+      }
+    });
+  }
 
   // 3. Lukk mobilmeny ved klikk
   const menuLinks = document.querySelectorAll('.nav a');
@@ -126,13 +139,6 @@ function filterContentByRole(role) {
       menu.classList.remove('open');
     }
   });
-function resetGuide() {
-  // Skjul resultat
-  document.getElementById("result").style.display = "none";
-
-  // Vis første steg
-  document.getElementById("step1").style.display = "block";
-}
 
   // Markér aktiv lenke i menyen
   const currentPath = window.location.pathname.split('/').pop();
