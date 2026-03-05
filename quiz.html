@@ -83,9 +83,9 @@
         <h3>Spørsmål 1</h3>
         <p>Når bør du oppgi at du har brukt KI?</p>
         <div class="quiz-options">
-          <div class="quiz-option" onclick="selectOption(this, 'Alltid når KI har bidratt til arbeidet ditt.', 'question1')">Alltid når KI har bidratt til arbeidet ditt.</div>
-          <div class="quiz-option" onclick="selectOption(this, 'Bare når du bruker KI til å skrive hele teksten.', 'question1')">Bare når du bruker KI til å skrive hele teksten.</div>
-          <div class="quiz-option" onclick="selectOption(this, 'Aldri, det er ikke nødvendig.', 'question1')">Aldri, det er ikke nødvendig.</div>
+          <div class="quiz-option" data-correct="true" onclick="selectOption(this, 'question1')">Alltid når KI har bidratt til arbeidet ditt.</div>
+          <div class="quiz-option" data-correct="false" onclick="selectOption(this, 'question1')">Bare når du bruker KI til å skrive hele teksten.</div>
+          <div class="quiz-option" data-correct="false" onclick="selectOption(this, 'question1')">Aldri, det er ikke nødvendig.</div>
         </div>
         <div class="quiz-feedback" id="feedback1"></div>
       </div>
@@ -94,9 +94,9 @@
         <h3>Spørsmål 2</h3>
         <p>Hva gjør du hvis du er usikker på reglene?</p>
         <div class="quiz-options">
-          <div class="quiz-option" onclick="selectOption(this, 'Spør foreleser eller sjekk retningslinjene.', 'question2')">Spør foreleser eller sjekk retningslinjene.</div>
-          <div class="quiz-option" onclick="selectOption(this, 'Bruk KI uansett, det er sikkert greit.', 'question2')">Bruk KI uansett, det er sikkert greit.</div>
-          <div class="quiz-option" onclick="selectOption(this, 'Unngå å bruke KI helt.', 'question2')">Unngå å bruke KI helt.</div>
+          <div class="quiz-option" data-correct="true" onclick="selectOption(this, 'question2')">Spør foreleser eller sjekk retningslinjene.</div>
+          <div class="quiz-option" data-correct="false" onclick="selectOption(this, 'question2')">Bruk KI uansett, det er sikkert greit.</div>
+          <div class="quiz-option" data-correct="false" onclick="selectOption(this, 'question2')">Unngå å bruke KI helt.</div>
         </div>
         <div class="quiz-feedback" id="feedback2"></div>
       </div>
@@ -105,9 +105,9 @@
         <h3>Spørsmål 3</h3>
         <p>Hvorfor må informasjon fra KI dobbeltsjekkes?</p>
         <div class="quiz-options">
-          <div class="quiz-option" onclick="selectOption(this, 'KI kan generere feil eller misvisende informasjon.', 'question3')">KI kan generere feil eller misvisende informasjon.</div>
-          <div class="quiz-option" onclick="selectOption(this, 'Fordi lærere alltid krever det.', 'question3')">Fordi lærere alltid krever det.</div>
-          <div class="quiz-option" onclick="selectOption(this, 'Det er ikke nødvendig å dobbeltsjekke.', 'question3')">Det er ikke nødvendig å dobbeltsjekke.</div>
+          <div class="quiz-option" data-correct="true" onclick="selectOption(this, 'question3')">KI kan generere feil eller misvisende informasjon.</div>
+          <div class="quiz-option" data-correct="false" onclick="selectOption(this, 'question3')">Fordi lærere alltid krever det.</div>
+          <div class="quiz-option" data-correct="false" onclick="selectOption(this, 'question3')">Det er ikke nødvendig å dobbeltsjekke.</div>
         </div>
         <div class="quiz-feedback" id="feedback3"></div>
       </div>
@@ -116,9 +116,9 @@
         <h3>Spørsmål 4</h3>
         <p>Hvilke opplysninger bør du aldri dele med KI?</p>
         <div class="quiz-options">
-          <div class="quiz-option" onclick="selectOption(this, 'Sensitiv eller personlig informasjon.', 'question4')">Sensitiv eller personlig informasjon.</div>
-          <div class="quiz-option" onclick="selectOption(this, 'Generell informasjon om emnet.', 'question4')">Generell informasjon om emnet.</div>
-          <div class="quiz-option" onclick="selectOption(this, 'Kilder du har brukt.', 'question4')">Kilder du har brukt.</div>
+          <div class="quiz-option" data-correct="true" onclick="selectOption(this, 'question4')">Sensitiv eller personlig informasjon.</div>
+          <div class="quiz-option" data-correct="false" onclick="selectOption(this, 'question4')">Generell informasjon om emnet.</div>
+          <div class="quiz-option" data-correct="false" onclick="selectOption(this, 'question4')">Kilder du har brukt.</div>
         </div>
         <div class="quiz-feedback" id="feedback4"></div>
       </div>
@@ -127,9 +127,9 @@
         <h3>Spørsmål 5</h3>
         <p>Hva er den beste måten å bruke KI på i en læringssammenheng?</p>
         <div class="quiz-options">
-          <div class="quiz-option" onclick="selectOption(this, 'KI bør brukes som støtte til egen læring, ikke som en erstatning for egen innsats.', 'question5')">KI bør brukes som støtte til egen læring, ikke som en erstatning for egen innsats.</div>
-          <div class="quiz-option" onclick="selectOption(this, 'La KI gjøre hele jobben for deg.', 'question5')">La KI gjøre hele jobben for deg.</div>
-          <div class="quiz-option" onclick="selectOption(this, 'Bruk KI bare til å finne kilder.', 'question5')">Bruk KI bare til å finne kilder.</div>
+          <div class="quiz-option" data-correct="true" onclick="selectOption(this, 'question5')">KI bør brukes som støtte til egen læring, ikke som en erstatning for egen innsats.</div>
+          <div class="quiz-option" data-correct="false" onclick="selectOption(this, 'question5')">La KI gjøre hele jobben for deg.</div>
+          <div class="quiz-option" data-correct="false" onclick="selectOption(this, 'question5')">Bruk KI bare til å finne kilder.</div>
         </div>
         <div class="quiz-feedback" id="feedback5"></div>
       </div>
@@ -138,9 +138,9 @@
         <h3>Spørsmål 6</h3>
         <p>Hvorfor er det viktig å dobbeltsjekke informasjon fra KI?</p>
         <div class="quiz-options">
-          <div class="quiz-option" onclick="selectOption(this, 'KI kan "hallusinere" - det vil si generere informasjon som høres riktig ut, men som faktisk er feil. Kildekritikk er essensielt.', 'question6')">KI kan "hallusinere" - det vil si generere informasjon som høres riktig ut, men som faktisk er feil. Kildekritikk er essensielt.</div>
-          <div class="quiz-option" onclick="selectOption(this, 'Fordi KI alltid er feil.', 'question6')">Fordi KI alltid er feil.</div>
-          <div class="quiz-option" onclick="selectOption(this, 'Det er ikke viktig å dobbeltsjekke.', 'question6')">Det er ikke viktig å dobbeltsjekke.</div>
+          <div class="quiz-option" data-correct="true" onclick="selectOption(this, 'question6')">KI kan "hallusinere" - det vil si generere informasjon som høres riktig ut, men som faktisk er feil. Kildekritikk er essensielt.</div>
+          <div class="quiz-option" data-correct="false" onclick="selectOption(this, 'question6')">Fordi KI alltid er feil.</div>
+          <div class="quiz-option" data-correct="false" onclick="selectOption(this, 'question6')">Det er ikke viktig å dobbeltsjekke.</div>
         </div>
         <div class="quiz-feedback" id="feedback6"></div>
       </div>
@@ -149,9 +149,9 @@
         <h3>Spørsmål 7</h3>
         <p>Hva er en etisk utfordring med KI i utdanning?</p>
         <div class="quiz-options">
-          <div class="quiz-option" onclick="selectOption(this, 'KI-modeller kan inneholde og forsterke skjevheter fra treningsdataene, og ikke alle har lik tilgang til disse verktøyene.', 'question7')">KI-modeller kan inneholde og forsterke skjevheter fra treningsdataene, og ikke alle har lik tilgang til disse verktøyene.</div>
-          <div class="quiz-option" onclick="selectOption(this, 'KI er for dyrt.', 'question7')">KI er for dyrt.</div>
-          <div class="quiz-option" onclick="selectOption(this, 'KI er for komplisert å bruke.', 'question7')">KI er for komplisert å bruke.</div>
+          <div class="quiz-option" data-correct="true" onclick="selectOption(this, 'question7')">KI-modeller kan inneholde og forsterke skjevheter fra treningsdataene, og ikke alle har lik tilgang til disse verktøyene.</div>
+          <div class="quiz-option" data-correct="false" onclick="selectOption(this, 'question7')">KI er for dyrt.</div>
+          <div class="quiz-option" data-correct="false" onclick="selectOption(this, 'question7')">KI er for komplisert å bruke.</div>
         </div>
         <div class="quiz-feedback" id="feedback7"></div>
       </div>
@@ -160,9 +160,9 @@
         <h3>Spørsmål 8</h3>
         <p>Hva er 'prompt engineering'?</p>
         <div class="quiz-options">
-          <div class="quiz-option" onclick="selectOption(this, 'Prompt engineering handler om å formulere presise og effektive spørsmål for å få best mulig svar fra KI.', 'question8')">Prompt engineering handler om å formulere presise og effektive spørsmål for å få best mulig svar fra KI.</div>
-          <div class="quiz-option" onclick="selectOption(this, 'Det er en type maskinlæring.', 'question8')">Det er en type maskinlæring.</div>
-          <div class="quiz-option" onclick="selectOption(this, 'Det er en måte å programmere KI på.', 'question8')">Det er en måte å programmere KI på.</div>
+          <div class="quiz-option" data-correct="true" onclick="selectOption(this, 'question8')">Prompt engineering handler om å formulere presise og effektive spørsmål for å få best mulig svar fra KI.</div>
+          <div class="quiz-option" data-correct="false" onclick="selectOption(this, 'question8')">Det er en type maskinlæring.</div>
+          <div class="quiz-option" data-correct="false" onclick="selectOption(this, 'question8')">Det er en måte å programmere KI på.</div>
         </div>
         <div class="quiz-feedback" id="feedback8"></div>
       </div>
@@ -182,9 +182,10 @@
     let currentQuestion = 1;
     const totalQuestions = 8;
 
-    function selectOption(element, correctAnswer, questionId) {
+    function selectOption(element, questionId) {
       const options = element.parentElement.querySelectorAll('.quiz-option');
       const feedbackElement = document.getElementById(`feedback${questionId.charAt(questionId.length - 1)}`);
+      const isCorrect = element.getAttribute('data-correct') === 'true';
 
       options.forEach(option => {
         option.classList.remove('selected', 'correct', 'incorrect');
@@ -192,7 +193,7 @@
 
       element.classList.add('selected');
 
-      if (element.textContent.trim() === correctAnswer) {
+      if (isCorrect) {
         element.classList.add('correct');
         feedbackElement.textContent = 'Riktig!';
         feedbackElement.className = 'quiz-feedback correct';
@@ -202,7 +203,7 @@
         feedbackElement.className = 'quiz-feedback incorrect';
 
         options.forEach(option => {
-          if (option.textContent.trim() === correctAnswer) {
+          if (option.getAttribute('data-correct') === 'true') {
             option.classList.add('correct');
           }
         });
