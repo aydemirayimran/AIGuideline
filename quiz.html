@@ -6,134 +6,230 @@
   <title>Test deg selv – AI Guidebook</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .quiz-options {
+      margin: 10px 0;
+    }
+    .quiz-option {
+      display: block;
+      margin: 5px 0;
+      padding: 10px;
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .quiz-option:hover {
+      background-color: #f0f0f0;
+    }
+    .quiz-option.selected {
+      background-color: #e8f0f9;
+      border-color: #4a6fa5;
+    }
+    .quiz-option.correct {
+      background-color: #d4edda;
+      border-color: #28a745;
+    }
+    .quiz-option.incorrect {
+      background-color: #f8d7da;
+      border-color: #dc3545;
+    }
+    .quiz-feedback {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      display: none;
+    }
+    .quiz-feedback.correct {
+      background-color: #d4edda;
+      color: #28a745;
+      display: block;
+    }
+    .quiz-feedback.incorrect {
+      background-color: #f8d7da;
+      color: #dc3545;
+      display: block;
+    }
+  </style>
 </head>
 
 <body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-title">AI Guidebook</span>
+    </div>
+    <nav class="nav">
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <ul id="menu">
+        <li><a href="index.html"><i class="fas fa-home"></i> Hjem</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<header class="topbar">
-  <div class="brand">
-    <span class="brand-title">AI Guidebook</span>
-  </div>
+  <main class="container">
+    <section class="card">
+      <h1><i class="fas fa-clipboard-list"></i> Test din kunnskap</h1>
+      <p class="lead">Sjekk hva du kan om ansvarlig og etisk bruk av KI.</p>
+    </section>
 
-  <nav class="nav">
-    <button class="menu-toggle" id="menuToggle">☰</button>
-    <ul id="menu">
-      <li><a href="index.html"><i class="fas fa-home"></i> Hjem</a></li>
-      <li><a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
-      <li><a href="tips.html"><i class="fas fa-lightbulb"></i> Praktiske tips</a></li>
-      <li><a href="quiz.html" aria-current="page"><i class="fas fa-clipboard-list"></i> Test deg selv</a></li>
-      <li><a href="links.html"><i class="fas fa-link"></i> Nyttige lenker</a></li>
-    </ul>
-  </nav>
-</header>
+    <section class="card quiz-container">
+      <div class="quiz-question" id="question1">
+        <h3>Spørsmål 1</h3>
+        <p>Når bør du oppgi at du har brukt KI?</p>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="selectOption(this, 'Alltid når KI har bidratt til arbeidet ditt.', 'question1')">Alltid når KI har bidratt til arbeidet ditt.</div>
+          <div class="quiz-option" onclick="selectOption(this, 'Bare når du bruker KI til å skrive hele teksten.', 'question1')">Bare når du bruker KI til å skrive hele teksten.</div>
+          <div class="quiz-option" onclick="selectOption(this, 'Aldri, det er ikke nødvendig.', 'question1')">Aldri, det er ikke nødvendig.</div>
+        </div>
+        <div class="quiz-feedback" id="feedback1"></div>
+      </div>
 
-<main class="container">
+      <div class="quiz-question" id="question2" style="display: none;">
+        <h3>Spørsmål 2</h3>
+        <p>Hva gjør du hvis du er usikker på reglene?</p>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="selectOption(this, 'Spør foreleser eller sjekk retningslinjene.', 'question2')">Spør foreleser eller sjekk retningslinjene.</div>
+          <div class="quiz-option" onclick="selectOption(this, 'Bruk KI uansett, det er sikkert greit.', 'question2')">Bruk KI uansett, det er sikkert greit.</div>
+          <div class="quiz-option" onclick="selectOption(this, 'Unngå å bruke KI helt.', 'question2')">Unngå å bruke KI helt.</div>
+        </div>
+        <div class="quiz-feedback" id="feedback2"></div>
+      </div>
 
-<section class="card">
-  <h1><i class="fas fa-clipboard-list"></i> Test din kunnskap</h1>
-  <p class="lead">Sjekk hva du kan om ansvarlig og etisk bruk av KI.</p>
-</section>
+      <div class="quiz-question" id="question3" style="display: none;">
+        <h3>Spørsmål 3</h3>
+        <p>Hvorfor må informasjon fra KI dobbeltsjekkes?</p>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="selectOption(this, 'KI kan generere feil eller misvisende informasjon.', 'question3')">KI kan generere feil eller misvisende informasjon.</div>
+          <div class="quiz-option" onclick="selectOption(this, 'Fordi lærere alltid krever det.', 'question3')">Fordi lærere alltid krever det.</div>
+          <div class="quiz-option" onclick="selectOption(this, 'Det er ikke nødvendig å dobbeltsjekke.', 'question3')">Det er ikke nødvendig å dobbeltsjekke.</div>
+        </div>
+        <div class="quiz-feedback" id="feedback3"></div>
+      </div>
 
-<section class="grid">
+      <div class="quiz-question" id="question4" style="display: none;">
+        <h3>Spørsmål 4</h3>
+        <p>Hvilke opplysninger bør du aldri dele med KI?</p>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="selectOption(this, 'Sensitiv eller personlig informasjon.', 'question4')">Sensitiv eller personlig informasjon.</div>
+          <div class="quiz-option" onclick="selectOption(this, 'Generell informasjon om emnet.', 'question4')">Generell informasjon om emnet.</div>
+          <div class="quiz-option" onclick="selectOption(this, 'Kilder du har brukt.', 'question4')">Kilder du har brukt.</div>
+        </div>
+        <div class="quiz-feedback" id="feedback4"></div>
+      </div>
 
-<div class="card quiz-card">
-<h3>Spørsmål 1</h3>
-<p>Når bør du oppgi at du har brukt KI?</p>
-<div class ="summary">
-<details>
-<summary>Se svar</summary>
-<p><strong>Riktig svar:</strong> Alltid når KI har bidratt til arbeidet ditt.</p>
-</details>
-</div>
-</div>
+      <div class="quiz-question" id="question5" style="display: none;">
+        <h3>Spørsmål 5</h3>
+        <p>Hva er den beste måten å bruke KI på i en læringssammenheng?</p>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="selectOption(this, 'KI bør brukes som støtte til egen læring, ikke som en erstatning for egen innsats.', 'question5')">KI bør brukes som støtte til egen læring, ikke som en erstatning for egen innsats.</div>
+          <div class="quiz-option" onclick="selectOption(this, 'La KI gjøre hele jobben for deg.', 'question5')">La KI gjøre hele jobben for deg.</div>
+          <div class="quiz-option" onclick="selectOption(this, 'Bruk KI bare til å finne kilder.', 'question5')">Bruk KI bare til å finne kilder.</div>
+        </div>
+        <div class="quiz-feedback" id="feedback5"></div>
+      </div>
 
-<div class="card quiz-card">
-<h3>Spørsmål 2</h3>
-<p>Hva gjør du hvis du er usikker på reglene?</p>
-<div class ="summary">
-<details>
-<summary>Se svar</summary>
-<p><strong>Riktig svar:</strong> Spør foreleser eller sjekk retningslinjene.</p>
-</details>
-</div>
-</div>
+      <div class="quiz-question" id="question6" style="display: none;">
+        <h3>Spørsmål 6</h3>
+        <p>Hvorfor er det viktig å dobbeltsjekke informasjon fra KI?</p>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="selectOption(this, 'KI kan "hallusinere" - det vil si generere informasjon som høres riktig ut, men som faktisk er feil. Kildekritikk er essensielt.', 'question6')">KI kan "hallusinere" - det vil si generere informasjon som høres riktig ut, men som faktisk er feil. Kildekritikk er essensielt.</div>
+          <div class="quiz-option" onclick="selectOption(this, 'Fordi KI alltid er feil.', 'question6')">Fordi KI alltid er feil.</div>
+          <div class="quiz-option" onclick="selectOption(this, 'Det er ikke viktig å dobbeltsjekke.', 'question6')">Det er ikke viktig å dobbeltsjekke.</div>
+        </div>
+        <div class="quiz-feedback" id="feedback6"></div>
+      </div>
 
-<div class="card quiz-card">
-<h3>Spørsmål 3</h3>
-<p>Hvorfor må informasjon fra KI dobbeltsjekkes?</p>
-<div class ="summary">
-<details>
-<summary>Se svar</summary>
-<p><strong>Riktig svar:</strong> KI kan generere feil eller misvisende informasjon.</p>
-</details>
-</div>
-</div>
+      <div class="quiz-question" id="question7" style="display: none;">
+        <h3>Spørsmål 7</h3>
+        <p>Hva er en etisk utfordring med KI i utdanning?</p>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="selectOption(this, 'KI-modeller kan inneholde og forsterke skjevheter fra treningsdataene, og ikke alle har lik tilgang til disse verktøyene.', 'question7')">KI-modeller kan inneholde og forsterke skjevheter fra treningsdataene, og ikke alle har lik tilgang til disse verktøyene.</div>
+          <div class="quiz-option" onclick="selectOption(this, 'KI er for dyrt.', 'question7')">KI er for dyrt.</div>
+          <div class="quiz-option" onclick="selectOption(this, 'KI er for komplisert å bruke.', 'question7')">KI er for komplisert å bruke.</div>
+        </div>
+        <div class="quiz-feedback" id="feedback7"></div>
+      </div>
 
-<div class="card quiz-card">
-<h3>Spørsmål 4</h3>
-<p>Hvilke opplysninger bør du aldri dele med KI?</p>
-<div class ="summary">
-<details >
-<summary >Se svar</summary>
-<p><strong>Riktig svar:</strong> Sensitiv eller personlig informasjon.</p>
-</details>
-</div>
-</div>
+      <div class="quiz-question" id="question8" style="display: none;">
+        <h3>Spørsmål 8</h3>
+        <p>Hva er 'prompt engineering'?</p>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="selectOption(this, 'Prompt engineering handler om å formulere presise og effektive spørsmål for å få best mulig svar fra KI.', 'question8')">Prompt engineering handler om å formulere presise og effektive spørsmål for å få best mulig svar fra KI.</div>
+          <div class="quiz-option" onclick="selectOption(this, 'Det er en type maskinlæring.', 'question8')">Det er en type maskinlæring.</div>
+          <div class="quiz-option" onclick="selectOption(this, 'Det er en måte å programmere KI på.', 'question8')">Det er en måte å programmere KI på.</div>
+        </div>
+        <div class="quiz-feedback" id="feedback8"></div>
+      </div>
 
+      <div class="quiz-navigation">
+        <button id="prevButton" onclick="prevQuestion()" disabled>Forrige</button>
+        <button id="nextButton" onclick="nextQuestion()">Neste</button>
+      </div>
+    </section>
+  </main>
 
-<div class="card quiz-card">
-<h3>Spørsmål 5</h3>
-<p>Hva er den beste måten å bruke KI på i en læringssammenheng?</p>
-<div class ="summary">
-<details>
-<summary >Se svar</summary>
-<p><strong>Riktig svar:</strong> KI bør brukes som støtte til egen læring, ikke som en erstatning for egen innsats.</p>
-</details>
-</div>
-</div>
+  <footer class="footer">
+    <p>Laget for studenter og ansatte — Gruppe 5 — Praktisk prosjektarbeid — Vår 2026</p>
+  </footer>
 
+  <script>
+    let currentQuestion = 1;
+    const totalQuestions = 8;
 
-<div class="card quiz-card">
-<h3>Spørsmål 6</h3>
-<p>Hvorfor er det viktig å dobbeltsjekke informasjon fra KI?</p>
-<div class ="summary">
-<details>
-<summary >Se svar</summary>
-<p><strong>Riktig svar:</strong> KI kan 'hallusinere' - det vil si generere informasjon som høres riktig ut, men som faktisk er feil. Kildekritikk er essensielt.</p>
-</details>
-</div>
-</div>
+    function selectOption(element, correctAnswer, questionId) {
+      const options = element.parentElement.querySelectorAll('.quiz-option');
+      const feedbackElement = document.getElementById(`feedback${questionId.charAt(questionId.length - 1)}`);
 
+      options.forEach(option => {
+        option.classList.remove('selected', 'correct', 'incorrect');
+      });
 
-<div class="card quiz-card">
-<h3>Spørsmål 7</h3>
-<p>Hva er en etisk utfordring med KI i utdanning?</p>
-<div class ="summary">
-<details>
-<summary >Se svar</summary>
-<p><strong>Riktig svar:</strong> riktig svar: nr 2. KI-modeller kan inneholde og forsterke skjevheter fra treningsdataene, og ikke alle har lik tilgang til disse verktøyene.</p>
-</details>
-</div>
-</div>
+      element.classList.add('selected');
 
-<div class="card quiz-card">
-<h3>Spørsmål 8</h3>
-<p>Hva er 'prompt engineering'?</p><p><br></p>
-<div class ="summary">
-<details >
-<summary >Se svar</summary>
-<p><strong>Riktig svar:</strong> Prompt engineering handler om å formulere presise og effektive spørsmål for å få best mulig svar fra KI.</p>
-</details>
-</div>
-</div>
-</section>
+      if (element.textContent === correctAnswer) {
+        element.classList.add('correct');
+        feedbackElement.textContent = 'Riktig!';
+        feedbackElement.className = 'quiz-feedback correct';
+      } else {
+        element.classList.add('incorrect');
+        feedbackElement.textContent = 'Feil. Prøv igjen!';
+        feedbackElement.className = 'quiz-feedback incorrect';
 
-</main>
+        options.forEach(option => {
+          if (option.textContent === correctAnswer) {
+            option.classList.add('correct');
+          }
+        });
+      }
+    }
 
-<footer class="footer">
-  <p>Laget for studenter og ansatte — Gruppe 5 — Praktisk prosjektarbeid — Vår 2026</p>
-</footer>
+    function nextQuestion() {
+      if (currentQuestion < totalQuestions) {
+        document.getElementById(`question${currentQuestion}`).style.display = 'none';
+        currentQuestion++;
+        document.getElementById(`question${currentQuestion}`).style.display = 'block';
+      }
 
-<script src="app.js" defer></script>
+      updateNavigationButtons();
+    }
+
+    function prevQuestion() {
+      if (currentQuestion > 1) {
+        document.getElementById(`question${currentQuestion}`).style.display = 'none';
+        currentQuestion--;
+        document.getElementById(`question${currentQuestion}`).style.display = 'block';
+      }
+
+      updateNavigationButtons();
+    }
+
+    function updateNavigationButtons() {
+      const prevButton = document.getElementById('prevButton');
+      const nextButton = document.getElementById('nextButton');
+
+      prevButton.disabled = currentQuestion === 1;
+      nextButton.textContent = currentQuestion === totalQuestions ? 'Fullført' : 'Neste';
+    }
+  </script>
 </body>
 </html>
