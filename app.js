@@ -69,6 +69,7 @@ function nextStep(answer, currentStepId) {
   }
 }
 
+
 function showResult(text) {
   const resultElement = document.getElementById("result");
   const resultText = document.getElementById("result-text");
