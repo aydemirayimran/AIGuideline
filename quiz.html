@@ -50,6 +50,11 @@
       color: #dc3545;
       display: block;
     }
+    .quiz-navigation {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
   </style>
 </head>
 
@@ -62,6 +67,7 @@
       <button class="menu-toggle" id="menuToggle">☰</button>
       <ul id="menu">
         <li><a href="index.html"><i class="fas fa-home"></i> Hjem</a></li>
+        <li><a href="quiz.html" aria-current="page"><i class="fas fa-clipboard-list"></i> Test deg selv</a></li>
       </ul>
     </nav>
   </header>
@@ -186,7 +192,7 @@
 
       element.classList.add('selected');
 
-      if (element.textContent === correctAnswer) {
+      if (element.textContent.trim() === correctAnswer) {
         element.classList.add('correct');
         feedbackElement.textContent = 'Riktig!';
         feedbackElement.className = 'quiz-feedback correct';
@@ -196,7 +202,7 @@
         feedbackElement.className = 'quiz-feedback incorrect';
 
         options.forEach(option => {
-          if (option.textContent === correctAnswer) {
+          if (option.textContent.trim() === correctAnswer) {
             option.classList.add('correct');
           }
         });
