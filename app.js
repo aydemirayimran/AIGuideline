@@ -82,6 +82,14 @@ function resetGuide() {
   if (step1) {
     step1.style.display = "block";
   }
+
+  // Skjul alle andre steg
+  for (let i = 2; i <= 6; i++) {
+    const step = document.getElementById(`step${i}`);
+    if (step) {
+      step.style.display = "none";
+    }
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
