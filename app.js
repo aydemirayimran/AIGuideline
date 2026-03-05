@@ -3,7 +3,13 @@ console.log("app.js loaded");
 // Interaktiv veiviser
 function nextStep(answer, currentStepId) {
   // Skjul gjeldende steg
-  document.getElementById(currentStepId).style.display = "none";
+  const currentStep = document.getElementById(currentStepId);
+  if (currentStep) {
+    currentStep.style.display = "none";
+  } else {
+    console.error(`Element med id ${currentStepId} ble ikke funnet`);
+    return;
+  }
 
   // Logikk for å bestemme neste steg eller resultat
   if (currentStepId === "step1") {
@@ -48,6 +54,12 @@ function nextStep(answer, currentStepId) {
 function showResult(text) {
   const resultElement = document.getElementById("result");
   const resultText = document.getElementById("result-text");
+
+  if (!resultElement || !resultText) {
+    console.error("Resultat-elementer ikke funnet!");
+    return;
+  }
+
   resultText.textContent = text;
   resultElement.style.display = "block";
 }
