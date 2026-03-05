@@ -46,7 +46,7 @@
         <h3 id="role-title">Jeg er:</h3>
         <div class="role-options">
           <button class="role-btn active" data-role="student" aria-pressed="true">Student</button>
-          <button class="role-btn" data-role="staff" aria-pressed="false">Ansatt</button>
+          <button class="role-btn" data-role="staff" aria-pressed="false">Fagpersonale</button>
         </div>
       </div>
 
@@ -109,14 +109,15 @@
   </div>
 
   <!-- Resultat -->
-  <div class="guide-result" id="result" style="display: none;">
-    <p id="result-text"></p>
-  </div>
+<div class="guide-result" id="result" style="display: none;">
+  <p id="result-text"></p>
+  <button class="guide-btn" onclick="resetGuide()">Tilbake til start</button>
 </div>
 
 
+
     <!-- Felles ressurser -->
-    <section class="card">
+    <section class="card" data-role="student staff">
       <h2>Felles ressurser</h2>
       <p>
         Her finner alle brukerne våre felles retningslinjer, nyheter om AI i utdanning,
