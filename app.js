@@ -125,6 +125,13 @@ document.addEventListener("DOMContentLoaded", () => {
       menu.classList.remove('open');
     }
   });
+function resetGuide() {
+  // Skjul resultat
+  document.getElementById("result").style.display = "none";
+
+  // Vis første steg
+  document.getElementById("step1").style.display = "block";
+}
 
   // Markér aktiv lenke i menyen
   const currentPath = window.location.pathname.split('/').pop();
