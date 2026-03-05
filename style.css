@@ -327,6 +327,46 @@ a {
   text-decoration: underline;
 }
 
+/* Stil for interaktiv veiviser */
+.ai-guide-container {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background: var(--primary-light);
+}
+
+.ai-guide-container h3 {
+  margin-top: 0;
+  color: var(--primary-color);
+}
+
+.guide-step, .guide-result {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: var(--card-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.guide-btn {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--primary-color);
+  color: white;
+  cursor: pointer;
+}
+
+.guide-btn:hover {
+  background: var(--secondary-color);
+}
+
+#result {
+  font-weight: bold;
+  color: var(--accent-color);
+}
 
 .summary {
   cursor: pointer;
