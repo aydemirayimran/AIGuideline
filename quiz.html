@@ -215,6 +215,8 @@
         document.getElementById(`question${currentQuestion}`).style.display = 'none';
         currentQuestion++;
         document.getElementById(`question${currentQuestion}`).style.display = 'block';
+      } else {
+        resetQuiz();
       }
 
       updateNavigationButtons();
@@ -227,6 +229,24 @@
         document.getElementById(`question${currentQuestion}`).style.display = 'block';
       }
 
+      updateNavigationButtons();
+    }
+
+    function resetQuiz() {
+      currentQuestion = 1;
+      for (let i = 1; i <= totalQuestions; i++) {
+        document.getElementById(`question${i}`).style.display = i === 1 ? 'block' : 'none';
+        const options = document.querySelectorAll(`#question${i} .quiz-option`);
+        options.forEach(option => {
+          option.classList.remove('selected', 'correct', 'incorrect');
+        });
+        const feedbackElement = document.getElementById(`feedback${i}`);
+        if (feedbackElement) {
+          feedbackElement.textContent = '';
+          feedbackElement.className = 'quiz-feedback';
+          feedbackElement.style.display = 'none';
+        }
+      }
       updateNavigationButtons();
     }
 
