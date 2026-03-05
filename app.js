@@ -1,6 +1,6 @@
 console.log("app.js loaded");
 
-// Interaktiv veiviser
+// Interaktiv veiviser.
 function nextStep(answer, currentStepId) {
   // Skjul nåværende steg
   const currentStep = document.getElementById(currentStepId);
