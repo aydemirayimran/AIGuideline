@@ -11,20 +11,18 @@ function nextStep(answer, currentStepId) {
   currentStep.style.display = "none";
 
   // Logikk for å vise neste steg
-  let nextStepId = null;
-
   if (currentStepId === "step1") {
     if (answer === "no") {
       showResult("Du har valgt å ikke bruke AI. Bra! Husk å vurdere AI som støtte til læring.");
       return;
     } else {
-      nextStepId = "step2";
+      document.getElementById("step2").style.display = "block";
     }
   } else if (currentStepId === "step2") {
     if (answer === "no") {
-      nextStepId = "step3";
+      document.getElementById("step3").style.display = "block";
     } else {
-      nextStepId = "step4";
+      document.getElementById("step4").style.display = "block";
     }
   } else if (currentStepId === "step3") {
     if (answer === "allowed") {
@@ -39,14 +37,14 @@ function nextStep(answer, currentStepId) {
       showResult("Sjekk emnebeskrivelse eller spør faglærer om AI-bruk er tillatt.");
       return;
     } else {
-      nextStepId = "step5";
+      document.getElementById("step5").style.display = "block";
     }
   } else if (currentStepId === "step5") {
     if (answer === "yes") {
       showResult("Ikke lever personopplysninger eller sensitiv informasjon til AI-verktøy.");
       return;
     } else {
-      nextStepId = "step6";
+      document.getElementById("step6").style.display = "block";
     }
   } else if (currentStepId === "step6") {
     if (answer === "yes") {
@@ -57,18 +55,7 @@ function nextStep(answer, currentStepId) {
       return;
     }
   }
-
-  // Vis neste steg
-  if (nextStepId) {
-    const nextStep = document.getElementById(nextStepId);
-    if (!nextStep) {
-      console.error(`Neste steg med id "${nextStepId}" ble ikke funnet.`);
-      return;
-    }
-    nextStep.style.display = "block";
-  }
 }
-
 
 function showResult(text) {
   const resultElement = document.getElementById("result");
