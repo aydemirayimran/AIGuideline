@@ -97,17 +97,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  function filterContentByRole(role) {
-    const allCards = document.querySelectorAll('.card[data-role]');
-    allCards.forEach(card => {
-      const cardRoles = card.getAttribute('data-role').split(' ');
-      if (cardRoles.includes('student') && cardRoles.includes('staff')) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = cardRoles.includes(role) ? 'block' : 'none';
-      }
-    });
-  }
+function filterContentByRole(role) {
+  const allCards = document.querySelectorAll('.card[data-role]');
+  allCards.forEach(card => {
+    const cardRoles = card.getAttribute('data-role').split(' ');
+    if (cardRoles.includes('student') && cardRoles.includes('staff')) {
+      card.style.display = 'block'; // Alltid vis felles ressurser
+    } else {
+      card.style.display = cardRoles.includes(role) ? 'block' : 'none';
+    }
+  });
+}
+
 
   // 3. Lukk mobilmeny ved klikk
   const menuLinks = document.querySelectorAll('.nav a');
