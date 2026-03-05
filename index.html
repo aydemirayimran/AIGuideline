@@ -56,28 +56,71 @@
       </p>
     </section>
 
-    <!-- Innhold for studenter -->
-    <section class="card content-student" data-role="student">
-      <h2>For studenter</h2>
-      <p>
-        Få tydelige, praktiske råd om ansvarlig AI-bruk i studier.
-        Lær hvordan du kan bruke AI som støtte uten å bryte akademiske regler.
-      </p>
-      <div class="grid">
-        <a href="tips.html" class="tile">
-          <h3><i class="fas fa-lightbulb"></i> Slik bruker du AI i oppgaveskriving</h3>
-          <p>Praktiske eksempler: Hvordan bruke AI til å finne kilder, strukturere tekst og unngå plagiat.</p>
-        </a>
-        <a href="quiz.html" class="tile">
-          <h3><i class="fas fa-clipboard-list"></i> Test din kunnskap</h3>
-          <p>Sjekk om du kan skille mellom lovlig og ulovlig AI-bruk.</p>
-        </a>
-        <a href="faq.html" class="tile">
-          <h3><i class="fas fa-question-circle"></i> Vanlige spørsmål</h3>
-          <p>Svar på det studentene lurer mest på.</p>
-        </a>
-      </div>
-    </section>
+<!-- Innhold for studenter -->
+<section class="card content-student" data-role="student">
+  <h2>For studenter</h2>
+  <p>
+    Få tydelige, praktiske råd om ansvarlig AI-bruk i studier.
+    Lær hvordan du kan bruke AI som støtte uten å bryte akademiske regler.
+  </p>
+
+  <!-- Interaktiv veiviser -->
+  <div class="ai-guide-container">
+    <h3>Veiviser for trygg og ansvarlig bruk av AI</h3>
+    <p>Følg denne veiviseren for å vurdere om og hvordan du kan bruke AI i studiene.</p>
+
+    <div class="guide-step" id="step1">
+      <p>Vurderer du å bruke AI i studiene?</p>
+      <button class="guide-btn" onclick="nextStep('yes')">Ja</button>
+      <button class="guide-btn" onclick="nextStep('no')">Nei</button>
+    </div>
+
+    <div class="guide-step" id="step2" style="display: none;">
+      <p>Skal resultatet leveres til vurdering?</p>
+      <button class="guide-btn" onclick="nextStep('yes')">Ja</button>
+      <button class="guide-btn" onclick="nextStep('no')">Nei</button>
+    </div>
+
+    <div class="guide-step" id="step3" style="display: none;">
+      <p>Hva skal AI brukes til?</p>
+      <button class="guide-btn" onclick="nextStep('allowed')">Som støtte til læring</button>
+      <button class="guide-btn" onclick="nextStep('not_allowed')">For å levere innhold uten egen bearbeidelse</button>
+    </div>
+
+    <div class="guide-step" id="step4" style="display: none;">
+      <p>Har du kontrollert om AI-bruk er tillatt i dette emnet?</p>
+      <button class="guide-btn" onclick="nextStep('yes')">Ja</button>
+      <button class="guide-btn" onclick="nextStep('no')">Nei</button>
+    </div>
+
+    <div class="guide-step" id="step5" style="display: none;">
+      <p>Inneholder innholdet personopplysninger eller sensitiv informasjon?</p>
+      <button class="guide-btn" onclick="nextStep('yes')">Ja</button>
+      <button class="guide-btn" onclick="nextStep('no')">Nei</button>
+    </div>
+
+    <div class="guide-step" id="step6" style="display: none;">
+      <p>Har du oppgitt bruk av AI der det er påkrevd?</p>
+      <button class="guide-btn" onclick="nextStep('yes')">Ja</button>
+      <button class="guide-btn" onclick="nextStep('no')">Nei</button>
+    </div>
+
+    <!-- Resultat -->
+    <div class="guide-result" id="result" style="display: none;">
+      <p id="result-text"></p>
+    </div>
+  </div>
+
+  <!-- Resten av ditt grid-innhold -->
+  <div class="grid">
+    <a href="tips.html" class="tile">
+      <h3><i class="fas fa-lightbulb"></i> Slik bruker du AI i oppgaveskriving</h3>
+      <p>Praktiske eksempler: Hvordan bruke AI til å finne kilder, strukturere tekst og unngå plagiat.</p>
+    </a>
+    <!-- Resten av ditt grid-innhold -->
+  </div>
+</section>
+
 
     <!-- Innhold for ansatte -->
     <section class="card content-staff" data-role="staff" style="display: none;">
