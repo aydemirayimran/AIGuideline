@@ -66,5 +66,113 @@ navLinks.forEach(link => {
     link.removeAttribute('aria-current');
   }
 });
+function nextStep(answer) {
+  const currentStep = document.querySelector('.guide-step:not([style*="display: none"])');
+  const currentStepId = currentStep.id;
+  const resultText = document.getElementById("result-text");
+
+  // Skjul gjeldende steg
+  currentStep.style.display = "none";
+
+  // Logikk for å bestemme neste steg eller resultat
+  if (currentStepId === "step1") {
+    if (answer === "no") {
+      showResult("Du har valgt å ikke bruke AI. Bra! Husk å vurdere AI som støtte til læring.");
+    } else {
+      document.getElementById("step2").style.display = "block";
+    }
+  } else if (currentStepId === "step2") {
+    if (answer === "no") {
+      document.getElementById("step3").style.display = "block";
+    } else {
+      document.getElementById("step4").style.display = "block";
+    }
+  } else if (currentStepId === "step3") {
+    if (answer === "allowed") {
+      showResult("AI kan brukes som støtte til læring. Husk å følge lokale retningslinjer.");
+    } else {
+      showResult("Det er ikke tillatt å levere AI-generert innhold uten egen bearbeidelse.");
+    }
+  } else if (currentStepId === "step4") {
+    if (answer === "no") {
+      showResult("Sjekk emnebeskrivelse eller spør faglærer om AI-bruk er tillatt.");
+    } else {
+      document.getElementById("step5").style.display = "block";
+    }
+  } else if (currentStepId === "step5") {
+    if (answer === "yes") {
+      showResult("Ikke lever personopplysninger eller sensitiv informasjon til AI-verktøy.");
+    } else {
+      document.getElementById("step6").style.display = "block";
+    }
+  } else if (currentStepId === "step6") {
+    if (answer === "yes") {
+      showResult("Du har fulgt retningslinjene for ansvarlig AI-bruk. Bra jobbet!");
+    } else {
+      showResult("Husk å oppgi bruk av AI der det er påkrevd.");
+    }
+  }
+}
+
+function showResult(text) {
+  const resultElement = document.getElementById("result");
+  const resultText = document.getElementById("result-text");
+  resultText.textContent = text;
+  resultElement.style.display = "block";
+}
+function nextStep(answer) {
+  const currentStep = document.querySelector('.guide-step:not([style*="display: none"])');
+  const currentStepId = currentStep.id;
+  const resultText = document.getElementById("result-text");
+
+  // Skjul gjeldende steg
+  currentStep.style.display = "none";
+
+  // Logikk for å bestemme neste steg eller resultat
+  if (currentStepId === "step1") {
+    if (answer === "no") {
+      showResult("Du har valgt å ikke bruke AI. Bra! Husk å vurdere AI som støtte til læring.");
+    } else {
+      document.getElementById("step2").style.display = "block";
+    }
+  } else if (currentStepId === "step2") {
+    if (answer === "no") {
+      document.getElementById("step3").style.display = "block";
+    } else {
+      document.getElementById("step4").style.display = "block";
+    }
+  } else if (currentStepId === "step3") {
+    if (answer === "allowed") {
+      showResult("AI kan brukes som støtte til læring. Husk å følge lokale retningslinjer.");
+    } else {
+      showResult("Det er ikke tillatt å levere AI-generert innhold uten egen bearbeidelse.");
+    }
+  } else if (currentStepId === "step4") {
+    if (answer === "no") {
+      showResult("Sjekk emnebeskrivelse eller spør faglærer om AI-bruk er tillatt.");
+    } else {
+      document.getElementById("step5").style.display = "block";
+    }
+  } else if (currentStepId === "step5") {
+    if (answer === "yes") {
+      showResult("Ikke lever personopplysninger eller sensitiv informasjon til AI-verktøy.");
+    } else {
+      document.getElementById("step6").style.display = "block";
+    }
+  } else if (currentStepId === "step6") {
+    if (answer === "yes") {
+      showResult("Du har fulgt retningslinjene for ansvarlig AI-bruk. Bra jobbet!");
+    } else {
+      showResult("Husk å oppgi bruk av AI der det er påkrevd.");
+    }
+  }
+}
+
+function showResult(text) {
+  const resultElement = document.getElementById("result");
+  const resultText = document.getElementById("result-text");
+  resultText.textContent = text;
+  resultElement.style.display = "block";
+}
 
 });
