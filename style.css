@@ -90,7 +90,7 @@ a {
   color: #ffffff;
 }
 
-/* ─── Hamburger-knapp ─── */
+/* ─── Hamburger-knapp (kun mobil) ─── */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -163,8 +163,20 @@ a {
   transform: translateX(0);
 }
 
+.side-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.side-menu-title {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--primary-color);
+}
+
 .side-menu-close {
-  align-self: flex-end;
   background: none;
   border: none;
   font-size: 20px;
@@ -173,7 +185,6 @@ a {
   padding: 4px 8px;
   border-radius: 6px;
   transition: background 0.2s;
-  margin-bottom: 20px;
 }
 
 .side-menu-close:hover {
