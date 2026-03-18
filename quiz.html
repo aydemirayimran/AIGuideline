@@ -7,77 +7,67 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
-    .quiz-options {
-      margin: 10px 0;
-    }
+    .quiz-options { margin: 10px 0; }
     .quiz-option {
-      display: block;
-      margin: 5px 0;
-      padding: 10px;
-      border: 1px solid #e0e0e0;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
+      display: block; margin: 5px 0; padding: 10px;
+      border: 1px solid #e0e0e0; border-radius: 5px;
+      cursor: pointer; transition: background-color 0.3s;
     }
-    .quiz-option:hover {
-      background-color: #f0f0f0;
-    }
-    .quiz-option.selected {
-      background-color: #e8f0f9;
-      border-color: #4a6fa5;
-    }
-    .quiz-option.correct {
-      background-color: #d4edda;
-      border-color: #28a745;
-    }
-    .quiz-option.incorrect {
-      background-color: #f8d7da;
-      border-color: #dc3545;
-    }
+    .quiz-option:hover { background-color: #f0f0f0; }
+    .quiz-option.selected { background-color: #e8f0f9; border-color: #4a6fa5; }
+    .quiz-option.correct { background-color: #d4edda; border-color: #28a745; }
+    .quiz-option.incorrect { background-color: #f8d7da; border-color: #dc3545; }
     .quiz-feedback {
-      margin-top: 10px;
-      padding: 10px;
-      border-radius: 5px;
-      display: none;
+      margin-top: 10px; padding: 10px;
+      border-radius: 5px; display: none;
     }
-    .quiz-feedback.correct {
-      background-color: #d4edda;
-      color: #28a745;
-      display: block;
-    }
-    .quiz-feedback.incorrect {
-      background-color: #f8d7da;
-      color: #dc3545;
-      display: block;
-    }
-    .quiz-navigation {
-      margin-top: 20px;
-      display: flex;
-      justify-content: space-between;
-    }
-    .reset-button {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-    }
+    .quiz-feedback.correct { background-color: #d4edda; color: #28a745; display: block; }
+    .quiz-feedback.incorrect { background-color: #f8d7da; color: #dc3545; display: block; }
+    .quiz-navigation { margin-top: 20px; display: flex; justify-content: space-between; }
+    .reset-button { margin-top: 20px; display: flex; justify-content: center; }
   </style>
 </head>
-
 <body>
+
+  <!-- Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+
   <header class="topbar">
     <div class="brand">
-      <span class="brand-title">AI Guidebook</span>
+      <a href="index.html"><span class="brand-title">AI Guidebook</span></a>
     </div>
-    <nav class="nav">
-      <button class="menu-toggle" id="menuToggle">☰</button>
-      <ul id="menu">
-        <li><a href="index.html"><i class="fas fa-home"></i> Hjem</a></li>
-        <li><a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
-        <li><a href="tips.html"><i class="fas fa-lightbulb"></i> Praktiske tips</a></li>
-        <li><a href="links.html"><i class="fas fa-link"></i> Nyttige lenker</a></li>
+    <nav class="nav" aria-label="Hovedmeny">
+      <ul class="nav-desktop">
+        <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Hjem</a></li>
+        <li><a href="faq.html" class="nav-link"><i class="fas fa-question-circle"></i> FAQ</a></li>
+        <li><a href="tips.html" class="nav-link"><i class="fas fa-lightbulb"></i> Praktiske tips</a></li>
+        <li><a href="quiz.html" class="nav-link active"><i class="fas fa-clipboard-list"></i> Test deg selv</a></li>
+        <li><a href="links.html" class="nav-link"><i class="fas fa-link"></i> Nyttige lenker</a></li>
+        <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Kontakt</a></li>
       </ul>
+      <button class="menu-toggle" aria-label="Åpne meny" id="menuToggle">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
     </nav>
   </header>
+
+  <!-- Slide-in sidemeny -->
+  <aside class="side-menu" id="sideMenu" aria-hidden="true">
+    <div class="side-menu-header">
+      <span class="side-menu-title">Meny</span>
+      <button class="side-menu-close" id="menuClose" aria-label="Lukk meny">✕</button>
+    </div>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Hjem</a></li>
+      <li><a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
+      <li><a href="tips.html"><i class="fas fa-lightbulb"></i> Praktiske tips</a></li>
+      <li><a href="quiz.html" class="active"><i class="fas fa-clipboard-list"></i> Test deg selv</a></li>
+      <li><a href="links.html"><i class="fas fa-link"></i> Nyttige lenker</a></li>
+      <li><a href="contact.html"><i class="fas fa-envelope"></i> Kontakt</a></li>
+    </ul>
+  </aside>
 
   <main class="container">
     <section class="card">
@@ -185,7 +175,7 @@
   </main>
 
   <footer class="footer">
-    <p>Utviklet av Gruppe 5 - Praktisk prosjektarbeid -Vår 2026</p>
+    <p>Utviklet av Gruppe 5 – Praktisk prosjektarbeid – Vår 2026</p>
   </footer>
 
   <script>
@@ -196,13 +186,8 @@
       const options = element.parentElement.querySelectorAll('.quiz-option');
       const feedbackElement = document.getElementById(`feedback${questionId.charAt(questionId.length - 1)}`);
       const isCorrect = element.getAttribute('data-correct') === 'true';
-
-      options.forEach(option => {
-        option.classList.remove('selected', 'correct', 'incorrect');
-      });
-
+      options.forEach(option => option.classList.remove('selected', 'correct', 'incorrect'));
       element.classList.add('selected');
-
       if (isCorrect) {
         element.classList.add('correct');
         feedbackElement.textContent = 'Riktig!';
@@ -211,11 +196,8 @@
         element.classList.add('incorrect');
         feedbackElement.textContent = 'Feil. Prøv igjen!';
         feedbackElement.className = 'quiz-feedback incorrect';
-
         options.forEach(option => {
-          if (option.getAttribute('data-correct') === 'true') {
-            option.classList.add('correct');
-          }
+          if (option.getAttribute('data-correct') === 'true') option.classList.add('correct');
         });
       }
     }
@@ -226,7 +208,6 @@
         currentQuestion++;
         document.getElementById(`question${currentQuestion}`).style.display = 'block';
       }
-
       updateNavigationButtons();
     }
 
@@ -236,7 +217,6 @@
         currentQuestion--;
         document.getElementById(`question${currentQuestion}`).style.display = 'block';
       }
-
       updateNavigationButtons();
     }
 
@@ -244,8 +224,7 @@
       currentQuestion = 1;
       for (let i = 1; i <= totalQuestions; i++) {
         document.getElementById(`question${i}`).style.display = i === 1 ? 'block' : 'none';
-        const options = document.querySelectorAll(`#question${i} .quiz-option`);
-        options.forEach(option => {
+        document.querySelectorAll(`#question${i} .quiz-option`).forEach(option => {
           option.classList.remove('selected', 'correct', 'incorrect');
         });
         const feedbackElement = document.getElementById(`feedback${i}`);
@@ -259,13 +238,10 @@
     }
 
     function updateNavigationButtons() {
-      const prevButton = document.getElementById('prevButton');
-      const nextButton = document.getElementById('nextButton');
-
-      prevButton.disabled = currentQuestion === 1;
-      nextButton.textContent = currentQuestion === totalQuestions ? 'Fullført' : 'Neste';
+      document.getElementById('prevButton').disabled = currentQuestion === 1;
+      document.getElementById('nextButton').textContent = currentQuestion === totalQuestions ? 'Fullført' : 'Neste';
     }
   </script>
-   <script src="app.js" defer></script>
+  <script src="app.js" defer></script>
 </body>
 </html>
