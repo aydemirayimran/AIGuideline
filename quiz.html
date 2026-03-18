@@ -273,6 +273,17 @@
       a: { current: 1, total: 8, prefix: 'aq', feedbackPrefix: 'afeedback', prevBtn: 'aPrevBtn', nextBtn: 'aNextBtn' }
     };
 
+    // Les rolle fra URL automatisk
+    function initRole() {
+      const params = new URLSearchParams(window.location.search);
+      const rolle = params.get('rolle');
+      if (rolle === 'ansatt') {
+        setRole('staff');
+      } else {
+        setRole('student');
+      }
+    }
+
     function setRole(role) {
       document.getElementById('roleStudent').classList.toggle('active', role === 'student');
       document.getElementById('roleStaff').classList.toggle('active', role === 'staff');
@@ -339,5 +350,6 @@
     }
   </script>
   <script src="app.js" defer></script>
+  <script>document.addEventListener('DOMContentLoaded', initRole);</script>
 </body>
 </html>
