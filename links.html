@@ -7,12 +7,10 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
-    .links-container {
-      margin: 2rem 0;
-    }
+    .links-container { margin: 2rem 0; }
 
     .link-category {
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
       border: 1px solid var(--border-color);
       border-radius: 8px;
       overflow: hidden;
@@ -26,6 +24,11 @@
       justify-content: space-between;
       align-items: center;
       font-weight: 600;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-size: 1rem;
+      font-family: inherit;
     }
 
     .category-header:hover {
@@ -41,7 +44,7 @@
 
     .category-content.active {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 1rem;
     }
 
@@ -51,10 +54,12 @@
       padding: 1rem;
       transition: transform 0.2s, box-shadow 0.2s;
       background-color: white;
+      display: flex;
+      flex-direction: column;
     }
 
     .link-item:hover {
-      transform: translateY(-5px);
+      transform: translateY(-3px);
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 
@@ -71,13 +76,15 @@
       color: var(--text-light);
       margin-bottom: 1rem;
       font-size: 0.9rem;
+      flex: 1;
     }
 
     .link-url {
       display: block;
-      color: var(--secondary-color);
+      color: var(--text-light);
       font-size: 0.8rem;
       word-break: break-all;
+      margin-top: 0.25rem;
     }
 
     .visit-button {
@@ -91,37 +98,60 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-family: inherit;
+      transition: background-color 0.2s;
+      align-self: flex-start;
     }
 
-    .visit-button:hover {
-      background-color: var(--secondary-color);
-    }
+    .visit-button:hover { background-color: var(--secondary-color); }
 
-    .tip-icon {
-      transition: transform 0.3s;
-    }
-
-    .tip-icon.open {
-      transform: rotate(180deg);
-    }
+    .tip-icon { transition: transform 0.3s; }
+    .tip-icon.open { transform: rotate(180deg); }
   </style>
 </head>
-
 <body>
+
+  <!-- Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+
   <header class="topbar">
     <div class="brand">
-      <span class="brand-title">AI Guidebook</span>
+      <a href="index.html"><span class="brand-title">AI Guidebook</span></a>
     </div>
     <nav class="nav" aria-label="Hovedmeny">
-      <button class="menu-toggle" aria-label="Åpne meny" id="menuToggle" aria-expanded="false">☰</button>
-      <ul id="menu">
-        <li><a href="index.html"><i class="fas fa-home"></i> Hjem</a></li>
-        <li><a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
-        <li><a href="tips.html"><i class="fas fa-lightbulb"></i> Praktiske tips</a></li>
-        <li><a href="quiz.html"><i class="fas fa-clipboard-list"></i> Test deg selv</a></li>
+      <ul class="nav-desktop">
+        <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Hjem</a></li>
+        <li><a href="faq.html" class="nav-link"><i class="fas fa-question-circle"></i> FAQ</a></li>
+        <li><a href="tips.html" class="nav-link"><i class="fas fa-lightbulb"></i> Praktiske tips</a></li>
+        <li><a href="quiz.html" class="nav-link"><i class="fas fa-clipboard-list"></i> Test deg selv</a></li>
+        <li><a href="links.html" class="nav-link active"><i class="fas fa-link"></i> Nyttige lenker</a></li>
+        <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Kontakt</a></li>
       </ul>
+      <button class="menu-toggle" aria-label="Åpne meny" id="menuToggle">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
     </nav>
   </header>
+
+  <!-- Slide-in sidemeny -->
+  <aside class="side-menu" id="sideMenu" aria-hidden="true">
+    <div class="side-menu-header">
+      <span class="side-menu-title">Meny</span>
+      <button class="side-menu-close" id="menuClose" aria-label="Lukk meny">✕</button>
+    </div>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Hjem</a></li>
+      <li><a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
+      <li><a href="tips.html"><i class="fas fa-lightbulb"></i> Praktiske tips</a></li>
+      <li><a href="quiz.html"><i class="fas fa-clipboard-list"></i> Test deg selv</a></li>
+      <li><a href="links.html" class="active"><i class="fas fa-link"></i> Nyttige lenker</a></li>
+      <li><a href="contact.html"><i class="fas fa-envelope"></i> Kontakt</a></li>
+    </ul>
+  </aside>
 
   <main class="container">
     <section class="card">
@@ -130,167 +160,123 @@
     </section>
 
     <section class="card links-container">
+
       <div class="link-category">
-        <div class="category-header" onclick="toggleCategory(this)">
+        <button class="category-header" onclick="toggleCategory(this)">
           <span>KI-verktøy</span>
           <i class="fas fa-chevron-down tip-icon"></i>
-        </div>
+        </button>
         <div class="category-content">
           <div class="link-item">
-            <div class="link-title">
-              <i class="fas fa-robot"></i>
-              <span>OpenAI</span>
-            </div>
+            <div class="link-title"><i class="fas fa-robot"></i><span>OpenAI</span></div>
             <div class="link-description">Offisiell nettside for ChatGPT og andre AI-verktøy.</div>
-            <a href="https://www.openai.com/" target="_blank" class="visit-button">
-              <i class="fas fa-external-link-alt"></i>
-              Besøk nettside
+            <a href="https://www.openai.com/" target="_blank" rel="noopener" class="visit-button">
+              <i class="fas fa-external-link-alt"></i> Besøk nettside
             </a>
-            <span class="link-url">https://www.openai.com/</span>
+            <span class="link-url">openai.com</span>
           </div>
-
           <div class="link-item">
-            <div class="link-title">
-              <i class="fas fa-search"></i>
-              <span>Søk & Skriv - KI</span>
-            </div>
-            <div class="link-description">Ressurser og veiledning om bruk av KI i akademisk skriving fra Søk & Skriv.</div>
-            <a href="https://www.sokogskriv.no/kunstig-intelligens/" target="_blank" class="visit-button">
-              <i class="fas fa-external-link-alt"></i>
-              Besøk nettside
+            <div class="link-title"><i class="fas fa-search"></i><span>Søk & Skriv – KI</span></div>
+            <div class="link-description">Ressurser og veiledning om bruk av KI i akademisk skriving.</div>
+            <a href="https://www.sokogskriv.no/kunstig-intelligens/" target="_blank" rel="noopener" class="visit-button">
+              <i class="fas fa-external-link-alt"></i> Besøk nettside
             </a>
-            <span class="link-url">https://www.sokogskriv.no/kunstig-intelligens/</span>
+            <span class="link-url">sokogskriv.no</span>
           </div>
-
           <div class="link-item">
-            <div class="link-title">
-              <i class="fas fa-book"></i>
-              <span>Søk & Skriv - Frasebank</span>
-            </div>
+            <div class="link-title"><i class="fas fa-book"></i><span>Søk & Skriv – Frasebank</span></div>
             <div class="link-description">Frasebank med nyttige uttrykk for akademisk skriving.</div>
-            <a href="https://www.sokogskriv.no/frasebank/" target="_blank" class="visit-button">
-              <i class="fas fa-external-link-alt"></i>
-              Besøk nettside
+            <a href="https://www.sokogskriv.no/frasebank/" target="_blank" rel="noopener" class="visit-button">
+              <i class="fas fa-external-link-alt"></i> Besøk nettside
             </a>
-            <span class="link-url">https://www.sokogskriv.no/frasebank/</span>
+            <span class="link-url">sokogskriv.no</span>
           </div>
         </div>
       </div>
 
       <div class="link-category">
-        <div class="category-header" onclick="toggleCategory(this)">
+        <button class="category-header" onclick="toggleCategory(this)">
           <span>Akademisk integritet</span>
           <i class="fas fa-chevron-down tip-icon"></i>
-        </div>
+        </button>
         <div class="category-content">
           <div class="link-item">
-            <div class="link-title">
-              <i class="fas fa-scale-balanced"></i>
-              <span>Plagiarism.org</span>
-            </div>
+            <div class="link-title"><i class="fas fa-balance-scale"></i><span>Plagiarism.org</span></div>
             <div class="link-description">Lær om akademisk integritet og hvordan du unngår plagiering.</div>
-            <a href="https://www.plagiarism.org/" target="_blank" class="visit-button">
-              <i class="fas fa-external-link-alt"></i>
-              Besøk nettside
+            <a href="https://www.plagiarism.org/" target="_blank" rel="noopener" class="visit-button">
+              <i class="fas fa-external-link-alt"></i> Besøk nettside
             </a>
-            <span class="link-url">https://www.plagiarism.org/</span>
+            <span class="link-url">plagiarism.org</span>
           </div>
-
           <div class="link-item">
-            <div class="link-title">
-              <i class="fas fa-search"></i>
-              <span>AI Content Detector</span>
-            </div>
+            <div class="link-title"><i class="fas fa-search"></i><span>AI Content Detector</span></div>
             <div class="link-description">Verktøy for å sjekke om tekst er KI-generert.</div>
-            <a href="https://www.grammarly.com/ai-detector" target="_blank" class="visit-button">
-              <i class="fas fa-external-link-alt"></i>
-              Besøk nettside
+            <a href="https://www.grammarly.com/ai-detector" target="_blank" rel="noopener" class="visit-button">
+              <i class="fas fa-external-link-alt"></i> Besøk nettside
             </a>
-            <span class="link-url">https://www.grammarly.com/ai-detector</span>
+            <span class="link-url">grammarly.com</span>
           </div>
         </div>
       </div>
 
       <div class="link-category">
-        <div class="category-header" onclick="toggleCategory(this)">
+        <button class="category-header" onclick="toggleCategory(this)">
           <span>Offisielle retningslinjer</span>
           <i class="fas fa-chevron-down tip-icon"></i>
-        </div>
+        </button>
         <div class="category-content">
           <div class="link-item">
-            <div class="link-title">
-              <i class="fas fa-university"></i>
-              <span>USN retningslinjer</span>
-            </div>
+            <div class="link-title"><i class="fas fa-university"></i><span>USN retningslinjer</span></div>
             <div class="link-description">Offisielle retningslinjer for bruk av KI i studier ved USN.</div>
-            <a href="https://www.usn.no/" target="_blank" class="visit-button">
-              <i class="fas fa-external-link-alt"></i>
-              Besøk nettside
+            <a href="https://www.usn.no/" target="_blank" rel="noopener" class="visit-button">
+              <i class="fas fa-external-link-alt"></i> Besøk nettside
             </a>
-            <span class="link-url">https://www.usn.no/</span>
+            <span class="link-url">usn.no</span>
           </div>
-
           <div class="link-item">
-            <div class="link-title">
-              <i class="fas fa-government"></i>
-              <span>Regjeringen.no - KI</span>
-            </div>
+            <div class="link-title"><i class="fas fa-landmark"></i><span>Regjeringen.no – KI</span></div>
             <div class="link-description">Offisielle dokumenter og strategier for kunstig intelligens fra regjeringen.</div>
-            <a href="https://www.regjeringen.no/no/tema/teknologi-og-innovasjon/kunstig-intelligens/id2853002/" target="_blank" class="visit-button">
-              <i class="fas fa-external-link-alt"></i>
-              Besøk nettside
+            <a href="https://www.regjeringen.no/no/tema/teknologi-og-innovasjon/kunstig-intelligens/id2853002/" target="_blank" rel="noopener" class="visit-button">
+              <i class="fas fa-external-link-alt"></i> Besøk nettside
             </a>
-            <span class="link-url">https://www.regjeringen.no/no/tema/teknologi-og-innovasjon/kunstig-intelligens/</span>
+            <span class="link-url">regjeringen.no</span>
           </div>
-
           <div class="link-item">
-            <div class="link-title">
-              <i class="fas fa-digital-tachograph"></i>
-              <span>Digitaliseringsdirektoratet</span>
-            </div>
-            <div class="link-description">Retningslinjer og ressurser for digitalisering og KI fra Digitaliseringsdirektoratet.</div>
-            <a href="https://www.digdir.no/" target="_blank" class="visit-button">
-              <i class="fas fa-external-link-alt"></i>
-              Besøk nettside
+            <div class="link-title"><i class="fas fa-laptop-code"></i><span>Digitaliseringsdirektoratet</span></div>
+            <div class="link-description">Retningslinjer og ressurser for digitalisering og KI.</div>
+            <a href="https://www.digdir.no/" target="_blank" rel="noopener" class="visit-button">
+              <i class="fas fa-external-link-alt"></i> Besøk nettside
             </a>
-            <span class="link-url">https://www.digdir.no/</span>
+            <span class="link-url">digdir.no</span>
           </div>
         </div>
       </div>
 
       <div class="link-category">
-        <div class="category-header" onclick="toggleCategory(this)">
+        <button class="category-header" onclick="toggleCategory(this)">
           <span>Læringsressurser</span>
           <i class="fas fa-chevron-down tip-icon"></i>
-        </div>
+        </button>
         <div class="category-content">
           <div class="link-item">
-            <div class="link-title">
-              <i class="fas fa-graduation-cap"></i>
-              <span>Coursera</span>
-            </div>
+            <div class="link-title"><i class="fas fa-graduation-cap"></i><span>Coursera</span></div>
             <div class="link-description">Kurs om kunstig intelligens og etikk i teknologi.</div>
-            <a href="https://www.coursera.org/" target="_blank" class="visit-button">
-              <i class="fas fa-external-link-alt"></i>
-              Besøk nettside
+            <a href="https://www.coursera.org/" target="_blank" rel="noopener" class="visit-button">
+              <i class="fas fa-external-link-alt"></i> Besøk nettside
             </a>
-            <span class="link-url">https://www.coursera.org/</span>
+            <span class="link-url">coursera.org</span>
           </div>
-
           <div class="link-item">
-            <div class="link-title">
-              <i class="fas fa-school"></i>
-              <span>Google for Education</span>
-            </div>
+            <div class="link-title"><i class="fas fa-school"></i><span>Google for Education</span></div>
             <div class="link-description">Verktøy og ressurser for studenter og lærere.</div>
-            <a href="https://edu.google.com/" target="_blank" class="visit-button">
-              <i class="fas fa-external-link-alt"></i>
-              Besøk nettside
+            <a href="https://edu.google.com/" target="_blank" rel="noopener" class="visit-button">
+              <i class="fas fa-external-link-alt"></i> Besøk nettside
             </a>
-            <span class="link-url">https://edu.google.com/</span>
+            <span class="link-url">edu.google.com</span>
           </div>
         </div>
       </div>
+
     </section>
   </main>
 
@@ -308,20 +294,13 @@
         content.classList.remove('active');
         icon.classList.remove('open');
       } else {
-        // Close all other categories
-        document.querySelectorAll('.category-content').forEach(item => {
-          item.classList.remove('active');
-        });
-        document.querySelectorAll('.tip-icon').forEach(item => {
-          item.classList.remove('open');
-        });
-
-        // Open the clicked category
+        document.querySelectorAll('.category-content').forEach(item => item.classList.remove('active'));
+        document.querySelectorAll('.tip-icon').forEach(item => item.classList.remove('open'));
         content.classList.add('active');
         icon.classList.add('open');
       }
     }
   </script>
-   <script src="app.js" defer></script>
+  <script src="app.js" defer></script>
 </body>
 </html>
