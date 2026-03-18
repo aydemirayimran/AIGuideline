@@ -3,16 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kontakt oss - AI Guidebook</title>
+  <title>Kontakt oss – AI Guidebook</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
-    .contact-container {
-      margin: 2rem 0;
-    }
+    .contact-container { margin: 2rem 0; }
 
     .contact-method {
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
       border: 1px solid var(--border-color);
       border-radius: 8px;
       overflow: hidden;
@@ -26,6 +24,11 @@
       justify-content: space-between;
       align-items: center;
       font-weight: 600;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-size: 1rem;
+      font-family: inherit;
     }
 
     .method-header:hover {
@@ -39,13 +42,9 @@
       background-color: var(--card-bg);
     }
 
-    .method-content.active {
-      display: block;
-    }
+    .method-content.active { display: block; }
 
-    .contact-info {
-      margin: 1rem 0;
-    }
+    .contact-info { margin: 1rem 0; }
 
     .contact-info p {
       margin: 0.75rem 0;
@@ -59,13 +58,9 @@
       text-decoration: none;
     }
 
-    .contact-form {
-      margin-top: 1rem;
-    }
+    .contact-form { margin-top: 1rem; }
 
-    .form-group {
-      margin-bottom: 1rem;
-    }
+    .form-group { margin-bottom: 1rem; }
 
     .form-group label {
       display: block;
@@ -81,6 +76,7 @@
       border: 1px solid var(--border-color);
       border-radius: 4px;
       font-size: 1rem;
+      font-family: inherit;
     }
 
     .form-group textarea {
@@ -100,17 +96,10 @@
       transition: background-color 0.3s;
     }
 
-    .submit-button:hover {
-      background-color: var(--secondary-color);
-    }
+    .submit-button:hover { background-color: var(--secondary-color); }
 
-    .tip-icon {
-      transition: transform 0.3s;
-    }
-
-    .tip-icon.open {
-      transform: rotate(180deg);
-    }
+    .tip-icon { transition: transform 0.3s; }
+    .tip-icon.open { transform: rotate(180deg); }
 
     .success-message {
       display: none;
@@ -122,19 +111,47 @@
     }
   </style>
 </head>
-
 <body>
+
+  <!-- Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+
   <header class="topbar">
     <div class="brand">
-      <span class="brand-title">AI Guidebook</span>
+      <a href="index.html"><span class="brand-title">AI Guidebook</span></a>
     </div>
-    <nav class="nav">
-      <button class="menu-toggle" id="menuToggle">☰</button>
-      <ul id="menu">
-        <li><a href="index.html"><i class="fas fa-home"></i> Hjem</a></li>
+    <nav class="nav" aria-label="Hovedmeny">
+      <ul class="nav-desktop">
+        <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Hjem</a></li>
+        <li><a href="faq.html" class="nav-link"><i class="fas fa-question-circle"></i> FAQ</a></li>
+        <li><a href="tips.html" class="nav-link"><i class="fas fa-lightbulb"></i> Praktiske tips</a></li>
+        <li><a href="quiz.html" class="nav-link"><i class="fas fa-clipboard-list"></i> Test deg selv</a></li>
+        <li><a href="links.html" class="nav-link"><i class="fas fa-link"></i> Nyttige lenker</a></li>
+        <li><a href="contact.html" class="nav-link active"><i class="fas fa-envelope"></i> Kontakt</a></li>
       </ul>
+      <button class="menu-toggle" aria-label="Åpne meny" id="menuToggle">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
     </nav>
   </header>
+
+  <!-- Slide-in sidemeny -->
+  <aside class="side-menu" id="sideMenu" aria-hidden="true">
+    <div class="side-menu-header">
+      <span class="side-menu-title">Meny</span>
+      <button class="side-menu-close" id="menuClose" aria-label="Lukk meny">✕</button>
+    </div>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Hjem</a></li>
+      <li><a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
+      <li><a href="tips.html"><i class="fas fa-lightbulb"></i> Praktiske tips</a></li>
+      <li><a href="quiz.html"><i class="fas fa-clipboard-list"></i> Test deg selv</a></li>
+      <li><a href="links.html"><i class="fas fa-link"></i> Nyttige lenker</a></li>
+      <li><a href="contact.html" class="active"><i class="fas fa-envelope"></i> Kontakt</a></li>
+    </ul>
+  </aside>
 
   <main class="container">
     <section class="hero card">
@@ -147,48 +164,46 @@
 
     <section class="card contact-container">
       <div class="contact-method">
-        <div class="method-header" onclick="toggleMethod(this)">
+        <button class="method-header" onclick="toggleMethod(this)">
           <span><i class="fas fa-envelope"></i> E-post</span>
           <i class="fas fa-chevron-down tip-icon"></i>
-        </div>
+        </button>
         <div class="method-content">
           <div class="contact-info">
             <p><i class="fas fa-envelope"></i> <a href="mailto:ai-guidebook@institusjon.no">ai-guidebook@institusjon.no</a></p>
-            <p><i class="fas fa-clock"></i> Svarstid: 1-2 virkedager</p>
+            <p><i class="fas fa-clock"></i> Svarstid: 1–2 virkedager</p>
           </div>
         </div>
       </div>
 
       <div class="contact-method">
-        <div class="method-header" onclick="toggleMethod(this)">
+        <button class="method-header" onclick="toggleMethod(this)">
           <span><i class="fas fa-phone"></i> Telefon</span>
           <i class="fas fa-chevron-down tip-icon"></i>
-        </div>
+        </button>
         <div class="method-content">
           <div class="contact-info">
             <p><i class="fas fa-phone"></i> +47 12 34 56 78</p>
-            <p><i class="fas fa-clock"></i> Åpningstider: Mandag-Fredag 09:00-15:00</p>
+            <p><i class="fas fa-clock"></i> Åpningstider: Mandag–Fredag 09:00–15:00</p>
           </div>
         </div>
       </div>
 
       <div class="contact-method">
-        <div class="method-header" onclick="toggleMethod(this)">
-          <span><i class="fas fa-comment-dots"></i> Kontakt-skjema</span>
+        <button class="method-header" onclick="toggleMethod(this)">
+          <span><i class="fas fa-comment-dots"></i> Kontaktskjema</span>
           <i class="fas fa-chevron-down tip-icon"></i>
-        </div>
+        </button>
         <div class="method-content">
           <form id="contactForm" class="contact-form">
             <div class="form-group">
               <label for="name">Navn:</label>
-              <input type="text" id="name" name="name" required>
+              <input type="text" id="name" name="name" required />
             </div>
-
             <div class="form-group">
               <label for="email">E-post:</label>
-              <input type="email" id="email" name="email" required>
+              <input type="email" id="email" name="email" required />
             </div>
-
             <div class="form-group">
               <label for="subject">Emne:</label>
               <select id="subject" name="subject" required>
@@ -199,12 +214,10 @@
                 <option value="annet">Annet</option>
               </select>
             </div>
-
             <div class="form-group">
               <label for="message">Melding:</label>
               <textarea id="message" name="message" required></textarea>
             </div>
-
             <button type="submit" class="submit-button">Send melding</button>
           </form>
           <div id="successMessage" class="success-message">
@@ -214,19 +227,26 @@
       </div>
 
       <div class="contact-method">
-        <div class="method-header" onclick="toggleMethod(this)">
+        <button class="method-header" onclick="toggleMethod(this)">
           <span><i class="fas fa-map-marker-alt"></i> Besøk oss</span>
           <i class="fas fa-chevron-down tip-icon"></i>
-        </div>
+        </button>
         <div class="method-content">
           <div class="contact-info">
             <p><i class="fas fa-university"></i> Universitetet i Sørøst-Norge</p>
             <p><i class="fas fa-map-marked-alt"></i> Campus Kongsberg, Kjølnes ring 56, 3611 Kongsberg</p>
             <p><i class="fas fa-building"></i> Bygg A, 3. etasje, rom A305</p>
-            <p><i class="fas fa-clock"></i> Åpningstider: Mandag-Fredag 09:00-15:00</p>
+            <p><i class="fas fa-clock"></i> Åpningstider: Mandag–Fredag 09:00–15:00</p>
           </div>
           <div style="margin-top: 1rem;">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2003.633694633393!2d9.65371131583252!3d59.67151998168263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4640e4d5a9d3d311%3A0x400f9a0968e8f!2sUniversity%20of%20South-Eastern%20Norway!5e0!3m2!1sen!2sno!4v1618700000000!5m2!1sen!2sno" width="100%" height="300" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2003.633694633393!2d9.65371131583252!3d59.67151998168263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4640e4d5a9d3d311%3A0x400f9a0968e8f!2sUniversity%20of%20South-Eastern%20Norway!5e0!3m2!1sen!2sno!4v1618700000000!5m2!1sen!2sno"
+              width="100%" height="300"
+              style="border:0; border-radius: 8px;"
+              allowfullscreen=""
+              loading="lazy"
+              title="Kart over USN Campus Kongsberg">
+            </iframe>
           </div>
         </div>
       </div>
@@ -247,15 +267,8 @@
         content.classList.remove('active');
         icon.classList.remove('open');
       } else {
-        // Close all other methods
-        document.querySelectorAll('.method-content').forEach(item => {
-          item.classList.remove('active');
-        });
-        document.querySelectorAll('.tip-icon').forEach(item => {
-          item.classList.remove('open');
-        });
-
-        // Open the clicked method
+        document.querySelectorAll('.method-content').forEach(item => item.classList.remove('active'));
+        document.querySelectorAll('.tip-icon').forEach(item => item.classList.remove('open'));
         content.classList.add('active');
         icon.classList.add('open');
       }
@@ -263,13 +276,9 @@
 
     document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
-
-      // Simulate form submission
       setTimeout(function() {
         document.getElementById('contactForm').style.display = 'none';
         document.getElementById('successMessage').style.display = 'block';
-
-        // Reset form after 5 seconds
         setTimeout(function() {
           document.getElementById('contactForm').reset();
           document.getElementById('contactForm').style.display = 'block';
@@ -278,6 +287,6 @@
       }, 1000);
     });
   </script>
-   <script src="app.js" defer></script>
+  <script src="app.js" defer></script>
 </body>
 </html>
