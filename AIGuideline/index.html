@@ -8,23 +8,41 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+
+  <!-- Overlay for slide-in meny -->
+  <div class="nav-overlay" id="navOverlay"></div>
+
   <header class="topbar">
     <div class="brand">
       <span class="brand-title">AI Guidebook</span>
     </div>
     <nav class="nav" aria-label="Hovedmeny">
-      <button class="menu-toggle" aria-label="Åpne meny" id="menuToggle">☰</button>
-      <ul id="menu">
-       
-        <li><a href="contact.html"><i class="fas fa-envelope"></i> Kontakt</a></li>
-         <li><a href="index.html" aria-current="page"><i class="fas fa-home"></i> Hjem</a></li>
-      <li><a href="faq.html" aria-current="page"><i class="fas fa-question-circle"></i> FAQ</a></li>
-      <li><a href="tips.html"><i class="fas fa-lightbulb"></i> Praktiske tips</a></li>
-      <li><a href="quiz.html"><i class="fas fa-clipboard-list"></i> Test deg selv</a></li>
-      <li><a href="links.html"><i class="fas fa-link"></i> Nyttige lenker</a></li>
+      <!-- Desktop-meny -->
+      <ul class="nav-desktop">
+        <li><a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Hjem</a></li>
+        <li><a href="faq.html" class="nav-link"><i class="fas fa-question-circle"></i> FAQ</a></li>
+        <li><a href="links.html" class="nav-link"><i class="fas fa-link"></i> Nyttige lenker</a></li>
+        <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Kontakt</a></li>
       </ul>
+      <!-- Hamburger-knapp (kun mobil) -->
+      <button class="menu-toggle" aria-label="Åpne meny" id="menuToggle">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
     </nav>
   </header>
+
+  <!-- Slide-in sidemeny (mobil) -->
+  <aside class="side-menu" id="sideMenu" aria-hidden="true">
+    <button class="side-menu-close" id="menuClose" aria-label="Lukk meny">✕</button>
+    <ul>
+      <li><a href="index.html" class="active"><i class="fas fa-home"></i> Hjem</a></li>
+      <li><a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
+      <li><a href="links.html"><i class="fas fa-link"></i> Nyttige lenker</a></li>
+      <li><a href="contact.html"><i class="fas fa-envelope"></i> Kontakt</a></li>
+    </ul>
+  </aside>
 
   <main class="container">
     <section class="hero card">
