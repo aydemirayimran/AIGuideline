@@ -3,128 +3,40 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nyttige lenker – AI Guidebook</title>
+  <title>Nyttige lenker – KI-veileder for studenter</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     .links-container { margin: 2rem 0; }
-
-    .link-category {
-      margin-bottom: 1rem;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .category-header {
-      background-color: var(--primary-light);
-      padding: 1rem;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: 600;
-      border: none;
-      width: 100%;
-      text-align: left;
-      font-size: 1rem;
-      font-family: inherit;
-    }
-
-    .category-header:hover {
-      background-color: var(--primary-color);
-      color: white;
-    }
-
-    .category-content {
-      display: none;
-      padding: 1rem;
-      background-color: var(--card-bg);
-    }
-
-    .category-content.active {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1rem;
-    }
-
-    .link-item {
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 1rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-      background-color: white;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .link-item:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .link-title {
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: var(--primary-color);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .link-description {
-      color: var(--text-light);
-      margin-bottom: 1rem;
-      font-size: 0.9rem;
-      flex: 1;
-    }
-
-    .link-url {
-      display: block;
-      color: var(--text-light);
-      font-size: 0.8rem;
-      word-break: break-all;
-      margin-top: 0.25rem;
-    }
-
-    .visit-button {
-      background-color: var(--primary-color);
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-top: 0.5rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-family: inherit;
-      transition: background-color 0.2s;
-      align-self: flex-start;
-    }
-
+    .link-category { margin-bottom: 1rem; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; }
+    .category-header { background-color: var(--primary-light); padding: 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; border: none; width: 100%; text-align: left; font-size: 1rem; font-family: inherit; }
+    .category-header:hover { background-color: var(--primary-color); color: white; }
+    .category-content { display: none; padding: 1rem; background-color: var(--card-bg); }
+    .category-content.active { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .link-item { border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; transition: transform 0.2s, box-shadow 0.2s; background-color: white; display: flex; flex-direction: column; }
+    .link-item:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .link-title { font-weight: 600; margin-bottom: 0.5rem; color: var(--primary-color); display: flex; align-items: center; gap: 0.5rem; }
+    .link-description { color: var(--text-light); margin-bottom: 1rem; font-size: 0.9rem; flex: 1; }
+    .link-url { display: block; color: var(--text-light); font-size: 0.8rem; word-break: break-all; margin-top: 0.25rem; }
+    .visit-button { background-color: var(--primary-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; margin-top: 0.5rem; display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; font-size: 0.9rem; font-family: inherit; transition: background-color 0.2s; align-self: flex-start; }
     .visit-button:hover { background-color: var(--secondary-color); }
-
     .tip-icon { transition: transform 0.3s; }
     .tip-icon.open { transform: rotate(180deg); }
   </style>
 </head>
 <body>
 
-  <!-- Overlay -->
   <div class="nav-overlay" id="navOverlay"></div>
 
   <header class="topbar">
     <div class="brand">
-      <a href="index.html"><span class="brand-title">AI Guidebook</span></a>
+      <a href="index.html"><span class="brand-title">KI-veileder for studenter</span></a>
     </div>
     <nav class="nav" aria-label="Hovedmeny">
       <ul class="nav-desktop">
         <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Hjem</a></li>
         <li><a href="faq.html" class="nav-link"><i class="fas fa-question-circle"></i> FAQ</a></li>
-        <li><a href="tips.html" class="nav-link"><i class="fas fa-lightbulb"></i> Praktiske tips</a></li>
+        <li><a href="tips.html" class="nav-link"><i class="fas fa-lightbulb"></i> Spørsmål til KI</a></li>
         <li><a href="quiz.html" class="nav-link"><i class="fas fa-clipboard-list"></i> Test deg selv</a></li>
         <li><a href="links.html" class="nav-link active"><i class="fas fa-link"></i> Nyttige lenker</a></li>
         <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Kontakt</a></li>
@@ -137,7 +49,6 @@
     </nav>
   </header>
 
-  <!-- Slide-in sidemeny -->
   <aside class="side-menu" id="sideMenu" aria-hidden="true">
     <div class="side-menu-header">
       <span class="side-menu-title">Meny</span>
@@ -146,7 +57,7 @@
     <ul>
       <li><a href="index.html"><i class="fas fa-home"></i> Hjem</a></li>
       <li><a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
-      <li><a href="tips.html"><i class="fas fa-lightbulb"></i> Praktiske tips</a></li>
+      <li><a href="tips.html"><i class="fas fa-lightbulb"></i> Spørsmål til KI</a></li>
       <li><a href="quiz.html"><i class="fas fa-clipboard-list"></i> Test deg selv</a></li>
       <li><a href="links.html" class="active"><i class="fas fa-link"></i> Nyttige lenker</a></li>
       <li><a href="contact.html"><i class="fas fa-envelope"></i> Kontakt</a></li>
@@ -156,36 +67,61 @@
   <main class="container">
     <section class="card">
       <h1><i class="fas fa-link"></i> Nyttige lenker</h1>
-      <p class="lead">Her finner du en samling av nyttige ressurser og verktøy for ansvarlig bruk av KI i studiene.</p>
+      <p class="lead">Her finner du en samling ressurser og verktøy for ansvarlig bruk av KI i studiene.</p>
     </section>
 
     <section class="card links-container">
 
       <div class="link-category">
         <button class="category-header" onclick="toggleCategory(this)">
-          <span>KI-verktøy</span>
+          <span><i class="fas fa-robot" style="margin-right:0.5rem;"></i>KI-verktøy</span>
           <i class="fas fa-chevron-down tip-icon"></i>
         </button>
         <div class="category-content">
           <div class="link-item">
-            <div class="link-title"><i class="fas fa-robot"></i><span>OpenAI</span></div>
-            <div class="link-description">Offisiell nettside for ChatGPT og andre AI-verktøy.</div>
+            <div class="link-title"><i class="fas fa-robot"></i><span>ChatGPT – OpenAI</span></div>
+            <div class="link-description">Ett av de mest brukte KI-verktøyene for tekst, idéutvikling og spørsmål-svar. Gratis versjon tilgjengelig.</div>
             <a href="https://www.openai.com/" target="_blank" rel="noopener" class="visit-button">
               <i class="fas fa-external-link-alt"></i> Besøk nettside
             </a>
             <span class="link-url">openai.com</span>
           </div>
           <div class="link-item">
+            <div class="link-title"><i class="fas fa-comment-dots"></i><span>Claude – Anthropic</span></div>
+            <div class="link-description">KI-assistent kjent for grundige og nyanserte svar. Godt egnet til akademisk skriving og analyse.</div>
+            <a href="https://www.claude.ai/" target="_blank" rel="noopener" class="visit-button">
+              <i class="fas fa-external-link-alt"></i> Besøk nettside
+            </a>
+            <span class="link-url">claude.ai</span>
+          </div>
+          <div class="link-item">
             <div class="link-title"><i class="fas fa-search"></i><span>Søk & Skriv – KI</span></div>
-            <div class="link-description">Ressurser og veiledning om bruk av KI i akademisk skriving.</div>
+            <div class="link-description">Norsk veiledning om bruk av KI i akademisk skriving, laget for studenter ved norske universiteter.</div>
             <a href="https://www.sokogskriv.no/kunstig-intelligens/" target="_blank" rel="noopener" class="visit-button">
               <i class="fas fa-external-link-alt"></i> Besøk nettside
             </a>
             <span class="link-url">sokogskriv.no</span>
           </div>
+        </div>
+      </div>
+
+      <div class="link-category">
+        <button class="category-header" onclick="toggleCategory(this)">
+          <span><i class="fas fa-balance-scale" style="margin-right:0.5rem;"></i>Akademisk integritet</span>
+          <i class="fas fa-chevron-down tip-icon"></i>
+        </button>
+        <div class="category-content">
           <div class="link-item">
-            <div class="link-title"><i class="fas fa-book"></i><span>Søk & Skriv – Frasebank</span></div>
-            <div class="link-description">Frasebank med nyttige uttrykk for akademisk skriving.</div>
+            <div class="link-title"><i class="fas fa-balance-scale"></i><span>Plagiarism.org</span></div>
+            <div class="link-description">Lær om akademisk integritet og hvordan du unngår plagiat i oppgavene dine.</div>
+            <a href="https://www.plagiarism.org/" target="_blank" rel="noopener" class="visit-button">
+              <i class="fas fa-external-link-alt"></i> Besøk nettside
+            </a>
+            <span class="link-url">plagiarism.org</span>
+          </div>
+          <div class="link-item">
+            <div class="link-title"><i class="fas fa-book-open"></i><span>Søk & Skriv – Frasebank</span></div>
+            <div class="link-description">Nyttige akademiske fraser og uttrykk for oppgaveskriving på norsk.</div>
             <a href="https://www.sokogskriv.no/frasebank/" target="_blank" rel="noopener" class="visit-button">
               <i class="fas fa-external-link-alt"></i> Besøk nettside
             </a>
@@ -196,38 +132,13 @@
 
       <div class="link-category">
         <button class="category-header" onclick="toggleCategory(this)">
-          <span>Akademisk integritet</span>
+          <span><i class="fas fa-university" style="margin-right:0.5rem;"></i>Offisielle retningslinjer</span>
           <i class="fas fa-chevron-down tip-icon"></i>
         </button>
         <div class="category-content">
           <div class="link-item">
-            <div class="link-title"><i class="fas fa-balance-scale"></i><span>Plagiarism.org</span></div>
-            <div class="link-description">Lær om akademisk integritet og hvordan du unngår plagiering.</div>
-            <a href="https://www.plagiarism.org/" target="_blank" rel="noopener" class="visit-button">
-              <i class="fas fa-external-link-alt"></i> Besøk nettside
-            </a>
-            <span class="link-url">plagiarism.org</span>
-          </div>
-          <div class="link-item">
-            <div class="link-title"><i class="fas fa-search"></i><span>AI Content Detector</span></div>
-            <div class="link-description">Verktøy for å sjekke om tekst er KI-generert.</div>
-            <a href="https://www.grammarly.com/ai-detector" target="_blank" rel="noopener" class="visit-button">
-              <i class="fas fa-external-link-alt"></i> Besøk nettside
-            </a>
-            <span class="link-url">grammarly.com</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="link-category">
-        <button class="category-header" onclick="toggleCategory(this)">
-          <span>Offisielle retningslinjer</span>
-          <i class="fas fa-chevron-down tip-icon"></i>
-        </button>
-        <div class="category-content">
-          <div class="link-item">
-            <div class="link-title"><i class="fas fa-university"></i><span>USN retningslinjer</span></div>
-            <div class="link-description">Offisielle retningslinjer for bruk av KI i studier ved USN.</div>
+            <div class="link-title"><i class="fas fa-university"></i><span>USN – retningslinjer for KI</span></div>
+            <div class="link-description">Offisielle retningslinjer for bruk av KI i studier ved Universitetet i Sørøst-Norge.</div>
             <a href="https://www.usn.no/" target="_blank" rel="noopener" class="visit-button">
               <i class="fas fa-external-link-alt"></i> Besøk nettside
             </a>
@@ -235,7 +146,7 @@
           </div>
           <div class="link-item">
             <div class="link-title"><i class="fas fa-landmark"></i><span>Regjeringen.no – KI</span></div>
-            <div class="link-description">Offisielle dokumenter og strategier for kunstig intelligens fra regjeringen.</div>
+            <div class="link-description">Offisielle dokumenter og nasjonale strategier for kunstig intelligens i Norge.</div>
             <a href="https://www.regjeringen.no/no/tema/teknologi-og-innovasjon/kunstig-intelligens/id2853002/" target="_blank" rel="noopener" class="visit-button">
               <i class="fas fa-external-link-alt"></i> Besøk nettside
             </a>
@@ -243,7 +154,7 @@
           </div>
           <div class="link-item">
             <div class="link-title"><i class="fas fa-laptop-code"></i><span>Digitaliseringsdirektoratet</span></div>
-            <div class="link-description">Retningslinjer og ressurser for digitalisering og KI.</div>
+            <div class="link-description">Statlig veiledning om digitalisering, KI og ansvarlig teknologibruk i offentlig sektor.</div>
             <a href="https://www.digdir.no/" target="_blank" rel="noopener" class="visit-button">
               <i class="fas fa-external-link-alt"></i> Besøk nettside
             </a>
@@ -254,25 +165,33 @@
 
       <div class="link-category">
         <button class="category-header" onclick="toggleCategory(this)">
-          <span>Læringsressurser</span>
+          <span><i class="fas fa-graduation-cap" style="margin-right:0.5rem;"></i>Læringsressurser</span>
           <i class="fas fa-chevron-down tip-icon"></i>
         </button>
         <div class="category-content">
           <div class="link-item">
-            <div class="link-title"><i class="fas fa-graduation-cap"></i><span>Coursera</span></div>
-            <div class="link-description">Kurs om kunstig intelligens og etikk i teknologi.</div>
+            <div class="link-title"><i class="fas fa-graduation-cap"></i><span>Coursera – KI-kurs</span></div>
+            <div class="link-description">Internasjonale nettkurs om kunstig intelligens, maskinlæring og etikk i teknologi. Mange er gratis å ta.</div>
             <a href="https://www.coursera.org/" target="_blank" rel="noopener" class="visit-button">
               <i class="fas fa-external-link-alt"></i> Besøk nettside
             </a>
             <span class="link-url">coursera.org</span>
           </div>
           <div class="link-item">
-            <div class="link-title"><i class="fas fa-school"></i><span>Google for Education</span></div>
-            <div class="link-description">Verktøy og ressurser for studenter og lærere.</div>
-            <a href="https://edu.google.com/" target="_blank" rel="noopener" class="visit-button">
+            <div class="link-title"><i class="fas fa-database"></i><span>Oria – biblioteksøk</span></div>
+            <div class="link-description">Søk i bøker, artikler og faglige ressurser tilgjengelig via norske universitetsbibliotek.</div>
+            <a href="https://www.oria.no/" target="_blank" rel="noopener" class="visit-button">
               <i class="fas fa-external-link-alt"></i> Besøk nettside
             </a>
-            <span class="link-url">edu.google.com</span>
+            <span class="link-url">oria.no</span>
+          </div>
+          <div class="link-item">
+            <div class="link-title"><i class="fas fa-microscope"></i><span>Google Scholar</span></div>
+            <div class="link-description">Søkemotor for vitenskapelige artikler og fagfellevurdert forskning – uunnværlig for kildesjekk.</div>
+            <a href="https://scholar.google.com/" target="_blank" rel="noopener" class="visit-button">
+              <i class="fas fa-external-link-alt"></i> Besøk nettside
+            </a>
+            <span class="link-url">scholar.google.com</span>
           </div>
         </div>
       </div>
@@ -281,7 +200,7 @@
   </main>
 
   <footer class="footer">
-    <p>Laget for studenter og ansatte — Gruppe 5 — Praktisk prosjektarbeid — Vår 2026</p>
+    <p>Laget for studenter — Gruppe 5 — Praktisk prosjektarbeid — Vår 2026</p>
   </footer>
 
   <script>
@@ -289,7 +208,6 @@
       const category = header.parentElement;
       const content = category.querySelector('.category-content');
       const icon = header.querySelector('.tip-icon');
-
       if (content.classList.contains('active')) {
         content.classList.remove('active');
         icon.classList.remove('open');
