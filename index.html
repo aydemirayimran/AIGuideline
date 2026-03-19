@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AI Guidebook</title>
+  <title>KI-veileder for studenter</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -14,7 +14,7 @@
 
   <header class="topbar">
     <div class="brand">
-      <span class="brand-title">AI Guidebook</span>
+      <span class="brand-title">KI-veileder for studenter</span>
     </div>
     <nav class="nav" aria-label="Hovedmeny">
       <!-- Desktop-meny (skjult på mobil) -->
@@ -53,50 +53,42 @@
 
   <main class="container">
     <section class="hero card">
-      <h1>Klar for å bruke AI på en smart og trygg måte?</h1>
+      <h1>Bruk kunstig intelligens smart – og på riktig måte</h1>
       <p class="lead">
-        Lær hvordan du kan bruke AI som støtte i studiene – uten å bryte reglene.
-        <strong>Eksempel:</strong> Slik kan AI hjelpe deg med å strukturere oppgaver eller finne kilder.
+        Lær hvordan du kan bruke KI som støtte i studiene – uten å bryte reglene.
+        <strong>Eksempel:</strong> Slik kan KI hjelpe deg med å strukturere oppgaver eller finne kilder.
       </p>
 
       <div class="why-matters">
-        <h3><i class="fas fa-info-circle"></i> Hvorfor dette er viktig</h3>
+        <h3><i class="fas fa-info-circle"></i> Hvorfor dette er viktig for deg som student</h3>
         <p>
-          AI kan spare deg for tid og hjelpe deg å lære bedre – men det er viktig å bruke det riktig.
-          Her får du konkrete tips og eksempler som passer for deg som student/ansatt.
+          KI kan spare deg for tid og hjelpe deg å lære bedre – men det er viktig å bruke det riktig.
+          Feil bruk kan få alvorlige akademiske konsekvenser, som annullert eksamen eller utestengelse.
+          Her får du konkrete tips og eksempler som hjelper deg å bruke KI på en ansvarlig måte.
         </p>
       </div>
 
-      <!-- Rollevelger -->
-      <div class="role-selector">
-        <h3>Jeg er:</h3>
-        <div class="role-options">
-          <button class="role-btn active" data-role="student">Student</button>
-          <button class="role-btn" data-role="staff">Ansatt</button>
-        </div>
-      </div>
-
       <p class="small">
-        AI Guidebook supplerer lokale retningslinjer.
+        KI-veilederen supplerer lokale retningslinjer.
         Ved tvil: sjekk emnebeskrivelse og regelverk ved din institusjon.
       </p>
     </section>
 
     <!-- Innhold for studenter -->
     <section class="card content-student" data-role="student">
-      <h2>For studenter</h2>
+      <h2>Kom i gang</h2>
       <p>
-        Få tydelige, praktiske råd om ansvarlig AI-bruk i studier.
-        Lær hvordan du kan bruke AI som støtte uten å bryte akademiske regler.
+        Få tydelige, praktiske råd om ansvarlig KI-bruk i studier.
+        Lær hvordan du kan bruke KI som støtte uten å bryte akademiske regler.
       </p>
       <div class="grid">
         <a href="tips.html" class="tile">
-          <h3><i class="fas fa-lightbulb"></i> Slik bruker du AI i oppgaveskriving</h3>
-          <p>Praktiske eksempler: Hvordan bruke AI til å finne kilder, strukturere tekst og unngå plagiat.</p>
+          <h3><i class="fas fa-lightbulb"></i> Slik bruker du KI i oppgaveskriving</h3>
+          <p>Praktiske eksempler: Hvordan bruke KI til å finne kilder, strukturere tekst og unngå plagiat.</p>
         </a>
         <a href="quiz.html?rolle=student" class="tile">
           <h3><i class="fas fa-clipboard-list"></i> Test din kunnskap</h3>
-          <p>Sjekk om du kan skille mellom lovlig og ulovlig AI-bruk.</p>
+          <p>Sjekk om du kan skille mellom lovlig og ulovlig KI-bruk.</p>
         </a>
         <a href="faq.html" class="tile">
           <h3><i class="fas fa-question-circle"></i> Vanlige spørsmål</h3>
@@ -105,63 +97,41 @@
       </div>
     </section>
 
-    <!-- Innhold for ansatte -->
-    <section class="card content-staff" data-role="staff" style="display: none;">
-      <h2>For ansatte</h2>
-      <p>
-        Veiledning for lærere, sensorer, studieadministrasjon og universitetet –
-        om hvordan håndtere AI i undervisning, vurdering og policy.
-      </p>
-      <div class="grid">
-        <a href="teaching-tips.html" class="tile">
-          <h3><i class="fas fa-chalkboard-teacher"></i> Undervisningstips</h3>
-          <p>Hvordan integrere AI i emner og oppgaver.</p>
-        </a>
-        <a href="vurderingsretningslinjer.html" class="tile">
-          <h3><i class="fas fa-gavel"></i> Vurderingsretningslinjer</h3>
-          <p>Håndtering av AI-bruk i eksamen og oppgaver.</p>
-        </a>
-        <a href="PolicyMaler.html" class="tile">
-          <h3><i class="fas fa-university"></i> Policy og maler</h3>
-          <p>Ferdige maler for lokale retningslinjer.</p>
-        </a>
-        <a href="quiz.html?rolle=ansatt" class="tile">
-          <h3><i class="fas fa-clipboard-list"></i> Test din kunnskap</h3>
-          <p>Sjekk hva du kan om ansvarlig KI-bruk i undervisning og vurdering.</p>
-        </a>
-      </div>
-    </section>
+    <!-- Ansatt-seksjon skjult inntil videre -->
+    <!-- <section class="card content-staff" data-role="staff">
+      ...
+    </section> -->
 
-    <!-- Felles ressurser -->
-    <section class="card" data-role="student staff">
-      <h2>Felles ressurser</h2>
+    <!-- Ressurser -->
+    <section class="card">
+      <h2>Utforsk mer</h2>
       <p>
-        Her finner alle brukerne våre felles retningslinjer, nyheter om AI i utdanning,
-        og lenker til eksterne ressurser.
+        Her finner du retningslinjer, vanlige spørsmål og praktiske verktøy
+        som hjelper deg å navigere KI-bruk på en trygg og ansvarlig måte.
       </p>
       <div class="grid">
         <a href="faq.html" class="tile">
           <h3><i class="fas fa-question-circle"></i> FAQ</h3>
-          <p>Svar på vanlige spørsmål for alle målgrupper.</p>
+          <p>Svar på de vanligste spørsmålene om KI og studier.</p>
         </a>
         <a href="tips.html" class="tile">
           <h3><i class="fas fa-lightbulb"></i> Praktiske tips</h3>
-          <p>Konkrete råd for ansvarlig AI-bruk.</p>
+          <p>Konkrete råd for ansvarlig KI-bruk i hverdagen.</p>
         </a>
         <a href="quiz.html" class="tile">
           <h3><i class="fas fa-clipboard-list"></i> Test deg selv</h3>
-          <p>Sjekk din kunnskap om AI og akademisk integritet.</p>
+          <p>Sjekk din kunnskap om KI og akademisk integritet.</p>
         </a>
         <a href="links.html" class="tile">
           <h3><i class="fas fa-link"></i> Nyttige lenker</h3>
-          <p>Eksterne ressurser og verktøy.</p>
+          <p>Eksterne ressurser og verktøy for deg som vil lære mer.</p>
         </a>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>Laget for studenter og ansatte — Gruppe 5 — Praktisk prosjektarbeid — Vår 2026</p>
+    <p>Laget for studenter — Gruppe 5 — Praktisk prosjektarbeid — Vår 2026</p>
   </footer>
 
   <script src="app.js" defer></script>
