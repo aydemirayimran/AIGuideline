@@ -128,12 +128,14 @@ document.addEventListener('DOMContentLoaded', () => {
     return; // Siden har ikke søkefelt, eller indeksen er ikke lastet
   }
 
-  searchInput.addEventListener('input', () => {
+  let lastMatches = []; // lagrer siste treff, så vi kan bruke dem når Enter trykkes
+
+  function runSearch() {
     const query = searchInput.value.trim().toLowerCase();
     resultsList.innerHTML = '';
+    lastMatches = [];
 
     if (query.length === 0) {
-      // Ingen søketekst → ingen treffliste
       return;
     }
 
@@ -146,6 +148,8 @@ document.addEventListener('DOMContentLoaded', () => {
       );
       return inTitle || inDesc || inKeywords;
     });
+
+    lastMatches = matches;
 
     if (matches.length === 0) {
       const li = document.createElement('li');
@@ -173,6 +177,25 @@ document.addEventListener('DOMContentLoaded', () => {
       li.appendChild(a);
       resultsList.appendChild(li);
     });
+  }
+
+  // Søk mens du skriver
+  searchInput.addEventListener('input', runSearch);
+
+  // Hopp til første treff med Enter
+  searchInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault(); // unngå evt. form-submission
+
+      // Hvis vi ikke har søkt siden forrige tast, gjør det nå
+      if (lastMatches.length === 0 && searchInput.value.trim() !== '') {
+        runSearch();
+      }
+
+      if (lastMatches.length > 0) {
+        // Gå til første treff
+        window.location.href = lastMatches[0].url;
+      }
+    }
   });
 });
-
