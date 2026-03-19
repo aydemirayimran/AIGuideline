@@ -3,24 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FAQ – AI Guidebook</title>
+  <title>FAQ – KI-veileder for studenter</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     .faq-container { margin: 2rem 0; }
-    .faq-item {
-      margin-bottom: 1rem;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .faq-question {
-      width: 100%; padding: 1rem;
-      background-color: var(--primary-light);
-      border: none; text-align: left;
-      cursor: pointer; font-size: 1rem; font-weight: 600;
-      display: flex; justify-content: space-between; align-items: center;
-    }
+    .faq-item { margin-bottom: 1rem; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; }
+    .faq-question { width: 100%; padding: 1rem; background-color: var(--primary-light); border: none; text-align: left; cursor: pointer; font-size: 1rem; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
     .faq-question:hover { background-color: var(--primary-color); color: white; }
     .faq-answer { padding: 1rem; display: none; background-color: var(--card-bg); }
     .faq-answer.active { display: block; }
@@ -30,18 +19,17 @@
 </head>
 <body>
 
-  <!-- Overlay -->
   <div class="nav-overlay" id="navOverlay"></div>
 
   <header class="topbar">
     <div class="brand">
-      <a href="index.html"><span class="brand-title">AI Guidebook</span></a>
+      <a href="index.html"><span class="brand-title">KI-veileder for studenter</span></a>
     </div>
     <nav class="nav" aria-label="Hovedmeny">
       <ul class="nav-desktop">
         <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Hjem</a></li>
         <li><a href="faq.html" class="nav-link active"><i class="fas fa-question-circle"></i> FAQ</a></li>
-        <li><a href="tips.html" class="nav-link"><i class="fas fa-lightbulb"></i> Praktiske tips</a></li>
+        <li><a href="tips.html" class="nav-link"><i class="fas fa-lightbulb"></i> Spørsmål til KI</a></li>
         <li><a href="quiz.html" class="nav-link"><i class="fas fa-clipboard-list"></i> Test deg selv</a></li>
         <li><a href="links.html" class="nav-link"><i class="fas fa-link"></i> Nyttige lenker</a></li>
         <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Kontakt</a></li>
@@ -54,7 +42,6 @@
     </nav>
   </header>
 
-  <!-- Slide-in sidemeny -->
   <aside class="side-menu" id="sideMenu" aria-hidden="true">
     <div class="side-menu-header">
       <span class="side-menu-title">Meny</span>
@@ -63,7 +50,7 @@
     <ul>
       <li><a href="index.html"><i class="fas fa-home"></i> Hjem</a></li>
       <li><a href="faq.html" class="active"><i class="fas fa-question-circle"></i> FAQ</a></li>
-      <li><a href="tips.html"><i class="fas fa-lightbulb"></i> Praktiske tips</a></li>
+      <li><a href="tips.html"><i class="fas fa-lightbulb"></i> Spørsmål til KI</a></li>
       <li><a href="quiz.html"><i class="fas fa-clipboard-list"></i> Test deg selv</a></li>
       <li><a href="links.html"><i class="fas fa-link"></i> Nyttige lenker</a></li>
       <li><a href="contact.html"><i class="fas fa-envelope"></i> Kontakt</a></li>
@@ -73,17 +60,18 @@
   <main class="container">
     <section class="card">
       <h1><i class="fas fa-question-circle"></i> Vanlige spørsmål</h1>
-      <p class="lead">Her finner du svar på vanlige spørsmål om bruk av KI i utdanning.</p>
+      <p class="lead">Her finner du svar på vanlige spørsmål om bruk av KI i studiene.</p>
     </section>
 
     <section class="card faq-container">
+
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span>Hva er KI og hvordan kan det brukes i studiene?</span>
           <i class="fas fa-chevron-down faq-icon"></i>
         </button>
         <div class="faq-answer">
-          <p>Kunstig intelligens (KI) er datateknologi som kan utføre oppgaver som normalt krever menneskelig intelligens, som å svare på spørsmål, analysere data, og generere tekst. I studiene kan KI brukes til å hjelpe med oppgaveskriving, forskning, og læring, men det er viktig å bruke det ansvarlig og i tråd med akademiske retningslinjer.</p>
+          <p>Kunstig intelligens (KI) er datateknologi som kan utføre oppgaver som normalt krever menneskelig intelligens, som å svare på spørsmål, analysere data og generere tekst. I studiene kan KI brukes til å hjelpe med oppgaveskriving, idéutvikling og læring – men det er viktig å bruke det ansvarlig og i tråd med akademiske retningslinjer.</p>
         </div>
       </div>
 
@@ -93,54 +81,65 @@
           <i class="fas fa-chevron-down faq-icon"></i>
         </button>
         <div class="faq-answer">
-          <p>Du bør alltid oppgi når KI har bidratt til arbeidet ditt. Dette gjelder uansett om du har brukt KI til å generere ideer, strukturere tekst, eller finne kilder. Åpenhet om bruk av KI er viktig for å opprettholde akademisk integritet.</p>
+          <p>Du bør alltid oppgi når KI har bidratt til arbeidet ditt – uansett om det gjelder idéutvikling, strukturering av tekst eller kildesøk. Åpenhet om KI-bruk er en forutsetning for akademisk integritet og er påkrevd ved de fleste norske institusjoner.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          <span>Hvordan kan jeg bruke KI på en etisk måte?</span>
+          <span>Hvordan bruker jeg KI på en etisk og ansvarlig måte?</span>
           <i class="fas fa-chevron-down faq-icon"></i>
         </button>
         <div class="faq-answer">
-          <p>For å bruke KI etisk, bør du unngå å dele sensitiv eller personlig informasjon, alltid dobbeltsjekke informasjon fra KI, og ikke bruke KI til å jukse eller unngå egen innsats. Bruk KI som et verktøy for å støtte læring og kreativitet, ikke som en erstatning for egen tenkning.</p>
+          <p>Etisk KI-bruk innebærer å ikke dele sensitiv eller personlig informasjon, alltid verifisere informasjon fra KI mot pålitelige kilder, og aldri bruke KI til å erstatte din egen faglige innsats. KI bør fungere som et støtteverktøy – ikke som en snarvei rundt egen læring.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          <span>Hva er 'hallusinasjoner' i KI?</span>
+          <span>Hva er «hallusinasjoner» i KI?</span>
           <i class="fas fa-chevron-down faq-icon"></i>
         </button>
         <div class="faq-answer">
-          <p>Hallusinasjoner i KI refererer til situasjoner der KI genererer informasjon som høres sannferdig ut, men som faktisk er feil eller oppdiktet. Dette kan skje fordi KI baserer svarene sine på mønstre i data den er trent på, og ikke alltid kan skille mellom fakta og fiksjon. Det er derfor viktig å alltid dobbeltsjekke informasjon fra KI.</p>
+          <p>Hallusinasjoner betyr at KI genererer informasjon som høres troverdig ut, men som faktisk er feil eller oppdiktet. KI baserer svarene sine på mønstre i treningsdata og kan ikke alltid skille mellom fakta og fiksjon. Derfor er det avgjørende å alltid dobbeltsjekke informasjon – særlig referanser og kildehenvisninger – mot pålitelige kilder som Google Scholar eller Oria.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          <span>Hvordan kan jeg dobbeltsjekke informasjon fra KI?</span>
+          <span>Hvordan dobbeltsjekker jeg informasjon fra KI?</span>
           <i class="fas fa-chevron-down faq-icon"></i>
         </button>
         <div class="faq-answer">
-          <p>For å dobbeltsjekke informasjon fra KI, bør du sammenligne med pålitelige kilder, som fagbøker, vitenskapelige artikler, eller anerkjente nettsteder. Bruk også kildekritikk for å vurdere om informasjonen er troverdig og oppdatert.</p>
+          <p>Sammenlign alltid KI-generert informasjon med fagbøker, vitenskapelige artikler eller anerkjente nettsteder. For referanser spesifikt: søk dem opp manuelt i Google Scholar, Oria eller bibliotekets databaser – KI kan finne på kilder som ikke eksisterer.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          <span>Hva er 'prompt engineering'?</span>
+          <span>Hva menes med å «prompte» KI?</span>
           <i class="fas fa-chevron-down faq-icon"></i>
         </button>
         <div class="faq-answer">
-          <p>Prompt engineering er teknikken for å formulere spørsmål eller instruksjoner (prompts) på en måte som får KI til å gi best mulig svar. Dette kan innebære å være spesifikk, tydelig, og strukturert i hvordan du stiller spørsmål eller gir oppdrag til KI.</p>
+          <p>En prompt er spørsmålet eller instruksjonen du skriver til KI. Jo mer presis og tydelig du er, jo bedre svar får du. Det handler om å gi KI nok kontekst: hvem du er, hva du trenger og hvorfor. Se siden <a href="tips.html">Kunsten å stille gode spørsmål til KI</a> for konkrete eksempler og tips.</p>
         </div>
       </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Hva skjer hvis jeg bryter reglene for KI-bruk?</span>
+          <i class="fas fa-chevron-down faq-icon"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Ulovlig eller uredelig bruk av KI behandles på linje med plagiat og kan føre til annullert eksamen, utestengelse fra studiet eller anmerkning på vitnemålet. Reglene varierer mellom institusjoner og emner – sjekk alltid emnebeskrivelsen og institusjonens egne retningslinjer.</p>
+        </div>
+      </div>
+
     </section>
   </main>
 
   <footer class="footer">
-    <p>Laget for studenter og ansatte — Gruppe 5 — Praktisk prosjektarbeid — Vår 2026</p>
+    <p>Laget for studenter — Gruppe 5 — Praktisk prosjektarbeid — Vår 2026</p>
   </footer>
 
   <script>
