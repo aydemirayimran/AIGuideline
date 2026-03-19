@@ -498,9 +498,19 @@ details p {
   outline: 2px solid var(--primary-color);
   outline-offset: 2px;
 }
+/* Standard størrelse på større skjermer */
+.privacy-note {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
 
+/* På mobil: gjør teksten mindre og hindrer linjeskift */
 @media (max-width: 760px) {
   .privacy-note {
-    white-space: nowrap;
+    font-size: 0.55rem;     /* mindre tekst på mobil */
+    white-space: nowrap;    /* prøver å holde alt på én linje */
   }
 }
+
+  
+  
