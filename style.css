@@ -498,3 +498,11 @@ details p {
   outline: 2px solid var(--primary-color);
   outline-offset: 2px;
 }
+.privacy-note {
+  white-space: nowrap;   /* tvinger teksten til å stå på én linje */
+}
+@media (max-width: 760px) {
+  .privacy-note {
+    white-space: nowrap;
+  }
+}
