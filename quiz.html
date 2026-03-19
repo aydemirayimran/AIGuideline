@@ -3,26 +3,163 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Test deg selv – AI Guidebook</title>
+  <title>Test deg selv – KI-veileder for studenter</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
-    .quiz-options { margin: 10px 0; }
-    .quiz-option { display: block; margin: 5px 0; padding: 10px; border: 1px solid #e0e0e0; border-radius: 5px; cursor: pointer; transition: background-color 0.3s; }
-    .quiz-option:hover { background-color: #f0f0f0; }
-    .quiz-option.selected { background-color: #e8f0f9; border-color: #4a6fa5; }
-    .quiz-option.correct { background-color: #d4edda; border-color: #28a745; }
-    .quiz-option.incorrect { background-color: #f8d7da; border-color: #dc3545; }
-    .quiz-feedback { margin-top: 10px; padding: 10px; border-radius: 5px; display: none; }
-    .quiz-feedback.correct { background-color: #d4edda; color: #28a745; display: block; }
-    .quiz-feedback.incorrect { background-color: #f8d7da; color: #dc3545; display: block; }
-    .quiz-navigation { margin-top: 20px; display: flex; justify-content: space-between; }
-    .reset-button { margin-top: 20px; display: flex; justify-content: center; }
-    .role-selector { margin-bottom: 1.5rem; padding: 12px; border: 1px solid var(--border-color); border-radius: 12px; background: var(--primary-light); }
-    .role-selector h3 { margin-top: 0; font-size: 16px; margin-bottom: 8px; }
-    .role-options { display: flex; gap: 8px; }
-    .role-btn { padding: 8px 16px; border: 1px solid var(--border-color); border-radius: 20px; background: white; cursor: pointer; font-family: inherit; font-size: 0.95rem; transition: all 0.2s; }
-    .role-btn.active { background: var(--primary-color); color: white; border-color: var(--primary-color); }
+    /* ── Intro-skjerm ── */
+    .quiz-intro { text-align: center; padding: 1rem 0 0.5rem; }
+    .quiz-intro h2 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .quiz-intro .intro-meta {
+      display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
+      margin: 1.5rem 0; color: var(--text-secondary, #555);
+    }
+    .intro-meta-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.95rem; }
+    .intro-meta-item i { color: var(--primary-color, #4a6fa5); font-size: 1.1rem; }
+    .quiz-intro .intro-desc {
+      max-width: 520px; margin: 0 auto 1.5rem; line-height: 1.6;
+      color: var(--text-secondary, #444);
+    }
+    .btn-start {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.85rem 2.2rem; font-size: 1.05rem; font-weight: 600;
+      background: var(--primary-color, #4a6fa5); color: #fff;
+      border: none; border-radius: 30px; cursor: pointer;
+      transition: background 0.2s, transform 0.1s; font-family: inherit;
+    }
+    .btn-start:hover { background: var(--primary-dark, #3a5f95); transform: translateY(-1px); }
+
+    /* ── Fremdriftslinje ── */
+    .quiz-progress-wrap { margin-bottom: 1.2rem; }
+    .quiz-progress-label {
+      display: flex; justify-content: space-between;
+      font-size: 0.85rem; color: var(--text-secondary, #666); margin-bottom: 4px;
+    }
+    .quiz-progress-bar {
+      height: 8px; background: #e0e0e0; border-radius: 4px; overflow: hidden;
+    }
+    .quiz-progress-fill {
+      height: 100%; background: var(--primary-color, #4a6fa5);
+      border-radius: 4px; transition: width 0.4s ease;
+    }
+
+    /* ── Spørsmål ── */
+    .quiz-question-area { min-height: 260px; }
+    .quiz-question-area h3 {
+      font-size: 0.85rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.05em; color: var(--primary-color, #4a6fa5); margin-bottom: 0.4rem;
+    }
+    .quiz-question-text { font-size: 1.1rem; font-weight: 600; margin-bottom: 1.2rem; line-height: 1.45; }
+
+    /* ── Svaralternativer ── */
+    .quiz-options { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1rem; }
+    .quiz-option {
+      display: flex; align-items: center; gap: 0.8rem;
+      padding: 0.85rem 1rem; border: 2px solid #e0e0e0; border-radius: 10px;
+      cursor: pointer; transition: all 0.2s; background: #fff; font-size: 0.97rem;
+      font-family: inherit; text-align: left; width: 100%;
+    }
+    .quiz-option .opt-icon {
+      width: 28px; height: 28px; border-radius: 50%; border: 2px solid #ccc;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 0.8rem; color: #aaa; transition: all 0.2s;
+    }
+    .quiz-option:hover:not(:disabled) { border-color: var(--primary-color, #4a6fa5); background: #f0f5ff; }
+    .quiz-option:hover:not(:disabled) .opt-icon { border-color: var(--primary-color, #4a6fa5); color: var(--primary-color, #4a6fa5); }
+    .quiz-option.selected { border-color: var(--primary-color, #4a6fa5); background: #eef3fb; }
+    .quiz-option.correct { border-color: #28a745; background: #d4edda; }
+    .quiz-option.correct .opt-icon { border-color: #28a745; background: #28a745; color: #fff; }
+    .quiz-option.incorrect { border-color: #dc3545; background: #f8d7da; }
+    .quiz-option.incorrect .opt-icon { border-color: #dc3545; background: #dc3545; color: #fff; }
+    .quiz-option:disabled { cursor: default; }
+
+    /* ── Tilbakemelding ── */
+    .quiz-feedback {
+      padding: 0.75rem 1rem; border-radius: 8px; font-size: 0.93rem;
+      display: none; margin-bottom: 0.5rem; line-height: 1.5;
+    }
+    .quiz-feedback.correct { background: #d4edda; color: #155724; display: flex; gap: 0.5rem; align-items: flex-start; }
+    .quiz-feedback.incorrect { background: #f8d7da; color: #721c24; display: flex; gap: 0.5rem; align-items: flex-start; }
+
+    /* ── Navigasjon ── */
+    .quiz-navigation {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 1.4rem; gap: 0.8rem;
+    }
+    .btn-nav {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.7rem 1.4rem; border-radius: 8px; font-size: 0.97rem;
+      font-weight: 600; font-family: inherit; cursor: pointer;
+      border: 2px solid var(--primary-color, #4a6fa5);
+      transition: all 0.2s;
+    }
+    .btn-nav-secondary {
+      background: #fff; color: var(--primary-color, #4a6fa5);
+    }
+    .btn-nav-secondary:hover:not(:disabled) {
+      background: var(--primary-color, #4a6fa5); color: #fff;
+    }
+    .btn-nav-primary {
+      background: var(--primary-color, #4a6fa5); color: #fff;
+    }
+    .btn-nav-primary:hover:not(:disabled) { background: var(--primary-dark, #3a5f95); }
+    .btn-nav:disabled { opacity: 0.35; cursor: default; }
+
+    .btn-reset {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      padding: 0.6rem 1.2rem; border-radius: 8px; font-size: 0.9rem;
+      font-family: inherit; cursor: pointer; border: 2px solid #ccc;
+      background: #fff; color: #555; transition: all 0.2s; font-weight: 500;
+    }
+    .btn-reset:hover { border-color: #999; color: #333; background: #f5f5f5; }
+
+    /* ── Resultat ── */
+    .quiz-result { display: none; text-align: center; padding: 0.5rem 0; }
+    .result-score-circle {
+      width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 1.2rem;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-size: 2rem; font-weight: 700; border: 6px solid;
+    }
+    .result-score-circle span { font-size: 0.75rem; font-weight: 500; margin-top: -4px; }
+    .result-level-badge {
+      display: inline-block; padding: 0.3rem 1rem; border-radius: 20px;
+      font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem;
+    }
+    .result-title { font-size: 1.35rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .result-desc { color: var(--text-secondary, #555); max-width: 480px; margin: 0 auto 1.4rem; line-height: 1.6; }
+    .result-tips {
+      background: #f7f9fc; border-radius: 10px; padding: 1rem 1.2rem;
+      text-align: left; margin-bottom: 1.4rem;
+    }
+    .result-tips h4 { margin: 0 0 0.6rem; font-size: 0.95rem; }
+    .result-tips ul { margin: 0; padding-left: 1.2rem; }
+    .result-tips li { font-size: 0.92rem; color: #444; margin-bottom: 0.3rem; }
+    .result-actions { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
+    .btn-result-primary {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.75rem 1.6rem; border-radius: 8px; font-size: 0.97rem; font-weight: 600;
+      font-family: inherit; cursor: pointer; border: none;
+      background: var(--primary-color, #4a6fa5); color: #fff; transition: all 0.2s;
+    }
+    .btn-result-primary:hover { background: var(--primary-dark, #3a5f95); }
+    .btn-result-secondary {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.75rem 1.6rem; border-radius: 8px; font-size: 0.97rem; font-weight: 600;
+      font-family: inherit; cursor: pointer;
+      border: 2px solid var(--primary-color, #4a6fa5);
+      background: #fff; color: var(--primary-color, #4a6fa5); transition: all 0.2s;
+    }
+    .btn-result-secondary:hover { background: var(--primary-color, #4a6fa5); color: #fff; }
+
+    /* Fargeprofiler for nivåer */
+    .level-low  { color: #dc3545; border-color: #dc3545; }
+    .level-low .result-level-badge { background: #f8d7da; color: #721c24; }
+    .level-mid  { color: #fd7e14; border-color: #fd7e14; }
+    .level-mid .result-level-badge { background: #ffe5cc; color: #7d3800; }
+    .level-good { color: #28a745; border-color: #28a745; }
+    .level-good .result-level-badge { background: #d4edda; color: #155724; }
+    .level-high { color: #4a6fa5; border-color: #4a6fa5; }
+    .level-high .result-level-badge { background: #dbe8fb; color: #1a3d6e; }
   </style>
 </head>
 <body>
@@ -31,7 +168,7 @@
 
   <header class="topbar">
     <div class="brand">
-      <a href="index.html"><span class="brand-title">AI Guidebook</span></a>
+      <a href="index.html"><span class="brand-title">KI-veileder for studenter</span></a>
     </div>
     <nav class="nav" aria-label="Hovedmeny">
       <ul class="nav-desktop">
@@ -67,289 +204,401 @@
 
   <main class="container">
     <section class="card">
-      <h1><i class="fas fa-clipboard-list"></i> Test din kunnskap</h1>
-      <p class="lead">Sjekk hva du kan om ansvarlig og etisk bruk av KI.</p>
 
-      <!-- Rollevelger -->
-      <div class="role-selector">
-        <h3>Jeg er:</h3>
-        <div class="role-options">
-          <button class="role-btn active" id="roleStudent" onclick="setRole('student')">Student</button>
-          <button class="role-btn" id="roleStaff" onclick="setRole('staff')">Ansatt</button>
+      <!-- ── INTRO-SKJERM ── -->
+      <div id="quizIntro" class="quiz-intro">
+        <h1><i class="fas fa-clipboard-list"></i> Test din kunnskap om KI</h1>
+        <p class="intro-desc">
+          Hvor godt kjenner du reglene for ansvarlig bruk av kunstig intelligens i studiene?
+          Ta quizen og finn ut hva du kan – og hva du bør lære mer om.
+        </p>
+        <div class="intro-meta">
+          <div class="intro-meta-item"><i class="fas fa-list-ol"></i> 10 spørsmål</div>
+          <div class="intro-meta-item"><i class="fas fa-clock"></i> Ca. 5 minutter</div>
+          <div class="intro-meta-item"><i class="fas fa-chart-bar"></i> Vurdering av kunnskapsnivå</div>
         </div>
+        <p class="intro-desc" style="font-size:0.92rem;">
+          Etter fullført besvarelse får du en personlig tilbakemelding med råd tilpasset ditt resultat.
+        </p>
+        <button class="btn-start" onclick="startQuiz()">
+          <i class="fas fa-play"></i> Start quizen
+        </button>
       </div>
-    </section>
 
-    <!-- STUDENT-QUIZ -->
-    <section class="card quiz-container" id="studentQuiz">
-      <div class="quiz-question" id="sq1">
-        <h3>Spørsmål 1</h3>
-        <p>Når bør du oppgi at du har brukt KI?</p>
-        <div class="quiz-options">
-          <div class="quiz-option" data-correct="true" onclick="selectOption(this,'sq1','s')">Alltid når KI har bidratt til arbeidet ditt.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'sq1','s')">Bare når du bruker KI til å skrive hele teksten.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'sq1','s')">Aldri, det er ikke nødvendig.</div>
-        </div>
-        <div class="quiz-feedback" id="sfeedback1"></div>
-      </div>
-      <div class="quiz-question" id="sq2" style="display:none;">
-        <h3>Spørsmål 2</h3>
-        <p>Hva gjør du hvis du er usikker på reglene?</p>
-        <div class="quiz-options">
-          <div class="quiz-option" data-correct="true" onclick="selectOption(this,'sq2','s')">Spør foreleser eller sjekk retningslinjene.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'sq2','s')">Bruk KI uansett, det er sikkert greit.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'sq2','s')">Unngå å bruke KI helt.</div>
-        </div>
-        <div class="quiz-feedback" id="sfeedback2"></div>
-      </div>
-      <div class="quiz-question" id="sq3" style="display:none;">
-        <h3>Spørsmål 3</h3>
-        <p>Hvorfor må informasjon fra KI dobbeltsjekkes?</p>
-        <div class="quiz-options">
-          <div class="quiz-option" data-correct="true" onclick="selectOption(this,'sq3','s')">KI kan generere feil eller misvisende informasjon.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'sq3','s')">Fordi lærere alltid krever det.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'sq3','s')">Det er ikke nødvendig å dobbeltsjekke.</div>
-        </div>
-        <div class="quiz-feedback" id="sfeedback3"></div>
-      </div>
-      <div class="quiz-question" id="sq4" style="display:none;">
-        <h3>Spørsmål 4</h3>
-        <p>Hvilke opplysninger bør du aldri dele med KI?</p>
-        <div class="quiz-options">
-          <div class="quiz-option" data-correct="true" onclick="selectOption(this,'sq4','s')">Sensitiv eller personlig informasjon.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'sq4','s')">Generell informasjon om emnet.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'sq4','s')">Kilder du har brukt.</div>
-        </div>
-        <div class="quiz-feedback" id="sfeedback4"></div>
-      </div>
-      <div class="quiz-question" id="sq5" style="display:none;">
-        <h3>Spørsmål 5</h3>
-        <p>Hva er den beste måten å bruke KI på i en læringssammenheng?</p>
-        <div class="quiz-options">
-          <div class="quiz-option" data-correct="true" onclick="selectOption(this,'sq5','s')">KI bør brukes som støtte til egen læring, ikke som erstatning for egen innsats.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'sq5','s')">La KI gjøre hele jobben for deg.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'sq5','s')">Bruk KI bare til å finne kilder.</div>
-        </div>
-        <div class="quiz-feedback" id="sfeedback5"></div>
-      </div>
-      <div class="quiz-question" id="sq6" style="display:none;">
-        <h3>Spørsmål 6</h3>
-        <p>Hvorfor er det viktig å dobbeltsjekke informasjon fra KI?</p>
-        <div class="quiz-options">
-          <div class="quiz-option" data-correct="true" onclick="selectOption(this,'sq6','s')">KI kan "hallusinere" – generere informasjon som høres riktig ut, men er feil.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'sq6','s')">Fordi KI alltid er feil.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'sq6','s')">Det er ikke viktig å dobbeltsjekke.</div>
-        </div>
-        <div class="quiz-feedback" id="sfeedback6"></div>
-      </div>
-      <div class="quiz-question" id="sq7" style="display:none;">
-        <h3>Spørsmål 7</h3>
-        <p>Hva er en etisk utfordring med KI i utdanning?</p>
-        <div class="quiz-options">
-          <div class="quiz-option" data-correct="true" onclick="selectOption(this,'sq7','s')">KI-modeller kan inneholde skjevheter, og ikke alle har lik tilgang til verktøyene.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'sq7','s')">KI er for dyrt.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'sq7','s')">KI er for komplisert å bruke.</div>
-        </div>
-        <div class="quiz-feedback" id="sfeedback7"></div>
-      </div>
-      <div class="quiz-question" id="sq8" style="display:none;">
-        <h3>Spørsmål 8</h3>
-        <p>Hva er 'prompt engineering'?</p>
-        <div class="quiz-options">
-          <div class="quiz-option" data-correct="true" onclick="selectOption(this,'sq8','s')">Teknikken for å formulere presise og effektive spørsmål for å få best mulig svar fra KI.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'sq8','s')">Det er en type maskinlæring.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'sq8','s')">Det er en måte å programmere KI på.</div>
-        </div>
-        <div class="quiz-feedback" id="sfeedback8"></div>
-      </div>
-      <div class="quiz-navigation">
-        <button id="sPrevBtn" onclick="prevQuestion('s')" disabled>Forrige</button>
-        <button id="sNextBtn" onclick="nextQuestion('s')">Neste</button>
-      </div>
-      <div class="reset-button">
-        <button onclick="resetQuiz('s')">Start på nytt</button>
-      </div>
-    </section>
+      <!-- ── QUIZ-INNHOLD ── -->
+      <div id="quizContent" style="display:none;">
 
-    <!-- ANSATT-QUIZ -->
-    <section class="card quiz-container" id="staffQuiz" style="display:none;">
-      <div class="quiz-question" id="aq1">
-        <h3>Spørsmål 1</h3>
-        <p>Hva bør en god oppgavebeskrivelse spesifisere om KI-bruk?</p>
-        <div class="quiz-options">
-          <div class="quiz-option" data-correct="true" onclick="selectOption(this,'aq1','a')">Hva som er tillatt, hva som må dokumenteres, og eventuelle begrensninger.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'aq1','a')">Ingenting – studentene vet selv hva som gjelder.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'aq1','a')">Bare at KI ikke er tillatt.</div>
+        <!-- Fremdriftslinje -->
+        <div class="quiz-progress-wrap">
+          <div class="quiz-progress-label">
+            <span id="progressLabel">Spørsmål 1 av 10</span>
+            <span id="progressScore">0 riktige</span>
+          </div>
+          <div class="quiz-progress-bar">
+            <div class="quiz-progress-fill" id="progressFill" style="width:0%"></div>
+          </div>
         </div>
-        <div class="quiz-feedback" id="afeedback1"></div>
-      </div>
-      <div class="quiz-question" id="aq2" style="display:none;">
-        <h3>Spørsmål 2</h3>
-        <p>Hva bør studentene dokumentere ved bruk av KI i oppgaver?</p>
-        <div class="quiz-options">
-          <div class="quiz-option" data-correct="true" onclick="selectOption(this,'aq2','a')">Hvilke verktøy som ble brukt, til hvilke formål, og hvordan resultatene ble bearbeidet.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'aq2','a')">Kun navnet på KI-verktøyet.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'aq2','a')">Ingenting – det holder å nevne det muntlig.</div>
+
+        <!-- Spørsmålsområde -->
+        <div class="quiz-question-area" id="questionArea"></div>
+
+        <!-- Tilbakemelding -->
+        <div class="quiz-feedback" id="quizFeedback"></div>
+
+        <!-- Navigasjon -->
+        <div class="quiz-navigation">
+          <button class="btn-nav btn-nav-secondary" id="prevBtn" onclick="prevQuestion()" disabled>
+            <i class="fas fa-chevron-left"></i> Forrige
+          </button>
+          <button class="btn-reset" onclick="confirmReset()">
+            <i class="fas fa-redo-alt"></i> Start på nytt
+          </button>
+          <button class="btn-nav btn-nav-primary" id="nextBtn" onclick="nextQuestion()">
+            Neste <i class="fas fa-chevron-right"></i>
+          </button>
         </div>
-        <div class="quiz-feedback" id="afeedback2"></div>
       </div>
-      <div class="quiz-question" id="aq3" style="display:none;">
-        <h3>Spørsmål 3</h3>
-        <p>Hvor pålitelige er automatiske KI-deteksjonsverktøy?</p>
-        <div class="quiz-options">
-          <div class="quiz-option" data-correct="true" onclick="selectOption(this,'aq3','a')">De er ikke 100% nøyaktige og bør kombineres med pedagogisk vurdering.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'aq3','a')">De er alltid korrekte og kan brukes alene.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'aq3','a')">De er ubrukelige og bør ikke brukes.</div>
-        </div>
-        <div class="quiz-feedback" id="afeedback3"></div>
-      </div>
-      <div class="quiz-question" id="aq4" style="display:none;">
-        <h3>Spørsmål 4</h3>
-        <p>Hva er et godt første steg når en student mistenkes for ulovlig KI-bruk?</p>
-        <div class="quiz-options">
-          <div class="quiz-option" data-correct="true" onclick="selectOption(this,'aq4','a')">Dialog med studenten om korrekt bruk av KI.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'aq4','a')">Umiddelbar rapport til disiplinærnemnda.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'aq4','a')">Gi stryk uten videre undersøkelse.</div>
-        </div>
-        <div class="quiz-feedback" id="afeedback4"></div>
-      </div>
-      <div class="quiz-question" id="aq5" style="display:none;">
-        <h3>Spørsmål 5</h3>
-        <p>Hvem bør involveres når lokale KI-retningslinjer utvikles?</p>
-        <div class="quiz-options">
-          <div class="quiz-option" data-correct="true" onclick="selectOption(this,'aq5','a')">Både fagpersonale og studenter.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'aq5','a')">Kun fagpersonale.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'aq5','a')">Kun ledelsen.</div>
-        </div>
-        <div class="quiz-feedback" id="afeedback5"></div>
-      </div>
-      <div class="quiz-question" id="aq6" style="display:none;">
-        <h3>Spørsmål 6</h3>
-        <p>Hva er et eksempel på god pedagogisk bruk av KI i undervisning?</p>
-        <div class="quiz-options">
-          <div class="quiz-option" data-correct="true" onclick="selectOption(this,'aq6','a')">Be studentene analysere og forbedre et KI-generert utkast.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'aq6','a')">La KI lage all undervisningsmateriell uten gjennomgang.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'aq6','a')">Forby all bruk av KI i emnet.</div>
-        </div>
-        <div class="quiz-feedback" id="afeedback6"></div>
-      </div>
-      <div class="quiz-question" id="aq7" style="display:none;">
-        <h3>Spørsmål 7</h3>
-        <p>Hva bør vurderingskriterier inkludere ved KI-bruk i oppgaver?</p>
-        <div class="quiz-options">
-          <div class="quiz-option" data-correct="true" onclick="selectOption(this,'aq7','a')">Kritisk analyse av KI-generert innhold, egeninnsats og etisk refleksjon.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'aq7','a')">Kun om KI ble brukt eller ikke.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'aq7','a')">Ingenting – KI-bruk skal ikke vurderes.</div>
-        </div>
-        <div class="quiz-feedback" id="afeedback7"></div>
-      </div>
-      <div class="quiz-question" id="aq8" style="display:none;">
-        <h3>Spørsmål 8</h3>
-        <p>Hva er det viktigste prinsippet i en institusjonell AI-policy?</p>
-        <div class="quiz-options">
-          <div class="quiz-option" data-correct="true" onclick="selectOption(this,'aq8','a')">Transparens – all bruk av AI skal være åpen og tydelig dokumentert.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'aq8','a')">Forbud – AI skal ikke brukes i utdanning.</div>
-          <div class="quiz-option" data-correct="false" onclick="selectOption(this,'aq8','a')">Frihet – studenter bestemmer selv uten dokumentasjonskrav.</div>
-        </div>
-        <div class="quiz-feedback" id="afeedback8"></div>
-      </div>
-      <div class="quiz-navigation">
-        <button id="aPrevBtn" onclick="prevQuestion('a')" disabled>Forrige</button>
-        <button id="aNextBtn" onclick="nextQuestion('a')">Neste</button>
-      </div>
-      <div class="reset-button">
-        <button onclick="resetQuiz('a')">Start på nytt</button>
-      </div>
+
+      <!-- ── RESULTAT ── -->
+      <div id="quizResult" class="quiz-result"></div>
+
     </section>
   </main>
 
   <footer class="footer">
-    <p>Utviklet av Gruppe 5 – Praktisk prosjektarbeid – Vår 2026</p>
+    <p>Laget for studenter — Gruppe 5 — Praktisk prosjektarbeid — Vår 2026</p>
   </footer>
 
   <script>
-    const quizState = {
-      s: { current: 1, total: 8, prefix: 'sq', feedbackPrefix: 'sfeedback', prevBtn: 'sPrevBtn', nextBtn: 'sNextBtn' },
-      a: { current: 1, total: 8, prefix: 'aq', feedbackPrefix: 'afeedback', prevBtn: 'aPrevBtn', nextBtn: 'aNextBtn' }
-    };
+    const questions = [
+      {
+        q: "Når bør du oppgi at du har brukt KI i en oppgave?",
+        options: [
+          { text: "Alltid når KI har bidratt til arbeidet ditt.", correct: true },
+          { text: "Bare når du bruker KI til å skrive hele teksten.", correct: false },
+          { text: "Aldri – det er ikke nødvendig å oppgi dette.", correct: false }
+        ],
+        feedback: {
+          correct: "Riktig! Du skal alltid oppgi KI-bruk, uansett om det gjelder idéutvikling, teksthjelp eller kildesøk.",
+          incorrect: "Feil. Hovedregelen er at du alltid skal opplyse om KI-bruk når det har bidratt til arbeidet ditt."
+        }
+      },
+      {
+        q: "Hva gjør du hvis du er usikker på hva som er tillatt KI-bruk i et emne?",
+        options: [
+          { text: "Spør foreleser eller sjekk emnebeskrivelsen.", correct: true },
+          { text: "Bruker KI uansett – det er sikkert greit.", correct: false },
+          { text: "Unngår all KI-bruk for sikkerhets skyld.", correct: false }
+        ],
+        feedback: {
+          correct: "Riktig! Ved tvil bør du alltid avklare med emneansvarlig. Reglene kan variere fra emne til emne.",
+          incorrect: "Feil. Det sikreste er å spørre foreleser eller lese emnebeskrivelsen nøye."
+        }
+      },
+      {
+        q: "Hvorfor er det viktig å alltid dobbeltsjekke informasjon du får fra KI?",
+        options: [
+          { text: "KI kan \"hallusinere\" – generere informasjon som høres riktig ut, men er feil.", correct: true },
+          { text: "Fordi lærere alltid krever det.", correct: false },
+          { text: "Det er egentlig ikke nødvendig.", correct: false }
+        ],
+        feedback: {
+          correct: "Riktig! KI-modeller kan produsere overbevisende, men faktisk feil informasjon – alltid verifiser med pålitelige kilder.",
+          incorrect: "Feil. KI kan \"hallusinere\" og presentere feil fakta med høy selvsikkerhet. Verifiser alltid."
+        }
+      },
+      {
+        q: "Hvilke opplysninger bør du aldri dele med en KI-tjeneste?",
+        options: [
+          { text: "Sensitiv eller personlig informasjon om deg selv eller andre.", correct: true },
+          { text: "Generell faglig informasjon om emnet du studerer.", correct: false },
+          { text: "Kilder du har brukt i oppgaven.", correct: false }
+        ],
+        feedback: {
+          correct: "Riktig! Persondata, sensitive opplysninger og konfidensiell informasjon skal aldri deles med KI-verktøy.",
+          incorrect: "Feil. Personlig og sensitiv informasjon skal aldri legges inn i KI-tjenester på grunn av personvernhensyn."
+        }
+      },
+      {
+        q: "Hva er den beste måten å bruke KI på i studiene?",
+        options: [
+          { text: "Som støtte til egen læring og tenkning – ikke som erstatning for egeninnsats.", correct: true },
+          { text: "La KI gjøre hele jobben, og lever inn resultatet.", correct: false },
+          { text: "Kun til å søke opp kildehenvisninger.", correct: false }
+        ],
+        feedback: {
+          correct: "Riktig! KI er et hjelpeverktøy. Du lærer mest når du selv tenker, og KI hjelper deg videre.",
+          incorrect: "Feil. Å la KI gjøre hele jobben er i strid med akademisk integritet og hindrer din egen læring."
+        }
+      },
+      {
+        q: "Hva er en etisk utfordring ved bruk av KI i utdanning?",
+        options: [
+          { text: "KI-modeller kan inneholde skjevheter, og ikke alle studenter har lik tilgang til verktøyene.", correct: true },
+          { text: "KI er for dyrt til at det er relevant for studenter.", correct: false },
+          { text: "KI er for komplisert å lære seg.", correct: false }
+        ],
+        feedback: {
+          correct: "Riktig! Skjevheter i treningsdata og ulik tilgang er reelle etiske utfordringer som påvirker rettferdighet i utdanning.",
+          incorrect: "Feil. Tilgang og algoritmiske skjevheter er viktige etiske problemstillinger knyttet til KI i utdanning."
+        }
+      },
+      {
+        q: "Hva betyr begrepet 'prompt engineering'?",
+        options: [
+          { text: "Teknikken for å formulere presise og effektive spørsmål for å få best mulig svar fra KI.", correct: true },
+          { text: "En type maskinlæringsalgoritme.", correct: false },
+          { text: "En måte å programmere KI-modeller på.", correct: false }
+        ],
+        feedback: {
+          correct: "Riktig! Gode prompts gir bedre og mer nyttige svar fra KI-verktøy.",
+          incorrect: "Feil. Prompt engineering handler om å formulere gode spørsmål og instruksjoner til KI for å få presise svar."
+        }
+      },
+      {
+        q: "Hva er akademisk uredelighet i sammenheng med KI?",
+        options: [
+          { text: "Å levere inn KI-generert tekst som sitt eget arbeid uten å oppgi det.", correct: true },
+          { text: "Å bruke KI til å få idéer til oppgavestruktur.", correct: false },
+          { text: "Å la KI foreslå bedre formuleringer mens du beholder egne argumenter.", correct: false }
+        ],
+        feedback: {
+          correct: "Riktig! Å presentere KI-tekst som sitt eget uten å opplyse om det regnes som juks på linje med plagiat.",
+          incorrect: "Feil. Å levere inn KI-generert arbeid uten å oppgi det er det klassiske eksempelet på uredelighet."
+        }
+      },
+      {
+        q: "Hvem er ansvarlig for innholdet du leverer inn, selv om KI hjalp deg?",
+        options: [
+          { text: "Du selv – studenten er alltid ansvarlig for eget innlevert arbeid.", correct: true },
+          { text: "KI-tjenesten du brukte.", correct: false },
+          { text: "Universitetet, siden de tillater KI-bruk.", correct: false }
+        ],
+        feedback: {
+          correct: "Riktig! KI er et verktøy. Faglig og etisk ansvar ligger alltid hos deg som student.",
+          incorrect: "Feil. Ansvaret for innlevert arbeid ligger alltid hos deg, uavhengig av hvilke hjelpemidler du har brukt."
+        }
+      },
+      {
+        q: "Hvilken påstand om KI og opphavsrett er riktig?",
+        options: [
+          { text: "KI-generert tekst kan ha uklar opphavsrettsstatus – vær forsiktig med å bruke den uten å bearbeide den.", correct: true },
+          { text: "KI-generert tekst er alltid fri å bruke uten begrensninger.", correct: false },
+          { text: "Du eier automatisk opphavsretten til alt KI lager for deg.", correct: false }
+        ],
+        feedback: {
+          correct: "Riktig! Opphavsrett rundt KI-generert innhold er juridisk uavklart i mange land. Bearbeid og vær transparent.",
+          incorrect: "Feil. Opphavsrettslige spørsmål knyttet til KI-innhold er komplekse og ikke endelig avklart."
+        }
+      }
+    ];
 
-    // Les rolle fra URL automatisk
-    function initRole() {
-      const params = new URLSearchParams(window.location.search);
-      const rolle = params.get('rolle');
-      if (rolle === 'ansatt') {
-        setRole('staff');
+    let current = 0;
+    let answers = new Array(questions.length).fill(null); // null = ubesvart, true/false = svar
+    let answered = new Array(questions.length).fill(false);
+
+    function startQuiz() {
+      document.getElementById('quizIntro').style.display = 'none';
+      document.getElementById('quizContent').style.display = 'block';
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      const q = questions[current];
+      const area = document.getElementById('questionArea');
+
+      area.innerHTML = `
+        <h3>Spørsmål ${current + 1} av ${questions.length}</h3>
+        <p class="quiz-question-text">${q.q}</p>
+        <div class="quiz-options" id="optionsWrap">
+          ${q.options.map((opt, i) => `
+            <button class="quiz-option${answered[current] ? (opt.correct ? ' correct' : (answers[current] === i ? ' incorrect' : '')) : (answers[current] === i ? ' selected' : '')}"
+              onclick="selectOption(${i})"
+              ${answered[current] ? 'disabled' : ''}>
+              <span class="opt-icon">${answered[current] ? (opt.correct ? '<i class="fas fa-check"></i>' : (answers[current] === i ? '<i class="fas fa-times"></i>' : '')) : (i === 0 ? 'A' : i === 1 ? 'B' : 'C')}</span>
+              ${opt.text}
+            </button>
+          `).join('')}
+        </div>
+      `;
+
+      // Vis lagret tilbakemelding hvis allerede besvart
+      const fb = document.getElementById('quizFeedback');
+      if (answered[current]) {
+        const wasCorrect = answers[current] !== null && q.options[answers[current]].correct;
+        fb.textContent = '';
+        fb.className = 'quiz-feedback ' + (wasCorrect ? 'correct' : 'incorrect');
+        fb.innerHTML = `<i class="fas fa-${wasCorrect ? 'check-circle' : 'times-circle'}"></i> ${wasCorrect ? q.feedback.correct : q.feedback.incorrect}`;
+        fb.style.display = 'flex';
       } else {
-        setRole('student');
+        fb.style.display = 'none';
+        fb.className = 'quiz-feedback';
       }
+
+      updateProgress();
+      updateNavButtons();
     }
 
-    function setRole(role) {
-      document.getElementById('roleStudent').classList.toggle('active', role === 'student');
-      document.getElementById('roleStaff').classList.toggle('active', role === 'staff');
-      document.getElementById('studentQuiz').style.display = role === 'student' ? 'block' : 'none';
-      document.getElementById('staffQuiz').style.display = role === 'staff' ? 'block' : 'none';
+    function selectOption(optIndex) {
+      if (answered[current]) return;
+      answers[current] = optIndex;
+      answered[current] = true;
+
+      const q = questions[current];
+      const isCorrect = q.options[optIndex].correct;
+      const opts = document.querySelectorAll('.quiz-option');
+
+      opts.forEach((btn, i) => {
+        btn.disabled = true;
+        btn.querySelector('.opt-icon').innerHTML = q.options[i].correct
+          ? '<i class="fas fa-check"></i>'
+          : (i === optIndex ? '<i class="fas fa-times"></i>' : (i === 0 ? 'A' : i === 1 ? 'B' : 'C'));
+        if (q.options[i].correct) btn.classList.add('correct');
+        else if (i === optIndex) btn.classList.add('incorrect');
+      });
+
+      const fb = document.getElementById('quizFeedback');
+      fb.innerHTML = `<i class="fas fa-${isCorrect ? 'check-circle' : 'times-circle'}"></i> ${isCorrect ? q.feedback.correct : q.feedback.incorrect}`;
+      fb.className = 'quiz-feedback ' + (isCorrect ? 'correct' : 'incorrect');
+      fb.style.display = 'flex';
+
+      updateProgress();
+      updateNavButtons();
     }
 
-    function selectOption(element, questionId, quiz) {
-      const q = quizState[quiz];
-      const options = element.parentElement.querySelectorAll('.quiz-option');
-      const num = questionId.replace(q.prefix, '');
-      const feedbackEl = document.getElementById(q.feedbackPrefix + num);
-      const isCorrect = element.getAttribute('data-correct') === 'true';
-      options.forEach(o => o.classList.remove('selected', 'correct', 'incorrect'));
-      element.classList.add('selected');
-      if (isCorrect) {
-        element.classList.add('correct');
-        feedbackEl.textContent = 'Riktig!';
-        feedbackEl.className = 'quiz-feedback correct';
+    function updateProgress() {
+      const score = answers.filter((a, i) => a !== null && questions[i].options[a].correct).length;
+      const pct = ((current + 1) / questions.length) * 100;
+      document.getElementById('progressFill').style.width = pct + '%';
+      document.getElementById('progressLabel').textContent = `Spørsmål ${current + 1} av ${questions.length}`;
+      document.getElementById('progressScore').textContent = `${score} riktige`;
+    }
+
+    function updateNavButtons() {
+      document.getElementById('prevBtn').disabled = current === 0;
+      const isLast = current === questions.length - 1;
+      const nextBtn = document.getElementById('nextBtn');
+      if (isLast && answered[current]) {
+        nextBtn.innerHTML = 'Se resultat <i class="fas fa-flag-checkered"></i>';
+      } else if (isLast) {
+        nextBtn.innerHTML = 'Neste <i class="fas fa-chevron-right"></i>';
+        nextBtn.disabled = true;
       } else {
-        element.classList.add('incorrect');
-        feedbackEl.textContent = 'Feil. Prøv igjen!';
-        feedbackEl.className = 'quiz-feedback incorrect';
-        options.forEach(o => { if (o.getAttribute('data-correct') === 'true') o.classList.add('correct'); });
+        nextBtn.innerHTML = 'Neste <i class="fas fa-chevron-right"></i>';
+        nextBtn.disabled = !answered[current];
       }
     }
 
-    function nextQuestion(quiz) {
-      const q = quizState[quiz];
-      if (q.current < q.total) {
-        document.getElementById(q.prefix + q.current).style.display = 'none';
-        q.current++;
-        document.getElementById(q.prefix + q.current).style.display = 'block';
-        updateButtons(quiz);
+    function nextQuestion() {
+      if (current < questions.length - 1) {
+        current++;
+        renderQuestion();
+      } else if (answered[current]) {
+        showResult();
       }
     }
 
-    function prevQuestion(quiz) {
-      const q = quizState[quiz];
-      if (q.current > 1) {
-        document.getElementById(q.prefix + q.current).style.display = 'none';
-        q.current--;
-        document.getElementById(q.prefix + q.current).style.display = 'block';
-        updateButtons(quiz);
+    function prevQuestion() {
+      if (current > 0) {
+        current--;
+        renderQuestion();
       }
     }
 
-    function resetQuiz(quiz) {
-      const q = quizState[quiz];
-      q.current = 1;
-      for (let i = 1; i <= q.total; i++) {
-        document.getElementById(q.prefix + i).style.display = i === 1 ? 'block' : 'none';
-        document.querySelectorAll('#' + q.prefix + i + ' .quiz-option').forEach(o => o.classList.remove('selected', 'correct', 'incorrect'));
-        const fb = document.getElementById(q.feedbackPrefix + i);
-        if (fb) { fb.textContent = ''; fb.className = 'quiz-feedback'; fb.style.display = 'none'; }
+    function confirmReset() {
+      if (confirm('Er du sikker på at du vil starte quizen på nytt? Alle svar nullstilles.')) {
+        resetQuiz();
       }
-      updateButtons(quiz);
     }
 
-    function updateButtons(quiz) {
-      const q = quizState[quiz];
-      document.getElementById(q.prevBtn).disabled = q.current === 1;
-      document.getElementById(q.nextBtn).textContent = q.current === q.total ? 'Fullført' : 'Neste';
+    function resetQuiz() {
+      current = 0;
+      answers = new Array(questions.length).fill(null);
+      answered = new Array(questions.length).fill(false);
+      document.getElementById('quizResult').style.display = 'none';
+      document.getElementById('quizContent').style.display = 'block';
+      renderQuestion();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /* ── Resultatalgoritme ── */
+    function showResult() {
+      const score = answers.filter((a, i) => a !== null && questions[i].options[a].correct).length;
+      const total = questions.length;
+      const pct = Math.round((score / total) * 100);
+
+      let level, title, desc, tips, colorClass, badge;
+
+      if (pct <= 40) {
+        level = 'low'; colorClass = 'level-low'; badge = '📖 Begynner';
+        title = 'Du har en del å lære – men det er helt greit!';
+        desc = `Du svarte riktig på ${score} av ${total} spørsmål. Det er viktig å kjenne reglene for KI-bruk før du tar dem i bruk i studiene. Vi anbefaler at du bruker litt tid på ressursene nedenfor.`;
+        tips = [
+          'Les gjennom FAQ og praktiske tips på denne siden',
+          'Sjekk emnebeskrivelsene dine for lokale KI-regler',
+          'Ta quizen på nytt etter at du har lest deg opp',
+          'Snakk med foreleser om du er usikker på noe'
+        ];
+      } else if (pct <= 60) {
+        level = 'mid'; colorClass = 'level-mid'; badge = '🔍 På vei';
+        title = 'Godt grunnlag – men noen hull å tette';
+        desc = `Du svarte riktig på ${score} av ${total} spørsmål. Du har begynt å forstå prinsippene, men det finnes noen viktige områder du bør jobbe mer med for å bruke KI på en trygg og ansvarlig måte.`;
+        tips = [
+          'Gå tilbake og les tilbakemeldingene på spørsmålene du bommet på',
+          'Fordyp deg i temaene kildebruk og personvern',
+          'Sjekk ut de praktiske tipsene for konkrete råd',
+          'Prøv quizen igjen for å se fremgangen din'
+        ];
+      } else if (pct <= 80) {
+        level = 'good'; colorClass = 'level-good'; badge = '✅ God kunnskap';
+        title = 'Bra jobbet – du er godt i gang!';
+        desc = `Du svarte riktig på ${score} av ${total} spørsmål. Du har solid forståelse av de viktigste prinsippene for ansvarlig KI-bruk. Kikk gjerne på områdene du er usikker på for å runde av kunnskapen.`;
+        tips = [
+          'Gå gjennom spørsmålene du bommet på og forstå hvorfor',
+          'Utforsk nyttige lenker for å holde deg oppdatert',
+          'Del kunnskapen din med medstudenter',
+          'Sjekk institusjonens egne retningslinjer'
+        ];
+      } else {
+        level = 'high'; colorClass = 'level-high'; badge = '🏆 Ekspert';
+        title = 'Utmerket! Du har god kontroll';
+        desc = `Du svarte riktig på ${score} av ${total} spørsmål. Du demonstrerer sterk forståelse for ansvarlig og etisk KI-bruk i studiene. Fortsett den gode praksisen og hold deg oppdatert på feltet.`;
+        tips = [
+          'Hold deg oppdatert – KI-regler og verktøy utvikler seg raskt',
+          'Hjelp medstudenter som er usikre på reglene',
+          'Utforsk avanserte ressurser i lenke-seksjonen',
+          'Del gjerne tilbakemeldinger om quizen med oss!'
+        ];
+      }
+
+      document.getElementById('quizContent').style.display = 'none';
+      const resultEl = document.getElementById('quizResult');
+      resultEl.className = `quiz-result ${colorClass}`;
+      resultEl.innerHTML = `
+        <div class="result-score-circle">
+          ${score}/${total}
+          <span>${pct}%</span>
+        </div>
+        <div class="result-level-badge">${badge}</div>
+        <h2 class="result-title">${title}</h2>
+        <p class="result-desc">${desc}</p>
+        <div class="result-tips">
+          <h4><i class="fas fa-lightbulb"></i> Anbefalte neste steg:</h4>
+          <ul>${tips.map(t => `<li>${t}</li>`).join('')}</ul>
+        </div>
+        <div class="result-actions">
+          <button class="btn-result-primary" onclick="resetQuiz()">
+            <i class="fas fa-redo-alt"></i> Ta quizen på nytt
+          </button>
+          <a href="tips.html" class="btn-result-secondary">
+            <i class="fas fa-lightbulb"></i> Praktiske tips
+          </a>
+        </div>
+      `;
+      resultEl.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
   <script src="app.js" defer></script>
-  <script>document.addEventListener('DOMContentLoaded', initRole);</script>
 </body>
 </html>
