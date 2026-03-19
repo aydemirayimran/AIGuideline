@@ -507,7 +507,7 @@ details p {
 /* På mobil: gjør teksten mindre og hindrer linjeskift */
 @media (max-width: 760px) {
   .privacy-note {
-    font-size: 0.55rem;     /* mindre tekst på mobil */
+    font-size: 0.75rem;     /* mindre tekst på mobil */
     white-space: nowrap;    /* prøver å holde alt på én linje */
   }
 }
