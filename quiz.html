@@ -478,11 +478,9 @@
       document.getElementById('prevBtn').disabled = current === 0;
       const isLast = current === questions.length - 1;
       const nextBtn = document.getElementById('nextBtn');
-      if (isLast && answered[current]) {
+      if (isLast) {
         nextBtn.innerHTML = 'Se resultat <i class="fas fa-flag-checkered"></i>';
-      } else if (isLast) {
-        nextBtn.innerHTML = 'Neste <i class="fas fa-chevron-right"></i>';
-        nextBtn.disabled = true;
+        nextBtn.disabled = !answered[current];
       } else {
         nextBtn.innerHTML = 'Neste <i class="fas fa-chevron-right"></i>';
         nextBtn.disabled = !answered[current];
