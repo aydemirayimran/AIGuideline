@@ -17,7 +17,6 @@
       <span class="brand-title">KI-veileder for studenter</span>
     </div>
     <nav class="nav" aria-label="Hovedmeny">
-      <!-- Desktop-meny (skjult på mobil) -->
       <ul class="nav-desktop">
         <li><a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Hjem</a></li>
         <li><a href="faq.html" class="nav-link"><i class="fas fa-question-circle"></i> FAQ</a></li>
@@ -26,7 +25,6 @@
         <li><a href="links.html" class="nav-link"><i class="fas fa-link"></i> Nyttige lenker</a></li>
         <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Kontakt</a></li>
       </ul>
-      <!-- Hamburger-knapp (kun mobil) -->
       <button class="menu-toggle" aria-label="Åpne meny" id="menuToggle">
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>
@@ -52,40 +50,22 @@
   </aside>
 
   <main class="container">
+
+    <!-- Hero -->
     <section class="hero card">
       <h1>Bruk kunstig intelligens smart – og på riktig måte</h1>
       <p class="lead">
         Lær hvordan du kan bruke KI som støtte i studiene – uten å bryte reglene.
-        <strong>Eksempel:</strong> Slik kan KI hjelpe deg med å strukturere oppgaver eller finne kilder.
       </p>
 
-      <div class="why-matters">
-        <h3><i class="fas fa-info-circle"></i> Hvorfor dette er viktig for deg som student</h3>
+      <!-- Advarsel -->
+      <div class="why-matters why-matters--warning">
+        <h3><i class="fas fa-exclamation-triangle"></i> Feil bruk kan få alvorlige konsekvenser</h3>
         <p>
-          KI kan spare deg for tid og hjelpe deg å lære bedre – men det er viktig å bruke det riktig.
-          Feil bruk kan få alvorlige akademiske konsekvenser, som annullert eksamen eller utestengelse.
-          Her får du konkrete tips og eksempler som hjelper deg å bruke KI på en ansvarlig måte.
+          Annullert eksamen eller utestengelse er mulige følger av feil KI-bruk.
+          Sjekk alltid emnebeskrivelsen og regelverket ved din institusjon.
         </p>
       </div>
-      
-            <!--Søkefunksjon/kan fjernes hvis den ikke fungerer-->
-  <section class="why-matters">
-  <h2>Søk i AI Guidebook</h2>
-  <p class="lead">
-    Søk etter tema på tvers av alle sider (for eksempel "eksamen", "plagiat", "prompt", "personvern").
-  </p>
-
-  <div class="search-bar">
-    <label for="globalSearch" class="visually-hidden">Søk i AI Guidebook</label>
-    <input
-      type="search"
-      id="globalSearch"
-      placeholder="Søk etter tema..."
-      autocomplete="off"
-    />
-  </div>
-  <ul id="searchResults" class="search-results" aria-live="polite"></ul>
-</section>
 
       <p class="small">
         KI-veilederen supplerer lokale retningslinjer.
@@ -93,60 +73,71 @@
       </p>
     </section>
 
-    <!-- Innhold for studenter -->
-    <section class="card content-student" data-role="student">
-      <h2>Kom i gang</h2>
-      <p>
-        Få tydelige, praktiske råd om ansvarlig KI-bruk i studier.
-        Lær hvordan du kan bruke KI som støtte uten å bryte akademiske regler.
-      </p>
-      <div class="grid">
-        <a href="tips.html" class="tile">
-          <h3><i class="fas fa-lightbulb"></i> Slik bruker du KI i oppgaveskriving</h3>
-          <p>Praktiske eksempler: Hvordan bruke KI til å finne kilder, strukturere tekst og unngå plagiat.</p>
+    <!-- Steg-for-steg -->
+    <section class="card">
+      <h2>Kom i gang på 3 steg</h2>
+      <p>Følg stegene for å bruke KI på en ansvarlig og effektiv måte i studiene dine.</p>
+
+      <div class="steps">
+
+        <a href="faq.html" class="step-tile">
+          <div class="step-number">1</div>
+          <div class="step-body">
+            <h3><i class="fas fa-question-circle"></i> Forstå reglene</h3>
+            <p>Les gjennom de vanligste spørsmålene om KI og akademisk integritet, slik at du vet hva som er lov.</p>
+            <span class="step-cta">Les FAQ <i class="fas fa-arrow-right"></i></span>
+          </div>
         </a>
-        <a href="quiz.html?rolle=student" class="tile">
-          <h3><i class="fas fa-clipboard-list"></i> Test din kunnskap</h3>
-          <p>Sjekk om du kan skille mellom lovlig og ulovlig KI-bruk.</p>
+
+        <a href="tips.html" class="step-tile">
+          <div class="step-number">2</div>
+          <div class="step-body">
+            <h3><i class="fas fa-lightbulb"></i> Lær å stille gode spørsmål</h3>
+            <p>Se konkrete eksempler på hvordan du bruker KI til å strukturere tekst, finne kilder og unngå plagiat.</p>
+            <span class="step-cta">Se eksempler <i class="fas fa-arrow-right"></i></span>
+          </div>
         </a>
-        <a href="faq.html" class="tile">
-          <h3><i class="fas fa-question-circle"></i> Vanlige spørsmål</h3>
-          <p>Svar på det studentene lurer mest på.</p>
+
+        <a href="quiz.html" class="step-tile">
+          <div class="step-number">3</div>
+          <div class="step-body">
+            <h3><i class="fas fa-clipboard-list"></i> Test deg selv</h3>
+            <p>Sjekk om du kan skille mellom lovlig og ulovlig KI-bruk – og se hva du eventuelt bør lese mer om.</p>
+            <span class="step-cta">Start quiz <i class="fas fa-arrow-right"></i></span>
+          </div>
         </a>
+
       </div>
     </section>
 
-    <!-- Ansatt-seksjon skjult inntil videre -->
-    <!-- <section class="card content-staff" data-role="staff">
-      ...
-    </section> -->
+    <!-- Søk -->
+    <section class="card">
+      <h2>Søk i AI Guidebook</h2>
+      <p>Søk etter tema på tvers av alle sider (for eksempel «eksamen», «plagiat», «prompt», «personvern»).</p>
+      <div class="search-bar">
+        <label for="globalSearch" class="visually-hidden">Søk i AI Guidebook</label>
+        <input
+          type="search"
+          id="globalSearch"
+          placeholder="Søk etter tema..."
+          autocomplete="off"
+        />
+      </div>
+      <ul id="searchResults" class="search-results" aria-live="polite"></ul>
+    </section>
 
-    <!-- Ressurser -->
+    <!-- Kompakt lenkerad -->
     <section class="card">
       <h2>Utforsk mer</h2>
-      <p>
-        Her finner du retningslinjer, vanlige spørsmål og praktiske verktøy
-        som hjelper deg å navigere KI-bruk på en trygg og ansvarlig måte.
-      </p>
-      <div class="grid">
-        <a href="faq.html" class="tile">
-          <h3><i class="fas fa-question-circle"></i> FAQ</h3>
-          <p>Svar på de vanligste spørsmålene om KI og studier.</p>
-        </a>
-        <a href="tips.html" class="tile">
-          <h3><i class="fas fa-lightbulb"></i> Spørsmål til KI</h3>
-          <p>Konkrete råd for ansvarlig KI-bruk i hverdagen.</p>
-        </a>
-        <a href="quiz.html" class="tile">
-          <h3><i class="fas fa-clipboard-list"></i> Test deg selv</h3>
-          <p>Sjekk din kunnskap om KI og akademisk integritet.</p>
-        </a>
-        <a href="links.html" class="tile">
-          <h3><i class="fas fa-link"></i> Nyttige lenker</h3>
-          <p>Eksterne ressurser og verktøy for deg som vil lære mer.</p>
-        </a>
+      <div class="link-row">
+        <a href="faq.html" class="link-pill"><i class="fas fa-question-circle"></i> FAQ</a>
+        <a href="tips.html" class="link-pill"><i class="fas fa-lightbulb"></i> Spørsmål til KI</a>
+        <a href="quiz.html" class="link-pill"><i class="fas fa-clipboard-list"></i> Test deg selv</a>
+        <a href="links.html" class="link-pill"><i class="fas fa-link"></i> Nyttige lenker</a>
+        <a href="contact.html" class="link-pill"><i class="fas fa-envelope"></i> Kontakt</a>
       </div>
     </section>
+
   </main>
 
   <footer class="footer">
