@@ -53,6 +53,34 @@ a {
   align-items: center;
 }
 
+/* ─── Horisontal nav-meny (#menu brukt på FAQ og andre sider) ─── */
+#menu {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+}
+
+#menu a {
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-color);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+#menu a:hover,
+#menu a[aria-current="page"] {
+  background: var(--primary-light);
+  color: var(--primary-color);
+}
+
+/* ─── Desktop-meny (.nav-desktop brukt på gammel index) ─── */
 .nav-desktop {
   list-style: none;
   display: flex;
@@ -102,6 +130,7 @@ a {
   background: var(--card-bg);
   cursor: pointer;
   padding: 6px;
+  font-size: 1.2rem;
 }
 
 .hamburger-bar {
@@ -571,6 +600,24 @@ details p {
 
   .nav-desktop {
     display: none;
+  }
+
+  #menu {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    left: 0;
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 8px 12px;
+    z-index: 199;
+  }
+
+  #menu.open {
+    display: flex;
   }
 
   .menu-toggle {
