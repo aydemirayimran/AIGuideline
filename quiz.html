@@ -93,15 +93,9 @@
       border: 2px solid var(--primary-color, #4a6fa5);
       transition: all 0.2s;
     }
-    .btn-nav-secondary {
-      background: #fff; color: var(--primary-color, #4a6fa5);
-    }
-    .btn-nav-secondary:hover:not(:disabled) {
-      background: var(--primary-color, #4a6fa5); color: #fff;
-    }
-    .btn-nav-primary {
-      background: var(--primary-color, #4a6fa5); color: #fff;
-    }
+    .btn-nav-secondary { background: #fff; color: var(--primary-color, #4a6fa5); }
+    .btn-nav-secondary:hover:not(:disabled) { background: var(--primary-color, #4a6fa5); color: #fff; }
+    .btn-nav-primary { background: var(--primary-color, #4a6fa5); color: #fff; }
     .btn-nav-primary:hover:not(:disabled) { background: var(--primary-dark, #3a5f95); }
     .btn-nav:disabled { opacity: 0.35; cursor: default; }
 
@@ -151,7 +145,6 @@
     }
     .btn-result-secondary:hover { background: var(--primary-color, #4a6fa5); color: #fff; }
 
-    /* Fargeprofiler for nivåer */
     .level-low  { color: #dc3545; border-color: #dc3545; }
     .level-low .result-level-badge { background: #f8d7da; color: #721c24; }
     .level-mid  { color: #fd7e14; border-color: #fd7e14; }
@@ -227,8 +220,6 @@
 
       <!-- ── QUIZ-INNHOLD ── -->
       <div id="quizContent" style="display:none;">
-
-        <!-- Fremdriftslinje -->
         <div class="quiz-progress-wrap">
           <div class="quiz-progress-label">
             <span id="progressLabel">Spørsmål 1 av 10</span>
@@ -238,14 +229,8 @@
             <div class="quiz-progress-fill" id="progressFill" style="width:0%"></div>
           </div>
         </div>
-
-        <!-- Spørsmålsområde -->
         <div class="quiz-question-area" id="questionArea"></div>
-
-        <!-- Tilbakemelding -->
         <div class="quiz-feedback" id="quizFeedback"></div>
-
-        <!-- Navigasjon -->
         <div class="quiz-navigation">
           <button class="btn-nav btn-nav-secondary" id="prevBtn" onclick="prevQuestion()" disabled>
             <i class="fas fa-chevron-left"></i> Forrige
@@ -270,8 +255,10 @@
   </footer>
 
   <script>
+    // Riktige svar fordelt: A(0), B(1), C(2), B, A, C, B, C, A, B
     const questions = [
       {
+        // Riktig: A (0)
         q: "Når bør du oppgi at du har brukt KI i en oppgave?",
         options: [
           { text: "Alltid når KI har bidratt til arbeidet ditt.", correct: true },
@@ -284,10 +271,11 @@
         }
       },
       {
+        // Riktig: B (1)
         q: "Hva gjør du hvis du er usikker på hva som er tillatt KI-bruk i et emne?",
         options: [
-          { text: "Spør foreleser eller sjekk emnebeskrivelsen.", correct: true },
           { text: "Bruker KI uansett – det er sikkert greit.", correct: false },
+          { text: "Spør foreleser eller sjekk emnebeskrivelsen.", correct: true },
           { text: "Unngår all KI-bruk for sikkerhets skyld.", correct: false }
         ],
         feedback: {
@@ -296,11 +284,12 @@
         }
       },
       {
+        // Riktig: C (2)
         q: "Hvorfor er det viktig å alltid dobbeltsjekke informasjon du får fra KI?",
         options: [
-          { text: "KI kan \"hallusinere\" – generere informasjon som høres riktig ut, men er feil.", correct: true },
           { text: "Fordi lærere alltid krever det.", correct: false },
-          { text: "Det er egentlig ikke nødvendig.", correct: false }
+          { text: "Det er egentlig ikke nødvendig.", correct: false },
+          { text: "KI kan \"hallusinere\" – generere informasjon som høres riktig ut, men er feil.", correct: true }
         ],
         feedback: {
           correct: "Riktig! KI-modeller kan produsere overbevisende, men faktisk feil informasjon – alltid verifiser med pålitelige kilder.",
@@ -308,10 +297,11 @@
         }
       },
       {
+        // Riktig: B (1)
         q: "Hvilke opplysninger bør du aldri dele med en KI-tjeneste?",
         options: [
-          { text: "Sensitiv eller personlig informasjon om deg selv eller andre.", correct: true },
           { text: "Generell faglig informasjon om emnet du studerer.", correct: false },
+          { text: "Sensitiv eller personlig informasjon om deg selv eller andre.", correct: true },
           { text: "Kilder du har brukt i oppgaven.", correct: false }
         ],
         feedback: {
@@ -320,6 +310,7 @@
         }
       },
       {
+        // Riktig: A (0)
         q: "Hva er den beste måten å bruke KI på i studiene?",
         options: [
           { text: "Som støtte til egen læring og tenkning – ikke som erstatning for egeninnsats.", correct: true },
@@ -332,11 +323,12 @@
         }
       },
       {
+        // Riktig: C (2)
         q: "Hva er en etisk utfordring ved bruk av KI i utdanning?",
         options: [
-          { text: "KI-modeller kan inneholde skjevheter, og ikke alle studenter har lik tilgang til verktøyene.", correct: true },
           { text: "KI er for dyrt til at det er relevant for studenter.", correct: false },
-          { text: "KI er for komplisert å lære seg.", correct: false }
+          { text: "KI er for komplisert å lære seg.", correct: false },
+          { text: "KI-modeller kan inneholde skjevheter, og ikke alle studenter har lik tilgang til verktøyene.", correct: true }
         ],
         feedback: {
           correct: "Riktig! Skjevheter i treningsdata og ulik tilgang er reelle etiske utfordringer som påvirker rettferdighet i utdanning.",
@@ -344,10 +336,11 @@
         }
       },
       {
+        // Riktig: B (1)
         q: "Hva betyr begrepet 'prompt engineering'?",
         options: [
-          { text: "Teknikken for å formulere presise og effektive spørsmål for å få best mulig svar fra KI.", correct: true },
           { text: "En type maskinlæringsalgoritme.", correct: false },
+          { text: "Teknikken for å formulere presise og effektive spørsmål for å få best mulig svar fra KI.", correct: true },
           { text: "En måte å programmere KI-modeller på.", correct: false }
         ],
         feedback: {
@@ -356,11 +349,12 @@
         }
       },
       {
+        // Riktig: C (2)
         q: "Hva er akademisk uredelighet i sammenheng med KI?",
         options: [
-          { text: "Å levere inn KI-generert tekst som sitt eget arbeid uten å oppgi det.", correct: true },
           { text: "Å bruke KI til å få idéer til oppgavestruktur.", correct: false },
-          { text: "Å la KI foreslå bedre formuleringer mens du beholder egne argumenter.", correct: false }
+          { text: "Å la KI foreslå bedre formuleringer mens du beholder egne argumenter.", correct: false },
+          { text: "Å levere inn KI-generert tekst som sitt eget arbeid uten å oppgi det.", correct: true }
         ],
         feedback: {
           correct: "Riktig! Å presentere KI-tekst som sitt eget uten å opplyse om det regnes som juks på linje med plagiat.",
@@ -368,6 +362,7 @@
         }
       },
       {
+        // Riktig: A (0)
         q: "Hvem er ansvarlig for innholdet du leverer inn, selv om KI hjalp deg?",
         options: [
           { text: "Du selv – studenten er alltid ansvarlig for eget innlevert arbeid.", correct: true },
@@ -380,10 +375,11 @@
         }
       },
       {
+        // Riktig: B (1)
         q: "Hvilken påstand om KI og opphavsrett er riktig?",
         options: [
-          { text: "KI-generert tekst kan ha uklar opphavsrettsstatus – vær forsiktig med å bruke den uten å bearbeide den.", correct: true },
           { text: "KI-generert tekst er alltid fri å bruke uten begrensninger.", correct: false },
+          { text: "KI-generert tekst kan ha uklar opphavsrettsstatus – vær forsiktig med å bruke den uten å bearbeide den.", correct: true },
           { text: "Du eier automatisk opphavsretten til alt KI lager for deg.", correct: false }
         ],
         feedback: {
@@ -394,7 +390,7 @@
     ];
 
     let current = 0;
-    let answers = new Array(questions.length).fill(null); // null = ubesvart, true/false = svar
+    let answers = new Array(questions.length).fill(null);
     let answered = new Array(questions.length).fill(false);
 
     function startQuiz() {
@@ -406,6 +402,7 @@
     function renderQuestion() {
       const q = questions[current];
       const area = document.getElementById('questionArea');
+      const labels = ['A', 'B', 'C'];
 
       area.innerHTML = `
         <h3>Spørsmål ${current + 1} av ${questions.length}</h3>
@@ -415,18 +412,16 @@
             <button class="quiz-option${answered[current] ? (opt.correct ? ' correct' : (answers[current] === i ? ' incorrect' : '')) : (answers[current] === i ? ' selected' : '')}"
               onclick="selectOption(${i})"
               ${answered[current] ? 'disabled' : ''}>
-              <span class="opt-icon">${answered[current] ? (opt.correct ? '<i class="fas fa-check"></i>' : (answers[current] === i ? '<i class="fas fa-times"></i>' : '')) : (i === 0 ? 'A' : i === 1 ? 'B' : 'C')}</span>
+              <span class="opt-icon">${answered[current] ? (opt.correct ? '<i class="fas fa-check"></i>' : (answers[current] === i ? '<i class="fas fa-times"></i>' : labels[i])) : labels[i]}</span>
               ${opt.text}
             </button>
           `).join('')}
         </div>
       `;
 
-      // Vis lagret tilbakemelding hvis allerede besvart
       const fb = document.getElementById('quizFeedback');
       if (answered[current]) {
         const wasCorrect = answers[current] !== null && q.options[answers[current]].correct;
-        fb.textContent = '';
         fb.className = 'quiz-feedback ' + (wasCorrect ? 'correct' : 'incorrect');
         fb.innerHTML = `<i class="fas fa-${wasCorrect ? 'check-circle' : 'times-circle'}"></i> ${wasCorrect ? q.feedback.correct : q.feedback.incorrect}`;
         fb.style.display = 'flex';
@@ -446,13 +441,14 @@
 
       const q = questions[current];
       const isCorrect = q.options[optIndex].correct;
+      const labels = ['A', 'B', 'C'];
       const opts = document.querySelectorAll('.quiz-option');
 
       opts.forEach((btn, i) => {
         btn.disabled = true;
         btn.querySelector('.opt-icon').innerHTML = q.options[i].correct
           ? '<i class="fas fa-check"></i>'
-          : (i === optIndex ? '<i class="fas fa-times"></i>' : (i === 0 ? 'A' : i === 1 ? 'B' : 'C'));
+          : (i === optIndex ? '<i class="fas fa-times"></i>' : labels[i]);
         if (q.options[i].correct) btn.classList.add('correct');
         else if (i === optIndex) btn.classList.add('incorrect');
       });
@@ -519,7 +515,6 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    /* ── Resultatalgoritme ── */
     function showResult() {
       const score = answers.filter((a, i) => a !== null && questions[i].options[a].correct).length;
       const total = questions.length;
@@ -531,52 +526,29 @@
         level = 'low'; colorClass = 'level-low'; badge = '📖 Begynner';
         title = 'Du har en del å lære – men det er helt greit!';
         desc = `Du svarte riktig på ${score} av ${total} spørsmål. Det er viktig å kjenne reglene for KI-bruk før du tar dem i bruk i studiene. Vi anbefaler at du bruker litt tid på ressursene nedenfor.`;
-        tips = [
-          'Les gjennom FAQ og praktiske tips på denne siden',
-          'Sjekk emnebeskrivelsene dine for lokale KI-regler',
-          'Ta quizen på nytt etter at du har lest deg opp',
-          'Snakk med foreleser om du er usikker på noe'
-        ];
+        tips = ['Les gjennom FAQ og praktiske tips på denne siden', 'Sjekk emnebeskrivelsene dine for lokale KI-regler', 'Ta quizen på nytt etter at du har lest deg opp', 'Snakk med foreleser om du er usikker på noe'];
       } else if (pct <= 60) {
         level = 'mid'; colorClass = 'level-mid'; badge = '🔍 På vei';
         title = 'Godt grunnlag – men noen hull å tette';
         desc = `Du svarte riktig på ${score} av ${total} spørsmål. Du har begynt å forstå prinsippene, men det finnes noen viktige områder du bør jobbe mer med for å bruke KI på en trygg og ansvarlig måte.`;
-        tips = [
-          'Gå tilbake og les tilbakemeldingene på spørsmålene du bommet på',
-          'Fordyp deg i temaene kildebruk og personvern',
-          'Sjekk ut de praktiske tipsene for konkrete råd',
-          'Prøv quizen igjen for å se fremgangen din'
-        ];
+        tips = ['Gå tilbake og les tilbakemeldingene på spørsmålene du bommet på', 'Fordyp deg i temaene kildebruk og personvern', 'Sjekk ut de praktiske tipsene for konkrete råd', 'Prøv quizen igjen for å se fremgangen din'];
       } else if (pct <= 80) {
         level = 'good'; colorClass = 'level-good'; badge = '✅ God kunnskap';
         title = 'Bra jobbet – du er godt i gang!';
         desc = `Du svarte riktig på ${score} av ${total} spørsmål. Du har solid forståelse av de viktigste prinsippene for ansvarlig KI-bruk. Kikk gjerne på områdene du er usikker på for å runde av kunnskapen.`;
-        tips = [
-          'Gå gjennom spørsmålene du bommet på og forstå hvorfor',
-          'Utforsk nyttige lenker for å holde deg oppdatert',
-          'Del kunnskapen din med medstudenter',
-          'Sjekk institusjonens egne retningslinjer'
-        ];
+        tips = ['Gå gjennom spørsmålene du bommet på og forstå hvorfor', 'Utforsk nyttige lenker for å holde deg oppdatert', 'Del kunnskapen din med medstudenter', 'Sjekk institusjonens egne retningslinjer'];
       } else {
         level = 'high'; colorClass = 'level-high'; badge = '🏆 Ekspert';
         title = 'Utmerket! Du har god kontroll';
         desc = `Du svarte riktig på ${score} av ${total} spørsmål. Du demonstrerer sterk forståelse for ansvarlig og etisk KI-bruk i studiene. Fortsett den gode praksisen og hold deg oppdatert på feltet.`;
-        tips = [
-          'Hold deg oppdatert – KI-regler og verktøy utvikler seg raskt',
-          'Hjelp medstudenter som er usikre på reglene',
-          'Utforsk avanserte ressurser i lenke-seksjonen',
-          'Del gjerne tilbakemeldinger om quizen med oss!'
-        ];
+        tips = ['Hold deg oppdatert – KI-regler og verktøy utvikler seg raskt', 'Hjelp medstudenter som er usikre på reglene', 'Utforsk avanserte ressurser i lenke-seksjonen', 'Del gjerne tilbakemeldinger om quizen med oss!'];
       }
 
       document.getElementById('quizContent').style.display = 'none';
       const resultEl = document.getElementById('quizResult');
       resultEl.className = `quiz-result ${colorClass}`;
       resultEl.innerHTML = `
-        <div class="result-score-circle">
-          ${score}/${total}
-          <span>${pct}%</span>
-        </div>
+        <div class="result-score-circle">${score}/${total}<span>${pct}%</span></div>
         <div class="result-level-badge">${badge}</div>
         <h2 class="result-title">${title}</h2>
         <p class="result-desc">${desc}</p>
@@ -585,12 +557,8 @@
           <ul>${tips.map(t => `<li>${t}</li>`).join('')}</ul>
         </div>
         <div class="result-actions">
-          <button class="btn-result-primary" onclick="resetQuiz()">
-            <i class="fas fa-redo-alt"></i> Ta quizen på nytt
-          </button>
-          <a href="tips.html" class="btn-result-secondary">
-            <i class="fas fa-lightbulb"></i> Spørsmål til KI
-          </a>
+          <button class="btn-result-primary" onclick="resetQuiz()"><i class="fas fa-redo-alt"></i> Ta quizen på nytt</button>
+          <a href="tips.html" class="btn-result-secondary"><i class="fas fa-lightbulb"></i> Spørsmål til KI</a>
         </div>
       `;
       resultEl.style.display = 'block';
