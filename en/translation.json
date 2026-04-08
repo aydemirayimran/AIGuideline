@@ -15,11 +15,17 @@
   "search_heading": "Search in AI Guidebook",
   "search_lead": "Search for topics across all pages (e.g., 'exam', 'plagiarism', 'prompt').",
   "search_placeholder": "Search for topic...",
+  "search_label": "Search in AI Guidebook",
+  "search_hint": "Enter a keyword to search across all pages",
   "explore_heading": "Explore more",
   "faq": "FAQ",
   "ai_questions": "Questions for AI",
   "self_test": "Test yourself",
   "useful_links": "Useful links",
   "contact": "Contact",
-  "footer_text": "Made for students — Group 5 — Practical Project Work — Spring 2026"
+  "footer_text": "Made for students — Group 5 — Practical Project Work — Spring 2026",
+  "skip_link": "Skip to main content",
+  "home": "Home",
+  "menu": "Menu",
+  "disclaimer": "The AI Guide supplements local guidelines. In case of doubt: check the course description and regulations at your institution."
 }
