@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
-    /* ── Intro-skjerm ── */
     .quiz-intro { text-align: center; padding: 1rem 0 0.5rem; }
     .quiz-intro h2 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     .quiz-intro .intro-meta {
@@ -28,8 +27,6 @@
       transition: background 0.2s, transform 0.1s; font-family: inherit;
     }
     .btn-start:hover { background: var(--primary-dark, #3a5f95); transform: translateY(-1px); }
-
-    /* ── Fremdriftslinje ── */
     .quiz-progress-wrap { margin-bottom: 1.2rem; }
     .quiz-progress-label {
       display: flex; justify-content: space-between;
@@ -42,16 +39,12 @@
       height: 100%; background: var(--primary-color, #4a6fa5);
       border-radius: 4px; transition: width 0.4s ease;
     }
-
-    /* ── Spørsmål ── */
     .quiz-question-area { min-height: 260px; }
     .quiz-question-area h3 {
       font-size: 0.85rem; font-weight: 600; text-transform: uppercase;
       letter-spacing: 0.05em; color: var(--primary-color, #4a6fa5); margin-bottom: 0.4rem;
     }
     .quiz-question-text { font-size: 1.1rem; font-weight: 600; margin-bottom: 1.2rem; line-height: 1.45; }
-
-    /* ── Svaralternativer ── */
     .quiz-options { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1rem; }
     .quiz-option {
       display: flex; align-items: center; gap: 0.8rem;
@@ -72,16 +65,12 @@
     .quiz-option.incorrect { border-color: #dc3545; background: #f8d7da; }
     .quiz-option.incorrect .opt-icon { border-color: #dc3545; background: #dc3545; color: #fff; }
     .quiz-option:disabled { cursor: default; }
-
-    /* ── Tilbakemelding ── */
     .quiz-feedback {
       padding: 0.75rem 1rem; border-radius: 8px; font-size: 0.93rem;
       display: none; margin-bottom: 0.5rem; line-height: 1.5;
     }
     .quiz-feedback.correct { background: #d4edda; color: #155724; display: flex; gap: 0.5rem; align-items: flex-start; }
     .quiz-feedback.incorrect { background: #f8d7da; color: #721c24; display: flex; gap: 0.5rem; align-items: flex-start; }
-
-    /* ── Navigasjon ── */
     .quiz-navigation {
       display: flex; justify-content: space-between; align-items: center;
       margin-top: 1.4rem; gap: 0.8rem;
@@ -90,15 +79,13 @@
       display: inline-flex; align-items: center; gap: 0.4rem;
       padding: 0.7rem 1.4rem; border-radius: 8px; font-size: 0.97rem;
       font-weight: 600; font-family: inherit; cursor: pointer;
-      border: 2px solid var(--primary-color, #4a6fa5);
-      transition: all 0.2s;
+      border: 2px solid var(--primary-color, #4a6fa5); transition: all 0.2s;
     }
     .btn-nav-secondary { background: #fff; color: var(--primary-color, #4a6fa5); }
     .btn-nav-secondary:hover:not(:disabled) { background: var(--primary-color, #4a6fa5); color: #fff; }
     .btn-nav-primary { background: var(--primary-color, #4a6fa5); color: #fff; }
     .btn-nav-primary:hover:not(:disabled) { background: var(--primary-dark, #3a5f95); }
     .btn-nav:disabled { opacity: 0.35; cursor: default; }
-
     .btn-reset {
       display: inline-flex; align-items: center; gap: 0.45rem;
       padding: 0.6rem 1.2rem; border-radius: 8px; font-size: 0.9rem;
@@ -106,8 +93,6 @@
       background: #fff; color: #555; transition: all 0.2s; font-weight: 500;
     }
     .btn-reset:hover { border-color: #999; color: #333; background: #f5f5f5; }
-
-    /* ── Resultat ── */
     .quiz-result { display: none; text-align: center; padding: 0.5rem 0; }
     .result-score-circle {
       width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 1.2rem;
@@ -144,7 +129,6 @@
       background: #fff; color: var(--primary-color, #4a6fa5); transition: all 0.2s;
     }
     .btn-result-secondary:hover { background: var(--primary-color, #4a6fa5); color: #fff; }
-
     .level-low  { color: #dc3545; border-color: #dc3545; }
     .level-low .result-level-badge { background: #f8d7da; color: #721c24; }
     .level-mid  { color: #fd7e14; border-color: #fd7e14; }
@@ -157,95 +141,111 @@
 </head>
 <body>
 
-  <div class="nav-overlay" id="navOverlay"></div>
+  <a href="#hovedinnhold" class="skip-link">Hopp til hovedinnhold</a>
+
+  <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
 
   <header class="topbar">
     <div class="brand">
-      <a href="index.html"><span class="brand-title">KI-veileder for studenter</span></a>
+      <a href="index.html" aria-label="KI-veileder for studenter – gå til forsiden">
+        <span class="brand-title">KI-veileder for studenter</span>
+      </a>
     </div>
     <nav class="nav" aria-label="Hovedmeny">
-      <ul class="nav-desktop">
-        <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Hjem</a></li>
-        <li><a href="faq.html" class="nav-link"><i class="fas fa-question-circle"></i> FAQ</a></li>
-        <li><a href="tips.html" class="nav-link"><i class="fas fa-lightbulb"></i> Spørsmål til KI</a></li>
-        <li><a href="quiz.html" class="nav-link active"><i class="fas fa-clipboard-list"></i> Test deg selv</a></li>
-        <li><a href="links.html" class="nav-link"><i class="fas fa-link"></i> Nyttige lenker</a></li>
-        <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Kontakt</a></li>
+      <ul class="nav-desktop" role="list">
+        <li><a href="index.html" class="nav-link"><i class="fas fa-home" aria-hidden="true"></i> Hjem</a></li>
+        <li><a href="faq.html" class="nav-link"><i class="fas fa-question-circle" aria-hidden="true"></i> FAQ</a></li>
+        <li><a href="tips.html" class="nav-link"><i class="fas fa-lightbulb" aria-hidden="true"></i> Spørsmål til KI</a></li>
+        <li><a href="quiz.html" class="nav-link active" aria-current="page"><i class="fas fa-clipboard-list" aria-hidden="true"></i> Test deg selv</a></li>
+        <li><a href="links.html" class="nav-link"><i class="fas fa-link" aria-hidden="true"></i> Nyttige lenker</a></li>
+        <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope" aria-hidden="true"></i> Kontakt</a></li>
       </ul>
-      <button class="menu-toggle" aria-label="Åpne meny" id="menuToggle">
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
+      <button class="menu-toggle" aria-label="Åpne navigasjonsmeny" aria-expanded="false" aria-controls="sideMenu" id="menuToggle">
+        <span class="hamburger-bar" aria-hidden="true"></span>
+        <span class="hamburger-bar" aria-hidden="true"></span>
+        <span class="hamburger-bar" aria-hidden="true"></span>
       </button>
     </nav>
   </header>
 
-  <aside class="side-menu" id="sideMenu" aria-hidden="true">
+  <aside class="side-menu" id="sideMenu" aria-hidden="true" aria-label="Mobilnavigasjon">
     <div class="side-menu-header">
       <span class="side-menu-title">Meny</span>
-      <button class="side-menu-close" id="menuClose" aria-label="Lukk meny">✕</button>
+      <button class="side-menu-close" id="menuClose" aria-label="Lukk navigasjonsmeny">✕</button>
     </div>
-    <ul>
-      <li><a href="index.html"><i class="fas fa-home"></i> Hjem</a></li>
-      <li><a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
-      <li><a href="tips.html"><i class="fas fa-lightbulb"></i> Spørsmål til KI</a></li>
-      <li><a href="quiz.html" class="active"><i class="fas fa-clipboard-list"></i> Test deg selv</a></li>
-      <li><a href="links.html"><i class="fas fa-link"></i> Nyttige lenker</a></li>
-      <li><a href="contact.html"><i class="fas fa-envelope"></i> Kontakt</a></li>
-    </ul>
+    <nav aria-label="Mobilmeny">
+      <ul role="list">
+        <li><a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> Hjem</a></li>
+        <li><a href="faq.html"><i class="fas fa-question-circle" aria-hidden="true"></i> FAQ</a></li>
+        <li><a href="tips.html"><i class="fas fa-lightbulb" aria-hidden="true"></i> Spørsmål til KI</a></li>
+        <li><a href="quiz.html" class="active" aria-current="page"><i class="fas fa-clipboard-list" aria-hidden="true"></i> Test deg selv</a></li>
+        <li><a href="links.html"><i class="fas fa-link" aria-hidden="true"></i> Nyttige lenker</a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope" aria-hidden="true"></i> Kontakt</a></li>
+      </ul>
+    </nav>
   </aside>
 
-  <main class="container">
+  <main class="container" id="hovedinnhold">
     <section class="card">
 
-      <!-- ── INTRO-SKJERM ── -->
+      <!-- INTRO -->
       <div id="quizIntro" class="quiz-intro">
-        <h1><i class="fas fa-clipboard-list"></i> Test din kunnskap om KI</h1>
-        <p class="intro-desc">
-          Hvor godt kjenner du reglene for ansvarlig bruk av kunstig intelligens i studiene?
-          Ta quizen og finn ut hva du kan – og hva du bør lære mer om.
-        </p>
-        <div class="intro-meta">
-          <div class="intro-meta-item"><i class="fas fa-list-ol"></i> 10 spørsmål</div>
-          <div class="intro-meta-item"><i class="fas fa-clock"></i> Ca. 5 minutter</div>
-          <div class="intro-meta-item"><i class="fas fa-chart-bar"></i> Vurdering av kunnskapsnivå</div>
+        <h1><i class="fas fa-clipboard-list" aria-hidden="true"></i> Test din kunnskap om KI</h1>
+        <p class="intro-desc">Hvor godt kjenner du reglene for ansvarlig bruk av kunstig intelligens i studiene? Ta quizen og finn ut hva du kan – og hva du bør lære mer om.</p>
+        <div class="intro-meta" aria-label="Quiz-informasjon">
+          <div class="intro-meta-item"><i class="fas fa-list-ol" aria-hidden="true"></i> 10 spørsmål</div>
+          <div class="intro-meta-item"><i class="fas fa-clock" aria-hidden="true"></i> Ca. 5 minutter</div>
+          <div class="intro-meta-item"><i class="fas fa-chart-bar" aria-hidden="true"></i> Vurdering av kunnskapsnivå</div>
         </div>
-        <p class="intro-desc" style="font-size:0.92rem;">
-          Etter fullført besvarelse får du en personlig tilbakemelding med råd tilpasset ditt resultat.
-        </p>
-        <button class="btn-start" onclick="startQuiz()">
-          <i class="fas fa-play"></i> Start quizen
+        <div class="why-matters" role="note" aria-label="Slik fungerer quizen" style="text-align:left; margin: 1.2rem 0;">
+          <h2 style="font-size:1rem;"><i class="fas fa-info-circle" aria-hidden="true"></i> Slik fungerer quizen</h2>
+          <ul style="margin: 0.5rem 0 0 1.2rem; font-size: 0.95rem; line-height: 1.8;">
+            <li>10 spørsmål med tre svaralternativer (A, B, C)</li>
+            <li>Kun ett svar er riktig per spørsmål</li>
+            <li>Du får umiddelbar tilbakemelding etter hvert svar</li>
+            <li>Bestått: 7 av 10 riktige (70 %)</li>
+            <li>Du kan gå tilbake til forrige spørsmål</li>
+            <li>Resultatet vises når du har svart på alle spørsmålene</li>
+          </ul>
+        </div>
+        <p class="intro-desc" style="font-size:0.92rem;">Etter fullført besvarelse får du en personlig tilbakemelding med råd tilpasset ditt resultat.</p>
+        <button class="btn-start" onclick="startQuiz()" aria-label="Start quizen – 10 spørsmål">
+          <i class="fas fa-play" aria-hidden="true"></i> Start quizen
         </button>
       </div>
 
-      <!-- ── QUIZ-INNHOLD ── -->
-      <div id="quizContent" style="display:none;">
-        <div class="quiz-progress-wrap">
+      <!-- QUIZ-INNHOLD -->
+      <div id="quizContent" style="display:none;" aria-label="Quiz" role="region">
+
+        <div class="quiz-progress-wrap" role="status" aria-live="polite" aria-atomic="true">
           <div class="quiz-progress-label">
             <span id="progressLabel">Spørsmål 1 av 10</span>
             <span id="progressScore">0 riktige</span>
           </div>
-          <div class="quiz-progress-bar">
+          <div class="quiz-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="10" aria-label="Fremdrift i quiz">
             <div class="quiz-progress-fill" id="progressFill" style="width:0%"></div>
           </div>
         </div>
-        <div class="quiz-question-area" id="questionArea"></div>
-        <div class="quiz-feedback" id="quizFeedback"></div>
+
+        <div class="quiz-question-area" id="questionArea" aria-live="polite"></div>
+
+        <div class="quiz-feedback" id="quizFeedback" aria-live="assertive" role="alert"></div>
+
         <div class="quiz-navigation">
-          <button class="btn-nav btn-nav-secondary" id="prevBtn" onclick="prevQuestion()" disabled>
-            <i class="fas fa-chevron-left"></i> Forrige
+          <button class="btn-nav btn-nav-secondary" id="prevBtn" onclick="prevQuestion()" disabled aria-label="Forrige spørsmål">
+            <i class="fas fa-chevron-left" aria-hidden="true"></i> Forrige
           </button>
-          <button class="btn-reset" onclick="confirmReset()">
-            <i class="fas fa-redo-alt"></i> Start på nytt
+          <button class="btn-reset" onclick="confirmReset()" aria-label="Start quizen på nytt">
+            <i class="fas fa-redo-alt" aria-hidden="true"></i> Start på nytt
           </button>
-          <button class="btn-nav btn-nav-primary" id="nextBtn" onclick="nextQuestion()">
-            Neste <i class="fas fa-chevron-right"></i>
+          <button class="btn-nav btn-nav-primary" id="nextBtn" onclick="nextQuestion()" aria-label="Neste spørsmål">
+            Neste <i class="fas fa-chevron-right" aria-hidden="true"></i>
           </button>
         </div>
       </div>
 
-      <!-- ── RESULTAT ── -->
-      <div id="quizResult" class="quiz-result"></div>
+      <!-- RESULTAT -->
+      <div id="quizResult" class="quiz-result" aria-live="polite" role="region" aria-label="Quizresultat"></div>
 
     </section>
   </main>
@@ -255,10 +255,8 @@
   </footer>
 
   <script>
-    // Riktige svar fordelt: A(0), B(1), C(2), B, A, C, B, C, A, B
     const questions = [
       {
-        // Riktig: A (0)
         q: "Når bør du oppgi at du har brukt KI i en oppgave?",
         options: [
           { text: "Alltid når KI har bidratt til arbeidet ditt.", correct: true },
@@ -271,7 +269,6 @@
         }
       },
       {
-        // Riktig: B (1)
         q: "Hva gjør du hvis du er usikker på hva som er tillatt KI-bruk i et emne?",
         options: [
           { text: "Bruker KI uansett – det er sikkert greit.", correct: false },
@@ -284,7 +281,6 @@
         }
       },
       {
-        // Riktig: C (2)
         q: "Hvorfor er det viktig å alltid dobbeltsjekke informasjon du får fra KI?",
         options: [
           { text: "Fordi lærere alltid krever det.", correct: false },
@@ -297,7 +293,6 @@
         }
       },
       {
-        // Riktig: B (1)
         q: "Hvilke opplysninger bør du aldri dele med en KI-tjeneste?",
         options: [
           { text: "Generell faglig informasjon om emnet du studerer.", correct: false },
@@ -310,7 +305,6 @@
         }
       },
       {
-        // Riktig: A (0)
         q: "Hva er den beste måten å bruke KI på i studiene?",
         options: [
           { text: "Som støtte til egen læring og tenkning – ikke som erstatning for egeninnsats.", correct: true },
@@ -323,7 +317,6 @@
         }
       },
       {
-        // Riktig: C (2)
         q: "Hva er en etisk utfordring ved bruk av KI i utdanning?",
         options: [
           { text: "KI er for dyrt til at det er relevant for studenter.", correct: false },
@@ -336,7 +329,6 @@
         }
       },
       {
-        // Riktig: B (1)
         q: "Hva betyr begrepet 'prompt engineering'?",
         options: [
           { text: "En type maskinlæringsalgoritme.", correct: false },
@@ -349,7 +341,6 @@
         }
       },
       {
-        // Riktig: C (2)
         q: "Hva er akademisk uredelighet i sammenheng med KI?",
         options: [
           { text: "Å bruke KI til å få idéer til oppgavestruktur.", correct: false },
@@ -362,7 +353,6 @@
         }
       },
       {
-        // Riktig: A (0)
         q: "Hvem er ansvarlig for innholdet du leverer inn, selv om KI hjalp deg?",
         options: [
           { text: "Du selv – studenten er alltid ansvarlig for eget innlevert arbeid.", correct: true },
@@ -375,7 +365,6 @@
         }
       },
       {
-        // Riktig: B (1)
         q: "Hvilken påstand om KI og opphavsrett er riktig?",
         options: [
           { text: "KI-generert tekst er alltid fri å bruke uten begrensninger.", correct: false },
@@ -407,12 +396,13 @@
       area.innerHTML = `
         <h3>Spørsmål ${current + 1} av ${questions.length}</h3>
         <p class="quiz-question-text">${q.q}</p>
-        <div class="quiz-options" id="optionsWrap">
+        <div class="quiz-options" role="group" aria-label="Svaralternativer">
           ${q.options.map((opt, i) => `
             <button class="quiz-option${answered[current] ? (opt.correct ? ' correct' : (answers[current] === i ? ' incorrect' : '')) : (answers[current] === i ? ' selected' : '')}"
               onclick="selectOption(${i})"
-              ${answered[current] ? 'disabled' : ''}>
-              <span class="opt-icon">${answered[current] ? (opt.correct ? '<i class="fas fa-check"></i>' : (answers[current] === i ? '<i class="fas fa-times"></i>' : labels[i])) : labels[i]}</span>
+              ${answered[current] ? 'disabled' : ''}
+              aria-label="${labels[i]}: ${opt.text}${answered[current] ? (opt.correct ? ' – riktig svar' : (answers[current] === i ? ' – ditt svar, feil' : '')) : ''}">
+              <span class="opt-icon" aria-hidden="true">${answered[current] ? (opt.correct ? '<i class="fas fa-check"></i>' : (answers[current] === i ? '<i class="fas fa-times"></i>' : labels[i])) : labels[i]}</span>
               ${opt.text}
             </button>
           `).join('')}
@@ -423,7 +413,7 @@
       if (answered[current]) {
         const wasCorrect = answers[current] !== null && q.options[answers[current]].correct;
         fb.className = 'quiz-feedback ' + (wasCorrect ? 'correct' : 'incorrect');
-        fb.innerHTML = `<i class="fas fa-${wasCorrect ? 'check-circle' : 'times-circle'}"></i> ${wasCorrect ? q.feedback.correct : q.feedback.incorrect}`;
+        fb.innerHTML = `<i class="fas fa-${wasCorrect ? 'check-circle' : 'times-circle'}" aria-hidden="true"></i> ${wasCorrect ? q.feedback.correct : q.feedback.incorrect}`;
         fb.style.display = 'flex';
       } else {
         fb.style.display = 'none';
@@ -454,7 +444,7 @@
       });
 
       const fb = document.getElementById('quizFeedback');
-      fb.innerHTML = `<i class="fas fa-${isCorrect ? 'check-circle' : 'times-circle'}"></i> ${isCorrect ? q.feedback.correct : q.feedback.incorrect}`;
+      fb.innerHTML = `<i class="fas fa-${isCorrect ? 'check-circle' : 'times-circle'}" aria-hidden="true"></i> ${isCorrect ? q.feedback.correct : q.feedback.incorrect}`;
       fb.className = 'quiz-feedback ' + (isCorrect ? 'correct' : 'incorrect');
       fb.style.display = 'flex';
 
@@ -464,8 +454,9 @@
 
     function updateProgress() {
       const score = answers.filter((a, i) => a !== null && questions[i].options[a].correct).length;
-      const pct = ((current + 1) / questions.length) * 100;
+      const pct = Math.round(((current + 1) / questions.length) * 100);
       document.getElementById('progressFill').style.width = pct + '%';
+      document.getElementById('progressFill').parentElement.setAttribute('aria-valuenow', pct);
       document.getElementById('progressLabel').textContent = `Spørsmål ${current + 1} av ${questions.length}`;
       document.getElementById('progressScore').textContent = `${score} riktige`;
     }
@@ -475,34 +466,27 @@
       const isLast = current === questions.length - 1;
       const nextBtn = document.getElementById('nextBtn');
       if (isLast) {
-        nextBtn.innerHTML = 'Se resultat <i class="fas fa-flag-checkered"></i>';
+        nextBtn.innerHTML = 'Se resultat <i class="fas fa-flag-checkered" aria-hidden="true"></i>';
+        nextBtn.setAttribute('aria-label', 'Se quizresultat');
         nextBtn.disabled = !answered[current];
       } else {
-        nextBtn.innerHTML = 'Neste <i class="fas fa-chevron-right"></i>';
+        nextBtn.innerHTML = 'Neste <i class="fas fa-chevron-right" aria-hidden="true"></i>';
+        nextBtn.setAttribute('aria-label', 'Neste spørsmål');
         nextBtn.disabled = !answered[current];
       }
     }
 
     function nextQuestion() {
-      if (current < questions.length - 1) {
-        current++;
-        renderQuestion();
-      } else if (answered[current]) {
-        showResult();
-      }
+      if (current < questions.length - 1) { current++; renderQuestion(); }
+      else if (answered[current]) { showResult(); }
     }
 
     function prevQuestion() {
-      if (current > 0) {
-        current--;
-        renderQuestion();
-      }
+      if (current > 0) { current--; renderQuestion(); }
     }
 
     function confirmReset() {
-      if (confirm('Er du sikker på at du vil starte quizen på nytt? Alle svar nullstilles.')) {
-        resetQuiz();
-      }
+      if (confirm('Er du sikker på at du vil starte quizen på nytt? Alle svar nullstilles.')) { resetQuiz(); }
     }
 
     function resetQuiz() {
@@ -519,28 +503,29 @@
       const score = answers.filter((a, i) => a !== null && questions[i].options[a].correct).length;
       const total = questions.length;
       const pct = Math.round((score / total) * 100);
+      const passed = pct >= 70;
 
-      let level, title, desc, tips, colorClass, badge;
+      let colorClass, badge, title, desc, tips;
 
       if (pct <= 40) {
-        level = 'low'; colorClass = 'level-low'; badge = '📖 Begynner';
+        colorClass = 'level-low'; badge = '📖 Begynner';
         title = 'Du har en del å lære – men det er helt greit!';
-        desc = `Du svarte riktig på ${score} av ${total} spørsmål. Det er viktig å kjenne reglene for KI-bruk før du tar dem i bruk i studiene. Vi anbefaler at du bruker litt tid på ressursene nedenfor.`;
+        desc = `Du svarte riktig på ${score} av ${total} spørsmål (${pct}%). Bestått er 70 % eller mer. Vi anbefaler at du bruker litt tid på ressursene nedenfor.`;
         tips = ['Les gjennom FAQ og praktiske tips på denne siden', 'Sjekk emnebeskrivelsene dine for lokale KI-regler', 'Ta quizen på nytt etter at du har lest deg opp', 'Snakk med foreleser om du er usikker på noe'];
       } else if (pct <= 60) {
-        level = 'mid'; colorClass = 'level-mid'; badge = '🔍 På vei';
+        colorClass = 'level-mid'; badge = '🔍 På vei';
         title = 'Godt grunnlag – men noen hull å tette';
-        desc = `Du svarte riktig på ${score} av ${total} spørsmål. Du har begynt å forstå prinsippene, men det finnes noen viktige områder du bør jobbe mer med for å bruke KI på en trygg og ansvarlig måte.`;
+        desc = `Du svarte riktig på ${score} av ${total} spørsmål (${pct}%). Bestått er 70 % eller mer. Du er nesten der – gå gjennom feilene dine og prøv igjen.`;
         tips = ['Gå tilbake og les tilbakemeldingene på spørsmålene du bommet på', 'Fordyp deg i temaene kildebruk og personvern', 'Sjekk ut de praktiske tipsene for konkrete råd', 'Prøv quizen igjen for å se fremgangen din'];
       } else if (pct <= 80) {
-        level = 'good'; colorClass = 'level-good'; badge = '✅ God kunnskap';
+        colorClass = 'level-good'; badge = '✅ Bestått';
         title = 'Bra jobbet – du er godt i gang!';
-        desc = `Du svarte riktig på ${score} av ${total} spørsmål. Du har solid forståelse av de viktigste prinsippene for ansvarlig KI-bruk. Kikk gjerne på områdene du er usikker på for å runde av kunnskapen.`;
+        desc = `Du svarte riktig på ${score} av ${total} spørsmål (${pct}%) – bestått! Du har solid forståelse av de viktigste prinsippene for ansvarlig KI-bruk.`;
         tips = ['Gå gjennom spørsmålene du bommet på og forstå hvorfor', 'Utforsk nyttige lenker for å holde deg oppdatert', 'Del kunnskapen din med medstudenter', 'Sjekk institusjonens egne retningslinjer'];
       } else {
-        level = 'high'; colorClass = 'level-high'; badge = '🏆 Ekspert';
+        colorClass = 'level-high'; badge = '🏆 Ekspert';
         title = 'Utmerket! Du har god kontroll';
-        desc = `Du svarte riktig på ${score} av ${total} spørsmål. Du demonstrerer sterk forståelse for ansvarlig og etisk KI-bruk i studiene. Fortsett den gode praksisen og hold deg oppdatert på feltet.`;
+        desc = `Du svarte riktig på ${score} av ${total} spørsmål (${pct}%) – bestått med glans! Du demonstrerer sterk forståelse for ansvarlig og etisk KI-bruk i studiene.`;
         tips = ['Hold deg oppdatert – KI-regler og verktøy utvikler seg raskt', 'Hjelp medstudenter som er usikre på reglene', 'Utforsk avanserte ressurser i lenke-seksjonen', 'Del gjerne tilbakemeldinger om quizen med oss!'];
       }
 
@@ -548,17 +533,17 @@
       const resultEl = document.getElementById('quizResult');
       resultEl.className = `quiz-result ${colorClass}`;
       resultEl.innerHTML = `
-        <div class="result-score-circle">${score}/${total}<span>${pct}%</span></div>
+        <div class="result-score-circle" aria-label="Resultat: ${score} av ${total}, ${pct} prosent">${score}/${total}<span>${pct}%</span></div>
         <div class="result-level-badge">${badge}</div>
         <h2 class="result-title">${title}</h2>
         <p class="result-desc">${desc}</p>
         <div class="result-tips">
-          <h4><i class="fas fa-lightbulb"></i> Anbefalte neste steg:</h4>
+          <h3 style="font-size:0.95rem; margin:0 0 0.6rem;"><i class="fas fa-lightbulb" aria-hidden="true"></i> Anbefalte neste steg:</h3>
           <ul>${tips.map(t => `<li>${t}</li>`).join('')}</ul>
         </div>
         <div class="result-actions">
-          <button class="btn-result-primary" onclick="resetQuiz()"><i class="fas fa-redo-alt"></i> Ta quizen på nytt</button>
-          <a href="tips.html" class="btn-result-secondary"><i class="fas fa-lightbulb"></i> Spørsmål til KI</a>
+          <button class="btn-result-primary" onclick="resetQuiz()" aria-label="Ta quizen på nytt"><i class="fas fa-redo-alt" aria-hidden="true"></i> Ta quizen på nytt</button>
+          <a href="tips.html" class="btn-result-secondary"><i class="fas fa-lightbulb" aria-hidden="true"></i> Spørsmål til KI</a>
         </div>
       `;
       resultEl.style.display = 'block';
