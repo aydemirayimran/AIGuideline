@@ -9,88 +9,83 @@
 </head>
 <body>
 
-  <div class="nav-overlay" id="navOverlay"></div>
+  <a href="#hovedinnhold" class="skip-link">Hopp til hovedinnhold</a>
+
+  <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
 
   <header class="topbar">
     <div class="brand">
-      <a href="index.html"><span class="brand-title">KI-veileder for studenter</span></a>
+      <a href="index.html" aria-label="KI-veileder for studenter – gå til forsiden">
+        <span class="brand-title">KI-veileder for studenter</span>
+      </a>
     </div>
     <nav class="nav" aria-label="Hovedmeny">
-      <ul class="nav-desktop">
-        <li><a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Hjem</a></li>
-        <li><a href="faq.html" class="nav-link"><i class="fas fa-question-circle"></i> FAQ</a></li>
-        <li><a href="tips.html" class="nav-link"><i class="fas fa-lightbulb"></i> Spørsmål til KI</a></li>
-        <li><a href="quiz.html" class="nav-link"><i class="fas fa-clipboard-list"></i> Test deg selv</a></li>
-        <li><a href="links.html" class="nav-link"><i class="fas fa-link"></i> Nyttige lenker</a></li>
-        <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Kontakt</a></li>
+      <ul class="nav-desktop" role="list">
+        <li><a href="index.html" class="nav-link active" aria-current="page"><i class="fas fa-home" aria-hidden="true"></i> Hjem</a></li>
+        <li><a href="faq.html" class="nav-link"><i class="fas fa-question-circle" aria-hidden="true"></i> FAQ</a></li>
+        <li><a href="tips.html" class="nav-link"><i class="fas fa-lightbulb" aria-hidden="true"></i> Spørsmål til KI</a></li>
+        <li><a href="quiz.html" class="nav-link"><i class="fas fa-clipboard-list" aria-hidden="true"></i> Test deg selv</a></li>
+        <li><a href="links.html" class="nav-link"><i class="fas fa-link" aria-hidden="true"></i> Nyttige lenker</a></li>
+        <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope" aria-hidden="true"></i> Kontakt</a></li>
       </ul>
-      <button class="menu-toggle" aria-label="Åpne meny" id="menuToggle">
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
+      <button class="menu-toggle" aria-label="Åpne navigasjonsmeny" aria-expanded="false" aria-controls="sideMenu" id="menuToggle">
+        <span class="hamburger-bar" aria-hidden="true"></span>
+        <span class="hamburger-bar" aria-hidden="true"></span>
+        <span class="hamburger-bar" aria-hidden="true"></span>
       </button>
     </nav>
   </header>
 
-  <aside class="side-menu" id="sideMenu" aria-hidden="true">
+  <aside class="side-menu" id="sideMenu" aria-hidden="true" aria-label="Mobilnavigasjon">
     <div class="side-menu-header">
       <span class="side-menu-title">Meny</span>
-      <button class="side-menu-close" id="menuClose" aria-label="Lukk meny">✕</button>
+      <button class="side-menu-close" id="menuClose" aria-label="Lukk navigasjonsmeny">✕</button>
     </div>
-    <ul>
-      <li><a href="index.html" class="active"><i class="fas fa-home"></i> Hjem</a></li>
-      <li><a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
-      <li><a href="tips.html"><i class="fas fa-lightbulb"></i> Spørsmål til KI</a></li>
-      <li><a href="quiz.html"><i class="fas fa-clipboard-list"></i> Test deg selv</a></li>
-      <li><a href="links.html"><i class="fas fa-link"></i> Nyttige lenker</a></li>
-      <li><a href="contact.html"><i class="fas fa-envelope"></i> Kontakt</a></li>
-    </ul>
+    <nav aria-label="Mobilmeny">
+      <ul role="list">
+        <li><a href="index.html" class="active" aria-current="page"><i class="fas fa-home" aria-hidden="true"></i> Hjem</a></li>
+        <li><a href="faq.html"><i class="fas fa-question-circle" aria-hidden="true"></i> FAQ</a></li>
+        <li><a href="tips.html"><i class="fas fa-lightbulb" aria-hidden="true"></i> Spørsmål til KI</a></li>
+        <li><a href="quiz.html"><i class="fas fa-clipboard-list" aria-hidden="true"></i> Test deg selv</a></li>
+        <li><a href="links.html"><i class="fas fa-link" aria-hidden="true"></i> Nyttige lenker</a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope" aria-hidden="true"></i> Kontakt</a></li>
+      </ul>
+    </nav>
   </aside>
 
-  <main class="container">
+  <main class="container" id="hovedinnhold">
 
-    <!-- Hero -->
-    <section class="card hero">
-      <h1>Bruk kunstig intelligens smart – og på riktig måte</h1>
-      <p class="lead">
-        Lær hvordan du kan bruke KI som støtte i studiene – uten å bryte reglene.
-      </p>
-      <div class="why-matters">
-        <h3><i class="fas fa-info-circle"></i> Hvorfor dette er viktig for deg som student</h3>
-        <p>
-          KI kan spare deg for tid og hjelpe deg å lære bedre – men det er viktig å bruke det riktig.
-          Feil bruk kan få alvorlige akademiske konsekvenser, som annullert eksamen eller utestengelse.
-        </p>
+    <section class="card hero" aria-labelledby="hero-heading">
+      <h1 id="hero-heading">Bruk kunstig intelligens smart – og på riktig måte</h1>
+      <p class="lead">Lær hvordan du kan bruke KI som støtte i studiene – uten å bryte reglene.</p>
+      <div class="why-matters" role="note" aria-label="Viktig informasjon">
+        <h2><i class="fas fa-info-circle" aria-hidden="true"></i> Hvorfor dette er viktig for deg som student</h2>
+        <p>KI kan spare deg for tid og hjelpe deg å lære bedre – men det er viktig å bruke det riktig. Feil bruk kan få alvorlige akademiske konsekvenser, som annullert eksamen eller utestengelse.</p>
       </div>
-      <p class="small">
-        KI-veilederen supplerer lokale retningslinjer.
-        Ved tvil: sjekk emnebeskrivelse og regelverk ved din institusjon.
-      </p>
+      <p class="small">KI-veilederen supplerer lokale retningslinjer. Ved tvil: sjekk emnebeskrivelse og regelverk ved din institusjon.</p>
     </section>
 
-    <!-- Kom i gang -->
-    <section class="card">
-      <h2>Kom i gang på 3 steg</h2>
+    <section class="card" aria-labelledby="kom-i-gang-heading">
+      <h2 id="kom-i-gang-heading">Kom i gang på 3 steg</h2>
       <p class="lead">Følg stegene for å bruke KI på en ansvarlig og effektiv måte.</p>
       <div class="grid">
         <a href="faq.html" class="tile">
-          <h3><i class="fas fa-question-circle"></i> 1 – Forstå reglene</h3>
+          <h3><i class="fas fa-question-circle" aria-hidden="true"></i> 1 – Forstå reglene</h3>
           <p>Les de vanligste spørsmålene om KI og akademisk integritet, slik at du vet hva som er lov.</p>
         </a>
         <a href="tips.html" class="tile">
-          <h3><i class="fas fa-lightbulb"></i> 2 – Lær gode spørsmål</h3>
+          <h3><i class="fas fa-lightbulb" aria-hidden="true"></i> 2 – Lær gode spørsmål</h3>
           <p>Se konkrete eksempler på hvordan du bruker KI til å strukturere tekst og unngå plagiat.</p>
         </a>
         <a href="quiz.html" class="tile">
-          <h3><i class="fas fa-clipboard-list"></i> 3 – Test deg selv</h3>
+          <h3><i class="fas fa-clipboard-list" aria-hidden="true"></i> 3 – Test deg selv</h3>
           <p>Sjekk om du kan skille mellom lovlig og ulovlig KI-bruk.</p>
         </a>
       </div>
     </section>
 
-    <!-- Søk -->
-    <section class="card">
-      <h2>Søk i AI Guidebook</h2>
+    <section class="card" aria-labelledby="sok-heading">
+      <h2 id="sok-heading">Søk i AI Guidebook</h2>
       <p class="lead">Søk etter tema på tvers av alle sider (f.eks. «eksamen», «plagiat», «prompt»).</p>
       <div class="search-bar">
         <label for="globalSearch" class="visually-hidden">Søk i AI Guidebook</label>
@@ -99,21 +94,24 @@
           id="globalSearch"
           placeholder="Søk etter tema..."
           autocomplete="off"
+          aria-describedby="searchHint"
         />
+        <span id="searchHint" class="visually-hidden">Skriv et søkeord for å søke på tvers av alle sider</span>
       </div>
-      <ul id="searchResults" class="search-results" aria-live="polite"></ul>
+      <ul id="searchResults" class="search-results" aria-live="polite" aria-label="Søkeresultater"></ul>
     </section>
 
-    <!-- Utforsk mer -->
-    <section class="card">
-      <h2>Utforsk mer</h2>
-      <div class="link-row">
-        <a href="faq.html" class="link-pill"><i class="fas fa-question-circle"></i> FAQ</a>
-        <a href="tips.html" class="link-pill"><i class="fas fa-lightbulb"></i> Spørsmål til KI</a>
-        <a href="quiz.html" class="link-pill"><i class="fas fa-clipboard-list"></i> Test deg selv</a>
-        <a href="links.html" class="link-pill"><i class="fas fa-link"></i> Nyttige lenker</a>
-        <a href="contact.html" class="link-pill"><i class="fas fa-envelope"></i> Kontakt</a>
-      </div>
+    <section class="card" aria-labelledby="utforsk-heading">
+      <h2 id="utforsk-heading">Utforsk mer</h2>
+      <nav aria-label="Snarveier">
+        <div class="link-row">
+          <a href="faq.html" class="link-pill"><i class="fas fa-question-circle" aria-hidden="true"></i> FAQ</a>
+          <a href="tips.html" class="link-pill"><i class="fas fa-lightbulb" aria-hidden="true"></i> Spørsmål til KI</a>
+          <a href="quiz.html" class="link-pill"><i class="fas fa-clipboard-list" aria-hidden="true"></i> Test deg selv</a>
+          <a href="links.html" class="link-pill"><i class="fas fa-link" aria-hidden="true"></i> Nyttige lenker</a>
+          <a href="contact.html" class="link-pill"><i class="fas fa-envelope" aria-hidden="true"></i> Kontakt</a>
+        </div>
+      </nav>
     </section>
 
   </main>
