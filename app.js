@@ -1,8 +1,44 @@
 console.log("app.js loaded");
 
+// ─── i18next Initialisering ───
+i18next
+  .use(i18nextHttpBackend)
+  .init({
+    lng: 'no',
+    fallbackLng: 'no',
+    backend: {
+      loadPath: '/locales/{{lng}}/translation.json',
+    },
+    returnObjects: true,
+  })
+  .then(() => {
+    updateContent();
+  });
+
+// Oppdater innholdet basert på valgt språk
+function updateContent() {
+  document.querySelectorAll('[data-i18n]').forEach(element => {
+    const key = element.getAttribute('data-i18n');
+    if (key.startsWith('[placeholder]')) {
+      const placeholderKey = key.replace('[placeholder]', '');
+      element.setAttribute('placeholder', i18next.t(placeholderKey));
+    } else {
+      element.textContent = i18next.t(key);
+    }
+  });
+}
+
+// Bytt språk
+function changeLanguage(lng) {
+  i18next.changeLanguage(lng, (err, t) => {
+    if (err) return console.log('something went wrong loading', err);
+    updateContent();
+  });
+}
+
+// ─── 1. Slide-in mobilmeny ───
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ─── 1. Slide-in mobilmeny ───
   const toggle   = document.getElementById("menuToggle");
   const sideMenu = document.getElementById("sideMenu");
   const overlay  = document.getElementById("navOverlay");
@@ -13,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     overlay?.classList.add("active");
     toggle?.classList.add("open");
     sideMenu?.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden"; // hindre scrolling bak menyen
+    document.body.style.overflow = "hidden";
   }
 
   function closeMenu() {
@@ -62,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-// Enkel "indeks" over sidene i AI Guidebook , lagt til for søkefunksjonen, kan fjernes hvis den ikke fungerer
+// ─── SITE_PAGES og søkefunksjon ───
 const SITE_PAGES = [
   {
     title: "Hjem – AI Guidebook",
@@ -119,16 +155,17 @@ const SITE_PAGES = [
     keywords: ["policy", "maler", "institusjon", "eksamen", "oppgaver", "etikk", "dokumentasjon"]
   }
 ];
+
 // GLOBAL SØKEFUNKSJON – søker i SITE_PAGES og viser treff som lenker
 document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.getElementById('globalSearch');
   const resultsList = document.getElementById('searchResults');
 
   if (!searchInput || !resultsList || typeof SITE_PAGES === 'undefined') {
-    return; // Siden har ikke søkefelt, eller indeksen er ikke lastet
+    return;
   }
 
-  let lastMatches = []; // lagrer siste treff, så vi kan bruke dem når Enter trykkes
+  let lastMatches = [];
 
   function runSearch() {
     const query = searchInput.value.trim().toLowerCase();
@@ -153,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (matches.length === 0) {
       const li = document.createElement('li');
-      li.textContent = `Ingen treff for "${query}".`;
+      li.textContent = i18next.t('no_search_results', { query: query });
       resultsList.appendChild(li);
       return;
     }
@@ -185,15 +222,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Hopp til første treff med Enter
   searchInput.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
-      event.preventDefault(); // unngå evt. form-submission
+      event.preventDefault();
 
-      // Hvis vi ikke har søkt siden forrige tast, gjør det nå
       if (lastMatches.length === 0 && searchInput.value.trim() !== '') {
         runSearch();
       }
 
       if (lastMatches.length > 0) {
-        // Gå til første treff
         window.location.href = lastMatches[0].url;
       }
     }
