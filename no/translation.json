@@ -28,4 +28,5 @@
   "home": "Hjem",
   "menu": "Meny",
   "disclaimer": "KI-veilederen supplerer lokale retningslinjer. Ved tvil: sjekk emnebeskrivelse og regelverk ved din institusjon."
+  "no_search_results": "Ingen treff for \"{{query}}\"."
 }
