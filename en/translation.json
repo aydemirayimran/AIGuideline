@@ -28,4 +28,5 @@
   "home": "Home",
   "menu": "Menu",
   "disclaimer": "The AI Guide supplements local guidelines. In case of doubt: check the course description and regulations at your institution."
+  "no_search_results": "No results for \"{{query}}\"."
 }
