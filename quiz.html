@@ -141,24 +141,24 @@
 </head>
 <body>
 
-  <a href="#hovedinnhold" class="skip-link">Hopp til hovedinnhold</a>
+  <a href="#hovedinnhold" class="skip-link" data-i18n="skip_link">Hopp til hovedinnhold</a>
 
   <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
 
   <header class="topbar">
     <div class="brand">
       <a href="index.html" aria-label="KI-veileder for studenter – gå til forsiden">
-        <span class="brand-title">KI-veileder for studenter</span>
+        <span class="brand-title" data-i18n="brand_title"></span>
       </a>
     </div>
     <nav class="nav" aria-label="Hovedmeny">
       <ul class="nav-desktop" role="list">
-        <li><a href="index.html" class="nav-link"><i class="fas fa-home" aria-hidden="true"></i> Hjem</a></li>
-        <li><a href="faq.html" class="nav-link"><i class="fas fa-question-circle" aria-hidden="true"></i> FAQ</a></li>
-        <li><a href="tips.html" class="nav-link"><i class="fas fa-lightbulb" aria-hidden="true"></i> Spørsmål til KI</a></li>
-        <li><a href="quiz.html" class="nav-link active" aria-current="page"><i class="fas fa-clipboard-list" aria-hidden="true"></i> Test deg selv</a></li>
-        <li><a href="links.html" class="nav-link"><i class="fas fa-link" aria-hidden="true"></i> Nyttige lenker</a></li>
-        <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope" aria-hidden="true"></i> Kontakt</a></li>
+        <li><a href="index.html" class="nav-link"><i class="fas fa-home" aria-hidden="true"></i> <span data-i18n="home"></span></a></li>
+        <li><a href="faq.html" class="nav-link"><i class="fas fa-question-circle" aria-hidden="true"></i> <span data-i18n="faq"></span></a></li>
+        <li><a href="tips.html" class="nav-link"><i class="fas fa-lightbulb" aria-hidden="true"></i> <span data-i18n="ai_questions"></span></a></li>
+        <li><a href="quiz.html" class="nav-link active" aria-current="page"><i class="fas fa-clipboard-list" aria-hidden="true"></i> <span data-i18n="self_test"></span></a></li>
+        <li><a href="links.html" class="nav-link"><i class="fas fa-link" aria-hidden="true"></i> <span data-i18n="useful_links"></span></a></li>
+        <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope" aria-hidden="true"></i> <span data-i18n="contact"></span></a></li>
       </ul>
       <button class="menu-toggle" aria-label="Åpne navigasjonsmeny" aria-expanded="false" aria-controls="sideMenu" id="menuToggle">
         <span class="hamburger-bar" aria-hidden="true"></span>
@@ -166,21 +166,25 @@
         <span class="hamburger-bar" aria-hidden="true"></span>
       </button>
     </nav>
+    <div class="language-selector">
+      <button onclick="changeLanguage('no')" aria-label="Norsk" class="lang-btn lang-no" title="Norsk">NO</button>
+      <button onclick="changeLanguage('en')" aria-label="English" class="lang-btn lang-en" title="English">EN</button>
+    </div>
   </header>
 
   <aside class="side-menu" id="sideMenu" aria-hidden="true" aria-label="Mobilnavigasjon">
     <div class="side-menu-header">
-      <span class="side-menu-title">Meny</span>
+      <span class="side-menu-title" data-i18n="menu"></span>
       <button class="side-menu-close" id="menuClose" aria-label="Lukk navigasjonsmeny">✕</button>
     </div>
     <nav aria-label="Mobilmeny">
       <ul role="list">
-        <li><a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> Hjem</a></li>
-        <li><a href="faq.html"><i class="fas fa-question-circle" aria-hidden="true"></i> FAQ</a></li>
-        <li><a href="tips.html"><i class="fas fa-lightbulb" aria-hidden="true"></i> Spørsmål til KI</a></li>
-        <li><a href="quiz.html" class="active" aria-current="page"><i class="fas fa-clipboard-list" aria-hidden="true"></i> Test deg selv</a></li>
-        <li><a href="links.html"><i class="fas fa-link" aria-hidden="true"></i> Nyttige lenker</a></li>
-        <li><a href="contact.html"><i class="fas fa-envelope" aria-hidden="true"></i> Kontakt</a></li>
+        <li><a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> <span data-i18n="home"></span></a></li>
+        <li><a href="faq.html"><i class="fas fa-question-circle" aria-hidden="true"></i> <span data-i18n="faq"></span></a></li>
+        <li><a href="tips.html"><i class="fas fa-lightbulb" aria-hidden="true"></i> <span data-i18n="ai_questions"></span></a></li>
+        <li><a href="quiz.html" class="active" aria-current="page"><i class="fas fa-clipboard-list" aria-hidden="true"></i> <span data-i18n="self_test"></span></a></li>
+        <li><a href="links.html"><i class="fas fa-link" aria-hidden="true"></i> <span data-i18n="useful_links"></span></a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope" aria-hidden="true"></i> <span data-i18n="contact"></span></a></li>
       </ul>
     </nav>
   </aside>
@@ -190,27 +194,27 @@
 
       <!-- INTRO -->
       <div id="quizIntro" class="quiz-intro">
-        <h1><i class="fas fa-clipboard-list" aria-hidden="true"></i> Test din kunnskap om KI</h1>
-        <p class="intro-desc">Hvor godt kjenner du reglene for ansvarlig bruk av kunstig intelligens i studiene? Ta quizen og finn ut hva du kan – og hva du bør lære mer om.</p>
+        <h1><i class="fas fa-clipboard-list" aria-hidden="true"></i> <span data-i18n="quiz_0"></span></h1>
+        <p class="intro-desc"><span data-i18n="quiz_1"></span></p>
         <div class="intro-meta" aria-label="Quiz-informasjon">
-          <div class="intro-meta-item"><i class="fas fa-list-ol" aria-hidden="true"></i> 10 spørsmål</div>
-          <div class="intro-meta-item"><i class="fas fa-clock" aria-hidden="true"></i> Ca. 5 minutter</div>
-          <div class="intro-meta-item"><i class="fas fa-chart-bar" aria-hidden="true"></i> Vurdering av kunnskapsnivå</div>
+          <div class="intro-meta-item"><i class="fas fa-list-ol" aria-hidden="true"></i> <span data-i18n="quiz_2"></span></div>
+          <div class="intro-meta-item"><i class="fas fa-clock" aria-hidden="true"></i> <span data-i18n="quiz_3"></span></div>
+          <div class="intro-meta-item"><i class="fas fa-chart-bar" aria-hidden="true"></i> <span data-i18n="quiz_4"></span></div>
         </div>
         <div class="why-matters" role="note" aria-label="Slik fungerer quizen" style="text-align:left; margin: 1.2rem 0;">
-          <h2 style="font-size:1rem;"><i class="fas fa-info-circle" aria-hidden="true"></i> Slik fungerer quizen</h2>
+          <h2 style="font-size:1rem;"><i class="fas fa-info-circle" aria-hidden="true"></i> <span data-i18n="quiz_5"></span></h2>
           <ul style="margin: 0.5rem 0 0 1.2rem; font-size: 0.95rem; line-height: 1.8;">
-            <li>10 spørsmål med tre svaralternativer (A, B, C)</li>
-            <li>Kun ett svar er riktig per spørsmål</li>
-            <li>Du får umiddelbar tilbakemelding etter hvert svar</li>
-            <li>Bestått: 7 av 10 riktige (70 %)</li>
-            <li>Du kan gå tilbake til forrige spørsmål</li>
-            <li>Resultatet vises når du har svart på alle spørsmålene</li>
+            <li><span data-i18n="quiz_6"></span></li>
+            <li><span data-i18n="quiz_7"></span></li>
+            <li><span data-i18n="quiz_8"></span></li>
+            <li><span data-i18n="quiz_9"></span></li>
+            <li><span data-i18n="quiz_10"></span></li>
+            <li><span data-i18n="quiz_11"></span></li>
           </ul>
         </div>
-        <p class="intro-desc" style="font-size:0.92rem;">Etter fullført besvarelse får du en personlig tilbakemelding med råd tilpasset ditt resultat.</p>
+        <p class="intro-desc" style="font-size:0.92rem;"><span data-i18n="quiz_12"></span></p>
         <button class="btn-start" onclick="startQuiz()" aria-label="Start quizen – 10 spørsmål">
-          <i class="fas fa-play" aria-hidden="true"></i> Start quizen
+          <i class="fas fa-play" aria-hidden="true"></i> <span data-i18n="quiz_13"></span>
         </button>
       </div>
 
@@ -219,8 +223,8 @@
 
         <div class="quiz-progress-wrap" role="status" aria-live="polite" aria-atomic="true">
           <div class="quiz-progress-label">
-            <span id="progressLabel">Spørsmål 1 av 10</span>
-            <span id="progressScore">0 riktige</span>
+            <span id="progressLabel"><span data-i18n="quiz_14"></span></span>
+            <span id="progressScore"><span data-i18n="quiz_15"></span></span>
           </div>
           <div class="quiz-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="10" aria-label="Fremdrift i quiz">
             <div class="quiz-progress-fill" id="progressFill" style="width:0%"></div>
@@ -232,14 +236,14 @@
         <div class="quiz-feedback" id="quizFeedback" aria-live="assertive" role="alert"></div>
 
         <div class="quiz-navigation">
-          <button class="btn-nav btn-nav-secondary" id="prevBtn" onclick="prevQuestion()" disabled aria-label="Forrige spørsmål">
-            <i class="fas fa-chevron-left" aria-hidden="true"></i> Forrige
+          <button class="btn-nav btn-nav-secondary" id="prevBtn" onclick="prevQuestion()" disabled aria-label="">
+            <i class="fas fa-chevron-left" aria-hidden="true"></i> <span data-i18n="quiz_14"></span>
           </button>
-          <button class="btn-reset" onclick="confirmReset()" aria-label="Start quizen på nytt">
-            <i class="fas fa-redo-alt" aria-hidden="true"></i> Start på nytt
+          <button class="btn-reset" id="resetBtn" onclick="confirmReset()" aria-label="">
+            <i class="fas fa-redo-alt" aria-hidden="true"></i> <span data-i18n="quiz_15"></span>
           </button>
-          <button class="btn-nav btn-nav-primary" id="nextBtn" onclick="nextQuestion()" aria-label="Neste spørsmål">
-            Neste <i class="fas fa-chevron-right" aria-hidden="true"></i>
+          <button class="btn-nav btn-nav-primary" id="nextBtn" onclick="nextQuestion()" aria-label="">
+            <span data-i18n="quiz_16"></span> <i class="fas fa-chevron-right" aria-hidden="true"></i>
           </button>
         </div>
       </div>
@@ -251,11 +255,11 @@
   </main>
 
   <footer class="footer">
-    <p>Laget for studenter — Gruppe 5 — Praktisk prosjektarbeid — Vår 2026</p>
+    <p data-i18n="footer_text"></p>
   </footer>
 
   <script>
-    const questions = [
+    const defaultQuizQuestions = [
       {
         q: "Når bør du oppgi at du har brukt KI i en oppgave?",
         options: [
@@ -378,11 +382,29 @@
       }
     ];
 
+    let questions = defaultQuizQuestions;
+    function loadQuizQuestions() {
+      const translated = i18next?.t('quiz_questions', { returnObjects: true });
+      const list = Array.isArray(translated) && translated.length ? translated : defaultQuizQuestions;
+      return list.map(q => {
+        if (Array.isArray(q.options) && q.options.length && typeof q.options[0] === 'string' && typeof q.correctIndex === 'number') {
+          return {
+            ...q,
+            options: q.options.map((text, i) => ({ text, correct: i === q.correctIndex })),
+          };
+        }
+        return q;
+      });
+    }
+
     let current = 0;
     let answers = new Array(questions.length).fill(null);
     let answered = new Array(questions.length).fill(false);
 
     function startQuiz() {
+      questions = loadQuizQuestions();
+      answers = new Array(questions.length).fill(null);
+      answered = new Array(questions.length).fill(false);
       document.getElementById('quizIntro').style.display = 'none';
       document.getElementById('quizContent').style.display = 'block';
       renderQuestion();
@@ -394,14 +416,14 @@
       const labels = ['A', 'B', 'C'];
 
       area.innerHTML = `
-        <h3>Spørsmål ${current + 1} av ${questions.length}</h3>
+        <h3>${i18next.t('quiz_progress_label', { current: current + 1, total: questions.length })}</h3>
         <p class="quiz-question-text">${q.q}</p>
-        <div class="quiz-options" role="group" aria-label="Svaralternativer">
+        <div class="quiz-options" role="group" aria-label="${i18next.t('quiz_options_aria_label')}">
           ${q.options.map((opt, i) => `
             <button class="quiz-option${answered[current] ? (opt.correct ? ' correct' : (answers[current] === i ? ' incorrect' : '')) : (answers[current] === i ? ' selected' : '')}"
               onclick="selectOption(${i})"
               ${answered[current] ? 'disabled' : ''}
-              aria-label="${labels[i]}: ${opt.text}${answered[current] ? (opt.correct ? ' – riktig svar' : (answers[current] === i ? ' – ditt svar, feil' : '')) : ''}">
+              aria-label="${labels[i]}: ${opt.text}${answered[current] ? (opt.correct ? ' — ' + i18next.t('quiz_option_correct_suffix') : (answers[current] === i ? ' — ' + i18next.t('quiz_option_incorrect_suffix') : '')) : ''}">
               <span class="opt-icon" aria-hidden="true">${answered[current] ? (opt.correct ? '<i class="fas fa-check"></i>' : (answers[current] === i ? '<i class="fas fa-times"></i>' : labels[i])) : labels[i]}</span>
               ${opt.text}
             </button>
@@ -457,21 +479,32 @@
       const pct = Math.round(((current + 1) / questions.length) * 100);
       document.getElementById('progressFill').style.width = pct + '%';
       document.getElementById('progressFill').parentElement.setAttribute('aria-valuenow', pct);
-      document.getElementById('progressLabel').textContent = `Spørsmål ${current + 1} av ${questions.length}`;
-      document.getElementById('progressScore').textContent = `${score} riktige`;
+      document.getElementById('progressLabel').textContent = i18next.t('quiz_progress_label', { current: current + 1, total: questions.length });
+      document.getElementById('progressScore').textContent = i18next.t('quiz_score_text', { score });
     }
 
     function updateNavButtons() {
-      document.getElementById('prevBtn').disabled = current === 0;
-      const isLast = current === questions.length - 1;
+      const prevBtn = document.getElementById('prevBtn');
       const nextBtn = document.getElementById('nextBtn');
+      const resetBtn = document.getElementById('resetBtn');
+
+      prevBtn.disabled = current === 0;
+      prevBtn.innerHTML = `<i class="fas fa-chevron-left" aria-hidden="true"></i> ${i18next.t('quiz_14')}`;
+      prevBtn.setAttribute('aria-label', i18next.t('quiz_14'));
+
+      resetBtn.innerHTML = `<i class="fas fa-redo-alt" aria-hidden="true"></i> ${i18next.t('quiz_15')}`;
+      resetBtn.setAttribute('aria-label', i18next.t('quiz_15'));
+
+      const isLast = current === questions.length - 1;
       if (isLast) {
-        nextBtn.innerHTML = 'Se resultat <i class="fas fa-flag-checkered" aria-hidden="true"></i>';
-        nextBtn.setAttribute('aria-label', 'Se quizresultat');
+        const viewLabel = i18next.t('quiz_17');
+        nextBtn.innerHTML = `${viewLabel} <i class="fas fa-flag-checkered" aria-hidden="true"></i>`;
+        nextBtn.setAttribute('aria-label', viewLabel);
         nextBtn.disabled = !answered[current];
       } else {
-        nextBtn.innerHTML = 'Neste <i class="fas fa-chevron-right" aria-hidden="true"></i>';
-        nextBtn.setAttribute('aria-label', 'Neste spørsmål');
+        const nextLabel = i18next.t('quiz_16');
+        nextBtn.innerHTML = `${nextLabel} <i class="fas fa-chevron-right" aria-hidden="true"></i>`;
+        nextBtn.setAttribute('aria-label', nextLabel);
         nextBtn.disabled = !answered[current];
       }
     }
@@ -486,7 +519,7 @@
     }
 
     function confirmReset() {
-      if (confirm('Er du sikker på at du vil starte quizen på nytt? Alle svar nullstilles.')) { resetQuiz(); }
+      if (confirm(i18next.t('quiz_confirm_reset'))) { resetQuiz(); }
     }
 
     function resetQuiz() {
@@ -505,51 +538,36 @@
       const pct = Math.round((score / total) * 100);
       const passed = pct >= 70;
 
-      let colorClass, badge, title, desc, tips;
-
-      if (pct <= 40) {
-        colorClass = 'level-low'; badge = '📖 Begynner';
-        title = 'Du har en del å lære – men det er helt greit!';
-        desc = `Du svarte riktig på ${score} av ${total} spørsmål (${pct}%). Bestått er 70 % eller mer. Vi anbefaler at du bruker litt tid på ressursene nedenfor.`;
-        tips = ['Les gjennom FAQ og praktiske tips på denne siden', 'Sjekk emnebeskrivelsene dine for lokale KI-regler', 'Ta quizen på nytt etter at du har lest deg opp', 'Snakk med foreleser om du er usikker på noe'];
-      } else if (pct <= 60) {
-        colorClass = 'level-mid'; badge = '🔍 På vei';
-        title = 'Godt grunnlag – men noen hull å tette';
-        desc = `Du svarte riktig på ${score} av ${total} spørsmål (${pct}%). Bestått er 70 % eller mer. Du er nesten der – gå gjennom feilene dine og prøv igjen.`;
-        tips = ['Gå tilbake og les tilbakemeldingene på spørsmålene du bommet på', 'Fordyp deg i temaene kildebruk og personvern', 'Sjekk ut de praktiske tipsene for konkrete råd', 'Prøv quizen igjen for å se fremgangen din'];
-      } else if (pct <= 80) {
-        colorClass = 'level-good'; badge = '✅ Bestått';
-        title = 'Bra jobbet – du er godt i gang!';
-        desc = `Du svarte riktig på ${score} av ${total} spørsmål (${pct}%) – bestått! Du har solid forståelse av de viktigste prinsippene for ansvarlig KI-bruk.`;
-        tips = ['Gå gjennom spørsmålene du bommet på og forstå hvorfor', 'Utforsk nyttige lenker for å holde deg oppdatert', 'Del kunnskapen din med medstudenter', 'Sjekk institusjonens egne retningslinjer'];
-      } else {
-        colorClass = 'level-high'; badge = '🏆 Ekspert';
-        title = 'Utmerket! Du har god kontroll';
-        desc = `Du svarte riktig på ${score} av ${total} spørsmål (${pct}%) – bestått med glans! Du demonstrerer sterk forståelse for ansvarlig og etisk KI-bruk i studiene.`;
-        tips = ['Hold deg oppdatert – KI-regler og verktøy utvikler seg raskt', 'Hjelp medstudenter som er usikre på reglene', 'Utforsk avanserte ressurser i lenke-seksjonen', 'Del gjerne tilbakemeldinger om quizen med oss!'];
-      }
+      const level = pct <= 40 ? 'low' : pct <= 60 ? 'mid' : pct <= 80 ? 'good' : 'high';
+      const colorClass = `level-${level}`;
+      const badge = i18next.t(`quiz_result_badge_${level}`);
+      const title = i18next.t(`quiz_result_title_${level}`, { score, total, pct });
+      const desc = i18next.t(`quiz_result_desc_${level}`, { score, total, pct });
+      const tips = i18next.t(`quiz_result_tips_${level}`, { returnObjects: true });
 
       document.getElementById('quizContent').style.display = 'none';
       const resultEl = document.getElementById('quizResult');
       resultEl.className = `quiz-result ${colorClass}`;
       resultEl.innerHTML = `
-        <div class="result-score-circle" aria-label="Resultat: ${score} av ${total}, ${pct} prosent">${score}/${total}<span>${pct}%</span></div>
+        <div class="result-score-circle" aria-label="${i18next.t('quiz_result_score_aria', { score, total, pct })}">${score}/${total}<span>${pct}%</span></div>
         <div class="result-level-badge">${badge}</div>
         <h2 class="result-title">${title}</h2>
         <p class="result-desc">${desc}</p>
         <div class="result-tips">
-          <h3 style="font-size:0.95rem; margin:0 0 0.6rem;"><i class="fas fa-lightbulb" aria-hidden="true"></i> Anbefalte neste steg:</h3>
+          <h3 style="font-size:0.95rem; margin:0 0 0.6rem;"><i class="fas fa-lightbulb" aria-hidden="true"></i> ${i18next.t('quiz_result_next_steps_heading')}</h3>
           <ul>${tips.map(t => `<li>${t}</li>`).join('')}</ul>
         </div>
         <div class="result-actions">
-          <button class="btn-result-primary" onclick="resetQuiz()" aria-label="Ta quizen på nytt"><i class="fas fa-redo-alt" aria-hidden="true"></i> Ta quizen på nytt</button>
-          <a href="tips.html" class="btn-result-secondary"><i class="fas fa-lightbulb" aria-hidden="true"></i> Spørsmål til KI</a>
+          <button class="btn-result-primary" onclick="resetQuiz()" aria-label="${i18next.t('quiz_result_button_reset')}"><i class="fas fa-redo-alt" aria-hidden="true"></i> ${i18next.t('quiz_result_button_reset')}</button>
+          <a href="tips.html" class="btn-result-secondary" aria-label="${i18next.t('quiz_result_button_link')}"><i class="fas fa-lightbulb" aria-hidden="true"></i> ${i18next.t('quiz_result_button_link')}</a>
         </div>
       `;
       resultEl.style.display = 'block';
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next@22.4.10/i18next.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@2.2.1/i18nextHttpBackend.min.js"></script>
   <script src="app.js" defer></script>
 </body>
 </html>

@@ -12,21 +12,359 @@
   "step_2_text": "See concrete examples of how to use AI to structure text and avoid plagiarism.",
   "step_3": "3 – Test yourself",
   "step_3_text": "Check if you can distinguish between legal and illegal AI use.",
-  "search_heading": "Search in AI Guidebook",
-  "search_lead": "Search for topics across all pages (e.g., 'exam', 'plagiarism', 'prompt').",
+  "search_heading": "Search the AI Guidebook",
+  "search_lead": "Search for topics across pages and find the right guide quickly.",
   "search_placeholder": "Search for topic...",
   "search_label": "Search in AI Guidebook",
-  "search_hint": "Enter a keyword to search across all pages",
+  "search_hint": "Search across pages in the AI Guidebook.",
   "explore_heading": "Explore more",
   "faq": "FAQ",
   "ai_questions": "Questions for AI",
   "self_test": "Test yourself",
+  "search_title_home": "Home – AI Guidebook",
+  "search_desc_home": "Landing page with a guide, roles, and introduction to responsible AI use.",
+  "search_title_faq": "FAQ – Frequently asked questions about AI",
+  "search_desc_faq": "Questions and answers about what AI is, when to disclose AI use, hallucinations, source criticism, and prompt engineering.",
+  "search_title_tips": "Practical tips – Using AI in your studies",
+  "search_desc_tips": "Concrete tips on assignment writing, source use, ethics, privacy, and prompt engineering.",
+  "search_title_quiz": "Quiz – Test your AI knowledge",
+  "search_desc_quiz": "A quiz that tests your knowledge about ethics, privacy, AI hallucinations, and academic integrity.",
+  "search_title_links": "Useful links – AI resources",
+  "search_desc_links": "Links to AI tools, academic integrity, official guidelines, and learning resources.",
+  "search_title_contact": "Contact us – AI Guidebook",
+  "search_desc_contact": "Contact information, email, phone, contact form and visit details for AI Guidebook.",
+  "search_title_teaching_tips": "Teaching tips – AI in education",
+  "search_desc_teaching_tips": "Tips for teachers on integrating AI in courses, assignments, and group work.",
+  "search_title_assessment": "Assessment guidelines – AI in evaluation",
+  "search_desc_assessment": "Guidelines for AI use in assignments, exams, detection, and handling misconduct.",
+  "search_title_policy_templates": "Policy templates – AI institution, exam, ethics",
+  "search_desc_policy_templates": "Templates for institution policy, assignments, exams, AI documentation and ethics.",
   "useful_links": "Useful links",
   "contact": "Contact",
+  "contact_page_title": "Contact us – AI Guidebook",
+  "contact_heading": "Contact us",
+  "contact_lead": "If you have questions about the AI Guidebook, need help, or want to send feedback, please reach out.",
+  "contact_email_label": "Email",
+  "contact_email_note": "Response within 1–2 business days",
+  "contact_phone_label": "Phone",
+  "contact_phone_note": "Mon–Fri 09:00–15:00",
+  "contact_address_label": "Visit address",
+  "contact_address_campus": "USN Campus Bø",
+  "contact_address_street": "Gullbringvegen 36, 3800 Bø",
+  "contact_form_heading": "Send us a message",
+  "contact_name_label": "Name",
+  "contact_name_placeholder": "Your full name",
+  "contact_email_field_label": "Email",
+  "contact_email_placeholder": "your@example.com",
+  "contact_subject_label": "Subject",
+  "contact_subject_placeholder": "Choose a topic",
+  "contact_subject_question": "Question about the AI Guidebook",
+  "contact_subject_help": "Need help",
+  "contact_subject_feedback": "Feedback",
+  "contact_subject_other": "Other",
+  "contact_message_label": "Message",
+  "contact_message_placeholder": "Write your message here...",
+  "contact_privacy_note": "Do not write sensitive personal information in the message.",
+  "contact_send_button": "Send message",
+  "contact_sending": "Sending...",
+  "contact_success_message": "Thank you for your message! We will respond within 1–2 business days.",
+  "contact_map_heading": "Find us – Campus Bø",
+  "contact_map_university": "University of South-Eastern Norway",
+  "contact_map_street": "Gullbringvegen 36, 3800 Bø",
+  "contact_map_hours": "Mon–Fri 07:30–20:00",
   "footer_text": "Made for students — Group 5 — Practical Project Work — Spring 2026",
   "skip_link": "Skip to main content",
   "home": "Home",
   "menu": "Menu",
-  "disclaimer": "The AI Guide supplements local guidelines. In case of doubt: check the course description and regulations at your institution."
-  "no_search_results": "No results for \"{{query}}\"."
+  "disclaimer": "The AI Guide supplements local guidelines. In case of doubt: check the course description and regulations at your institution.",
+  "no_search_results": "No results for \"{{query}}\".",
+  "faq_heading": "Frequently Asked Questions",
+  "faq_lead": "Here you will find answers to frequently asked questions about the use of AI in your studies.",
+  "faq_q1": "What is AI and how can it be used in studies?",
+  "faq_a1": "Artificial Intelligence (AI) is technology that can perform tasks that normally require human intelligence, such as answering questions, analyzing data, and generating text. In studies, AI can be used to help with assignment writing, idea development, and learning – but it is important to use it responsibly and in accordance with academic guidelines.",
+  "faq_q2": "When should I disclose that I have used AI?",
+  "faq_a2": "You should always disclose when AI has contributed to your work – regardless of whether it concerns idea development, text structuring, or source searching. Transparency about AI use is a prerequisite for academic integrity and is required at most Norwegian institutions.",
+  "faq_q3": "How do I use AI in an ethical and responsible way?",
+  "faq_a3": "Ethical AI use means not sharing sensitive or personal information, always verifying AI-generated information against reliable sources, and never using AI to replace your own professional effort. AI should function as a support tool – not as a shortcut around your own learning.",
+  "faq_q4": "What are 'hallucinations' in AI?",
+  "faq_a4": "Hallucinations mean that AI generates information that sounds credible but is actually false or fabricated. AI bases its answers on patterns in training data and cannot always distinguish between fact and fiction. Therefore, it is crucial to always double-check information – particularly references and source citations – against reliable sources such as Google Scholar or Oria.",
+  "faq_q5": "How do I fact-check information from AI?",
+  "faq_a5": "Always compare AI-generated information with textbooks, scientific articles, or recognized websites. For references specifically: look them up manually in Google Scholar, Oria, or library databases – AI can invent sources that don't exist.",
+  "faq_q6": "What does it mean to 'prompt' AI?",
+  "faq_a6": "A prompt is the question or instruction you write to AI. The more precise and clear you are, the better answers you get. It's about giving AI enough context: who you are, what you need, and why. See the page 'The Art of Asking Good Questions to AI' for concrete examples and tips.",
+  "faq_q7": "What happens if I break the rules for AI use?",
+  "faq_a7": "Illegal or dishonest use of AI is treated the same as plagiarism and can result in exam cancellation, expulsion from studies, or notation on your transcript. Rules vary between institutions and subjects – always check the course description and your institution's own guidelines.",
+  "tips_0": "The Art of Asking Good Questions to AI",
+  "tips_1": "Here you'll find concrete advice and examples for responsible AI use in your studies.",
+  "tips_2": "Assignment Writing",
+  "tips_3": "Structuring Assignments",
+  "tips_4": "Use AI to create a structure for your assignment. Give AI a brief description of the topic and ask for a suggested table of contents.",
+  "tips_5": "Idea Generation",
+  "tips_6": "AI can help you generate ideas for topics, research questions, or angles for your assignment.",
+  "tips_7": "Language Assistance",
+  "copy_prompt": "Copy prompt",
+  "copied": "Copied!",
+  "tips_8": "AI can help improve the language in your assignment, but remember that you are responsible for the final result.",
+  "tips_9": "Source Use",
+  "tips_10": "Find Sources",
+  "tips_11": "AI can suggest relevant sources, but you must always verify that the sources actually exist and are credible. AI can fabricate references that don't exist—this is called \"hallucination.\"",
+  "tips_12": "Always verify suggested sources in Google Scholar, Oria, or your library's databases before using them.",
+  "tips_13": "Reference Formatting",
+  "tips_14": "Use AI to check if your references are correctly formatted—but verify the result yourself.",
+  "tips_15": "Ethics and Responsibility",
+  "tips_16": "Avoid Plagiarism",
+  "tips_17": "Never use AI to generate text that you submit as your own without disclosing it. Always check your institution's guidelines for what is permitted.",
+  "tips_18": "Privacy",
+  "tips_19": "Never share personal information, sensitive data, or information about others with AI tools. This applies to classmates and research participants as well.",
+  "tips_20": "Information you input into AI services may be stored and used to train models. Be mindful of what you share.",
+  "tips_21": "Disclose AI Use",
+  "tips_22": "Always be transparent about how you have used AI in your work. Most institutions require you to document this in a separate statement or footnote.",
+  "tips_23": "In this assignment, I have used [AI tool] for [purpose, e.g., improving language/structuring content]. All subject-specific arguments and conclusions are my own.",
+  "tips_24": "Exams and Assessment",
+  "tips_25": "Check Rules for Each Subject",
+  "tips_26": "Rules for AI use vary from subject to subject—and even from assignment to assignment. Always read the course description carefully and ask your instructor if you are unsure.",
+  "tips_27": "What is permitted in one assignment is not necessarily allowed on an exam or in another course.",
+  "tips_28": "Use AI for Preparation—Not for Exam Answers",
+  "tips_29": "AI is a useful tool for exam preparation: ask questions, request explanations of concepts, or ask for practice quiz questions on your subject.",
+  "tips_30": "Understand What AI Generates—Don't Just Copy",
+  "tips_31": "You are always responsible for the content you submit. If you cannot explain or defend something in your assignment, it should not be there.",
+  "tips_32": "Consequences of Rule Violations",
+  "tips_33": "Illegal AI use can result in exam cancellation, expulsion, or notations on your transcript. Take the rules seriously—it's not worth the risk.",
+  "tips_41": "Exams and assessment",
+  "tips_42": "Use AI only for preparation, not for writing or submitting exam answers.",
+  "tips_43": "AI can help you review concepts before an exam, but do not use it to create answers for real exam tasks.",
+  "tips_44": "Do not submit AI-generated text as your own exam work; this can violate academic rules.",
+  "tips_45": "Check what is allowed",
+  "tips_46": "Ask your instructor if you're unsure whether AI is permitted for a specific exam or assignment.",
+  "tips_47": "Example prompt for checking exam rules",
+  "tips_48": "Can I use AI to practice exam questions and then write my own answers based on what I learned?",
+  "tips_49": "Plan your preparation, not your answers",
+  "tips_50": "Use AI to test your understanding and explain concepts — not to generate final answers you will submit.",
+  "tips_51": "Document your AI use",
+  "tips_52": "If you use AI for preparation, note how and why you used it in your study notes or assignment documentation.",
+  "links_0": "Useful Links",
+  "links_1": "Here you'll find a collection of resources and tools for responsible AI use in your studies.",
+  "links_2": "AI Tools",
+  "links_3": "ChatGPT – OpenAI",
+  "links_4": "One of the most widely used AI tools for text, idea development, and question-answering. Free version available.",
+  "links_5": "Claude – Anthropic",
+  "links_6": "AI assistant known for thorough and nuanced responses. Well-suited for academic writing and analysis.",
+  "links_7": "Search & Write – AI",
+  "links_8": "Norwegian guide on using AI in academic writing, created for students at Norwegian universities.",
+  "links_9": "Academic Integrity",
+  "links_10": "Plagiarism.org",
+  "links_11": "Learn about academic integrity and how to avoid plagiarism in your assignments.",
+  "visit_website": "Visit website",
+  "links_12": "Search & Write – Phrase Bank",
+  "links_13": "Useful academic phrases and expressions for writing assignments in Norwegian.",
+  "links_14": "Official Guidelines",
+  "links_15": "USN – AI Guidelines",
+  "links_16": "Official guidelines for AI use in studies at the University of Southeast Norway.",
+  "links_17": "Government.no – AI",
+  "links_18": "Official documents and national strategies for artificial intelligence in Norway.",
+  "links_19": "The Digitalisation Agency",
+  "links_20": "Government guidance on digitalization, AI, and responsible technology use in the public sector.",
+  "links_21": "Learning Resources",
+  "links_22": "Kildekompasset – AI References",
+  "links_23": "Reference guide to artificial intelligence and AI tools such as ChatGPT, Writesonic, and more.",
+  "links_24": "USN Library",
+  "links_25": "Search for books, articles, and academic resources from the University of South-Eastern Norway library.",
+  "links_26": "Google Scholar",
+  "links_27": "Search engine for scientific articles and peer-reviewed research—essential for source verification.",
+  "quiz_0": "Test Your Knowledge about AI",
+  "quiz_1": "How well do you know the rules for responsible AI use in your studies? Take the quiz and find out what you know—and what you should learn more about.",
+  "quiz_2": "10 questions",
+  "quiz_3": "Approx. 5 minutes",
+  "quiz_4": "Assessment of knowledge level",
+  "quiz_5": "How the quiz works",
+  "quiz_6": "10 questions with three answer options (A, B, C)",
+  "quiz_7": "Only one answer is correct per question",
+  "quiz_8": "You get immediate feedback after each answer",
+  "quiz_9": "Passing: 7 out of 10 correct (70%)",
+  "quiz_10": "You can go back to the previous question",
+  "quiz_11": "Results are shown after you answer all questions",
+  "quiz_12": "After completing the quiz, you receive personalized feedback with recommendations tailored to your result.",
+  "quiz_13": "Start the quiz",
+  "quiz_14": "Previous",
+  "quiz_15": "Start over",
+  "quiz_16": "Next",
+  "quiz_17": "View result",
+  "quiz_questions": [
+    {
+      "q": "When should you disclose that you have used AI in an assignment?",
+      "options": [
+        "Whenever AI has contributed to your work.",
+        "Only when you use AI to write the whole text.",
+        "Never – it is not necessary to disclose it."
+      ],
+      "correctIndex": 0,
+      "feedback": {
+        "correct": "Correct! You should always disclose AI use, whether it helped with ideas, text structure, or source search.",
+        "incorrect": "Incorrect. The rule is that you should always disclose AI use when it has contributed to your work."
+      }
+    },
+    {
+      "q": "What should you do if you are unsure what AI use is allowed in a course?",
+      "options": [
+        "Use AI anyway – it is probably fine.",
+        "Ask your instructor or check the course description.",
+        "Avoid all AI use to be safe."
+      ],
+      "correctIndex": 1,
+      "feedback": {
+        "correct": "Correct! When in doubt, you should always clarify with the instructor. Rules can vary from course to course.",
+        "incorrect": "Incorrect. The safest approach is to ask your instructor or read the course description carefully."
+      }
+    },
+    {
+      "q": "Why is it important to always double-check information from AI?",
+      "options": [
+        "Because teachers always require it.",
+        "It is actually not necessary.",
+        "AI can hallucinate – generate information that sounds right but is wrong."
+      ],
+      "correctIndex": 2,
+      "feedback": {
+        "correct": "Correct! AI models can produce convincing but false information – always verify with reliable sources.",
+        "incorrect": "Incorrect. AI can hallucinate and present incorrect facts with high confidence. Always verify."
+      }
+    },
+    {
+      "q": "Which information should you never share with an AI service?",
+      "options": [
+        "General academic information about the subject you are studying.",
+        "Sensitive or personal information about yourself or others.",
+        "Sources you have used in your assignment."
+      ],
+      "correctIndex": 1,
+      "feedback": {
+        "correct": "Correct! Personal data, sensitive information, and confidential details should never be shared with AI tools.",
+        "incorrect": "Incorrect. Personal and sensitive information should never be entered into AI services for privacy reasons."
+      }
+    },
+    {
+      "q": "What is the best way to use AI in your studies?",
+      "options": [
+        "As support for your own learning and thinking – not as a replacement for your own effort.",
+        "Let AI do all the work and submit the result.",
+        "Only to look up source references."
+      ],
+      "correctIndex": 0,
+      "feedback": {
+        "correct": "Correct! AI is a support tool. You learn most when you think for yourself and let AI help you move forward.",
+        "incorrect": "Incorrect. Letting AI do all the work violates academic integrity and prevents your own learning."
+      }
+    },
+    {
+      "q": "What is an ethical challenge when using AI in education?",
+      "options": [
+        "AI is too expensive to be relevant for students.",
+        "AI is too complicated to learn.",
+        "AI models can contain biases, and not all students have equal access to the tools."
+      ],
+      "correctIndex": 2,
+      "feedback": {
+        "correct": "Correct! Biases in training data and unequal access are real ethical challenges affecting fairness in education.",
+        "incorrect": "Incorrect. Access and algorithmic biases are important ethical issues related to AI in education."
+      }
+    },
+    {
+      "q": "What does the term 'prompt engineering' mean?",
+      "options": [
+        "A type of machine learning algorithm.",
+        "The technique of crafting precise and effective prompts to get the best possible answer from AI.",
+        "A way of programming AI models."
+      ],
+      "correctIndex": 1,
+      "feedback": {
+        "correct": "Correct! Good prompts produce better and more useful answers from AI tools.",
+        "incorrect": "Incorrect. Prompt engineering is about creating good questions and instructions for AI to get precise answers."
+      }
+    },
+    {
+      "q": "What is academic misconduct in relation to AI?",
+      "options": [
+        "Using AI to get ideas for an assignment structure.",
+        "Letting AI suggest better wording while keeping your own arguments.",
+        "Submitting AI-generated text as your own work without disclosing it."
+      ],
+      "correctIndex": 2,
+      "feedback": {
+        "correct": "Correct! Presenting AI-generated text as your own without disclosure is considered cheating, similar to plagiarism.",
+        "incorrect": "Incorrect. Submitting AI-generated work without disclosure is the classic example of misconduct."
+      }
+    },
+    {
+      "q": "Who is responsible for the content you submit, even if AI helped you?",
+      "options": [
+        "You – the student is always responsible for submitted work.",
+        "The AI service you used.",
+        "The university, because it allows AI use."
+      ],
+      "correctIndex": 0,
+      "feedback": {
+        "correct": "Correct! AI is a tool. Academic and ethical responsibility always lies with you as a student.",
+        "incorrect": "Incorrect. Responsibility for submitted work always lies with you, regardless of the tools you used."
+      }
+    },
+    {
+      "q": "Which statement about AI and copyright is correct?",
+      "options": [
+        "AI-generated text is always free to use without restrictions.",
+        "AI-generated text may have unclear copyright status – be careful using it without editing it.",
+        "You automatically own the copyright to everything AI creates for you."
+      ],
+      "correctIndex": 1,
+      "feedback": {
+        "correct": "Correct! Copyright around AI-generated content is legally unclear in many countries. Edit and be transparent.",
+        "incorrect": "Incorrect. Copyright issues for AI content are complex and not fully settled."
+      }
+    }
+  ],
+  "quiz_progress_label": "Question {{current}} of {{total}}",
+  "quiz_score_text": "{{score}} correct",
+  "quiz_options_aria_label": "Answer choices",
+  "quiz_option_correct_suffix": "correct answer",
+  "quiz_option_incorrect_suffix": "your answer, incorrect",
+  "quiz_confirm_reset": "Are you sure you want to restart the quiz? All answers will be reset.",
+  "quiz_result_score_aria": "Result: {{score}} of {{total}}, {{pct}} percent",
+  "quiz_result_next_steps_heading": "Recommended next steps:",
+  "quiz_result_button_reset": "Retake quiz",
+  "quiz_result_button_link": "AI Questions",
+  "quiz_result_badge_low": "📖 Beginner",
+  "quiz_result_title_low": "You have some learning to do – and that is okay!",
+  "quiz_result_desc_low": "You answered {{score}} out of {{total}} questions correctly ({{pct}}%). Passing is 70% or more. We recommend spending some time on the resources below.",
+  "quiz_result_tips_low": [
+    "Review the FAQ and practical tips on this page",
+    "Check your course descriptions for local AI rules",
+    "Retake the quiz after studying the material",
+    "Talk to your instructor if something is unclear"
+  ],
+  "quiz_result_badge_mid": "🔍 On track",
+  "quiz_result_title_mid": "Good foundation – but some gaps remain",
+  "quiz_result_desc_mid": "You answered {{score}} out of {{total}} questions correctly ({{pct}}%). Passing is 70% or more. You are close – review your mistakes and try again.",
+  "quiz_result_tips_mid": [
+    "Review feedback on the questions you missed",
+    "Study source use and privacy topics",
+    "Check the practical tips for concrete advice",
+    "Retake the quiz to measure your progress"
+  ],
+  "quiz_result_badge_good": "✅ Passed",
+  "quiz_result_title_good": "Well done – you are on the right track!",
+  "quiz_result_desc_good": "You answered {{score}} out of {{total}} questions correctly ({{pct}}%) – passed! You have a solid understanding of the key principles for responsible AI use.",
+  "quiz_result_tips_good": [
+    "Review the questions you missed and understand why",
+    "Explore useful links to stay updated",
+    "Share what you know with fellow students",
+    "Check your institution's own guidelines"
+  ],
+  "quiz_result_badge_high": "🏆 Expert",
+  "quiz_result_title_high": "Excellent! You have strong control",
+  "quiz_result_desc_high": "You answered {{score}} out of {{total}} questions correctly ({{pct}}%) – passed with flying colors! You demonstrate strong understanding of responsible and ethical AI use.",
+  "quiz_result_tips_high": [
+    "Stay updated – AI rules and tools evolve quickly",
+    "Help fellow students who are unsure about the rules",
+    "Explore advanced resources in the links section",
+    "Share feedback about the quiz with us"
+  ]
 }

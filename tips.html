@@ -26,78 +26,92 @@
   </style>
 </head>
 <body>
-  <div class="nav-overlay" id="navOverlay"></div>
+  <a href="#hovedinnhold" class="skip-link" data-i18n="skip_link">Hopp til hovedinnhold</a>
+
+  <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+
   <header class="topbar">
-    <div class="brand"><a href="index.html"><span class="brand-title">KI-veileder for studenter</span></a></div>
+    <div class="brand">
+      <a href="index.html" aria-label="KI-veileder for studenter – gå til forsiden">
+        <span class="brand-title" data-i18n="brand_title"></span>
+      </a>
+    </div>
     <nav class="nav" aria-label="Hovedmeny">
-      <ul class="nav-desktop">
-        <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Hjem</a></li>
-        <li><a href="faq.html" class="nav-link"><i class="fas fa-question-circle"></i> FAQ</a></li>
-        <li><a href="tips.html" class="nav-link active"><i class="fas fa-lightbulb"></i> Spørsmål til KI</a></li>
-        <li><a href="quiz.html" class="nav-link"><i class="fas fa-clipboard-list"></i> Test deg selv</a></li>
-        <li><a href="links.html" class="nav-link"><i class="fas fa-link"></i> Nyttige lenker</a></li>
-        <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Kontakt</a></li>
+      <ul class="nav-desktop" role="list">
+        <li><a href="index.html" class="nav-link"><i class="fas fa-home" aria-hidden="true"></i> <span data-i18n="home"></span></a></li>
+        <li><a href="faq.html" class="nav-link"><i class="fas fa-question-circle" aria-hidden="true"></i> <span data-i18n="faq"></span></a></li>
+        <li><a href="tips.html" class="nav-link active" aria-current="page"><i class="fas fa-lightbulb" aria-hidden="true"></i> <span data-i18n="ai_questions"></span></a></li>
+        <li><a href="quiz.html" class="nav-link"><i class="fas fa-clipboard-list" aria-hidden="true"></i> <span data-i18n="self_test"></span></a></li>
+        <li><a href="links.html" class="nav-link"><i class="fas fa-link" aria-hidden="true"></i> <span data-i18n="useful_links"></span></a></li>
+        <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope" aria-hidden="true"></i> <span data-i18n="contact"></span></a></li>
       </ul>
-      <button class="menu-toggle" aria-label="Åpne meny" id="menuToggle">
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
+      <button class="menu-toggle" aria-label="Åpne navigasjonsmeny" aria-expanded="false" aria-controls="sideMenu" id="menuToggle">
+        <span class="hamburger-bar" aria-hidden="true"></span>
+        <span class="hamburger-bar" aria-hidden="true"></span>
+        <span class="hamburger-bar" aria-hidden="true"></span>
       </button>
     </nav>
-  </header>
-  <aside class="side-menu" id="sideMenu" aria-hidden="true">
-    <div class="side-menu-header">
-      <span class="side-menu-title">Meny</span>
-      <button class="side-menu-close" id="menuClose" aria-label="Lukk meny">✕</button>
+    <div class="language-selector">
+      <button onclick="changeLanguage('no')" aria-label="Norsk" class="lang-btn lang-no" title="Norsk">NO</button>
+      <button onclick="changeLanguage('en')" aria-label="English" class="lang-btn lang-en" title="English">EN</button>
     </div>
-    <ul>
-      <li><a href="index.html"><i class="fas fa-home"></i> Hjem</a></li>
-      <li><a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
-      <li><a href="tips.html" class="active"><i class="fas fa-lightbulb"></i> Spørsmål til KI</a></li>
-      <li><a href="quiz.html"><i class="fas fa-clipboard-list"></i> Test deg selv</a></li>
-      <li><a href="links.html"><i class="fas fa-link"></i> Nyttige lenker</a></li>
-      <li><a href="contact.html"><i class="fas fa-envelope"></i> Kontakt</a></li>
-    </ul>
+  </header>
+
+  <aside class="side-menu" id="sideMenu" aria-hidden="true" aria-label="Mobilnavigasjon">
+    <div class="side-menu-header">
+      <span class="side-menu-title" data-i18n="menu"></span>
+      <button class="side-menu-close" id="menuClose" aria-label="Lukk navigasjonsmeny">✕</button>
+    </div>
+    <nav aria-label="Mobilmeny">
+      <ul role="list">
+        <li><a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> <span data-i18n="home"></span></a></li>
+        <li><a href="faq.html"><i class="fas fa-question-circle" aria-hidden="true"></i> <span data-i18n="faq"></span></a></li>
+        <li><a href="tips.html" class="active" aria-current="page"><i class="fas fa-lightbulb" aria-hidden="true"></i> <span data-i18n="ai_questions"></span></a></li>
+        <li><a href="quiz.html"><i class="fas fa-clipboard-list" aria-hidden="true"></i> <span data-i18n="self_test"></span></a></li>
+        <li><a href="links.html"><i class="fas fa-link" aria-hidden="true"></i> <span data-i18n="useful_links"></span></a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope" aria-hidden="true"></i> <span data-i18n="contact"></span></a></li>
+      </ul>
+    </nav>
   </aside>
   <main class="container">
     <section class="card">
-      <h1><i class="fas fa-lightbulb"></i> Kunsten å stille gode spørsmål til KI</h1>
-      <p class="lead">Her finner du konkrete råd og eksempler for ansvarlig bruk av KI i studiene.</p>
+      <h1><i class="fas fa-lightbulb"></i> <span data-i18n="tips_0"></span></h1>
+      <p class="lead"><span data-i18n="tips_1"></span></p>
     </section>
     <section class="card tips-container">
 
       <!-- Oppgaveskriving -->
       <div class="tip-category">
         <button class="category-header" onclick="toggleCategory(this)">
-          <span><i class="fas fa-pencil-alt" style="margin-right:0.5rem;"></i>Oppgaveskriving</span>
+          <span><i class="fas fa-pencil-alt" style="margin-right:0.5rem;"></i><span data-i18n="tips_2"></span></span>
           <i class="fas fa-chevron-down tip-icon"></i>
         </button>
         <div class="category-content">
           <div class="tip-item">
-            <div class="tip-title">Strukturering av oppgaver</div>
-            <p>Bruk KI til å lage en struktur for oppgaven din. Gi KI en kort beskrivelse av temaet og be om et forslag til innholdsfortegnelse.</p>
+            <div class="tip-title"><span data-i18n="tips_3"></span></div>
+            <p><span data-i18n="tips_4"></span></p>
             <div class="example-box">
-              <div class="example-title">Eksempel-prompt:</div>
-              <p>Lag en struktur for en oppgave om bærekraftig utvikling med fokus på fornybar energi. Oppgaven skal være på 10 sider og inkludere innledning, teori, metode, analyse, diskusjon og konklusjon.</p>
-              <button class="copy-button" onclick="copyToClipboard(this)">Kopier prompt</button>
+              <div class="example-title"><span data-i18n="tips_5"></span></div>
+              <p><span data-i18n="tips_6"></span></p>
+              <button class="copy-button" onclick="copyToClipboard(this)"><span data-i18n="copy_prompt"></span></button>
             </div>
           </div>
           <div class="tip-item">
-            <div class="tip-title">Generering av ideer</div>
-            <p>KI kan hjelpe deg med å generere ideer til emner, problemstillinger eller vinklinger for oppgaven din.</p>
+            <div class="tip-title"><span data-i18n="tips_8"></span></div>
+            <p><span data-i18n="tips_9"></span></p>
             <div class="example-box">
-              <div class="example-title">Eksempel-prompt:</div>
-              <p>Foreslå fem aktuelle problemstillinger innen digital etikk som egner seg for en bacheloroppgave på 15 studiepoeng.</p>
-              <button class="copy-button" onclick="copyToClipboard(this)">Kopier prompt</button>
+              <div class="example-title"><span data-i18n="tips_10"></span></div>
+              <p><span data-i18n="tips_11"></span></p>
+              <button class="copy-button" onclick="copyToClipboard(this)"><span data-i18n="copy_prompt"></span></button>
             </div>
           </div>
           <div class="tip-item">
-            <div class="tip-title">Språkhjelp</div>
-            <p>KI kan hjelpe deg med å forbedre språket i oppgaven din, men husk at du selv er ansvarlig for det endelige resultatet.</p>
+            <div class="tip-title"><span data-i18n="tips_13"></span></div>
+            <p><span data-i18n="tips_14"></span></p>
             <div class="example-box">
-              <div class="example-title">Eksempel-prompt:</div>
-              <p>Forbedre dette avsnittet for å gjøre det klarere og mer akademisk: [lim inn teksten din her].</p>
-              <button class="copy-button" onclick="copyToClipboard(this)">Kopier prompt</button>
+              <div class="example-title"><span data-i18n="tips_15"></span></div>
+              <p><span data-i18n="tips_16"></span></p>
+              <button class="copy-button" onclick="copyToClipboard(this)"><span data-i18n="copy_prompt"></span></button>
             </div>
           </div>
         </div>
@@ -106,29 +120,29 @@
       <!-- Kildebruk -->
       <div class="tip-category">
         <button class="category-header" onclick="toggleCategory(this)">
-          <span><i class="fas fa-book-open" style="margin-right:0.5rem;"></i>Kildebruk</span>
+          <span><i class="fas fa-book-open" style="margin-right:0.5rem;"></i><span data-i18n="tips_18"></span></span>
           <i class="fas fa-chevron-down tip-icon"></i>
         </button>
         <div class="category-content">
           <div class="tip-item">
-            <div class="tip-title">Finn kilder</div>
-            <p>KI kan foreslå relevante kilder, men du må alltid dobbeltsjekke at kildene faktisk eksisterer og er troverdige. KI kan finne på referanser som ikke finnes – dette kalles «hallusinering».</p>
+            <div class="tip-title"><span data-i18n="tips_19"></span></div>
+            <p><span data-i18n="tips_20"></span></p>
             <div class="example-box">
-              <div class="example-title">Eksempel-prompt:</div>
-              <p>Foreslå fem vitenskapelige artikler om kunstig intelligens i utdanning publisert de siste tre årene.</p>
-              <button class="copy-button" onclick="copyToClipboard(this)">Kopier prompt</button>
+              <div class="example-title"><span data-i18n="tips_21"></span></div>
+              <p><span data-i18n="tips_22"></span></p>
+              <button class="copy-button" onclick="copyToClipboard(this)"><span data-i18n="copy_prompt"></span></button>
             </div>
             <div class="warning-box">
-              <strong>⚠️ Viktig:</strong> Søk alltid opp foreslåtte kilder i Google Scholar, Oria eller bibliotekets databaser før du bruker dem.
+              <span data-i18n="tips_23"></span>
             </div>
           </div>
           <div class="tip-item">
-            <div class="tip-title">Referanseformatering</div>
-            <p>Bruk KI til å sjekke om referansene dine er korrekt formaterte – men verifiser resultatet selv.</p>
+            <div class="tip-title"><span data-i18n="tips_24"></span></div>
+            <p><span data-i18n="tips_25"></span></p>
             <div class="example-box">
-              <div class="example-title">Eksempel-prompt:</div>
-              <p>Sjekk om denne referansen er korrekt formatert i APA-stil: [lim inn referansen din her].</p>
-              <button class="copy-button" onclick="copyToClipboard(this)">Kopier prompt</button>
+              <div class="example-title"><span data-i18n="tips_26"></span></div>
+              <p><span data-i18n="tips_27"></span></p>
+              <button class="copy-button" onclick="copyToClipboard(this)"><span data-i18n="copy_prompt"></span></button>
             </div>
           </div>
         </div>
@@ -137,33 +151,33 @@
       <!-- Etikk og ansvar -->
       <div class="tip-category">
         <button class="category-header" onclick="toggleCategory(this)">
-          <span><i class="fas fa-balance-scale" style="margin-right:0.5rem;"></i>Etikk og ansvar</span>
+          <span><i class="fas fa-balance-scale" style="margin-right:0.5rem;"></i><span data-i18n="tips_28"></span></span>
           <i class="fas fa-chevron-down tip-icon"></i>
         </button>
         <div class="category-content">
           <div class="tip-item">
-            <div class="tip-title">Unngå plagiat</div>
-            <p>Bruk aldri KI til å generere tekst som du leverer som din egen uten å oppgi det. Sjekk alltid institusjonens retningslinjer for hva som er tillatt.</p>
+            <div class="tip-title"><span data-i18n="tips_29"></span></div>
+            <p><span data-i18n="tips_30"></span></p>
             <div class="example-box">
-              <div class="example-title">Eksempel-prompt:</div>
-              <p>Hjelp meg med å omformulere dette avsnittet slik at det blir tydeligere, men behold mine egne argumenter og perspektiver: [lim inn teksten din her].</p>
-              <button class="copy-button" onclick="copyToClipboard(this)">Kopier prompt</button>
+              <div class="example-title"><span data-i18n="tips_31"></span></div>
+              <p><span data-i18n="tips_32"></span></p>
+              <button class="copy-button" onclick="copyToClipboard(this)"><span data-i18n="copy_prompt"></span></button>
             </div>
           </div>
           <div class="tip-item">
-            <div class="tip-title">Personvern</div>
-            <p>Del aldri personlige opplysninger, sensitive data eller informasjon om andre med KI-verktøy. Dette gjelder også medstudenter og informanter i oppgaver.</p>
+            <div class="tip-title"><span data-i18n="tips_33"></span></div>
+            <p><span data-i18n="tips_34"></span></p>
             <div class="warning-box">
-              <strong>⚠️ Husk:</strong> Det du skriver inn i KI-tjenester kan lagres og brukes til å trene modeller. Vær bevisst på hva du deler.
+              <span data-i18n="tips_35"></span>
             </div>
           </div>
           <div class="tip-item">
-            <div class="tip-title">Oppgi KI-bruk</div>
-            <p>Vær alltid åpen om hvordan du har brukt KI i arbeidet ditt. De fleste institusjoner krever at du dokumenterer dette i en egen erklæring eller fotnote.</p>
+            <div class="tip-title"><span data-i18n="tips_36"></span></div>
+            <p><span data-i18n="tips_37"></span></p>
             <div class="example-box">
-              <div class="example-title">Eksempel på KI-erklæring:</div>
-              <p>«I denne oppgaven har jeg brukt [KI-verktøy] til [formål, f.eks. å forbedre språk/strukturere innhold]. Alle faglige argumenter og konklusjoner er mine egne.»</p>
-              <button class="copy-button" onclick="copyToClipboard(this)">Kopier eksempel</button>
+              <div class="example-title"><span data-i18n="tips_38"></span></div>
+              <p><span data-i18n="tips_39"></span></p>
+              <button class="copy-button" onclick="copyToClipboard(this)"><span data-i18n="copy_prompt"></span></button>
             </div>
           </div>
         </div>
@@ -172,33 +186,33 @@
       <!-- Eksamen og vurdering -->
       <div class="tip-category">
         <button class="category-header" onclick="toggleCategory(this)">
-          <span><i class="fas fa-graduation-cap" style="margin-right:0.5rem;"></i>Eksamen og vurdering</span>
+          <span><i class="fas fa-graduation-cap" style="margin-right:0.5rem;"></i><span data-i18n="tips_41"></span></span>
           <i class="fas fa-chevron-down tip-icon"></i>
         </button>
         <div class="category-content">
           <div class="tip-item">
-            <div class="tip-title">Sjekk reglene for hvert emne</div>
-            <p>Reglene for KI-bruk varierer fra emne til emne – og til og med fra oppgave til oppgave. Les alltid emnebeskrivelsen nøye og spør foreleser om du er usikker.</p>
+            <div class="tip-title"><span data-i18n="tips_42"></span></div>
+            <p><span data-i18n="tips_43"></span></p>
             <div class="warning-box">
-              <strong>⚠️ Husk:</strong> Det som er tillatt i én innlevering er ikke nødvendigvis tillatt på eksamen eller i et annet emne.
+              <span data-i18n="tips_44"></span>
             </div>
           </div>
           <div class="tip-item">
-            <div class="tip-title">Bruk KI til forberedelse – ikke til selve besvarelsen</div>
-            <p>KI er et godt verktøy for å øve til eksamen: still spørsmål, be om forklaringer av begreper, eller be om quiz-spørsmål innen temaet ditt.</p>
+            <div class="tip-title"><span data-i18n="tips_45"></span></div>
+            <p><span data-i18n="tips_46"></span></p>
             <div class="example-box">
-              <div class="example-title">Eksempel-prompt:</div>
-              <p>Lag ti øvingsspørsmål til eksamen i samfunnsøkonomi, med fokus på makroøkonomiske modeller og pengepolitikk.</p>
-              <button class="copy-button" onclick="copyToClipboard(this)">Kopier prompt</button>
+              <div class="example-title"><span data-i18n="tips_47"></span></div>
+              <p><span data-i18n="tips_48"></span></p>
+              <button class="copy-button" onclick="copyToClipboard(this)"><span data-i18n="copy_prompt"></span></button>
             </div>
           </div>
           <div class="tip-item">
-            <div class="tip-title">Forstå det KI genererer – ikke bare kopier</div>
-            <p>Du er alltid ansvarlig for innholdet du leverer inn. Hvis du ikke kan forklare eller forsvare noe i oppgaven din, bør det ikke være der.</p>
+            <div class="tip-title"><span data-i18n="tips_49"></span></div>
+            <p><span data-i18n="tips_50"></span></p>
           </div>
           <div class="tip-item">
-            <div class="tip-title">Konsekvenser ved regelbrudd</div>
-            <p>Ulovlig KI-bruk kan føre til annullert eksamen, utestengelse eller anmerkninger på vitnemålet. Ta reglene på alvor – det er ikke verdt risikoen.</p>
+            <div class="tip-title"><span data-i18n="tips_51"></span></div>
+            <p><span data-i18n="tips_52"></span></p>
           </div>
         </div>
       </div>
@@ -206,7 +220,7 @@
     </section>
   </main>
   <footer class="footer">
-    <p>Laget for studenter — Gruppe 5 — Praktisk prosjektarbeid — Vår 2026</p>
+    <p data-i18n="footer_text"></p>
   </footer>
   <script>
     function toggleCategory(header) {
@@ -223,13 +237,22 @@
     }
     function copyToClipboard(button) {
       const textToCopy = button.parentElement.querySelector('p').textContent;
+      const labelSpan = button.querySelector('[data-i18n]');
+      const originalKey = labelSpan?.getAttribute('data-i18n');
       navigator.clipboard.writeText(textToCopy).then(() => {
-        button.textContent = 'Kopiert!';
-        setTimeout(() => { button.textContent = button.textContent === 'Kopiert!' ? 'Kopier prompt' : button.textContent; }, 2000);
-        setTimeout(() => { button.textContent = 'Kopier prompt'; }, 2000);
+        if (labelSpan) {
+          labelSpan.textContent = i18next.t('copied');
+          setTimeout(() => {
+            if (labelSpan && originalKey) {
+              labelSpan.textContent = i18next.t(originalKey);
+            }
+          }, 2000);
+        }
       }).catch(err => console.error('Kunne ikke kopiere tekst: ', err));
     }
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next@22.4.10/i18next.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@2.2.1/i18nextHttpBackend.min.js"></script>
   <script src="app.js" defer></script>
 </body>
 </html>

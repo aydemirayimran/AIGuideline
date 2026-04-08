@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kontakt oss – KI-veileder for studenter</title>
+  <title data-i18n="contact_page_title"></title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
@@ -82,115 +82,125 @@
 </head>
 <body>
 
-  <div class="nav-overlay" id="navOverlay"></div>
+  <a href="#hovedinnhold" class="skip-link" data-i18n="skip_link">Hopp til hovedinnhold</a>
+
+  <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
 
   <header class="topbar">
     <div class="brand">
-      <a href="index.html"><span class="brand-title">KI-veileder for studenter</span></a>
+      <a href="index.html" aria-label="KI-veileder for studenter – gå til forsiden">
+        <span class="brand-title" data-i18n="brand_title"></span>
+      </a>
     </div>
     <nav class="nav" aria-label="Hovedmeny">
-      <ul class="nav-desktop">
-        <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Hjem</a></li>
-        <li><a href="faq.html" class="nav-link"><i class="fas fa-question-circle"></i> FAQ</a></li>
-        <li><a href="tips.html" class="nav-link"><i class="fas fa-lightbulb"></i> Spørsmål til KI</a></li>
-        <li><a href="quiz.html" class="nav-link"><i class="fas fa-clipboard-list"></i> Test deg selv</a></li>
-        <li><a href="links.html" class="nav-link"><i class="fas fa-link"></i> Nyttige lenker</a></li>
-        <li><a href="contact.html" class="nav-link active"><i class="fas fa-envelope"></i> Kontakt</a></li>
+      <ul class="nav-desktop" role="list">
+        <li><a href="index.html" class="nav-link"><i class="fas fa-home" aria-hidden="true"></i> <span data-i18n="home"></span></a></li>
+        <li><a href="faq.html" class="nav-link"><i class="fas fa-question-circle" aria-hidden="true"></i> <span data-i18n="faq"></span></a></li>
+        <li><a href="tips.html" class="nav-link"><i class="fas fa-lightbulb" aria-hidden="true"></i> <span data-i18n="ai_questions"></span></a></li>
+        <li><a href="quiz.html" class="nav-link"><i class="fas fa-clipboard-list" aria-hidden="true"></i> <span data-i18n="self_test"></span></a></li>
+        <li><a href="links.html" class="nav-link"><i class="fas fa-link" aria-hidden="true"></i> <span data-i18n="useful_links"></span></a></li>
+        <li><a href="contact.html" class="nav-link active" aria-current="page"><i class="fas fa-envelope" aria-hidden="true"></i> <span data-i18n="contact"></span></a></li>
       </ul>
-      <button class="menu-toggle" aria-label="Åpne meny" id="menuToggle">
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
+      <button class="menu-toggle" aria-label="Åpne navigasjonsmeny" aria-expanded="false" aria-controls="sideMenu" id="menuToggle">
+        <span class="hamburger-bar" aria-hidden="true"></span>
+        <span class="hamburger-bar" aria-hidden="true"></span>
+        <span class="hamburger-bar" aria-hidden="true"></span>
       </button>
     </nav>
+    <div class="language-selector">
+      <button onclick="changeLanguage('no')" aria-label="Norsk" class="lang-btn lang-no" title="Norsk">NO</button>
+      <button onclick="changeLanguage('en')" aria-label="English" class="lang-btn lang-en" title="English">EN</button>
+    </div>
   </header>
 
-  <aside class="side-menu" id="sideMenu" aria-hidden="true">
+  <aside class="side-menu" id="sideMenu" aria-hidden="true" aria-label="Mobilnavigasjon">
     <div class="side-menu-header">
-      <span class="side-menu-title">Meny</span>
-      <button class="side-menu-close" id="menuClose" aria-label="Lukk meny">✕</button>
+      <span class="side-menu-title" data-i18n="menu"></span>
+      <button class="side-menu-close" id="menuClose" aria-label="Lukk navigasjonsmeny">✕</button>
     </div>
-    <ul>
-      <li><a href="index.html"><i class="fas fa-home"></i> Hjem</a></li>
-      <li><a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
-      <li><a href="tips.html"><i class="fas fa-lightbulb"></i> Spørsmål til KI</a></li>
-      <li><a href="quiz.html"><i class="fas fa-clipboard-list"></i> Test deg selv</a></li>
-      <li><a href="links.html"><i class="fas fa-link"></i> Nyttige lenker</a></li>
-      <li><a href="contact.html" class="active"><i class="fas fa-envelope"></i> Kontakt</a></li>
-    </ul>
+    <nav aria-label="Mobilmeny">
+      <ul role="list">
+        <li><a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> <span data-i18n="home"></span></a></li>
+        <li><a href="faq.html"><i class="fas fa-question-circle" aria-hidden="true"></i> <span data-i18n="faq"></span></a></li>
+        <li><a href="tips.html"><i class="fas fa-lightbulb" aria-hidden="true"></i> <span data-i18n="ai_questions"></span></a></li>
+        <li><a href="quiz.html"><i class="fas fa-clipboard-list" aria-hidden="true"></i> <span data-i18n="self_test"></span></a></li>
+        <li><a href="links.html"><i class="fas fa-link" aria-hidden="true"></i> <span data-i18n="useful_links"></span></a></li>
+        <li><a href="contact.html" class="active" aria-current="page"><i class="fas fa-envelope" aria-hidden="true"></i> <span data-i18n="contact"></span></a></li>
+      </ul>
+    </nav>
   </aside>
 
   <main class="container">
 
     <section class="card">
-      <h1><i class="fas fa-envelope"></i> Kontakt oss</h1>
-      <p class="lead">Har du spørsmål om KI-veilederen, trenger du hjelp eller ønsker du å gi tilbakemelding? Ta gjerne kontakt!</p>
+      <h1><i class="fas fa-envelope"></i> <span data-i18n="contact_heading"></span></h1>
+      <p class="lead" data-i18n="contact_lead"></p>
 
       <!-- Kontaktinfo-kort -->
       <div class="contact-grid">
         <div class="contact-card">
           <div class="card-icon"><i class="fas fa-envelope"></i></div>
-          <div class="card-label">E-post</div>
+          <div class="card-label" data-i18n="contact_email_label"></div>
           <div class="card-value"><a href="mailto:ki-veileder@usn.no">ki-veileder@usn.no</a></div>
-          <div class="card-value">Svar innen 1–2 virkedager</div>
+          <div class="card-value" data-i18n="contact_email_note"></div>
         </div>
         <div class="contact-card">
           <div class="card-icon"><i class="fas fa-phone"></i></div>
-          <div class="card-label">Telefon</div>
+          <div class="card-label" data-i18n="contact_phone_label"></div>
           <div class="card-value"><a href="tel:+4731008000">+47 31 00 80 00</a></div>
-          <div class="card-value">Man–fre 09:00–15:00</div>
+          <div class="card-value" data-i18n="contact_phone_note"></div>
         </div>
         <div class="contact-card">
           <div class="card-icon"><i class="fas fa-map-marker-alt"></i></div>
-          <div class="card-label">Besøksadresse</div>
-          <div class="card-value">USN Campus Bø</div>
-          <div class="card-value">Gullbringvegen 36, 3800 Bø</div>
+          <div class="card-label" data-i18n="contact_address_label"></div>
+          <div class="card-value" data-i18n="contact_address_campus"></div>
+          <div class="card-value" data-i18n="contact_address_street"></div>
         </div>
       </div>
 
       <!-- Kontaktskjema -->
-      <h2 style="margin-bottom:1rem;"><i class="fas fa-comment-dots"></i> Send oss en melding</h2>
+      <h2 style="margin-bottom:1rem;"><i class="fas fa-comment-dots"></i> <span data-i18n="contact_form_heading"></span></h2>
       <form id="contactForm" class="contact-form">
         <div class="form-group">
-          <label for="name">Navn</label>
-          <input type="text" id="name" name="name" placeholder="Ditt fulle navn" required />
+          <label for="name" data-i18n="contact_name_label"></label>
+          <input type="text" id="name" name="name" placeholder="" data-i18n="[placeholder]contact_name_placeholder" required />
         </div>
         <div class="form-group">
-          <label for="email">E-post</label>
-          <input type="email" id="email" name="email" placeholder="din@epost.no" required />
+          <label for="email" data-i18n="contact_email_field_label"></label>
+          <input type="email" id="email" name="email" placeholder="" data-i18n="[placeholder]contact_email_placeholder" required />
         </div>
         <div class="form-group">
-          <label for="subject">Emne</label>
+          <label for="subject" data-i18n="contact_subject_label"></label>
           <select id="subject" name="subject" required>
-            <option value="">Velg emne</option>
-            <option value="spørsmål">Spørsmål om KI-veilederen</option>
-            <option value="hjelp">Trenger hjelp</option>
-            <option value="tilbakemelding">Tilbakemelding</option>
-            <option value="annet">Annet</option>
+            <option value="" data-i18n="contact_subject_placeholder"></option>
+            <option value="spørsmål" data-i18n="contact_subject_question"></option>
+            <option value="hjelp" data-i18n="contact_subject_help"></option>
+            <option value="tilbakemelding" data-i18n="contact_subject_feedback"></option>
+            <option value="annet" data-i18n="contact_subject_other"></option>
           </select>
         </div>
         <div class="form-group">
-          <label for="message">Melding</label>
-          <textarea id="message" name="message" placeholder="Skriv meldingen din her..." required></textarea>
+          <label for="message" data-i18n="contact_message_label"></label>
+          <textarea id="message" name="message" placeholder="" data-i18n="[placeholder]contact_message_placeholder" required></textarea>
         </div>
-        <p class="privacy-note" style="padding-bottom: 10px;"><i class="fas fa-exclamation-triangle" ></i> Ikke skriv sensitive personopplysninger i meldingen.</p>
+        <p class="privacy-note" style="padding-bottom: 10px;"><i class="fas fa-exclamation-triangle"></i> <span data-i18n="contact_privacy_note"></span></p>
         <button type="submit" class="submit-button">
-          <i class="fas fa-paper-plane"></i> Send melding
+          <i class="fas fa-paper-plane"></i> <span data-i18n="contact_send_button"></span>
         </button>
       </form>
       <div id="successMessage" class="success-message">
-        <i class="fas fa-check-circle"></i> Takk for meldingen! Vi svarer deg innen 1–2 virkedager.
+        <i class="fas fa-check-circle"></i> <span data-i18n="contact_success_message"></span>
       </div>
     </section>
 
     <!-- Kart -->
     <section class="card">
       <div class="map-section">
-        <h2><i class="fas fa-map-marker-alt"></i> Finn oss – Campus Bø</h2>
+        <h2><i class="fas fa-map-marker-alt"></i> <span data-i18n="contact_map_heading"></span></h2>
         <div class="map-address">
-          <span><i class="fas fa-university"></i> Universitetet i Sørøst-Norge</span>
-          <span><i class="fas fa-road"></i> Gullbringvegen 36, 3800 Bø</span>
-          <span><i class="fas fa-clock"></i> Man–fre 07:30–20:00</span>
+          <span><i class="fas fa-university"></i> <span data-i18n="contact_map_university"></span></span>
+          <span><i class="fas fa-road"></i> <span data-i18n="contact_map_street"></span></span>
+          <span><i class="fas fa-clock"></i> <span data-i18n="contact_map_hours"></span></span>
         </div>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2004.0!2d9.0596141!3d59.4088932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4647494bb691771f%3A0xd599b38e9eb4b4e3!2sUniversity%20of%20South-Eastern%20Norway!5e0!3m2!1sno!2sno!4v1700000000000!5m2!1sno!2sno"
@@ -206,14 +216,15 @@
   </main>
 
   <footer class="footer">
-    <p>Laget for studenter — Gruppe 5 — Praktisk prosjektarbeid — Vår 2026</p>
+    <p data-i18n="footer_text"></p>
   </footer>
 
   <script>
     document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const btn = this.querySelector('.submit-button');
-      btn.textContent = 'Sender...';
+      const loadingText = window.i18next ? window.i18next.t('contact_sending') : 'Sender...';
+      btn.textContent = loadingText;
       btn.disabled = true;
       setTimeout(function() {
         document.getElementById('contactForm').style.display = 'none';
@@ -223,12 +234,15 @@
           document.getElementById('contactForm').reset();
           document.getElementById('contactForm').style.display = 'block';
           msg.style.display = 'none';
-          btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send melding';
+          const sendLabel = window.i18next ? window.i18next.t('contact_send_button') : 'Send melding';
+          btn.innerHTML = '<i class="fas fa-paper-plane"></i> ' + sendLabel;
           btn.disabled = false;
         }, 5000);
       }, 1000);
     });
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next@22.4.10/i18next.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@2.2.1/i18nextHttpBackend.min.js"></script>
   <script src="app.js" defer></script>
 </body>
 </html>

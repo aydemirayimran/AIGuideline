@@ -12,21 +12,361 @@
   "step_2_text": "Se konkrete eksempler på hvordan du bruker KI til å strukturere tekst og unngå plagiat.",
   "step_3": "3 – Test deg selv",
   "step_3_text": "Sjekk om du kan skille mellom lovlig og ulovlig KI-bruk.",
-  "search_heading": "Søk i AI Guidebook",
+  "search_heading": "Søk i KI-veileder",
   "search_lead": "Søk etter tema på tvers av alle sider (f.eks. «eksamen», «plagiat», «prompt»).",
   "search_placeholder": "Søk etter tema...",
-  "search_label": "Søk i AI Guidebook",
-  "search_hint": "Skriv et søkeord for å søke på tvers av alle sider",
+  "search_label": "Søk i KI-veileder",
+  "search_hint": "Skriv et norsk søkeord for å søke på tvers av sider",
   "explore_heading": "Utforsk mer",
   "faq": "FAQ",
   "ai_questions": "Spørsmål til KI",
   "self_test": "Test deg selv",
+  "search_title_home": "Hjem – KI-veileder",
+  "search_desc_home": "Forside med veiviser, roller og introduksjon til ansvarlig bruk av KI.",
+  "search_title_faq": "FAQ – Vanlige spørsmål om KI",
+  "search_desc_faq": "Spørsmål og svar om hva KI er, når du må oppgi KI-bruk, hallusinasjoner, kildekritikk og prompt engineering.",
+  "search_title_tips": "Praktiske tips – Bruk av KI i studier",
+  "search_desc_tips": "Konkrete tips om oppgaveskriving, kildebruk, etikk, personvern og prompt engineering.",
+  "search_title_quiz": "Quiz – Test din kunnskap om KI",
+  "search_desc_quiz": "En quiz som tester kunnskap om etikk, personvern, KI-hallusinasjoner og akademisk integritet.",
+  "search_title_links": "Nyttige lenker – KI-ressurser",
+  "search_desc_links": "Lenker til KI-verktøy, akademisk integritet, offisielle retningslinjer og læringsressurser.",
+  "search_title_contact": "Kontakt oss – KI-veileder",
+  "search_desc_contact": "Kontaktinformasjon, e-post, telefon, kontaktskjema og besøk hos KI-veilederen.",
+  "search_title_teaching_tips": "Undervisningstips – KI i undervisning",
+  "search_desc_teaching_tips": "Tips for fagpersonale om å integrere KI i emner, oppgaver og gruppearbeid.",
+  "search_title_assessment": "Vurderingsretningslinjer – KI i vurdering",
+  "search_desc_assessment": "Retningslinjer for KI-bruk i oppgaver, eksamen, oppdagelse og håndtering av brudd.",
+  "search_title_policy_templates": "Policy og maler – AI institusjon, eksamen, etikk",
+  "search_desc_policy_templates": "Maler for institusjonspolicy, oppgaver, eksamen, dokumentasjon av KI-bruk og etikk.",
+  "useful_links": "Nyttige lenker",
+  "contact": "Kontakt",
+  "contact_page_title": "Kontakt oss – KI-veileder",
+  "contact_heading": "Kontakt oss",
+  "contact_lead": "Har du spørsmål om KI-veilederen, trenger du hjelp eller ønsker du å gi tilbakemelding? Ta gjerne kontakt.",
+  "contact_email_label": "E-post",
+  "contact_email_note": "Svar innen 1–2 virkedager",
+  "contact_phone_label": "Telefon",
+  "contact_phone_note": "Man–fre 09:00–15:00",
+  "contact_address_label": "Besøksadresse",
+  "contact_address_campus": "USN Campus Bø",
+  "contact_address_street": "Gullbringvegen 36, 3800 Bø",
+  "contact_form_heading": "Send oss en melding",
+  "contact_name_label": "Navn",
+  "contact_name_placeholder": "Ditt fulle navn",
+  "contact_email_field_label": "E-post",
+  "contact_email_placeholder": "din@epost.no",
+  "contact_subject_label": "Emne",
+  "contact_subject_placeholder": "Velg emne",
+  "contact_subject_question": "Spørsmål om KI-veilederen",
+  "contact_subject_help": "Trenger hjelp",
+  "contact_subject_feedback": "Tilbakemelding",
+  "contact_subject_other": "Annet",
+  "contact_message_label": "Melding",
+  "contact_message_placeholder": "Skriv meldingen din her...",
+  "contact_privacy_note": "Ikke skriv sensitive personopplysninger i meldingen.",
+  "contact_send_button": "Send melding",
+  "contact_sending": "Sender...",
+  "contact_success_message": "Takk for meldingen! Vi svarer deg innen 1–2 virkedager.",
+  "contact_map_heading": "Finn oss – Campus Bø",
+  "contact_map_university": "Universitetet i Sørøst-Norge",
+  "contact_map_street": "Gullbringvegen 36, 3800 Bø",
+  "contact_map_hours": "Man–fre 07:30–20:00",
   "useful_links": "Nyttige lenker",
   "contact": "Kontakt",
   "footer_text": "Laget for studenter — Gruppe 5 — Praktisk prosjektarbeid — Vår 2026",
   "skip_link": "Hopp til hovedinnhold",
   "home": "Hjem",
   "menu": "Meny",
-  "disclaimer": "KI-veilederen supplerer lokale retningslinjer. Ved tvil: sjekk emnebeskrivelse og regelverk ved din institusjon."
-  "no_search_results": "Ingen treff for \"{{query}}\"."
+  "disclaimer": "KI-veilederen supplerer lokale retningslinjer. Ved tvil: sjekk emnebeskrivelse og regelverk ved din institusjon.",
+  "no_search_results": "Ingen treff for \"{{query}}\".",
+  "faq_heading": "Vanlige spørsmål",
+  "faq_lead": "Her finner du svar på vanlige spørsmål om bruk av KI i studiene.",
+  "faq_q1": "Hva er KI og hvordan kan det brukes i studiene?",
+  "faq_a1": "Kunstig intelligens (KI) er datateknologi som kan utføre oppgaver som normalt krever menneskelig intelligens, som å svare på spørsmål, analysere data og generere tekst. I studiene kan KI brukes til å hjelpe med oppgaveskriving, idéutvikling og læring – men det er viktig å bruke det ansvarlig og i tråd med akademiske retningslinjer.",
+  "faq_q2": "Når bør jeg oppgi at jeg har brukt KI?",
+  "faq_a2": "Du bør alltid oppgi når KI har bidratt til arbeidet ditt – uansett om det gjelder idéutvikling, strukturering av tekst eller kildesøk. Åpenhet om KI-bruk er en forutsetning for akademisk integritet og er påkrevd ved de fleste norske institusjoner.",
+  "faq_q3": "Hvordan bruker jeg KI på en etisk og ansvarlig måte?",
+  "faq_a3": "Etisk KI-bruk innebærer å ikke dele sensitiv eller personlig informasjon, alltid verifisere informasjon fra KI mot pålitelige kilder, og aldri bruke KI til å erstatte din egen faglige innsats. KI bør fungere som et støtteverktøy – ikke som en snarvei rundt egen læring.",
+  "faq_q4": "Hva er «hallusinasjoner» i KI?",
+  "faq_a4": "Hallusinasjoner betyr at KI genererer informasjon som høres troverdig ut, men som faktisk er feil eller oppdiktet. KI baserer svarene sine på mønstre i treningsdata og kan ikke alltid skille mellom fakta og fiksjon. Derfor er det avgjørende å alltid dobbeltsjekke informasjon – særlig referanser og kildehenvisninger – mot pålitelige kilder som Google Scholar eller Oria.",
+  "faq_q5": "Hvordan dobbeltsjekker jeg informasjon fra KI?",
+  "faq_a5": "Sammenlign alltid KI-generert informasjon med fagbøker, vitenskapelige artikler eller anerkjente nettsteder. For referanser spesifikt: søk dem opp manuelt i Google Scholar, Oria eller bibliotekets databaser – KI kan finne på kilder som ikke eksisterer.",
+  "faq_q6": "Hva menes med å «prompte» KI?",
+  "faq_a6": "En prompt er spørsmålet eller instruksjonen du skriver til KI. Jo mer presis og tydelig du er, jo bedre svar får du. Det handler om å gi KI nok kontekst: hvem du er, hva du trenger og hvorfor. Se siden Kunsten å stille gode spørsmål til KI for konkrete eksempler og tips.",
+  "faq_q7": "Hva skjer hvis jeg bryter reglene for KI-bruk?",
+  "faq_a7": "Ulovlig eller uredelig bruk av KI behandles på linje med plagiat og kan føre til annullert eksamen, utestengelse fra studiet eller anmerkning på vitnemålet. Reglene varierer mellom institusjoner og emner – sjekk alltid emnebeskrivelsen og institusjonens egne retningslinjer.",
+  "tips_0": "Kunsten å stille gode spørsmål til KI",
+  "tips_1": "Her finner du konkrete råd og eksempler for ansvarlig bruk av KI i studiene.",
+  "tips_2": "Oppgaveskriving",
+  "tips_3": "Strukturering av oppgaver",
+  "tips_4": "Bruk KI til å lage en struktur for oppgaven din. Gi KI en kort beskrivelse av temaet og be om et forslag til innholdsfortegnelse.",
+  "tips_5": "Generering av ideer",
+  "tips_6": "KI kan hjelpe deg med å generere ideer til emner, problemstillinger eller vinklinger for oppgaven din.",
+  "tips_7": "Språkhjelp",
+  "copy_prompt": "Kopier prompt",
+  "copied": "Kopiert!",
+  "tips_8": "KI kan hjelpe deg med å forbedre språket i oppgaven din, men husk at du selv er ansvarlig for det endelige resultatet.",
+  "tips_9": "Kildebruk",
+  "tips_10": "Finn kilder",
+  "tips_11": "KI kan foreslå relevante kilder, men du må alltid dobbeltsjekke at kildene faktisk eksisterer og er troverdige. KI kan finne på referanser som ikke finnes – dette kalles «hallusinering».",
+  "tips_12": "Søk alltid opp foreslåtte kilder i Google Scholar, Oria eller bibliotekets databaser før du bruker dem.",
+  "tips_13": "Referanseformatering",
+  "tips_14": "Bruk KI til å sjekke om referansene dine er korrekt formaterte – men verifiser resultatet selv.",
+  "tips_15": "Etikk og ansvar",
+  "tips_16": "Unngå plagiat",
+  "tips_17": "Bruk aldri KI til å generere tekst som du leverer som din egen uten å oppgi det. Sjekk alltid institusjonens retningslinjer for hva som er tillatt.",
+  "tips_18": "Personvern",
+  "tips_19": "Del aldri personlige opplysninger, sensitive data eller informasjon om andre med KI-verktøy. Dette gjelder også medstudenter og informanter i oppgaver.",
+  "tips_20": "Det du skriver inn i KI-tjenester kan lagres og brukes til å trene modeller. Vær bevisst på hva du deler.",
+  "tips_21": "Oppgi KI-bruk",
+  "tips_22": "Vær alltid åpen om hvordan du har brukt KI i arbeidet ditt. De fleste institusjoner krever at du dokumenterer dette i en egen erklæring eller fotnote.",
+  "tips_23": "I denne oppgaven har jeg brukt [KI-verktøy] til [formål, f.eks. å forbedre språk/strukturere innhold]. Alle faglige argumenter og konklusjoner er mine egne.",
+  "tips_24": "Eksamen og vurdering",
+  "tips_25": "Sjekk reglene for hvert emne",
+  "tips_26": "Reglene for KI-bruk varierer fra emne til emne – og til og med fra oppgave til oppgave. Les alltid emnebeskrivelsen nøye og spør foreleser om du er usikker.",
+  "tips_27": "Det som er tillatt i én innlevering er ikke nødvendigvis tillatt på eksamen eller i et annet emne.",
+  "tips_28": "Bruk KI til forberedelse – ikke til selve besvarelsen",
+  "tips_29": "KI er et godt verktøy for å øve til eksamen: still spørsmål, be om forklaringer av begreper, eller be om quiz-spørsmål innen temaet ditt.",
+  "tips_30": "Forstå det KI genererer – ikke bare kopier",
+  "tips_31": "Du er alltid ansvarlig for innholdet du leverer inn. Hvis du ikke kan forklare eller forsvare noe i oppgaven din, bør det ikke være der.",
+  "tips_32": "Konsekvenser ved regelbrudd",
+  "tips_33": "Ulovlig KI-bruk kan føre til annullert eksamen, utestengelse eller anmerkninger på vitnemålet. Ta reglene på alvor – det er ikke verdt risikoen.",
+  "tips_41": "Eksamen og vurdering",
+  "tips_42": "Bruk KI bare til forberedelse, ikke til å skrive eller levere eksamenssvar.",
+  "tips_43": "KI kan hjelpe deg med å repetere begreper før eksamen, men ikke bruk det til å lage svar på ekte eksamensoppgaver.",
+  "tips_44": "Ikke lever inn KI-generert tekst som ditt eget eksamensarbeid; dette kan bryte akademiske regler.",
+  "tips_45": "Sjekk hva som er tillatt",
+  "tips_46": "Spør foreleseren din hvis du er usikker på om KI er tillatt for en bestemt eksamen eller oppgave.",
+  "tips_47": "Eksempel på prompt for å sjekke eksamensregler",
+  "tips_48": "Kan jeg bruke KI til å øve på eksamensoppgaver og deretter skrive egne svar basert på det jeg har lært?",
+  "tips_49": "Planlegg forberedelsene dine, ikke svarene",
+  "tips_50": "Bruk KI til å teste forståelsen og forklare begreper — ikke til å generere endelige svar du skal levere.",
+  "tips_51": "Dokumenter KI-bruken",
+  "tips_52": "Hvis du bruker KI til forberedelse, noter hvordan og hvorfor du brukte det i studienotatene eller oppgavedokumentasjonen din.",
+  "links_0": "Nyttige lenker",
+  "links_1": "Her finner du en samling ressurser og verktøy for ansvarlig bruk av KI i studiene.",
+  "links_2": "KI-verktøy",
+  "links_3": "ChatGPT – OpenAI",
+  "links_4": "Ett av de mest brukte KI-verktøyene for tekst, idéutvikling og spørsmål-svar. Gratis versjon tilgjengelig.",
+  "links_5": "Claude – Anthropic",
+  "links_6": "KI-assistent kjent for grundige og nyanserte svar. Godt egnet til akademisk skriving og analyse.",
+  "links_7": "Søk & Skriv – KI",
+  "links_8": "Norsk veiledning om bruk av KI i akademisk skriving, laget for studenter ved norske universiteter.",
+  "links_9": "Akademisk integritet",
+  "links_10": "Plagiarism.org",
+  "links_11": "Lær om akademisk integritet og hvordan du unngår plagiat i oppgavene dine.",
+  "visit_website": "Besøk nettside",
+  "links_12": "Søk & Skriv – Frasebank",
+  "links_13": "Nyttige akademiske fraser og uttrykk for oppgaveskriving på norsk.",
+  "links_14": "Offisielle retningslinjer",
+  "links_15": "USN – retningslinjer for KI",
+  "links_16": "Offisielle retningslinjer for bruk av KI i studier ved Universitetet i Sørøst-Norge.",
+  "links_17": "Regjeringen.no – KI",
+  "links_18": "Offisielle dokumenter og nasjonale strategier for kunstig intelligens i Norge.",
+  "links_19": "Digitaliseringsdirektoratet",
+  "links_20": "Statlig veiledning om digitalisering, KI og ansvarlig teknologibruk i offentlig sektor.",
+  "links_21": "Læringsressurser",
+  "links_22": "Kildekompasset – KI-referanser",
+  "links_23": "Referanseguide om kunstig intelligens og KI-verktøy som ChatGPT, Writesonic og flere.",
+  "links_24": "USN Bibliotek",
+  "links_25": "Søk etter bøker, artikler og faglige ressurser fra biblioteket ved Universitetet i Sørøst-Norge.",
+  "links_26": "Google Scholar",
+  "links_27": "Søkemotor for vitenskapelige artikler og fagfellevurdert forskning – uunnværlig for kildesjekk.",
+  "quiz_0": "Test din kunnskap om KI",
+  "quiz_1": "Hvor godt kjenner du reglene for ansvarlig bruk av kunstig intelligens i studiene? Ta quizen og finn ut hva du kan – og hva du bør lære mer om.",
+  "quiz_2": "10 spørsmål",
+  "quiz_3": "Ca. 5 minutter",
+  "quiz_4": "Vurdering av kunnskapsnivå",
+  "quiz_5": "Slik fungerer quizen",
+  "quiz_6": "10 spørsmål med tre svaralternativer (A, B, C)",
+  "quiz_7": "Kun ett svar er riktig per spørsmål",
+  "quiz_8": "Du får umiddelbar tilbakemelding etter hvert svar",
+  "quiz_9": "Bestått: 7 av 10 riktige (70 %)",
+  "quiz_10": "Du kan gå tilbake til forrige spørsmål",
+  "quiz_11": "Resultatet vises når du har svart på alle spørsmålene",
+  "quiz_12": "Etter fullført besvarelse får du en personlig tilbakemelding med råd tilpasset ditt resultat.",
+  "quiz_13": "Start quizen",
+  "quiz_14": "Forrige",
+  "quiz_15": "Start på nytt",
+  "quiz_16": "Neste",
+  "quiz_17": "Se resultat",
+  "quiz_questions": [
+    {
+      "q": "Når bør du oppgi at du har brukt KI i en oppgave?",
+      "options": [
+        "Alltid når KI har bidratt til arbeidet ditt.",
+        "Bare når du bruker KI til å skrive hele teksten.",
+        "Aldri – det er ikke nødvendig å oppgi dette."
+      ],
+      "correctIndex": 0,
+      "feedback": {
+        "correct": "Riktig! Du skal alltid oppgi KI-bruk, uansett om det gjelder idéutvikling, teksthjelp eller kildesøk.",
+        "incorrect": "Feil. Hovedregelen er at du alltid skal opplyse om KI-bruk når det har bidratt til arbeidet ditt."
+      }
+    },
+    {
+      "q": "Hva gjør du hvis du er usikker på hva som er tillatt KI-bruk i et emne?",
+      "options": [
+        "Bruker KI uansett – det er sikkert greit.",
+        "Spør foreleser eller sjekk emnebeskrivelsen.",
+        "Unngår all KI-bruk for sikkerhets skyld."
+      ],
+      "correctIndex": 1,
+      "feedback": {
+        "correct": "Riktig! Ved tvil bør du alltid avklare med emneansvarlig. Reglene kan variere fra emne til emne.",
+        "incorrect": "Feil. Det sikreste er å spørre foreleser eller lese emnebeskrivelsen nøye."
+      }
+    },
+    {
+      "q": "Hvorfor er det viktig å alltid dobbeltsjekke informasjon du får fra KI?",
+      "options": [
+        "Fordi lærere alltid krever det.",
+        "Det er egentlig ikke nødvendig.",
+        "KI kan hallusinere – generere informasjon som høres riktig ut, men er feil."
+      ],
+      "correctIndex": 2,
+      "feedback": {
+        "correct": "Riktig! KI-modeller kan produsere overbevisende, men faktisk feil informasjon – alltid verifiser med pålitelige kilder.",
+        "incorrect": "Feil. KI kan hallusinere og presentere feil fakta med høy selvsikkerhet. Verifiser alltid."
+      }
+    },
+    {
+      "q": "Hvilke opplysninger bør du aldri dele med en KI-tjeneste?",
+      "options": [
+        "Generell faglig informasjon om emnet du studerer.",
+        "Sensitiv eller personlig informasjon om deg selv eller andre.",
+        "Kilder du har brukt i oppgaven."
+      ],
+      "correctIndex": 1,
+      "feedback": {
+        "correct": "Riktig! Persondata, sensitive opplysninger og konfidensiell informasjon skal aldri deles med KI-verktøy.",
+        "incorrect": "Feil. Personlig og sensitiv informasjon skal aldri legges inn i KI-tjenester på grunn av personvernhensyn."
+      }
+    },
+    {
+      "q": "Hva er den beste måten å bruke KI på i studiene?",
+      "options": [
+        "Som støtte til egen læring og tenkning – ikke som erstatning for egeninnsats.",
+        "La KI gjøre hele jobben, og lever inn resultatet.",
+        "Kun til å søke opp kildehenvisninger."
+      ],
+      "correctIndex": 0,
+      "feedback": {
+        "correct": "Riktig! KI er et hjelpeverktøy. Du lærer mest når du selv tenker, og KI hjelper deg videre.",
+        "incorrect": "Feil. Å la KI gjøre hele jobben er i strid med akademisk integritet og hindrer din egen læring."
+      }
+    },
+    {
+      "q": "Hva er en etisk utfordring ved bruk av KI i utdanning?",
+      "options": [
+        "KI er for dyrt til at det er relevant for studenter.",
+        "KI er for komplisert å lære seg.",
+        "KI-modeller kan inneholde skjevheter, og ikke alle studenter har lik tilgang til verktøyene."
+      ],
+      "correctIndex": 2,
+      "feedback": {
+        "correct": "Riktig! Skjevheter i treningsdata og ulik tilgang er reelle etiske utfordringer som påvirker rettferdighet i utdanning.",
+        "incorrect": "Feil. Tilgang og algoritmiske skjevheter er viktige etiske problemstillinger knyttet til KI i utdanning."
+      }
+    },
+    {
+      "q": "Hva betyr begrepet 'prompt engineering'?",
+      "options": [
+        "En type maskinlæringsalgoritme.",
+        "Teknikken for å formulere presise og effektive spørsmål for å få best mulig svar fra KI.",
+        "En måte å programmere KI-modeller på."
+      ],
+      "correctIndex": 1,
+      "feedback": {
+        "correct": "Riktig! Gode prompts gir bedre og mer nyttige svar fra KI-verktøy.",
+        "incorrect": "Feil. Prompt engineering handler om å formulere gode spørsmål og instruksjoner til KI for å få presise svar."
+      }
+    },
+    {
+      "q": "Hva er akademisk uredelighet i sammenheng med KI?",
+      "options": [
+        "Å bruke KI til å få idéer til oppgavestruktur.",
+        "Å la KI foreslå bedre formuleringer mens du beholder egne argumenter.",
+        "Å levere inn KI-generert tekst som sitt eget arbeid uten å oppgi det."
+      ],
+      "correctIndex": 2,
+      "feedback": {
+        "correct": "Riktig! Å presentere KI-tekst som sitt eget uten å opplyse om det regnes som juks på linje med plagiat.",
+        "incorrect": "Feil. Å levere inn KI-generert arbeid uten å oppgi det er det klassiske eksempelet på uredelighet."
+      }
+    },
+    {
+      "q": "Hvem er ansvarlig for innholdet du leverer inn, selv om KI hjalp deg?",
+      "options": [
+        "Du selv – studenten er alltid ansvarlig for eget innlevert arbeid.",
+        "KI-tjenesten du brukte.",
+        "Universitetet, siden de tillater KI-bruk."
+      ],
+      "correctIndex": 0,
+      "feedback": {
+        "correct": "Riktig! KI er et verktøy. Faglig og etisk ansvar ligger alltid hos deg som student.",
+        "incorrect": "Feil. Ansvaret for innlevert arbeid ligger alltid hos deg, uavhengig av hvilke hjelpemidler du har brukt."
+      }
+    },
+    {
+      "q": "Hvilken påstand om KI og opphavsrett er riktig?",
+      "options": [
+        "KI-generert tekst er alltid fri å bruke uten begrensninger.",
+        "KI-generert tekst kan ha uklar opphavsrettsstatus – vær forsiktig med å bruke den uten å bearbeide den.",
+        "Du eier automatisk opphavsretten til alt KI lager for deg."
+      ],
+      "correctIndex": 1,
+      "feedback": {
+        "correct": "Riktig! Opphavsrett rundt KI-generert innhold er juridisk uavklart i mange land. Bearbeid og vær transparent.",
+        "incorrect": "Feil. Opphavsrettslige spørsmål knyttet til KI-innhold er komplekse og ikke endelig avklart."
+      }
+    }
+  ],
+  "quiz_progress_label": "Spørsmål {{current}} av {{total}}",
+  "quiz_score_text": "{{score}} riktige",
+  "quiz_options_aria_label": "Svaralternativer",
+  "quiz_option_correct_suffix": "riktig svar",
+  "quiz_option_incorrect_suffix": "ditt svar, feil",
+  "quiz_confirm_reset": "Er du sikker på at du vil starte quizen på nytt? Alle svar nullstilles.",
+  "quiz_result_score_aria": "Resultat: {{score}} av {{total}}, {{pct}} prosent",
+  "quiz_result_next_steps_heading": "Anbefalte neste steg:",
+  "quiz_result_button_reset": "Ta quizen på nytt",
+  "quiz_result_button_link": "Spørsmål til KI",
+  "quiz_result_badge_low": "📖 Begynner",
+  "quiz_result_title_low": "Du har en del å lære – men det er helt greit!",
+  "quiz_result_desc_low": "Du svarte riktig på {{score}} av {{total}} spørsmål ({{pct}}%). Bestått er 70 % eller mer. Vi anbefaler at du bruker litt tid på ressursene nedenfor.",
+  "quiz_result_tips_low": [
+    "Les gjennom FAQ og praktiske tips på denne siden",
+    "Sjekk emnebeskrivelsene dine for lokale KI-regler",
+    "Ta quizen på nytt etter at du har lest deg opp",
+    "Snakk med foreleser om du er usikker på noe"
+  ],
+  "quiz_result_badge_mid": "🔍 På vei",
+  "quiz_result_title_mid": "Godt grunnlag – men noen hull å tette",
+  "quiz_result_desc_mid": "Du svarte riktig på {{score}} av {{total}} spørsmål ({{pct}}%). Bestått er 70 % eller mer. Du er nesten der – gå gjennom feilene dine og prøv igjen.",
+  "quiz_result_tips_mid": [
+    "Gå tilbake og les tilbakemeldingene på spørsmålene du bommet på",
+    "Fordyp deg i temaene kildebruk og personvern",
+    "Sjekk ut de praktiske tipsene for konkrete råd",
+    "Prøv quizen igjen for å se fremgangen din"
+  ],
+  "quiz_result_badge_good": "✅ Bestått",
+  "quiz_result_title_good": "Bra jobbet – du er godt i gang!",
+  "quiz_result_desc_good": "Du svarte riktig på {{score}} av {{total}} spørsmål ({{pct}}%) – bestått! Du har solid forståelse av de viktigste prinsippene for ansvarlig KI-bruk.",
+  "quiz_result_tips_good": [
+    "Gå gjennom spørsmålene du bommet på og forstå hvorfor",
+    "Utforsk nyttige lenker for å holde deg oppdatert",
+    "Del kunnskapen din med medstudenter",
+    "Sjekk institusjonens egne retningslinjer"
+  ],
+  "quiz_result_badge_high": "🏆 Ekspert",
+  "quiz_result_title_high": "Utmerket! Du har god kontroll",
+  "quiz_result_desc_high": "Du svarte riktig på {{score}} av {{total}} spørsmål ({{pct}}%) – bestått med glans! Du demonstrerer sterk forståelse for ansvarlig og etisk KI-bruk i studiene.",
+  "quiz_result_tips_high": [
+    "Hold deg oppdatert – KI-regler og verktøy utvikler seg raskt",
+    "Hjelp medstudenter som er usikre på reglene",
+    "Utforsk avanserte ressurser i lenke-seksjonen",
+    "Del gjerne tilbakemeldinger om quizen med oss!"
+  ]
 }

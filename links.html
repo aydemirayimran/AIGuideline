@@ -26,137 +26,147 @@
 </head>
 <body>
 
-  <div class="nav-overlay" id="navOverlay"></div>
+  <a href="#hovedinnhold" class="skip-link" data-i18n="skip_link">Hopp til hovedinnhold</a>
+
+  <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
 
   <header class="topbar">
     <div class="brand">
-      <a href="index.html"><span class="brand-title">KI-veileder for studenter</span></a>
+      <a href="index.html" aria-label="KI-veileder for studenter – gå til forsiden">
+        <span class="brand-title" data-i18n="brand_title"></span>
+      </a>
     </div>
     <nav class="nav" aria-label="Hovedmeny">
-      <ul class="nav-desktop">
-        <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Hjem</a></li>
-        <li><a href="faq.html" class="nav-link"><i class="fas fa-question-circle"></i> FAQ</a></li>
-        <li><a href="tips.html" class="nav-link"><i class="fas fa-lightbulb"></i> Spørsmål til KI</a></li>
-        <li><a href="quiz.html" class="nav-link"><i class="fas fa-clipboard-list"></i> Test deg selv</a></li>
-        <li><a href="links.html" class="nav-link active"><i class="fas fa-link"></i> Nyttige lenker</a></li>
-        <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Kontakt</a></li>
+      <ul class="nav-desktop" role="list">
+        <li><a href="index.html" class="nav-link"><i class="fas fa-home" aria-hidden="true"></i> <span data-i18n="home"></span></a></li>
+        <li><a href="faq.html" class="nav-link"><i class="fas fa-question-circle" aria-hidden="true"></i> <span data-i18n="faq"></span></a></li>
+        <li><a href="tips.html" class="nav-link"><i class="fas fa-lightbulb" aria-hidden="true"></i> <span data-i18n="ai_questions"></span></a></li>
+        <li><a href="quiz.html" class="nav-link"><i class="fas fa-clipboard-list" aria-hidden="true"></i> <span data-i18n="self_test"></span></a></li>
+        <li><a href="links.html" class="nav-link active" aria-current="page"><i class="fas fa-link" aria-hidden="true"></i> <span data-i18n="useful_links"></span></a></li>
+        <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope" aria-hidden="true"></i> <span data-i18n="contact"></span></a></li>
       </ul>
-      <button class="menu-toggle" aria-label="Åpne meny" id="menuToggle">
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
+      <button class="menu-toggle" aria-label="Åpne navigasjonsmeny" aria-expanded="false" aria-controls="sideMenu" id="menuToggle">
+        <span class="hamburger-bar" aria-hidden="true"></span>
+        <span class="hamburger-bar" aria-hidden="true"></span>
+        <span class="hamburger-bar" aria-hidden="true"></span>
       </button>
     </nav>
+    <div class="language-selector">
+      <button onclick="changeLanguage('no')" aria-label="Norsk" class="lang-btn lang-no" title="Norsk">NO</button>
+      <button onclick="changeLanguage('en')" aria-label="English" class="lang-btn lang-en" title="English">EN</button>
+    </div>
   </header>
 
-  <aside class="side-menu" id="sideMenu" aria-hidden="true">
+  <aside class="side-menu" id="sideMenu" aria-hidden="true" aria-label="Mobilnavigasjon">
     <div class="side-menu-header">
-      <span class="side-menu-title">Meny</span>
-      <button class="side-menu-close" id="menuClose" aria-label="Lukk meny">✕</button>
+      <span class="side-menu-title" data-i18n="menu"></span>
+      <button class="side-menu-close" id="menuClose" aria-label="Lukk navigasjonsmeny">✕</button>
     </div>
-    <ul>
-      <li><a href="index.html"><i class="fas fa-home"></i> Hjem</a></li>
-      <li><a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
-      <li><a href="tips.html"><i class="fas fa-lightbulb"></i> Spørsmål til KI</a></li>
-      <li><a href="quiz.html"><i class="fas fa-clipboard-list"></i> Test deg selv</a></li>
-      <li><a href="links.html" class="active"><i class="fas fa-link"></i> Nyttige lenker</a></li>
-      <li><a href="contact.html"><i class="fas fa-envelope"></i> Kontakt</a></li>
-    </ul>
+    <nav aria-label="Mobilmeny">
+      <ul role="list">
+        <li><a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> <span data-i18n="home"></span></a></li>
+        <li><a href="faq.html"><i class="fas fa-question-circle" aria-hidden="true"></i> <span data-i18n="faq"></span></a></li>
+        <li><a href="tips.html"><i class="fas fa-lightbulb" aria-hidden="true"></i> <span data-i18n="ai_questions"></span></a></li>
+        <li><a href="quiz.html"><i class="fas fa-clipboard-list" aria-hidden="true"></i> <span data-i18n="self_test"></span></a></li>
+        <li><a href="links.html" class="active" aria-current="page"><i class="fas fa-link" aria-hidden="true"></i> <span data-i18n="useful_links"></span></a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope" aria-hidden="true"></i> <span data-i18n="contact"></span></a></li>
+      </ul>
+    </nav>
   </aside>
 
   <main class="container">
     <section class="card">
-      <h1><i class="fas fa-link"></i> Nyttige lenker</h1>
-      <p class="lead">Her finner du en samling ressurser og verktøy for ansvarlig bruk av KI i studiene.</p>
+      <h1><i class="fas fa-link"></i> <span data-i18n="links_0"></span></h1>
+      <p class="lead"><span data-i18n="links_1"></span></p>
     </section>
 
     <section class="card links-container">
 
       <div class="link-category">
         <button class="category-header" onclick="toggleCategory(this)">
-          <span><i class="fas fa-robot" style="margin-right:0.5rem;"></i>KI-verktøy</span>
+          <span><i class="fas fa-robot" style="margin-right:0.5rem;"></i><span data-i18n="links_2"></span></span>
           <i class="fas fa-chevron-down tip-icon"></i>
         </button>
         <div class="category-content">
           <div class="link-item">
-            <div class="link-title"><i class="fas fa-robot"></i><span>ChatGPT – OpenAI</span></div>
-            <div class="link-description">Ett av de mest brukte KI-verktøyene for tekst, idéutvikling og spørsmål-svar. Gratis versjon tilgjengelig.</div>
-            <a href="https://www.openai.com/" target="_blank" rel="noopener" class="visit-button">
-              <i class="fas fa-external-link-alt"></i> Besøk nettside
+            <div class="link-title"><i class="fas fa-robot"></i><span><span data-i18n="links_3"></span></span></div>
+            <div class="link-description"><span data-i18n="links_4"></span></div>
+            <a href="https://chat.openai.com/" target="_blank" rel="noopener" class="visit-button">
+              <i class="fas fa-external-link-alt"></i> <span data-i18n="visit_website"></span>
             </a>
-            <span class="link-url">openai.com</span>
+            <span class="link-url">chat.openai.com</span>
           </div>
           <div class="link-item">
-            <div class="link-title"><i class="fas fa-comment-dots"></i><span>Claude – Anthropic</span></div>
-            <div class="link-description">KI-assistent kjent for grundige og nyanserte svar. Godt egnet til akademisk skriving og analyse.</div>
+            <div class="link-title"><i class="fas fa-comment-dots"></i><span><span data-i18n="links_5"></span></span></div>
+            <div class="link-description"><span data-i18n="links_6"></span></div>
             <a href="https://www.claude.ai/" target="_blank" rel="noopener" class="visit-button">
-              <i class="fas fa-external-link-alt"></i> Besøk nettside
+              <i class="fas fa-external-link-alt"></i> <span data-i18n="visit_website"></span>
             </a>
             <span class="link-url">claude.ai</span>
           </div>
           <div class="link-item">
-            <div class="link-title"><i class="fas fa-search"></i><span>Søk & Skriv – KI</span></div>
-            <div class="link-description">Norsk veiledning om bruk av KI i akademisk skriving, laget for studenter ved norske universiteter.</div>
+            <div class="link-title"><i class="fas fa-search"></i><span><span data-i18n="links_7"></span></span></div>
+            <div class="link-description"><span data-i18n="links_8"></span></div>
             <a href="https://www.sokogskriv.no/kunstig-intelligens/" target="_blank" rel="noopener" class="visit-button">
-              <i class="fas fa-external-link-alt"></i> Besøk nettside
+              <i class="fas fa-external-link-alt"></i> <span data-i18n="visit_website"></span>
             </a>
-            <span class="link-url">sokogskriv.no</span>
+            <span class="link-url">sokogskriv.no/kunstig-intelligens/</span>
           </div>
         </div>
       </div>
 
       <div class="link-category">
         <button class="category-header" onclick="toggleCategory(this)">
-          <span><i class="fas fa-balance-scale" style="margin-right:0.5rem;"></i>Akademisk integritet</span>
+          <span><i class="fas fa-balance-scale" style="margin-right:0.5rem;"></i><span data-i18n="links_9"></span></span>
           <i class="fas fa-chevron-down tip-icon"></i>
         </button>
         <div class="category-content">
           <div class="link-item">
-            <div class="link-title"><i class="fas fa-balance-scale"></i><span>Plagiarism.org</span></div>
-            <div class="link-description">Lær om akademisk integritet og hvordan du unngår plagiat i oppgavene dine.</div>
+            <div class="link-title"><i class="fas fa-balance-scale"></i><span><span data-i18n="links_10"></span></span></div>
+            <div class="link-description"><span data-i18n="links_11"></span></div>
             <a href="https://www.plagiarism.org/" target="_blank" rel="noopener" class="visit-button">
-              <i class="fas fa-external-link-alt"></i> Besøk nettside
+              <i class="fas fa-external-link-alt"></i> <span data-i18n="visit_website"></span>
             </a>
             <span class="link-url">plagiarism.org</span>
           </div>
           <div class="link-item">
-            <div class="link-title"><i class="fas fa-book-open"></i><span>Søk & Skriv – Frasebank</span></div>
-            <div class="link-description">Nyttige akademiske fraser og uttrykk for oppgaveskriving på norsk.</div>
+            <div class="link-title"><i class="fas fa-book-open"></i><span><span data-i18n="links_12"></span></span></div>
+            <div class="link-description"><span data-i18n="links_13"></span></div>
             <a href="https://www.sokogskriv.no/frasebank/" target="_blank" rel="noopener" class="visit-button">
-              <i class="fas fa-external-link-alt"></i> Besøk nettside
+              <i class="fas fa-external-link-alt"></i> <span data-i18n="visit_website"></span>
             </a>
-            <span class="link-url">sokogskriv.no</span>
+            <span class="link-url">sokogskriv.no/frasebank</span>
           </div>
         </div>
       </div>
 
       <div class="link-category">
         <button class="category-header" onclick="toggleCategory(this)">
-          <span><i class="fas fa-university" style="margin-right:0.5rem;"></i>Offisielle retningslinjer</span>
+          <span><i class="fas fa-university" style="margin-right:0.5rem;"></i><span data-i18n="links_14"></span></span>
           <i class="fas fa-chevron-down tip-icon"></i>
         </button>
         <div class="category-content">
           <div class="link-item">
-            <div class="link-title"><i class="fas fa-university"></i><span>USN – retningslinjer for KI</span></div>
-            <div class="link-description">Offisielle retningslinjer for bruk av KI i studier ved Universitetet i Sørøst-Norge.</div>
-            <a href="https://www.usn.no/" target="_blank" rel="noopener" class="visit-button">
-              <i class="fas fa-external-link-alt"></i> Besøk nettside
+            <div class="link-title"><i class="fas fa-university"></i><span><span data-i18n="links_15"></span></span></div>
+            <div class="link-description"><span data-i18n="links_16"></span></div>
+            <a href="https://www.usn.no/om-usn/regelverk/retningslinjer-for-bruk-av-kunstig-intelligens-ki-ved-eksamen-og-studentoppgaver" target="_blank" rel="noopener" class="visit-button">
+              <i class="fas fa-external-link-alt"></i> <span data-i18n="visit_website"></span>
             </a>
-            <span class="link-url">usn.no</span>
+            <span class="link-url">usn.no/om-usn/regelverk/retningslinjer-for-bruk-av-kunstig-intelligens-ki-ved-eksamen-og-studentoppgaver</span>
           </div>
           <div class="link-item">
-            <div class="link-title"><i class="fas fa-landmark"></i><span>Regjeringen.no – KI</span></div>
-            <div class="link-description">Offisielle dokumenter og nasjonale strategier for kunstig intelligens i Norge.</div>
-            <a href="https://www.regjeringen.no/no/tema/teknologi-og-innovasjon/kunstig-intelligens/id2853002/" target="_blank" rel="noopener" class="visit-button">
-              <i class="fas fa-external-link-alt"></i> Besøk nettside
+            <div class="link-title"><i class="fas fa-landmark"></i><span><span data-i18n="links_17"></span></span></div>
+            <div class="link-description"><span data-i18n="links_18"></span></div>
+            <a href="https://www.regjeringen.no/no/tema/statlig-forvaltning/it-politikk/KI-strategi/id2639883/" target="_blank" rel="noopener" class="visit-button">
+              <i class="fas fa-external-link-alt"></i> <span data-i18n="visit_website"></span>
             </a>
             <span class="link-url">regjeringen.no</span>
           </div>
           <div class="link-item">
-            <div class="link-title"><i class="fas fa-laptop-code"></i><span>Digitaliseringsdirektoratet</span></div>
-            <div class="link-description">Statlig veiledning om digitalisering, KI og ansvarlig teknologibruk i offentlig sektor.</div>
-            <a href="https://www.digdir.no/" target="_blank" rel="noopener" class="visit-button">
-              <i class="fas fa-external-link-alt"></i> Besøk nettside
+            <div class="link-title"><i class="fas fa-laptop-code"></i><span><span data-i18n="links_19"></span></span></div>
+            <div class="link-description"><span data-i18n="links_20"></span></div>
+            <a href="https://www.digdir.no/kunstig-intelligens/veiledning-ki-i-offentlig-sektor/4132" target="_blank" rel="noopener" class="visit-button">
+              <i class="fas fa-external-link-alt"></i> <span data-i18n="visit_website"></span>
             </a>
             <span class="link-url">digdir.no</span>
           </div>
@@ -165,31 +175,31 @@
 
       <div class="link-category">
         <button class="category-header" onclick="toggleCategory(this)">
-          <span><i class="fas fa-graduation-cap" style="margin-right:0.5rem;"></i>Læringsressurser</span>
+          <span><i class="fas fa-graduation-cap" style="margin-right:0.5rem;"></i><span data-i18n="links_21"></span></span>
           <i class="fas fa-chevron-down tip-icon"></i>
         </button>
         <div class="category-content">
           <div class="link-item">
-            <div class="link-title"><i class="fas fa-graduation-cap"></i><span>Coursera – KI-kurs</span></div>
-            <div class="link-description">Internasjonale nettkurs om kunstig intelligens, maskinlæring og etikk i teknologi. Mange er gratis å ta.</div>
-            <a href="https://www.coursera.org/" target="_blank" rel="noopener" class="visit-button">
-              <i class="fas fa-external-link-alt"></i> Besøk nettside
+            <div class="link-title"><i class="fas fa-graduation-cap"></i><span><span data-i18n="links_22"></span></span></div>
+            <div class="link-description"><span data-i18n="links_23"></span></div>
+            <a href="https://www.kildekompasset.no/references/kunstig-intelligens-chatgpt-writesonic-mfl/" target="_blank" rel="noopener" class="visit-button">
+              <i class="fas fa-external-link-alt"></i> <span data-i18n="visit_website"></span>
             </a>
-            <span class="link-url">coursera.org</span>
+            <span class="link-url">kildekompasset.no</span>
           </div>
           <div class="link-item">
-            <div class="link-title"><i class="fas fa-database"></i><span>Oria – biblioteksøk</span></div>
-            <div class="link-description">Søk i bøker, artikler og faglige ressurser tilgjengelig via norske universitetsbibliotek.</div>
-            <a href="https://www.oria.no/" target="_blank" rel="noopener" class="visit-button">
-              <i class="fas fa-external-link-alt"></i> Besøk nettside
+            <div class="link-title"><i class="fas fa-database"></i><span><span data-i18n="links_24"></span></span></div>
+            <div class="link-description"><span data-i18n="links_25"></span></div>
+            <a href="https://bibliotek.usn.no/" target="_blank" rel="noopener" class="visit-button">
+              <i class="fas fa-external-link-alt"></i> <span data-i18n="visit_website"></span>
             </a>
-            <span class="link-url">oria.no</span>
+            <span class="link-url">bibliotek.usn.no</span>
           </div>
           <div class="link-item">
-            <div class="link-title"><i class="fas fa-microscope"></i><span>Google Scholar</span></div>
-            <div class="link-description">Søkemotor for vitenskapelige artikler og fagfellevurdert forskning – uunnværlig for kildesjekk.</div>
+            <div class="link-title"><i class="fas fa-microscope"></i><span><span data-i18n="links_26"></span></span></div>
+            <div class="link-description"><span data-i18n="links_27"></span></div>
             <a href="https://scholar.google.com/" target="_blank" rel="noopener" class="visit-button">
-              <i class="fas fa-external-link-alt"></i> Besøk nettside
+              <i class="fas fa-external-link-alt"></i> <span data-i18n="visit_website"></span>
             </a>
             <span class="link-url">scholar.google.com</span>
           </div>
@@ -200,7 +210,7 @@
   </main>
 
   <footer class="footer">
-    <p>Laget for studenter — Gruppe 5 — Praktisk prosjektarbeid — Vår 2026</p>
+    <p data-i18n="footer_text"></p>
   </footer>
 
   <script>
@@ -219,6 +229,8 @@
       }
     }
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next@22.4.10/i18next.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@2.2.1/i18nextHttpBackend.min.js"></script>
   <script src="app.js" defer></script>
 </body>
 </html>

@@ -1,13 +1,16 @@
 console.log("app.js loaded");
 
+// ─── Hent lagret språk fra localStorage ───
+const savedLanguage = localStorage.getItem('preferredLanguage') || 'no';
+
 // ─── i18next Initialisering ───
 i18next
   .use(i18nextHttpBackend)
   .init({
-    lng: 'no',
+    lng: savedLanguage,
     fallbackLng: 'no',
     backend: {
-      loadPath: '/locales/{{lng}}/translation.json',
+      loadPath: './{{lng}}/translation.json',
     },
     returnObjects: true,
   })
@@ -30,6 +33,7 @@ function updateContent() {
 
 // Bytt språk
 function changeLanguage(lng) {
+  localStorage.setItem('preferredLanguage', lng);
   i18next.changeLanguage(lng, (err, t) => {
     if (err) return console.log('something went wrong loading', err);
     updateContent();
@@ -101,58 +105,85 @@ document.addEventListener("DOMContentLoaded", () => {
 // ─── SITE_PAGES og søkefunksjon ───
 const SITE_PAGES = [
   {
-    title: "Hjem – AI Guidebook",
     url: "index.html",
-    description: "Forside med veiviser, rollevelger og introduksjon til ansvarlig bruk av KI.",
-    keywords: ["hjem", "veiviser", "student", "fagpersonale", "ansvarlig bruk", "AI", "KI", "intro"]
+    titleKey: "search_title_home",
+    descriptionKey: "search_desc_home",
+    keywords: {
+      no: ["hjem", "veiviser", "student", "fagpersonale", "ansvarlig bruk", "AI", "KI", "intro", "eksamen", "plagiat", "prompt"],
+      en: ["home", "guidebook", "student", "faculty", "responsible use", "AI", "artificial intelligence", "intro", "exam", "plagiarism", "prompt"]
+    }
   },
   {
-    title: "FAQ – Vanlige spørsmål om KI",
     url: "faq.html",
-    description: "Spørsmål og svar om hva KI er, når du må oppgi KI-bruk, hallusinasjoner, kildekritikk og prompt engineering.",
-    keywords: ["FAQ", "vanlige spørsmål", "hallusinasjoner", "prompt engineering", "kildekritikk", "akademisk integritet"]
+    titleKey: "search_title_faq",
+    descriptionKey: "search_desc_faq",
+    keywords: {
+      no: ["FAQ", "vanlige spørsmål", "hallusinasjoner", "prompt engineering", "kildekritikk", "akademisk integritet", "svar"],
+      en: ["FAQ", "frequently asked questions", "hallucinations", "prompt engineering", "source criticism", "academic integrity", "answers"]
+    }
   },
   {
-    title: "Praktiske tips – Bruk av KI i studier",
     url: "tips.html",
-    description: "Konkrete tips om oppgaveskriving, kildebruk, etikk, personvern og prompt engineering.",
-    keywords: ["tips", "oppgaveskriving", "kilder", "personvern", "plagiat", "prompt", "prompt engineering"]
+    titleKey: "search_title_tips",
+    descriptionKey: "search_desc_tips",
+    keywords: {
+      no: ["tips", "oppgaveskriving", "kilder", "personvern", "plagiat", "prompt", "etik", "etikk", "språk"],
+      en: ["tips", "assignment writing", "sources", "privacy", "plagiarism", "prompt", "ethics", "language"]
+    }
   },
   {
-    title: "Test deg selv – Quiz om ansvarlig KI-bruk",
     url: "quiz.html",
-    description: "Quiz som tester kunnskap om etikk, personvern, KI-hallusinasjoner og akademisk integritet.",
-    keywords: ["quiz", "test deg selv", "etikk", "personvern", "hallusinasjoner", "regler", "fusk"]
+    titleKey: "search_title_quiz",
+    descriptionKey: "search_desc_quiz",
+    keywords: {
+      no: ["quiz", "test deg selv", "etikk", "personvern", "hallusinasjoner", "regler", "fusk"],
+      en: ["quiz", "test yourself", "ethics", "privacy", "hallucinations", "rules", "cheating"]
+    }
   },
   {
-    title: "Nyttige lenker – Ressurser om KI",
     url: "links.html",
-    description: "Lenker til KI-verktøy, akademisk integritet, offisielle retningslinjer og læringsressurser.",
-    keywords: ["lenker", "ressurser", "OpenAI", "Søk & Skriv", "plagiarism", "USN", "regjeringen"]
+    titleKey: "search_title_links",
+    descriptionKey: "search_desc_links",
+    keywords: {
+      no: ["lenker", "ressurser", "OpenAI", "Søk & Skriv", "plagiarism", "USN", "regjeringen", "bibliotek"],
+      en: ["links", "resources", "OpenAI", "Sok og Skriv", "plagiarism", "USN", "regjeringen", "library"]
+    }
   },
   {
-    title: "Kontakt oss – AI Guidebook",
     url: "contact.html",
-    description: "Kontaktinformasjon, e-post, telefon, kontaktskjema og besøk hos AI Guidebook.",
-    keywords: ["kontakt", "e-post", "telefon", "kontaktskjema", "campus", "USN"]
+    titleKey: "search_title_contact",
+    descriptionKey: "search_desc_contact",
+    keywords: {
+      no: ["kontakt", "e-post", "telefon", "kontaktskjema", "campus", "USN"],
+      en: ["contact", "email", "phone", "contact form", "campus", "USN"]
+    }
   },
   {
-    title: "Undervisningstips – For fagpersonale",
     url: "teaching-tips.html",
-    description: "Undervisningstips for fagpersonale om å integrere KI i emner, oppgaver og gruppearbeid.",
-    keywords: ["undervisning", "fagpersonale", "lærere", "emner", "oppgaver", "gruppearbeid"]
+    titleKey: "search_title_teaching_tips",
+    descriptionKey: "search_desc_teaching_tips",
+    keywords: {
+      no: ["undervisning", "fagpersonale", "lærere", "emner", "oppgaver", "gruppearbeid"],
+      en: ["teaching", "staff", "teachers", "courses", "assignments", "group work"]
+    }
   },
   {
-    title: "Vurderingsretningslinjer – AI i vurdering",
     url: "vurderingsretningslinjer.html",
-    description: "Retningslinjer for AI-bruk i oppgaver, eksamen, deteksjon og håndtering av brudd.",
-    keywords: ["vurdering", "eksamen", "retningslinjer", "fusk", "AI-deteksjon", "policy"]
+    titleKey: "search_title_assessment",
+    descriptionKey: "search_desc_assessment",
+    keywords: {
+      no: ["vurdering", "eksamen", "retningslinjer", "fusk", "AI-deteksjon", "policy"],
+      en: ["assessment", "exam", "guidelines", "cheating", "AI detection", "policy"]
+    }
   },
   {
-    title: "Policy og maler – Institusjon, oppgaver, eksamen, etikk",
     url: "PolicyMaler.html",
-    description: "Maler for institusjonspolicy, oppgaver, eksamen, dokumentasjon av AI-bruk og etiske retningslinjer.",
-    keywords: ["policy", "maler", "institusjon", "eksamen", "oppgaver", "etikk", "dokumentasjon"]
+    titleKey: "search_title_policy_templates",
+    descriptionKey: "search_desc_policy_templates",
+    keywords: {
+      no: ["policy", "maler", "institusjon", "eksamen", "oppgaver", "etikk", "dokumentasjon"],
+      en: ["policy", "templates", "institution", "exam", "assignments", "ethics", "documentation"]
+    }
   }
 ];
 
@@ -178,11 +209,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Finn treff i indeksen
     const matches = SITE_PAGES.filter(page => {
-      const inTitle = page.title.toLowerCase().includes(query);
-      const inDesc = page.description.toLowerCase().includes(query);
-      const inKeywords = page.keywords.some(keyword =>
+      const lang = i18next.language || 'no';
+      const title = i18next.t(page.titleKey);
+      const description = i18next.t(page.descriptionKey);
+      const keywords = page.keywords[lang] || page.keywords.no || [];
+      const inTitle = title.toLowerCase().includes(query);
+      const inDesc = description.toLowerCase().includes(query);
+      const inKeywords = keywords.some(keyword =>
         keyword.toLowerCase().includes(query)
       );
+      page._localizedTitle = title;
+      page._localizedDescription = description;
       return inTitle || inDesc || inKeywords;
     });
 
@@ -203,11 +240,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const titleSpan = document.createElement('span');
       titleSpan.className = 'result-title';
-      titleSpan.textContent = page.title;
+      titleSpan.textContent = page._localizedTitle || i18next.t(page.titleKey);
 
       const descP = document.createElement('p');
       descP.className = 'result-description';
-      descP.textContent = page.description;
+      descP.textContent = page._localizedDescription || i18next.t(page.descriptionKey);
 
       a.appendChild(titleSpan);
       a.appendChild(descP);

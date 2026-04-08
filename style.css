@@ -34,12 +34,14 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 18px;
+  padding: 14px 18px 14px 18px;
+  padding-right: 130px;
   border-bottom: 1px solid var(--border-color);
   position: sticky;
   top: 0;
   background: var(--card-bg);
   z-index: 200;
+  min-height: 60px;
 }
 
 .brand-title {
@@ -150,6 +152,40 @@ a {
 }
 .menu-toggle.open .hamburger-bar:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ─── Språkvelger ─── */
+.language-selector {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
+}
+
+.lang-btn {
+  padding: 3px 6px;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 3px;
+  line-height: 1;
+}
+
+.lang-btn.lang-no {
+  color: #ba0c2f;
+}
+
+.lang-btn.lang-en {
+  color: #012169;
+}
+
+.lang-btn:hover {
+  transform: scale(1.25);
 }
 
 /* ─── Overlay ─── */
