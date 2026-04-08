@@ -15,11 +15,17 @@
   "search_heading": "Søk i AI Guidebook",
   "search_lead": "Søk etter tema på tvers av alle sider (f.eks. «eksamen», «plagiat», «prompt»).",
   "search_placeholder": "Søk etter tema...",
+  "search_label": "Søk i AI Guidebook",
+  "search_hint": "Skriv et søkeord for å søke på tvers av alle sider",
   "explore_heading": "Utforsk mer",
   "faq": "FAQ",
   "ai_questions": "Spørsmål til KI",
   "self_test": "Test deg selv",
   "useful_links": "Nyttige lenker",
   "contact": "Kontakt",
-  "footer_text": "Laget for studenter — Gruppe 5 — Praktisk prosjektarbeid — Vår 2026"
+  "footer_text": "Laget for studenter — Gruppe 5 — Praktisk prosjektarbeid — Vår 2026",
+  "skip_link": "Hopp til hovedinnhold",
+  "home": "Hjem",
+  "menu": "Meny",
+  "disclaimer": "KI-veilederen supplerer lokale retningslinjer. Ved tvil: sjekk emnebeskrivelse og regelverk ved din institusjon."
 }
