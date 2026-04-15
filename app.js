@@ -4,13 +4,14 @@ console.log("app.js loaded");
 const savedLanguage = localStorage.getItem('preferredLanguage') || 'no';
 
 // ─── i18next Initialisering ───
+const translationsCacheBuster = Date.now();
 i18next
   .use(i18nextHttpBackend)
   .init({
     lng: savedLanguage,
     fallbackLng: 'no',
     backend: {
-      loadPath: './{{lng}}/translation.json',
+      loadPath: `./{{lng}}/translation.json?v=${translationsCacheBuster}`,
     },
     returnObjects: true,
   })

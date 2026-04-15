@@ -10,15 +10,15 @@
     .tips-container { margin: 2rem 0; }
     .tip-category { margin-bottom: 1rem; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; }
     .category-header { background-color: var(--primary-light); padding: 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; border: none; width: 100%; text-align: left; font-size: 1rem; font-family: inherit; }
+    .category-header span { display: flex; align-items: center; gap: 0.6rem; }
     .category-header:hover { background-color: var(--primary-color); color: white; }
-    .category-content { display: none; padding: 1rem; background-color: var(--card-bg); }
+    .category-content { display: none; padding: 1rem; background-color: transparent; }
     .category-content.active { display: block; }
     .tip-item { margin-bottom: 1rem; padding: 1rem; border-left: 4px solid var(--primary-color); background-color: rgba(74, 111, 165, 0.05); border-radius: 4px; }
     .tip-title { font-weight: 600; margin-bottom: 0.5rem; color: var(--primary-color); }
-    .tip-icon { transition: transform 0.3s; }
-    .tip-icon.open { transform: rotate(180deg); }
-    .example-box { background-color: var(--primary-light); padding: 1rem; border-radius: 4px; margin-top: 1rem; border-left: 4px solid var(--secondary-color); }
+    .example-box { background-color: transparent; padding: 0; margin-top: 1rem; display: grid; gap: 0.75rem; }
     .example-title { font-weight: 600; margin-bottom: 0.5rem; color: var(--secondary-color); }
+    .prompt-block { background: #f7f9fc; border: none; border-radius: 6px; padding: 0.9rem 1rem; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; white-space: pre-wrap; color: #111827; }
     .copy-button { background-color: var(--primary-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; margin-top: 0.5rem; font-family: inherit; font-size: 0.9rem; transition: background-color 0.2s; }
     .copy-button:hover { background-color: var(--secondary-color); }
     .warning-box { background-color: #fff8e1; border-left: 4px solid #f59e0b; padding: 0.9rem 1rem; border-radius: 4px; margin-top: 1rem; font-size: 0.93rem; color: #7c5800; }
@@ -82,7 +82,7 @@
 
       <!-- Oppgaveskriving -->
       <div class="tip-category">
-        <button class="category-header" onclick="toggleCategory(this)">
+        <button class="category-header" onclick="toggleCategory(this)" aria-expanded="false">
           <span><i class="fas fa-pencil-alt" style="margin-right:0.5rem;"></i><span data-i18n="tips_2"></span></span>
           <i class="fas fa-chevron-down tip-icon"></i>
         </button>
@@ -92,7 +92,7 @@
             <p><span data-i18n="tips_4"></span></p>
             <div class="example-box">
               <div class="example-title"><span data-i18n="tips_5"></span></div>
-              <p><span data-i18n="tips_6"></span></p>
+              <div class="prompt-block"><span data-i18n="tips_6"></span></div>
               <button class="copy-button" onclick="copyToClipboard(this)"><span data-i18n="copy_prompt"></span></button>
             </div>
           </div>
@@ -101,7 +101,7 @@
             <p><span data-i18n="tips_9"></span></p>
             <div class="example-box">
               <div class="example-title"><span data-i18n="tips_10"></span></div>
-              <p><span data-i18n="tips_11"></span></p>
+              <div class="prompt-block"><span data-i18n="tips_11"></span></div>
               <button class="copy-button" onclick="copyToClipboard(this)"><span data-i18n="copy_prompt"></span></button>
             </div>
           </div>
@@ -110,7 +110,7 @@
             <p><span data-i18n="tips_14"></span></p>
             <div class="example-box">
               <div class="example-title"><span data-i18n="tips_15"></span></div>
-              <p><span data-i18n="tips_16"></span></p>
+              <div class="prompt-block"><span data-i18n="tips_16"></span></div>
               <button class="copy-button" onclick="copyToClipboard(this)"><span data-i18n="copy_prompt"></span></button>
             </div>
           </div>
@@ -119,7 +119,7 @@
 
       <!-- Kildebruk -->
       <div class="tip-category">
-        <button class="category-header" onclick="toggleCategory(this)">
+        <button class="category-header" onclick="toggleCategory(this)" aria-expanded="false">
           <span><i class="fas fa-book-open" style="margin-right:0.5rem;"></i><span data-i18n="tips_18"></span></span>
           <i class="fas fa-chevron-down tip-icon"></i>
         </button>
@@ -129,7 +129,7 @@
             <p><span data-i18n="tips_20"></span></p>
             <div class="example-box">
               <div class="example-title"><span data-i18n="tips_21"></span></div>
-              <p><span data-i18n="tips_22"></span></p>
+              <div class="prompt-block"><span data-i18n="tips_22"></span></div>
               <button class="copy-button" onclick="copyToClipboard(this)"><span data-i18n="copy_prompt"></span></button>
             </div>
             <div class="warning-box">
@@ -141,7 +141,7 @@
             <p><span data-i18n="tips_25"></span></p>
             <div class="example-box">
               <div class="example-title"><span data-i18n="tips_26"></span></div>
-              <p><span data-i18n="tips_27"></span></p>
+              <div class="prompt-block"><span data-i18n="tips_27"></span></div>
               <button class="copy-button" onclick="copyToClipboard(this)"><span data-i18n="copy_prompt"></span></button>
             </div>
           </div>
@@ -150,7 +150,7 @@
 
       <!-- Etikk og ansvar -->
       <div class="tip-category">
-        <button class="category-header" onclick="toggleCategory(this)">
+        <button class="category-header" onclick="toggleCategory(this)" aria-expanded="false">
           <span><i class="fas fa-balance-scale" style="margin-right:0.5rem;"></i><span data-i18n="tips_28"></span></span>
           <i class="fas fa-chevron-down tip-icon"></i>
         </button>
@@ -160,7 +160,7 @@
             <p><span data-i18n="tips_30"></span></p>
             <div class="example-box">
               <div class="example-title"><span data-i18n="tips_31"></span></div>
-              <p><span data-i18n="tips_32"></span></p>
+              <div class="prompt-block"><span data-i18n="tips_32"></span></div>
               <button class="copy-button" onclick="copyToClipboard(this)"><span data-i18n="copy_prompt"></span></button>
             </div>
           </div>
@@ -176,7 +176,7 @@
             <p><span data-i18n="tips_37"></span></p>
             <div class="example-box">
               <div class="example-title"><span data-i18n="tips_38"></span></div>
-              <p><span data-i18n="tips_39"></span></p>
+              <div class="prompt-block"><span data-i18n="tips_39"></span></div>
               <button class="copy-button" onclick="copyToClipboard(this)"><span data-i18n="copy_prompt"></span></button>
             </div>
           </div>
@@ -185,7 +185,7 @@
 
       <!-- Eksamen og vurdering -->
       <div class="tip-category">
-        <button class="category-header" onclick="toggleCategory(this)">
+        <button class="category-header" onclick="toggleCategory(this)" aria-expanded="false">
           <span><i class="fas fa-graduation-cap" style="margin-right:0.5rem;"></i><span data-i18n="tips_41"></span></span>
           <i class="fas fa-chevron-down tip-icon"></i>
         </button>
@@ -202,7 +202,7 @@
             <p><span data-i18n="tips_46"></span></p>
             <div class="example-box">
               <div class="example-title"><span data-i18n="tips_47"></span></div>
-              <p><span data-i18n="tips_48"></span></p>
+              <div class="prompt-block"><span data-i18n="tips_48"></span></div>
               <button class="copy-button" onclick="copyToClipboard(this)"><span data-i18n="copy_prompt"></span></button>
             </div>
           </div>
@@ -223,20 +223,28 @@
     <p data-i18n="footer_text"></p>
   </footer>
   <script>
-    function toggleCategory(header) {
-      const category = header.parentElement;
+    function toggleCategory(button) {
+      const category = button.parentElement;
       const content = category.querySelector('.category-content');
-      const icon = header.querySelector('.tip-icon');
-      if (content.classList.contains('active')) {
-        content.classList.remove('active'); icon.classList.remove('open');
+      const icon = button.querySelector('.tip-icon');
+      const isOpen = content.classList.contains('active');
+
+      document.querySelectorAll('.category-content').forEach(item => item.classList.remove('active'));
+      document.querySelectorAll('.tip-icon').forEach(item => item.classList.remove('open'));
+      document.querySelectorAll('.category-header').forEach(btn => btn.setAttribute('aria-expanded', 'false'));
+
+      if (!isOpen) {
+        content.classList.add('active');
+        icon.classList.add('open');
+        button.setAttribute('aria-expanded', 'true');
       } else {
-        document.querySelectorAll('.category-content').forEach(item => item.classList.remove('active'));
-        document.querySelectorAll('.tip-icon').forEach(item => item.classList.remove('open'));
-        content.classList.add('active'); icon.classList.add('open');
+        button.setAttribute('aria-expanded', 'false');
       }
     }
+
     function copyToClipboard(button) {
-      const textToCopy = button.parentElement.querySelector('p').textContent;
+      const textElement = button.parentElement.querySelector('textarea, .prompt-block, p');
+      const textToCopy = textElement ? textElement.textContent : '';
       const labelSpan = button.querySelector('[data-i18n]');
       const originalKey = labelSpan?.getAttribute('data-i18n');
       navigator.clipboard.writeText(textToCopy).then(() => {
@@ -253,6 +261,6 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/i18next@22.4.10/i18next.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@2.2.1/i18nextHttpBackend.min.js"></script>
-  <script src="app.js" defer></script>
+  <script src="app.js?v=2" defer></script>
 </body>
 </html>
