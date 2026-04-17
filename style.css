@@ -166,11 +166,12 @@ a {
 }
 
 .lang-btn {
-  font-size: 1.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px 6px;
+  padding: 3px 5px;
   border-radius: 4px;
   line-height: 1;
   opacity: 1;
@@ -342,15 +343,6 @@ a {
   border-left: 4px solid var(--secondary-color);
 }
 
-.why-matters--warning {
-  background: #fff8ec;
-  border-left-color: var(--accent-color);
-}
-
-.why-matters--warning h3 {
-  color: #b96b00;
-}
-
 /* ─── Grid & Tiles ─── */
 .grid {
   display: grid;
@@ -384,70 +376,6 @@ a {
   gap: 8px;
 }
 
-/* ─── Steg-for-steg ─── */
-.steps {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.step-tile {
-  display: flex;
-  gap: 1.25rem;
-  align-items: flex-start;
-  text-decoration: none;
-  color: inherit;
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 1.25rem;
-  background: var(--card-bg);
-  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.step-tile:hover {
-  background: var(--primary-light);
-  border-color: var(--primary-color);
-  box-shadow: 0 4px 12px rgba(74, 111, 165, 0.1);
-}
-
-.step-number {
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--border-color);
-  min-width: 2.5rem;
-  line-height: 1;
-  user-select: none;
-}
-
-.step-tile:hover .step-number {
-  color: var(--primary-color);
-}
-
-.step-body h3 {
-  margin: 0 0 0.35rem;
-  font-size: 1rem;
-  color: var(--primary-color);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.step-body p {
-  margin: 0 0 0.6rem;
-  font-size: 0.9rem;
-  color: var(--text-light);
-  line-height: 1.5;
-}
-
-.step-cta {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--primary-color);
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-}
 
 /* ─── Lenkepiller ─── */
 .link-row {
@@ -533,34 +461,6 @@ a {
   top: 0;
 }
 
-/* ─── Knapper ─── */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 10px 14px;
-  border-radius: 10px;
-  border: 1px solid var(--primary-color);
-  background: var(--primary-color);
-  color: white;
-  font-weight: 600;
-  transition: all 0.2s ease;
-  text-decoration: none;
-}
-
-.btn:hover {
-  background: var(--secondary-color);
-  border-color: var(--secondary-color);
-}
-
-.hero-actions {
-  display: flex;
-  gap: 10px;
-  margin: 1.5rem 0 2rem;
-  flex-wrap: wrap;
-}
-
 /* ─── Details / FAQ ─── */
 details {
   border: 1px solid var(--border-color);
@@ -585,31 +485,6 @@ details summary::-webkit-details-marker {
 
 details p {
   padding: 0.75rem 1rem;
-}
-
-/* ─── Quiz ─── */
-.quiz-card {
-  transition: 0.2s ease;
-}
-
-.quiz-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(74, 111, 165, 0.12);
-}
-
-/* ─── Kontakt ─── */
-.contact-info {
-  margin: 1.5rem 0;
-  font-size: 16px;
-}
-
-.contact-info p {
-  margin: 0.75rem 0;
-}
-
-.contact-info a {
-  color: var(--primary-color);
-  text-decoration: underline;
 }
 
 /* ─── Footer ─── */
@@ -664,20 +539,6 @@ details p {
 
   .menu-toggle {
     display: flex;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .step-tile {
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .step-number {
-    font-size: 1.5rem;
   }
 
   .privacy-note {
