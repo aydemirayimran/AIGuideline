@@ -160,24 +160,6 @@ const SITE_PAGES = [
     }
   },
   {
-    url: "teaching-tips.html",
-    titleKey: "search_title_teaching_tips",
-    descriptionKey: "search_desc_teaching_tips",
-    keywords: {
-      no: ["undervisning", "fagpersonale", "lærere", "emner", "oppgaver", "gruppearbeid"],
-      en: ["teaching", "staff", "teachers", "courses", "assignments", "group work"]
-    }
-  },
-  {
-    url: "vurderingsretningslinjer.html",
-    titleKey: "search_title_assessment",
-    descriptionKey: "search_desc_assessment",
-    keywords: {
-      no: ["vurdering", "eksamen", "retningslinjer", "fusk", "AI-deteksjon", "policy"],
-      en: ["assessment", "exam", "guidelines", "cheating", "AI detection", "policy"]
-    }
-  },
-  {
     url: "PolicyMaler.html",
     titleKey: "search_title_policy_templates",
     descriptionKey: "search_desc_policy_templates",
